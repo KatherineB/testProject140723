@@ -5,20 +5,23 @@
 .div1{
     background-color: #ff5511;
 }
-.button1{
+.buttonA{
     background-color: #339972;
 }
 </style>
 <script>
-function runCode(){
-   alert("The button has been clicked");
+function runCode(number){
+   alert("Button " + number + " has been clicked);
 }
 </script>
 </head>
 
 <body>
 <div class="div1">
-	<input class="button1" type="button" value="click here" id="button1" onClick="runCode()">
+	<input class="buttonA" type="button" value="First Button" id="button1" onClick="runCode(1)">
+</div>
+<div class="div1">
+	<input class="buttonA" type="button" value="Second Button" id="button2" onClick="runCode(2)">
 </div>
 </body>
 </html>
