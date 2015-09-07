@@ -1,6 +1,6 @@
 GitHub - How to Update Contents of A Repository
 
-Open the GitHub Shell icon in the Software Development folder.
+Open the GitHub Shell icon in the Software Development folder on the desktop.
 
 In the command line window, navigate to the folder that contains your project files.
 
