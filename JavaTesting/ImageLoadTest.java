@@ -3,25 +3,30 @@ import java.awt.*;
 import java.awt.event.*;
 import java.text.*;
 
-class GridTest extends JFrame{   
-	GridTest(){
+class ImageLoadTest extends JFrame{ 
+    Icon tPic; 
+    JLabel labelA;	
+	ImageLoadTest(){
 	    setLayout(new GridLayout(2,2));
-		setTitle("This is a test of Grid Layout");
+		tPic = new ImageIcon("image5.jpg");
+		setTitle("Image Load Testing");
+		labelA = new JLabel(tPic);
 		JPanel panel1 = new JPanel();
-		panel1.setBackground(Color.cyan);
+		panel1.setBackground(Color.blue);
 		add(panel1);
 		JPanel panel2 = new JPanel();
 		panel2.setBackground(Color.yellow);
+		panel1.add(labelA);
 		add(panel2);
 		JPanel panel3 = new JPanel();
-		panel3.setBackground(Color.orange);
+		panel3.setBackground(Color.cyan);
 		add(panel3);
-		setSize(300,300);
+		setSize(500,500);
 		setVisible(true);
 	
 	}
 	
 	public static void main(String[]args){
-	      GridTest gridtest1 = new GridTest();
+	      ImageLoadTest imageLoader = new ImageLoadTest();
     }
 }
