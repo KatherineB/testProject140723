@@ -1,0 +1,23 @@
+HOW TO UPDATE THE CONTENTS OF A REPOSITORY
+    Navigate to the folder that contains your project files
+    For each added or changed file, enter:
+       git add filename.ext            
+          (if in sub directory: git add dir/filename.ext)
+
+    If a file has been deleted:
+       git rm filename.ext
+   
+    To actually put them in the repository:
+       git commit -m “your notes here”
+       git push origin master
+
+    'git status' can be entered after each step to confirm that all is going as
+    it should
+
+HOW TO CLONE A REPOSITORY
+    Navigate to the directory that you want to contain your project folder - you must 
+    be in that directory to have the folder with the name of your project created 
+    there.
+    Do command of the following form with the path of your repository:
+       git clone https://github.com/KatherineB/testProject140723.git
+
