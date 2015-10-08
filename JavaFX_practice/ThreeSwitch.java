@@ -15,6 +15,8 @@ import javafx.geometry.Pos;
 import javafx.stage.Stage;
  
 public class ThreeSwitch extends Application {
+	int xp = 10;
+	int yp = 10;
     public static void main(String[] args) {
         launch(args);
     }
@@ -41,17 +43,30 @@ public class ThreeSwitch extends Application {
                 System.out.println("Exit clicked");
             }
         });
+		
+		Button btnTest = new Button();
+        btnTest.setText("test");
+        btnTest.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("test clicked");
+				xp = xp + 10;
+            }
+        });
         
       //  StackPane root = new StackPane();
 	    Group box = new Group();
         Canvas holder = new Canvas(290, 50);
         GraphicsContext gc = holder.getGraphicsContext2D();
-		/*Canvas holder2 = new Canvas(150, 250);
-        GraphicsContext gc2 = holder2.getGraphicsContext2D();*/
+		
+		Canvas holder2 = new Canvas(150, 250);
+		
+        GraphicsContext gc2 = holder2.getGraphicsContext2D();
         drawShapes(gc);
-		//drawShapes2(gc2);
+		drawShapes2(gc2);
         box.getChildren().add(holder);
-	//	box.getChildren().add(holder2);
+		box.getChildren().add(holder2);
        
 		
 		BorderPane gameBG = new BorderPane();
@@ -70,16 +85,25 @@ public class ThreeSwitch extends Application {
 		playArea.setAlignment(Pos.CENTER);
         buttonRow.getChildren().add(btnNew);
 		buttonRow.getChildren().add(btnExit);
+		buttonRow.getChildren().add(btnTest);
 		buttonRow.setAlignment(Pos.CENTER);
+		
+		
+	
         primaryStage.setScene(new Scene(gameBG, 400, 150));
         primaryStage.show();
     }
 	private void drawShapes2(GraphicsContext gc2) {
-		gc2.setFill(Color.ORANGE);
-		gc2.fillRect(gc2.getCanvas().getLayoutX(),      
+		gc2.setFill(Color.YELLOW);
+	/*	gc2.fillRect(gc2.getCanvas().getLayoutX(),      
                      gc2.getCanvas().getLayoutY(), 
                      gc2.getCanvas().getWidth(), 
-                     gc2.getCanvas().getHeight());
+                     gc2.getCanvas().getHeight());*/
+					 
+		gc2.fillRect(xp,      
+                     yp, 
+                     40, 
+                     20);
 	}
 	private void drawShapes(GraphicsContext gc) {
 		 gc.setFill(Color.TAN);
