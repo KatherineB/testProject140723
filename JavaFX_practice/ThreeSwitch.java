@@ -15,8 +15,8 @@ import javafx.geometry.Pos;
 import javafx.stage.Stage;
  
 public class ThreeSwitch extends Application {
-	int xp = 10;
-	int yp = 10;
+	//int xp = 10;
+	//int yp = 10;
     public static void main(String[] args) {
         launch(args);
     }
@@ -24,6 +24,7 @@ public class ThreeSwitch extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("ThreeSwitch");
+		
         Button btnNew = new Button();
         btnNew.setText("New Game");
         btnNew.setOnAction(new EventHandler<ActionEvent>() {
@@ -44,30 +45,44 @@ public class ThreeSwitch extends Application {
             }
         });
 		
-		Button btnTest = new Button();
-        btnTest.setText("test");
-        btnTest.setOnAction(new EventHandler<ActionEvent>() {
- 
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("test clicked");
-				xp = xp + 10;
-            }
-        });
+		
         
       //  StackPane root = new StackPane();
 	    Group box = new Group();
         Canvas holder = new Canvas(290, 50);
         GraphicsContext gc = holder.getGraphicsContext2D();
 		
-		Canvas holder2 = new Canvas(150, 250);
+		Canvas red1 = new Canvas(50, 50);
 		
-        GraphicsContext gc2 = holder2.getGraphicsContext2D();
+        GraphicsContext gcRed1 = red1.getGraphicsContext2D();
         drawShapes(gc);
-		drawShapes2(gc2);
+		drawShapes2(gcRed1);
         box.getChildren().add(holder);
-		box.getChildren().add(holder2);
+		box.getChildren().add(red1);
        
+	   Button btnMoveLeft = new Button();
+        btnMoveLeft.setText("Move Left");
+        btnMoveLeft.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("test clicked");
+				//xp = xp + 10;
+				box.getChildren().remove(red3);
+            }
+        });
+		
+		Button btnTest2 = new Button();
+        btnTest2.setText("test2");
+        btnTest2.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("test clicked");
+				//xp = xp + 10;
+				box.getChildren().add(red1);
+            }
+        });
 		
 		BorderPane gameBG = new BorderPane();
 		gameBG.setStyle("-fx-background-color: #aaaaaa;");
@@ -86,6 +101,7 @@ public class ThreeSwitch extends Application {
         buttonRow.getChildren().add(btnNew);
 		buttonRow.getChildren().add(btnExit);
 		buttonRow.getChildren().add(btnTest);
+		buttonRow.getChildren().add(btnTest2);
 		buttonRow.setAlignment(Pos.CENTER);
 		
 		
@@ -93,17 +109,13 @@ public class ThreeSwitch extends Application {
         primaryStage.setScene(new Scene(gameBG, 400, 150));
         primaryStage.show();
     }
-	private void drawShapes2(GraphicsContext gc2) {
-		gc2.setFill(Color.YELLOW);
+	private void drawShapes2(GraphicsContext gcRed1) {
+		gcRed1.setFill(Color.RED);
 	/*	gc2.fillRect(gc2.getCanvas().getLayoutX(),      
                      gc2.getCanvas().getLayoutY(), 
                      gc2.getCanvas().getWidth(), 
                      gc2.getCanvas().getHeight());*/
-					 
-		gc2.fillRect(xp,      
-                     yp, 
-                     40, 
-                     20);
+		gcRed1.fillOval(10, 10, 30, 30);			 
 	}
 	private void drawShapes(GraphicsContext gc) {
 		 gc.setFill(Color.TAN);
@@ -121,7 +133,7 @@ public class ThreeSwitch extends Application {
 	  gc.fillOval(210, 10, 30, 30);
 	  gc.fillOval(250, 10, 30, 30);
 	  gc.setFill(Color.RED);
-	  gc.fillOval(10, 10, 30, 30);
+	//  gc.fillOval(10, 10, 30, 30);
 	  gc.fillOval(50, 10, 30, 30);
 	  gc.fillOval(90, 10, 30, 30);
 	  gc.setFill(Color.BLUE);
