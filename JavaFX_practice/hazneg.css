@@ -1,0 +1,17 @@
+/* CSS for Hazneg.java */
+
+.gameBG{
+    -fx-background-color: #aaaaaa;
+}
+
+.rowTop{
+    -fx-background-color: #881133;
+}
+
+.rowMid{
+    -fx-background-color: #881133;
+}
+
+.buttonRow{
+    -fx-background-color: #ccccaa;
+}
