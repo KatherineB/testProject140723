@@ -18,7 +18,7 @@ import javafx.scene.shape.ArcType;
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
  
-public class Hazneg extends Application {
+public class Destiny100 extends Application {
 	
     public static void main(String[] args) {
         launch(args);
@@ -26,9 +26,9 @@ public class Hazneg extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Hazneg");       
+        primaryStage.setTitle("Destiny100");       
      
-	    Group hazGroup = new Group();
+	    Group destGroup = new Group();
 		
 		Canvas scoreBG = new Canvas(60, 60);
 		GraphicsContext gcScoreBG = scoreBG.getGraphicsContext2D();
@@ -46,8 +46,7 @@ public class Hazneg extends Application {
 		GraphicsContext gcChoice3 = choiceBG3.getGraphicsContext2D();
 		createChoice3Rect(gcChoice3);
                   
-	    Button btnNew = new Button();
-        btnNew.setText("New Game");
+	    
         
 		
 		Button btnExit = new Button();
@@ -114,16 +113,16 @@ public class Hazneg extends Application {
 		rowMid.getChildren().add(choiceStack1);
 		rowMid.getChildren().add(choiceStack2);
 		rowMid.getChildren().add(choiceStack3);
-				
-        buttonRow.getChildren().add(btnNew);
-		buttonRow.getChildren().add(btnExit);
-	
+					
 	    rowTop.setAlignment(Pos.CENTER);
 		rowMid.setAlignment(Pos.CENTER);
 		buttonRow.setAlignment(Pos.CENTER);
 		scoreStack.setAlignment(Pos.CENTER);
 		
-		btnNew.setOnAction(new EventHandler<ActionEvent>() {
+		Button btnNewGame = new Button();
+        btnNewGame.setText("New Game");
+		
+		btnNewGame.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {
@@ -147,9 +146,55 @@ public class Hazneg extends Application {
             }
         });
 		
-		Scene haznegGame = new Scene(gameBG, 400, 250);
+		
+		Button btnPickLeft = new Button();
+        btnPickLeft.setText("Pick Left");		
+		btnPickLeft.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+				System.out.println(choice1.getText());
+                String numL = choice1.getText();
+				String numTop = score.getText();
+				
+				int numLeft = Integer.parseInt(numL);
+				int numScore = Integer.parseInt(numTop);
+				
+				
+				System.out.println(numLeft + numScore);
+            }
+        });
+		
+		Button btnPickCentre = new Button();
+        btnPickCentre.setText("Pick Centre");		
+		btnPickCentre.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+                
+            }
+        });
+		
+		Button btnPickRight = new Button();
+        btnPickRight.setText("Pick Right");		
+		btnPickRight.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+                
+            }
+        });
+		
+		buttonRow.getChildren().add(btnNewGame);
+		buttonRow.getChildren().add(btnPickLeft);
+		buttonRow.getChildren().add(btnPickCentre);
+		buttonRow.getChildren().add(btnPickRight);
+		buttonRow.getChildren().add(btnExit);
+		
+		Scene destGame = new Scene(gameBG, 400, 250);
 		//haznegGame.getStylesheets().add("hazneg.css");	
-        primaryStage.setScene(haznegGame);
+		
+        primaryStage.setScene(destGame);
         primaryStage.show();
     }
 	
