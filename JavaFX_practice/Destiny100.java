@@ -69,7 +69,7 @@ public class Destiny100 extends Application {
 		rowMid.setStyle("-fx-background-color: #881133;");
 		
 		FlowPane buttonRow = new FlowPane();
-		buttonRow.setStyle("-fx-background-color: #ccccaa;");
+		buttonRow.setStyle("-fx-background-color: #9999dd;");
 		
 		gameBG.setTop(rowTop);
 		gameBG.setCenter(rowMid);
@@ -92,15 +92,17 @@ public class Destiny100 extends Application {
 		StackPane choiceStack3 = new StackPane();
 		choiceStack3.setStyle("-fx-padding: 20px;");
 		
-		Label choice1 = new Label("5");
+		Label choice1 = new Label("0");
 		choice1.setStyle("-fx-color: #000000;");
 		choice1.setStyle("-fx-font-size: 30px;");
-		Label choice2 = new Label("15");
+		Label choice2 = new Label("0");
 		choice2.setStyle("-fx-color: #000000;");
 		choice2.setStyle("-fx-font-size: 30px;");
-		Label choice3 = new Label("-10");
+		Label choice3 = new Label("0");
 		choice3.setStyle("-fx-color:#ff0000;");
 		choice3.setStyle("-fx-font-size: 30px;");
+		
+		startNewGame(score, choice1, choice2, choice3);
 		
 		choiceStack1.getChildren().add(choiceBG1);
 		choiceStack2.getChildren().add(choiceBG2);
@@ -126,7 +128,8 @@ public class Destiny100 extends Application {
  
             @Override
             public void handle(ActionEvent event) {
-				String check1;
+				startNewGame(score, choice1, choice2, choice3);
+			/*	String check1;
 				String check2;
 				String check3;				
 				
@@ -142,7 +145,7 @@ public class Destiny100 extends Application {
 				
 				choice1.setText(check1);
 				choice2.setText(check2);
-				choice3.setText(check3);
+				choice3.setText(check3);*/
             }
         });
 		
@@ -153,15 +156,18 @@ public class Destiny100 extends Application {
  
             @Override
             public void handle(ActionEvent event) {
-				System.out.println(choice1.getText());
                 String numL = choice1.getText();
 				String numTop = score.getText();
 				
 				int numLeft = Integer.parseInt(numL);
 				int numScore = Integer.parseInt(numTop);
 				
+				int newNum = numLeft + numScore;
 				
-				System.out.println(numLeft + numScore);
+				String newScore = Integer.toString(newNum);
+				score.setText(newScore);
+				
+				pickNewCards(choice1, choice2, choice3);
             }
         });
 		
@@ -171,7 +177,18 @@ public class Destiny100 extends Application {
  
             @Override
             public void handle(ActionEvent event) {
-                
+                String numL = choice2.getText();
+				String numTop = score.getText();
+				
+				int numLeft = Integer.parseInt(numL);
+				int numScore = Integer.parseInt(numTop);
+				
+				int newNum = numLeft + numScore;
+				
+				String newScore = Integer.toString(newNum);
+				score.setText(newScore);
+				
+				pickNewCards(choice1, choice2, choice3);
             }
         });
 		
@@ -181,7 +198,18 @@ public class Destiny100 extends Application {
  
             @Override
             public void handle(ActionEvent event) {
-                
+                String numL = choice3.getText();
+				String numTop = score.getText();
+				
+				int numLeft = Integer.parseInt(numL);
+				int numScore = Integer.parseInt(numTop);
+				
+				int newNum = numLeft + numScore;
+				
+				String newScore = Integer.toString(newNum);
+				score.setText(newScore);
+				
+				pickNewCards(choice1, choice2, choice3);
             }
         });
 		
@@ -197,7 +225,29 @@ public class Destiny100 extends Application {
         primaryStage.setScene(destGame);
         primaryStage.show();
     }
-	
+	private void startNewGame(Label score, Label choice1, Label choice2, Label choice3){
+		score.setText("20");
+		pickNewCards(choice1, choice2, choice3);
+	}
+	private void pickNewCards(Label choice1, Label choice2, Label choice3){
+		String check1;
+		String check2;
+		String check3;				
+		
+		int[] negPicker = {1,1,1};
+		double negPick = Math.random() * 3;
+		int neg = (int)negPick;
+		
+		negPicker[neg] = -1;
+		
+		check1 = produceRandomNumber(negPicker[0]);
+		check2 = produceRandomNumber(negPicker[1]);
+		check3 = produceRandomNumber(negPicker[2]);
+		
+		choice1.setText(check1);
+		choice2.setText(check2);
+		choice3.setText(check3);
+	}
 	private void createScoreBGRect(GraphicsContext gcScoreBG) {
 		gcScoreBG.setFill(Color.WHITE);
 		gcScoreBG.fillRect(0,0,60,60);			 
@@ -215,10 +265,9 @@ public class Destiny100 extends Application {
 		gcChoice3.fillRect(0,0,60,60);			 
 	}
 	private String produceRandomNumber(int negInd){
-		int endNumber = 0;
 		double randomNumber = Math.random() * 4 + 1;
 		int number = (int)randomNumber;
-		endNumber = number * 5 * negInd;
+		int endNumber = number * 5 * negInd;
 		String displayNo = Integer.toString(endNumber);
 		return displayNo;		
 	}	
