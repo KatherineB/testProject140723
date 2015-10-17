@@ -24,10 +24,21 @@ public class MixOrMatch extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-		//int[] positionColour = {0,0,0,0};
+		int i;
+		int j;
+		int colourNo;
+		int circleNo;
 		/* first dimension is position, 2nd dimension is colour */
 		Canvas[][] circles;
 		circles = new Canvas[4][4];
+		
+		int[][] circlesDisplayed = new int[4][4];
+		for(j=0; j<4; j++){
+			for(i=0; i<4; i++){
+				circlesDisplayed[i][j] = 0;
+			}
+		}
+		
         primaryStage.setTitle("MixOrMatch");       
      
 	    Group box = new Group();
@@ -101,25 +112,31 @@ public class MixOrMatch extends Application {
 		drawYellowCircle4(gcYellow4);
        
 	    Button btnNew = new Button();
-        btnNew.setText("Start Over");
+        btnNew.setText("New Game");
         btnNew.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Start over clicked");
+               // System.out.println("Start over clicked");
+			    int i;
+			    int j;
+			    int colourNo;
+				
+			    for(j=0; j<4; j++){
+					for(i=0; i<4; i++){
+						circlesDisplayed[i][j] = 0;
+						box.getChildren().remove(circles[i][j]);
+					}
+				}
+				
+			    for(i=0; i<4; i++){
+				   colourNo = pickRand4();
+				   box.getChildren().add(circles[i][colourNo]);
+				   circlesDisplayed[i][colourNo] = 1;				   
+			    }
             }
         });
 		
-		Button btnExit = new Button();
-        btnExit.setText("Exit");
-        btnExit.setOnAction(new EventHandler<ActionEvent>() {
- 
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Exit clicked");
-            }
-        });
-	   
 	    Button btnChange = new Button();
         btnChange.setText("Change");
         btnChange.setOnAction(new EventHandler<ActionEvent>() {
@@ -129,15 +146,39 @@ public class MixOrMatch extends Application {
               //  System.out.println("change clicked");
 				int circleNo;
 				int colourNo;
-				circleNo = pickRand4();
-				colourNo = pickRand4();
-				System.out.println(circleNo);
-				System.out.println(colourNo);
+				int colourChange=0;				
 				
-				box.getChildren().remove(circles[0][0]);
-				box.getChildren().add(circles[0][3]);
-				box.getChildren().remove(circles[2][3]);
-				box.getChildren().add(circles[2][0]);
+				do{
+					circleNo = pickRand4();
+				    colourNo = pickRand4();
+					//System.out.println(circleNo);
+					//System.out.println(colourNo);
+					if(circlesDisplayed[circleNo][colourNo] == 1){
+					  // System.out.println("It is alresdy that colour");
+				    }
+					else{
+						colourChange = 1;
+					}
+				}while(colourChange == 0);
+					
+				if(circlesDisplayed[circleNo][0] == 1){
+					box.getChildren().remove(circles[circleNo][0]);
+					circlesDisplayed[circleNo][0] = 0;
+				}
+				else if(circlesDisplayed[circleNo][1] == 1){
+					box.getChildren().remove(circles[circleNo][1]);
+					circlesDisplayed[circleNo][1] = 0;
+				}
+			    else if(circlesDisplayed[circleNo][2] == 1){
+					box.getChildren().remove(circles[circleNo][2]);
+					circlesDisplayed[circleNo][2] = 0;
+				}
+				else if(circlesDisplayed[circleNo][3] == 1){
+					box.getChildren().remove(circles[circleNo][3]);
+					circlesDisplayed[circleNo][3] = 0;
+				}
+				box.getChildren().add(circles[circleNo][colourNo]);
+				circlesDisplayed[circleNo][colourNo] = 1;
             }
         });
 		
@@ -150,6 +191,16 @@ public class MixOrMatch extends Application {
                 System.out.println("test clicked");
 				box.getChildren().remove(circles[1][1]);
 				box.getChildren().add(circles[1][2]);
+            }
+        });
+		
+		Button btnExit = new Button();
+        btnExit.setText("Exit");
+        btnExit.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Exit clicked");
             }
         });
 		
@@ -171,22 +222,18 @@ public class MixOrMatch extends Application {
 		displayArea.setAlignment(Pos.CENTER);
 		
 		box.getChildren().add(holder);
-		box.getChildren().add(circles[0][0]);
-		box.getChildren().add(circles[1][1]);
-		box.getChildren().add(circles[2][2]);
-		box.getChildren().add(circles[3][3]);
 		
-        buttonRow.getChildren().add(btnNew);
-		buttonRow.getChildren().add(btnExit);
+        buttonRow.getChildren().add(btnNew);		
 		buttonRow.getChildren().add(btnChange);
 		buttonRow.getChildren().add(btnTest2);
+		buttonRow.getChildren().add(btnExit);
 		buttonRow.setAlignment(Pos.CENTER);
 			
         primaryStage.setScene(new Scene(gameBG, 300, 200));
         primaryStage.show();
     }
 	private int pickRand4(){
-		double rand4 = Math.random() * 4 + 1;
+		double rand4 = Math.random() * 4;
 		int randNo4 = (int)rand4;
 		return randNo4;
 	}
