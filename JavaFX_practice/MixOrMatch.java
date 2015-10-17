@@ -24,7 +24,10 @@ public class MixOrMatch extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-		int[] positionColour = {0,0,0,0};
+		//int[] positionColour = {0,0,0,0};
+		/* first dimension is position, 2nd dimension is colour */
+		Canvas[][] circles;
+		circles = new Canvas[4][4];
         primaryStage.setTitle("MixOrMatch");       
      
 	    Group box = new Group();
@@ -33,68 +36,68 @@ public class MixOrMatch extends Application {
         GraphicsContext gc = holder.getGraphicsContext2D();
 		drawFixedGraphics(gc);
 				
-		Canvas red1 = new Canvas(40, 50);
-		GraphicsContext gcRed1 = red1.getGraphicsContext2D();
+		circles[0][0] = new Canvas(40, 50);
+		GraphicsContext gcRed1 = circles[0][0].getGraphicsContext2D();
 		drawRedCircle1(gcRed1);        
 				
-		Canvas blue1 = new Canvas(40, 50);
-		GraphicsContext gcBlue1 = blue1.getGraphicsContext2D();
+		circles[0][1] = new Canvas(40, 50);
+		GraphicsContext gcBlue1 = circles[0][1].getGraphicsContext2D();
 		drawBlueCircle1(gcBlue1);   
 		
-		Canvas green1 = new Canvas(40, 50);
-		GraphicsContext gcGreen1 = green1.getGraphicsContext2D();
+		circles[0][2] = new Canvas(40, 50);
+		GraphicsContext gcGreen1 = circles[0][2].getGraphicsContext2D();
 		drawGreenCircle1(gcGreen1);        
 				
-		Canvas yellow1 = new Canvas(40, 50);
-		GraphicsContext gcYellow1 = yellow1.getGraphicsContext2D();
+		circles[0][3] = new Canvas(40, 50);
+		GraphicsContext gcYellow1 = circles[0][3].getGraphicsContext2D();
 		drawYellowCircle1(gcYellow1);   
 
-        Canvas red2 = new Canvas(80, 50);
-		GraphicsContext gcRed2 = red2.getGraphicsContext2D();
+        circles[1][0] = new Canvas(80, 50);
+		GraphicsContext gcRed2 = circles[1][0].getGraphicsContext2D();
 		drawRedCircle2(gcRed2);        
 				
-		Canvas blue2 = new Canvas(80, 50);
-		GraphicsContext gcBlue2 = blue2.getGraphicsContext2D();
+		circles[1][1] = new Canvas(80, 50);
+		GraphicsContext gcBlue2 = circles[1][1].getGraphicsContext2D();
 		drawBlueCircle2(gcBlue2); 	
 		
-		Canvas green2 = new Canvas(80, 50);
-		GraphicsContext gcGreen2 = green2.getGraphicsContext2D();
+		circles[1][2] = new Canvas(80, 50);
+		GraphicsContext gcGreen2 = circles[1][2].getGraphicsContext2D();
 		drawGreenCircle2(gcGreen2);        
 				
-		Canvas yellow2 = new Canvas(80, 50);
-		GraphicsContext gcYellow2 = yellow2.getGraphicsContext2D();
+		circles[1][3] = new Canvas(80, 50);
+		GraphicsContext gcYellow2 = circles[1][3].getGraphicsContext2D();
 		drawYellowCircle2(gcYellow2);
 
-        Canvas red3 = new Canvas(120, 50);
-		GraphicsContext gcRed3 = red3.getGraphicsContext2D();
+        circles[2][0] = new Canvas(120, 50);
+		GraphicsContext gcRed3 = circles[2][0].getGraphicsContext2D();
 		drawRedCircle3(gcRed3);        
 				
-		Canvas blue3 = new Canvas(120, 50);
-		GraphicsContext gcBlue3 = blue3.getGraphicsContext2D();
+		circles[2][1] = new Canvas(120, 50);
+		GraphicsContext gcBlue3 = circles[2][1].getGraphicsContext2D();
 		drawBlueCircle3(gcBlue3);
 
-        Canvas green3 = new Canvas(120, 50);
-		GraphicsContext gcGreen3 = green3.getGraphicsContext2D();
+        circles[2][2] = new Canvas(120, 50);
+		GraphicsContext gcGreen3 = circles[2][2].getGraphicsContext2D();
 		drawGreenCircle3(gcGreen3);        
 				
-		Canvas yellow3 = new Canvas(120, 50);
-		GraphicsContext gcYellow3 = yellow3.getGraphicsContext2D();
+		circles[2][3] = new Canvas(120, 50);
+		GraphicsContext gcYellow3 = circles[2][3].getGraphicsContext2D();
 		drawYellowCircle3(gcYellow3);		
 		
-		Canvas red4 = new Canvas(160, 50);
-		GraphicsContext gcRed4 = red4.getGraphicsContext2D();
+		circles[3][0] = new Canvas(160, 50);
+		GraphicsContext gcRed4 = circles[3][0].getGraphicsContext2D();
 		drawRedCircle4(gcRed4);        
 				
-		Canvas blue4 = new Canvas(160, 50);
-		GraphicsContext gcBlue4 = blue4.getGraphicsContext2D();
+		circles[3][1] = new Canvas(160, 50);
+		GraphicsContext gcBlue4 = circles[3][1].getGraphicsContext2D();
 		drawBlueCircle4(gcBlue4);
 		
-		Canvas green4 = new Canvas(160, 50);
-		GraphicsContext gcGreen4 = green4.getGraphicsContext2D();
+		circles[3][2] = new Canvas(160, 50);
+		GraphicsContext gcGreen4 = circles[3][2].getGraphicsContext2D();
 		drawGreenCircle4(gcGreen4);        
 				
-		Canvas yellow4 = new Canvas(160, 50);
-		GraphicsContext gcYellow4 = yellow4.getGraphicsContext2D();
+		circles[3][3] = new Canvas(160, 50);
+		GraphicsContext gcYellow4 = circles[3][3].getGraphicsContext2D();
 		drawYellowCircle4(gcYellow4);
        
 	    Button btnNew = new Button();
@@ -125,10 +128,16 @@ public class MixOrMatch extends Application {
             public void handle(ActionEvent event) {
               //  System.out.println("change clicked");
 				int circleNo;
-				circleNo = chooseCircle();
+				int colourNo;
+				circleNo = pickRand4();
+				colourNo = pickRand4();
 				System.out.println(circleNo);
-				/*box.getChildren().remove(red1);
-				box.getChildren().add(blue1);*/
+				System.out.println(colourNo);
+				
+				box.getChildren().remove(circles[0][0]);
+				box.getChildren().add(circles[0][3]);
+				box.getChildren().remove(circles[2][3]);
+				box.getChildren().add(circles[2][0]);
             }
         });
 		
@@ -139,8 +148,8 @@ public class MixOrMatch extends Application {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("test clicked");
-				box.getChildren().remove(blue2);
-				box.getChildren().add(green2);
+				box.getChildren().remove(circles[1][1]);
+				box.getChildren().add(circles[1][2]);
             }
         });
 		
@@ -162,10 +171,10 @@ public class MixOrMatch extends Application {
 		displayArea.setAlignment(Pos.CENTER);
 		
 		box.getChildren().add(holder);
-		box.getChildren().add(red1);
-		box.getChildren().add(blue2);
-		box.getChildren().add(green3);
-		box.getChildren().add(yellow4);
+		box.getChildren().add(circles[0][0]);
+		box.getChildren().add(circles[1][1]);
+		box.getChildren().add(circles[2][2]);
+		box.getChildren().add(circles[3][3]);
 		
         buttonRow.getChildren().add(btnNew);
 		buttonRow.getChildren().add(btnExit);
@@ -176,10 +185,10 @@ public class MixOrMatch extends Application {
         primaryStage.setScene(new Scene(gameBG, 300, 200));
         primaryStage.show();
     }
-	private int chooseCircle(){
-		double circle = Math.random() * 4 + 1;
-		int circleNo = (int)circle;
-		return circleNo;
+	private int pickRand4(){
+		double rand4 = Math.random() * 4 + 1;
+		int randNo4 = (int)rand4;
+		return randNo4;
 	}
 	private void drawFixedGraphics(GraphicsContext gc) {
 		gc.setFill(Color.TAN);
