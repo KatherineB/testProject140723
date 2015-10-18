@@ -26,8 +26,7 @@ public class MixOrMatch extends Application {
     public void start(Stage primaryStage) {
 		int i;
 		int j;
-		int colourNo;
-		int circleNo;
+		
 		/* first dimension is position, 2nd dimension is colour */
 		Canvas[][] circles;
 		circles = new Canvas[4][4];
@@ -42,6 +41,7 @@ public class MixOrMatch extends Application {
         primaryStage.setTitle("MixOrMatch");       
      
 	    Group box = new Group();
+		
 		
         Canvas holder = new Canvas(170, 50);
         GraphicsContext gc = holder.getGraphicsContext2D();
@@ -117,7 +117,7 @@ public class MixOrMatch extends Application {
  
             @Override
             public void handle(ActionEvent event) {
-               // System.out.println("Start over clicked");
+              
 			    int i;
 			    int j;
 			    int colourNo;
@@ -129,6 +129,7 @@ public class MixOrMatch extends Application {
 					}
 				}
 				
+				/* this picks circle colours at random and displays them on screen */
 			    for(i=0; i<4; i++){
 				   colourNo = pickRand4();
 				   box.getChildren().add(circles[i][colourNo]);
@@ -144,23 +145,28 @@ public class MixOrMatch extends Application {
             @Override
             public void handle(ActionEvent event) {
               //  System.out.println("change clicked");
+			    int i;
+				int j;
+				int win=0;
 				int circleNo;
 				int colourNo;
 				int colourChange=0;				
+				int colourTotal=0;
+				int colourSingle=0;
 				
+				/* pick position and new colour at random, making sure it isn't already
+				   that colour */
 				do{
 					circleNo = pickRand4();
 				    colourNo = pickRand4();
-					//System.out.println(circleNo);
-					//System.out.println(colourNo);
 					if(circlesDisplayed[circleNo][colourNo] == 1){
-					  // System.out.println("It is alresdy that colour");
 				    }
 					else{
 						colourChange = 1;
 					}
 				}while(colourChange == 0);
 					
+				/* remove what ever circle is being replaced */
 				if(circlesDisplayed[circleNo][0] == 1){
 					box.getChildren().remove(circles[circleNo][0]);
 					circlesDisplayed[circleNo][0] = 0;
@@ -177,8 +183,29 @@ public class MixOrMatch extends Application {
 					box.getChildren().remove(circles[circleNo][3]);
 					circlesDisplayed[circleNo][3] = 0;
 				}
+				
+				/*add the newly chosen colour of circle*/
 				box.getChildren().add(circles[circleNo][colourNo]);
 				circlesDisplayed[circleNo][colourNo] = 1;
+				
+				/* check if all four circles same colour or all different */
+				for(j=0;j<4;j++){
+					for(i=0;i<4;i++){
+						colourTotal += circlesDisplayed[i][j];					
+					}
+					if(colourTotal == 4){
+						win = 1;
+					}
+					else if(colourTotal == 1){
+						colourSingle++;
+					}
+					System.out.println(colourTotal); 
+					colourTotal = 0;
+				}
+				
+				if(win == 1 || colourSingle == 4){
+					System.out.println("Game has been won!!!");
+			    }
             }
         });
 		
@@ -189,8 +216,8 @@ public class MixOrMatch extends Application {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("test clicked");
-				box.getChildren().remove(circles[1][1]);
-				box.getChildren().add(circles[1][2]);
+				//box.getChildren().remove(circles[1][1]);
+				//box.getChildren().add(circles[1][2]);
             }
         });
 		
