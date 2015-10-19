@@ -1,18 +1,26 @@
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+//import javafx.event.ChangeListener;
+import javafx.event.*;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
+import javafx.scene.text.Text;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
  
@@ -235,11 +243,12 @@ public class MixOrMatch extends Application {
 		gameBG.setStyle("-fx-background-color: #aaaaaa;");
 				
 		FlowPane displayArea = new FlowPane();
-		displayArea.setStyle("-fx-background-color: #115544;");
+		displayArea.setStyle("-fx-background-color: #b97e4b;");
 		FlowPane pickingRow = new FlowPane();
-		pickingRow.setStyle("-fx-background-color: #115544;");
+		pickingRow.setStyle("-fx-background-color: #b97e4b;");
+	//	pickingRow.setStyle("-fx-background-color: #cc55cc;");
 		FlowPane buttonRow = new FlowPane();
-		buttonRow.setStyle("-fx-background-color: #ccccaa;");
+		buttonRow.setStyle("-fx-background-color: #aaaa88;");
 		
 		gameBG.setTop(displayArea);
 		gameBG.setCenter(pickingRow);
@@ -249,7 +258,101 @@ public class MixOrMatch extends Application {
 		displayArea.setAlignment(Pos.CENTER);
 		
 		box.getChildren().add(holder);
+		//////// WORKING HERE
+		VBox radioBtns1 = new VBox();
+	    radioBtns1.setStyle("-fx-padding: 10px;");
+		final ToggleGroup spot1 = new ToggleGroup();
+		spot1.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
+        public void changed(ObservableValue<? extends Toggle> ov,
+          Toggle old_toggle, Toggle new_toggle) {
+            if (spot1.getSelectedToggle() != null) {
+                System.out.println("radio button clicked");
+            }                
+          }
+        });
+		RadioButton red1 = new RadioButton(" ");
+		red1.setToggleGroup(spot1);
+		red1.setStyle("-fx-background-color: #ff0000;");
+		RadioButton blue1 = new RadioButton(" ");
+		blue1.setToggleGroup(spot1);
+		blue1.setStyle("-fx-background-color: #0000ff;");
+		RadioButton green1 = new RadioButton(" ");
+		green1.setToggleGroup(spot1);
+		green1.setStyle("-fx-background-color: #008000;");
+		RadioButton yellow1 = new RadioButton(" ");
+		yellow1.setToggleGroup(spot1);
+		yellow1.setStyle("-fx-background-color: #ffff00;");
+        radioBtns1.getChildren().add(red1);
+		radioBtns1.getChildren().add(blue1);
+        radioBtns1.getChildren().add(green1);
+		radioBtns1.getChildren().add(yellow1);		
 		
+		VBox radioBtns2 = new VBox();
+	    radioBtns2.setStyle("-fx-padding: 10px;");
+		final ToggleGroup spot2 = new ToggleGroup();
+		RadioButton red2 = new RadioButton(" ");
+		red2.setToggleGroup(spot2);
+		red2.setStyle("-fx-background-color: #ff0000;");
+		RadioButton blue2 = new RadioButton(" ");
+		blue2.setToggleGroup(spot2);
+		blue2.setStyle("-fx-background-color: #0000ff;");
+		RadioButton green2 = new RadioButton(" ");
+		green2.setToggleGroup(spot2);
+		green2.setStyle("-fx-background-color: #008000;");
+		RadioButton yellow2 = new RadioButton(" ");
+		yellow2.setToggleGroup(spot2);
+		yellow2.setStyle("-fx-background-color: #ffff00;");
+        radioBtns2.getChildren().add(red2);
+		radioBtns2.getChildren().add(blue2);
+        radioBtns2.getChildren().add(green2);
+		radioBtns2.getChildren().add(yellow2);	
+		
+		VBox radioBtns3 = new VBox();
+	    radioBtns3.setStyle("-fx-padding: 10px;");
+		final ToggleGroup spot3 = new ToggleGroup();
+		RadioButton red3 = new RadioButton(" ");
+		red3.setToggleGroup(spot3);
+		red3.setStyle("-fx-background-color: #ff0000;");
+		RadioButton blue3 = new RadioButton(" ");
+		blue3.setToggleGroup(spot3);
+		blue3.setStyle("-fx-background-color: #0000ff;");
+		RadioButton green3 = new RadioButton(" ");
+		green3.setToggleGroup(spot3);
+		green3.setStyle("-fx-background-color: #008000;");
+		RadioButton yellow3 = new RadioButton(" ");
+		yellow3.setToggleGroup(spot3);
+		yellow3.setStyle("-fx-background-color: #ffff00;");
+        radioBtns3.getChildren().add(red3);
+		radioBtns3.getChildren().add(blue3);
+        radioBtns3.getChildren().add(green3);
+		radioBtns3.getChildren().add(yellow3);		
+		
+		VBox radioBtns4 = new VBox();
+	    radioBtns4.setStyle("-fx-padding: 10px;");
+		final ToggleGroup spot4 = new ToggleGroup();
+		RadioButton red4 = new RadioButton(" ");
+		red4.setToggleGroup(spot4);
+		red4.setStyle("-fx-background-color: #ff0000;");
+		RadioButton blue4 = new RadioButton(" ");
+		blue4.setToggleGroup(spot4);
+		blue4.setStyle("-fx-background-color: #0000ff;");
+		RadioButton green4 = new RadioButton(" ");
+		green4.setToggleGroup(spot4);
+		green4.setStyle("-fx-background-color: #008000;");
+		RadioButton yellow4 = new RadioButton(" ");
+		yellow4.setToggleGroup(spot4);
+		yellow4.setStyle("-fx-background-color: #ffff00;");
+        radioBtns4.getChildren().add(red4);
+		radioBtns4.getChildren().add(blue4);
+        radioBtns4.getChildren().add(green4);
+		radioBtns4.getChildren().add(yellow4);	
+		
+		pickingRow.setAlignment(Pos.CENTER);
+		pickingRow.getChildren().add(radioBtns1);
+		pickingRow.getChildren().add(radioBtns2);
+		pickingRow.getChildren().add(radioBtns3);
+		pickingRow.getChildren().add(radioBtns4);
+	
         buttonRow.getChildren().add(btnNew);		
 		buttonRow.getChildren().add(btnChange);
 		buttonRow.getChildren().add(btnTest2);
