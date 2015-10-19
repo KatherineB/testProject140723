@@ -1,7 +1,6 @@
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 //import javafx.event.ChangeListener;
-import javafx.event.*;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -9,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
@@ -129,7 +127,7 @@ public class MixOrMatch extends Application {
 			    int i;
 			    int j;
 			    int colourNo;
-				
+			
 			    for(j=0; j<4; j++){
 					for(i=0; i<4; i++){
 						circlesDisplayed[i][j] = 0;
@@ -258,30 +256,48 @@ public class MixOrMatch extends Application {
 		displayArea.setAlignment(Pos.CENTER);
 		
 		box.getChildren().add(holder);
-		//////// WORKING HERE
+		
 		VBox radioBtns1 = new VBox();
 	    radioBtns1.setStyle("-fx-padding: 10px;");
+		
 		final ToggleGroup spot1 = new ToggleGroup();
-		spot1.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
-        public void changed(ObservableValue<? extends Toggle> ov,
-          Toggle old_toggle, Toggle new_toggle) {
-            if (spot1.getSelectedToggle() != null) {
-                System.out.println("radio button clicked");
-            }                
-          }
-        });
+		
 		RadioButton red1 = new RadioButton(" ");
 		red1.setToggleGroup(spot1);
 		red1.setStyle("-fx-background-color: #ff0000;");
+		
+		red1.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,0,0);
+		} 
+		});
+		
 		RadioButton blue1 = new RadioButton(" ");
 		blue1.setToggleGroup(spot1);
 		blue1.setStyle("-fx-background-color: #0000ff;");
+		
+		blue1.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,0,1);
+		} 
+		});
+		
 		RadioButton green1 = new RadioButton(" ");
 		green1.setToggleGroup(spot1);
 		green1.setStyle("-fx-background-color: #008000;");
+		
+		green1.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,0,2);
+		} 
+		});
+		
 		RadioButton yellow1 = new RadioButton(" ");
 		yellow1.setToggleGroup(spot1);
 		yellow1.setStyle("-fx-background-color: #ffff00;");
+		
+		yellow1.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,0,3);
+		} 
+		});
+		
         radioBtns1.getChildren().add(red1);
 		radioBtns1.getChildren().add(blue1);
         radioBtns1.getChildren().add(green1);
@@ -293,15 +309,39 @@ public class MixOrMatch extends Application {
 		RadioButton red2 = new RadioButton(" ");
 		red2.setToggleGroup(spot2);
 		red2.setStyle("-fx-background-color: #ff0000;");
+		
+		red2.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,1,0);
+		} 
+		});
+		
 		RadioButton blue2 = new RadioButton(" ");
 		blue2.setToggleGroup(spot2);
 		blue2.setStyle("-fx-background-color: #0000ff;");
+		
+		blue2.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,1,1);
+		} 
+		});
+		
 		RadioButton green2 = new RadioButton(" ");
 		green2.setToggleGroup(spot2);
 		green2.setStyle("-fx-background-color: #008000;");
+		
+		green2.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,1,2);
+		} 
+		});
+		
 		RadioButton yellow2 = new RadioButton(" ");
 		yellow2.setToggleGroup(spot2);
 		yellow2.setStyle("-fx-background-color: #ffff00;");
+		
+		yellow2.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,1,3);
+		} 
+		});
+		
         radioBtns2.getChildren().add(red2);
 		radioBtns2.getChildren().add(blue2);
         radioBtns2.getChildren().add(green2);
@@ -313,15 +353,39 @@ public class MixOrMatch extends Application {
 		RadioButton red3 = new RadioButton(" ");
 		red3.setToggleGroup(spot3);
 		red3.setStyle("-fx-background-color: #ff0000;");
+		
+		red3.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,2,0);
+		} 
+		});
+		
 		RadioButton blue3 = new RadioButton(" ");
 		blue3.setToggleGroup(spot3);
 		blue3.setStyle("-fx-background-color: #0000ff;");
+		
+		blue3.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,2,1);
+		} 
+		});
+		
 		RadioButton green3 = new RadioButton(" ");
 		green3.setToggleGroup(spot3);
 		green3.setStyle("-fx-background-color: #008000;");
+		
+		green3.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,2,2);
+		} 
+		});
+		
 		RadioButton yellow3 = new RadioButton(" ");
 		yellow3.setToggleGroup(spot3);
 		yellow3.setStyle("-fx-background-color: #ffff00;");
+		
+		yellow3.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,2,3);
+		} 
+		});
+		
         radioBtns3.getChildren().add(red3);
 		radioBtns3.getChildren().add(blue3);
         radioBtns3.getChildren().add(green3);
@@ -333,15 +397,39 @@ public class MixOrMatch extends Application {
 		RadioButton red4 = new RadioButton(" ");
 		red4.setToggleGroup(spot4);
 		red4.setStyle("-fx-background-color: #ff0000;");
+		
+		red4.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,3,0);
+		} 
+		});
+		
 		RadioButton blue4 = new RadioButton(" ");
 		blue4.setToggleGroup(spot4);
 		blue4.setStyle("-fx-background-color: #0000ff;");
+		
+		blue4.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,3,1);
+		} 
+		});
+		
 		RadioButton green4 = new RadioButton(" ");
 		green4.setToggleGroup(spot4);
 		green4.setStyle("-fx-background-color: #008000;");
+		
+		green4.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,3,2);
+		} 
+		});
+		
 		RadioButton yellow4 = new RadioButton(" ");
 		yellow4.setToggleGroup(spot4);
 		yellow4.setStyle("-fx-background-color: #ffff00;");
+		
+		yellow4.setOnAction(new EventHandler<ActionEvent>() { @Override public void handle(ActionEvent e) {  
+			removeAndReplace(box,circles,circlesDisplayed,3,3);
+		} 
+		});
+		
         radioBtns4.getChildren().add(red4);
 		radioBtns4.getChildren().add(blue4);
         radioBtns4.getChildren().add(green4);
@@ -362,6 +450,28 @@ public class MixOrMatch extends Application {
         primaryStage.setScene(new Scene(gameBG, 300, 200));
         primaryStage.show();
     }
+	private void removeAndReplace(Group box,Canvas[][] circles, int[][] circlesDisplayed, int x,int y){
+		/* remove what ever circle is being replaced */
+				if(circlesDisplayed[x][0] == 1){
+					box.getChildren().remove(circles[x][0]);
+					circlesDisplayed[x][0] = 0;
+				}
+				else if(circlesDisplayed[x][1] == 1){
+					box.getChildren().remove(circles[x][1]);
+					circlesDisplayed[x][1] = 0;
+				}
+			    else if(circlesDisplayed[x][2] == 1){
+					box.getChildren().remove(circles[x][2]);
+					circlesDisplayed[x][2] = 0;
+				}
+				else if(circlesDisplayed[x][3] == 1){
+					box.getChildren().remove(circles[x][3]);
+					circlesDisplayed[x][3] = 0;
+				}	
+				
+		box.getChildren().add(circles[x][y]);
+		circlesDisplayed[x][y] = 1;
+	}
 	private int pickRand4(){
 		double rand4 = Math.random() * 4;
 		int randNo4 = (int)rand4;
