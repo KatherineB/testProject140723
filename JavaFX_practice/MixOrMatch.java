@@ -44,6 +44,25 @@ public class MixOrMatch extends Application {
 			}
 		}
 		
+		RadioButton red1 = new RadioButton(" "); 
+		RadioButton blue1 = new RadioButton(" ");
+		RadioButton green1 = new RadioButton(" ");
+		RadioButton yellow1 = new RadioButton(" ");
+		RadioButton red2 = new RadioButton(" ");
+		RadioButton blue2 = new RadioButton(" ");
+		RadioButton green2 = new RadioButton(" ");
+		RadioButton yellow2 = new RadioButton(" ");
+		RadioButton red3 = new RadioButton(" ");
+		RadioButton blue3 = new RadioButton(" ");
+		RadioButton green3 = new RadioButton(" ");
+		RadioButton yellow3 = new RadioButton(" ");
+		RadioButton red4 = new RadioButton(" ");
+		RadioButton blue4 = new RadioButton(" ");
+		RadioButton green4 = new RadioButton(" ");
+		RadioButton yellow4 = new RadioButton(" ");
+		
+		RadioButton[][] radioBtns = { {red1,blue1,green1,yellow1},{red2, blue2,green2,yellow2},{red3,blue3,green3,yellow3},{red4,blue4,green4,yellow4} };
+		
         primaryStage.setTitle("MixOrMatch");       
      
 	    Group box = new Group();
@@ -139,8 +158,10 @@ public class MixOrMatch extends Application {
 			    for(i=0; i<4; i++){
 				   colourNo = pickRand4();
 				   box.getChildren().add(circles[i][colourNo]);
-				   circlesDisplayed[i][colourNo] = 1;				   
+				   circlesDisplayed[i][colourNo] = 1;	
+                   radioBtns[i][colourNo].setSelected(true); 				   
 			    }
+				
             }
         });
 		
@@ -193,6 +214,7 @@ public class MixOrMatch extends Application {
 				/*add the newly chosen colour of circle*/
 				box.getChildren().add(circles[circleNo][colourNo]);
 				circlesDisplayed[circleNo][colourNo] = 1;
+				radioBtns[circleNo][colourNo].setSelected(true);
 				
 				/* check if all four circles same colour or all different */
 				for(j=0;j<4;j++){
@@ -262,7 +284,6 @@ public class MixOrMatch extends Application {
 		
 		final ToggleGroup spot1 = new ToggleGroup();
 		
-		RadioButton red1 = new RadioButton(" ");
 		red1.setToggleGroup(spot1);
 		red1.setStyle("-fx-background-color: #ff0000;");
 		
@@ -270,8 +291,7 @@ public class MixOrMatch extends Application {
 			removeAndReplace(box,circles,circlesDisplayed,0,0);
 		} 
 		});
-		
-		RadioButton blue1 = new RadioButton(" ");
+				
 		blue1.setToggleGroup(spot1);
 		blue1.setStyle("-fx-background-color: #0000ff;");
 		
@@ -279,8 +299,7 @@ public class MixOrMatch extends Application {
 			removeAndReplace(box,circles,circlesDisplayed,0,1);
 		} 
 		});
-		
-		RadioButton green1 = new RadioButton(" ");
+				
 		green1.setToggleGroup(spot1);
 		green1.setStyle("-fx-background-color: #008000;");
 		
@@ -288,8 +307,7 @@ public class MixOrMatch extends Application {
 			removeAndReplace(box,circles,circlesDisplayed,0,2);
 		} 
 		});
-		
-		RadioButton yellow1 = new RadioButton(" ");
+				
 		yellow1.setToggleGroup(spot1);
 		yellow1.setStyle("-fx-background-color: #ffff00;");
 		
@@ -306,7 +324,7 @@ public class MixOrMatch extends Application {
 		VBox radioBtns2 = new VBox();
 	    radioBtns2.setStyle("-fx-padding: 10px;");
 		final ToggleGroup spot2 = new ToggleGroup();
-		RadioButton red2 = new RadioButton(" ");
+
 		red2.setToggleGroup(spot2);
 		red2.setStyle("-fx-background-color: #ff0000;");
 		
@@ -315,7 +333,6 @@ public class MixOrMatch extends Application {
 		} 
 		});
 		
-		RadioButton blue2 = new RadioButton(" ");
 		blue2.setToggleGroup(spot2);
 		blue2.setStyle("-fx-background-color: #0000ff;");
 		
@@ -324,7 +341,6 @@ public class MixOrMatch extends Application {
 		} 
 		});
 		
-		RadioButton green2 = new RadioButton(" ");
 		green2.setToggleGroup(spot2);
 		green2.setStyle("-fx-background-color: #008000;");
 		
@@ -332,8 +348,7 @@ public class MixOrMatch extends Application {
 			removeAndReplace(box,circles,circlesDisplayed,1,2);
 		} 
 		});
-		
-		RadioButton yellow2 = new RadioButton(" ");
+				
 		yellow2.setToggleGroup(spot2);
 		yellow2.setStyle("-fx-background-color: #ffff00;");
 		
@@ -350,7 +365,7 @@ public class MixOrMatch extends Application {
 		VBox radioBtns3 = new VBox();
 	    radioBtns3.setStyle("-fx-padding: 10px;");
 		final ToggleGroup spot3 = new ToggleGroup();
-		RadioButton red3 = new RadioButton(" ");
+		
 		red3.setToggleGroup(spot3);
 		red3.setStyle("-fx-background-color: #ff0000;");
 		
@@ -358,8 +373,7 @@ public class MixOrMatch extends Application {
 			removeAndReplace(box,circles,circlesDisplayed,2,0);
 		} 
 		});
-		
-		RadioButton blue3 = new RadioButton(" ");
+				
 		blue3.setToggleGroup(spot3);
 		blue3.setStyle("-fx-background-color: #0000ff;");
 		
@@ -367,8 +381,7 @@ public class MixOrMatch extends Application {
 			removeAndReplace(box,circles,circlesDisplayed,2,1);
 		} 
 		});
-		
-		RadioButton green3 = new RadioButton(" ");
+				
 		green3.setToggleGroup(spot3);
 		green3.setStyle("-fx-background-color: #008000;");
 		
@@ -376,8 +389,7 @@ public class MixOrMatch extends Application {
 			removeAndReplace(box,circles,circlesDisplayed,2,2);
 		} 
 		});
-		
-		RadioButton yellow3 = new RadioButton(" ");
+			
 		yellow3.setToggleGroup(spot3);
 		yellow3.setStyle("-fx-background-color: #ffff00;");
 		
@@ -394,7 +406,7 @@ public class MixOrMatch extends Application {
 		VBox radioBtns4 = new VBox();
 	    radioBtns4.setStyle("-fx-padding: 10px;");
 		final ToggleGroup spot4 = new ToggleGroup();
-		RadioButton red4 = new RadioButton(" ");
+		
 		red4.setToggleGroup(spot4);
 		red4.setStyle("-fx-background-color: #ff0000;");
 		
@@ -402,8 +414,7 @@ public class MixOrMatch extends Application {
 			removeAndReplace(box,circles,circlesDisplayed,3,0);
 		} 
 		});
-		
-		RadioButton blue4 = new RadioButton(" ");
+				
 		blue4.setToggleGroup(spot4);
 		blue4.setStyle("-fx-background-color: #0000ff;");
 		
@@ -411,8 +422,7 @@ public class MixOrMatch extends Application {
 			removeAndReplace(box,circles,circlesDisplayed,3,1);
 		} 
 		});
-		
-		RadioButton green4 = new RadioButton(" ");
+				
 		green4.setToggleGroup(spot4);
 		green4.setStyle("-fx-background-color: #008000;");
 		
@@ -420,8 +430,7 @@ public class MixOrMatch extends Application {
 			removeAndReplace(box,circles,circlesDisplayed,3,2);
 		} 
 		});
-		
-		RadioButton yellow4 = new RadioButton(" ");
+				
 		yellow4.setToggleGroup(spot4);
 		yellow4.setStyle("-fx-background-color: #ffff00;");
 		
