@@ -2,8 +2,10 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 //import javafx.event.ChangeListener;
 import javafx.event.EventHandler;
+//import javafx.event.MouseEvent;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.stage.Popup;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -232,7 +234,15 @@ public class MixOrMatch extends Application {
 				}
 				
 				if(win == 1 || colourSingle == 4){
-					System.out.println("Game has been won!!!");
+					//System.out.println("Game has been won!!!");
+					  showWinMsg(primaryStage);
+					
+					/*for(j=0; j<4; j++){
+						for(i=0; i<4; i++){
+							circlesDisplayed[i][j] = 0;
+							box.getChildren().remove(circles[i][j]);
+						}
+					}*/
 			    }
             }
         });
@@ -246,6 +256,17 @@ public class MixOrMatch extends Application {
                 System.out.println("test clicked");
 				//box.getChildren().remove(circles[1][1]);
 				//box.getChildren().add(circles[1][2]);
+				    final Popup info = new Popup();
+					info.setAutoFix(true);
+					info.setAutoHide(true);
+					info.setHideOnEscape(true);
+					//info.setStyle("-fx-width: 150px;");
+					
+					Label infoText = new Label("HOW TO PLAY: You win if you get four circles the same oolour or all four different when you click the change button.  Try to pick colours that might allow that to happen before each click of change.");
+					infoText.setStyle("-fx-background-color: #ffffff;");
+				    infoText.setStyle("-fx-width: 150px;");
+					info.getContent().add(infoText);
+					info.show(primaryStage);
             }
         });
 		
@@ -459,6 +480,16 @@ public class MixOrMatch extends Application {
         primaryStage.setScene(new Scene(gameBG, 300, 200));
         primaryStage.show();
     }
+	private void showWinMsg(Stage primaryStage){
+		final Popup win = new Popup();
+		win.setAutoFix(true);
+		win.setAutoHide(true);
+		win.setHideOnEscape(true);	
+		Label winText = new Label("   Y O U   W I N  ! ! !   ");
+		winText.setStyle("-fx-background-color: #ffffff;");
+		win.getContent().add(winText);
+		win.show(primaryStage);
+	}
 	private void removeAndReplace(Group box,Canvas[][] circles, int[][] circlesDisplayed, int x,int y){
 		/* remove what ever circle is being replaced */
 				if(circlesDisplayed[x][0] == 1){
