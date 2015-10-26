@@ -22,12 +22,13 @@ public class Destiny100 extends Application {
 	
     public static void main(String[] args) {
         launch(args);
+		
     }
     
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Destiny100");       
-     
+        int canPick;
 	    Group destGroup = new Group();
 		
 		Canvas scoreBG = new Canvas(60, 60);
@@ -45,10 +46,7 @@ public class Destiny100 extends Application {
 		Canvas choiceBG3 = new Canvas(60, 60);
 		GraphicsContext gcChoice3 = choiceBG3.getGraphicsContext2D();
 		createChoice3Rect(gcChoice3);
-                  
-	    
-        
-		
+                 		
 		Button btnExit = new Button();
         btnExit.setText("Exit");
         btnExit.setOnAction(new EventHandler<ActionEvent>() {
@@ -93,24 +91,22 @@ public class Destiny100 extends Application {
 		choiceStack3.setStyle("-fx-padding: 20px;");
 		
 		Label choice1 = new Label("0");
-		choice1.setStyle("-fx-color: #000000;");
 		choice1.setStyle("-fx-font-size: 30px;");
 		Label choice2 = new Label("0");
-		choice2.setStyle("-fx-color: #000000;");
 		choice2.setStyle("-fx-font-size: 30px;");
 		Label choice3 = new Label("0");
-		choice3.setStyle("-fx-color:#ff0000;");
 		choice3.setStyle("-fx-font-size: 30px;");
 		
+		canPick = 1;
 		startNewGame(score, choice1, choice2, choice3);
 		
 		choiceStack1.getChildren().add(choiceBG1);
 		choiceStack2.getChildren().add(choiceBG2);
 		choiceStack3.getChildren().add(choiceBG3);
 		
-		choiceStack1.getChildren().add(choice1);
-		choiceStack2.getChildren().add(choice2);
-		choiceStack3.getChildren().add(choice3);
+	//	choiceStack1.getChildren().add(choice1);
+	//	choiceStack2.getChildren().add(choice2);
+	//	choiceStack3.getChildren().add(choice3);
 		
 		rowMid.getChildren().add(choiceStack1);
 		rowMid.getChildren().add(choiceStack2);
@@ -128,24 +124,12 @@ public class Destiny100 extends Application {
  
             @Override
             public void handle(ActionEvent event) {
+				
+				canPick = 1;
+				choiceStack1.getChildren().remove(choice1);	
+				choiceStack2.getChildren().remove(choice2);
+				choiceStack3.getChildren().remove(choice3);
 				startNewGame(score, choice1, choice2, choice3);
-			/*	String check1;
-				String check2;
-				String check3;				
-				
-				int[] negPicker = {1,1,1};
-                double negPick = Math.random() * 3;
-		        int neg = (int)negPick;
-				
-				negPicker[neg] = -1;
-				
-				check1 = produceRandomNumber(negPicker[0]);
-				check2 = produceRandomNumber(negPicker[1]);
-				check3 = produceRandomNumber(negPicker[2]);
-				
-				choice1.setText(check1);
-				choice2.setText(check2);
-				choice3.setText(check3);*/
             }
         });
 		
@@ -156,18 +140,22 @@ public class Destiny100 extends Application {
  
             @Override
             public void handle(ActionEvent event) {
-                String numL = choice1.getText();
-				String numTop = score.getText();
+				if(canPick == 1){
+					String numL = choice1.getText();
+					String numTop = score.getText();
+					
+					int numLeft = Integer.parseInt(numL);
+					int numScore = Integer.parseInt(numTop);
+					
+					int newNum = numLeft + numScore;
+					
+					String newScore = Integer.toString(newNum);
+					score.setText(newScore);
+					
+					choiceStack1.getChildren().add(choice1);
+					canPick = 0;
+				}
 				
-				int numLeft = Integer.parseInt(numL);
-				int numScore = Integer.parseInt(numTop);
-				
-				int newNum = numLeft + numScore;
-				
-				String newScore = Integer.toString(newNum);
-				score.setText(newScore);
-				
-				pickNewCards(choice1, choice2, choice3);
             }
         });
 		
@@ -177,18 +165,22 @@ public class Destiny100 extends Application {
  
             @Override
             public void handle(ActionEvent event) {
-                String numL = choice2.getText();
-				String numTop = score.getText();
+				if(canPick == 1){
+					String numL = choice2.getText();
+					String numTop = score.getText();
+					
+					int numLeft = Integer.parseInt(numL);
+					int numScore = Integer.parseInt(numTop);
+					
+					int newNum = numLeft + numScore;
+					
+					String newScore = Integer.toString(newNum);
+					score.setText(newScore);
+					
+					choiceStack2.getChildren().add(choice2);
+					canPick = 0;
+				}
 				
-				int numLeft = Integer.parseInt(numL);
-				int numScore = Integer.parseInt(numTop);
-				
-				int newNum = numLeft + numScore;
-				
-				String newScore = Integer.toString(newNum);
-				score.setText(newScore);
-				
-				pickNewCards(choice1, choice2, choice3);
             }
         });
 		
@@ -198,17 +190,35 @@ public class Destiny100 extends Application {
  
             @Override
             public void handle(ActionEvent event) {
-                String numL = choice3.getText();
-				String numTop = score.getText();
+				if(canPick == 1){
+					String numL = choice3.getText();
+					String numTop = score.getText();
+					
+					int numLeft = Integer.parseInt(numL);
+					int numScore = Integer.parseInt(numTop);
+					
+					int newNum = numLeft + numScore;
+					
+					String newScore = Integer.toString(newNum);
+					score.setText(newScore);
+					
+					choiceStack3.getChildren().add(choice3);
+					canPick = 0;
+				}
 				
-				int numLeft = Integer.parseInt(numL);
-				int numScore = Integer.parseInt(numTop);
-				
-				int newNum = numLeft + numScore;
-				
-				String newScore = Integer.toString(newNum);
-				score.setText(newScore);
-				
+            }
+        });
+		
+		Button btnNextPick = new Button();
+        btnNextPick.setText("Next Pick");		
+		btnNextPick.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {		
+                choiceStack1.getChildren().remove(choice1);	
+				choiceStack2.getChildren().remove(choice2);
+				choiceStack3.getChildren().remove(choice3);
+				canPick = 1;
 				pickNewCards(choice1, choice2, choice3);
             }
         });
@@ -217,16 +227,20 @@ public class Destiny100 extends Application {
 		buttonRow.getChildren().add(btnPickLeft);
 		buttonRow.getChildren().add(btnPickCentre);
 		buttonRow.getChildren().add(btnPickRight);
+		buttonRow.getChildren().add(btnNextPick);
 		buttonRow.getChildren().add(btnExit);
 		
-		Scene destGame = new Scene(gameBG, 400, 250);
-		//haznegGame.getStylesheets().add("hazneg.css");	
+		Scene destGame = new Scene(gameBG, 450, 250);
+		//destGame.getStylesheets().add("destiny100.css");	
 		
         primaryStage.setScene(destGame);
         primaryStage.show();
     }
 	private void startNewGame(Label score, Label choice1, Label choice2, Label choice3){
 		score.setText("20");
+		choice1.setStyle("-fx-color: #ffffff;");
+		choice2.setStyle("-fx-color: #ffffff;");
+		choice3.setStyle("-fx-color: #ffffff;");
 		pickNewCards(choice1, choice2, choice3);
 	}
 	private void pickNewCards(Label choice1, Label choice2, Label choice3){
