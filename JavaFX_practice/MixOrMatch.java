@@ -66,10 +66,9 @@ public class MixOrMatch extends Application {
 		RadioButton[][] radioBtns = { {red1,blue1,green1,yellow1},{red2, blue2,green2,yellow2},{red3,blue3,green3,yellow3},{red4,blue4,green4,yellow4} };
 		
         primaryStage.setTitle("MixOrMatch");       
-     
-	    Group box = new Group();
-		
-		
+         
+		Group box = new Group();
+			
         Canvas holder = new Canvas(170, 50);
         GraphicsContext gc = holder.getGraphicsContext2D();
 		drawFixedGraphics(gc);
@@ -137,6 +136,16 @@ public class MixOrMatch extends Application {
 		circles[3][3] = new Canvas(160, 50);
 		GraphicsContext gcYellow4 = circles[3][3].getGraphicsContext2D();
 		drawYellowCircle4(gcYellow4);
+		
+		Canvas howToPlay = new Canvas(240,120);
+		GraphicsContext gcHowToPlay = howToPlay.getGraphicsContext2D();
+		drawHowToPlay(gcHowToPlay);
+		
+		StackPane popupStack = new StackPane();
+		Label infoText = new Label("HOW TO PLAY:\n You win if you get four circles the same \n oolour or all four different when you \n click the change button.  Try to pick \n colours that might allow that to \n happen before each click of Change.");
+		infoText.setWrapText(true);
+		popupStack.getChildren().add(howToPlay);
+		popupStack.getChildren().add(infoText);
        
 	    Button btnNew = new Button();
         btnNew.setText("New Game");
@@ -248,24 +257,19 @@ public class MixOrMatch extends Application {
         });
 		
 		Button btnTest2 = new Button();
-        btnTest2.setText("test2");
+        btnTest2.setText("How to Play");
         btnTest2.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("test clicked");
-				//box.getChildren().remove(circles[1][1]);
-				//box.getChildren().add(circles[1][2]);
+               
 				    final Popup info = new Popup();
 					info.setAutoFix(true);
 					info.setAutoHide(true);
 					info.setHideOnEscape(true);
-					//info.setStyle("-fx-width: 150px;");
-					
-					Label infoText = new Label("HOW TO PLAY: You win if you get four circles the same oolour or all four different when you click the change button.  Try to pick colours that might allow that to happen before each click of change.");
-					infoText.setStyle("-fx-background-color: #ffffff;");
-				    infoText.setStyle("-fx-width: 150px;");
-					info.getContent().add(infoText);
+				
+					info.getContent().add(popupStack);
+			
 					info.show(primaryStage);
             }
         });
@@ -290,6 +294,8 @@ public class MixOrMatch extends Application {
 	//	pickingRow.setStyle("-fx-background-color: #cc55cc;");
 		FlowPane buttonRow = new FlowPane();
 		buttonRow.setStyle("-fx-background-color: #aaaa88;");
+		
+		
 		
 		gameBG.setTop(displayArea);
 		gameBG.setCenter(pickingRow);
@@ -592,5 +598,9 @@ public class MixOrMatch extends Application {
 	private void drawYellowCircle4(GraphicsContext gcYellow4) {
 		gcYellow4.setFill(Color.YELLOW);
 		gcYellow4.fillOval(130, 10, 30, 30);			 
+	}
+	private void drawHowToPlay(GraphicsContext gcHowToPlay) {
+		gcHowToPlay.setFill(Color.WHITE);		
+        gcHowToPlay.fillRect(0,0,240,120);		
 	}
 }
