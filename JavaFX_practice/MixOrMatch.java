@@ -182,7 +182,6 @@ public class MixOrMatch extends Application {
  
             @Override
             public void handle(ActionEvent event) {
-              //  System.out.println("change clicked");
 			    int i;
 				int j;
 				int win=0;
@@ -238,20 +237,11 @@ public class MixOrMatch extends Application {
 					else if(colourTotal == 1){
 						colourSingle++;
 					}
-					System.out.println(colourTotal); 
 					colourTotal = 0;
 				}
 				
-				if(win == 1 || colourSingle == 4){
-					//System.out.println("Game has been won!!!");
-					  showWinMsg(primaryStage);
-					
-					/*for(j=0; j<4; j++){
-						for(i=0; i<4; i++){
-							circlesDisplayed[i][j] = 0;
-							box.getChildren().remove(circles[i][j]);
-						}
-					}*/
+				if(win == 1 || colourSingle == 4){				
+					  showWinMsg(primaryStage);					
 			    }
             }
         });
@@ -281,6 +271,7 @@ public class MixOrMatch extends Application {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Exit clicked");
+                System.exit(0);
             }
         });
 		
