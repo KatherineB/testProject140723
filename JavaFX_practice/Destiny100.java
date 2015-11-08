@@ -19,16 +19,16 @@ import javafx.geometry.Pos;
 import javafx.stage.Stage;
  
 public class Destiny100 extends Application {
+	int canPick = 1;
 	
     public static void main(String[] args) {
-        launch(args);
-		
+        launch(args);	
     }
     
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Destiny100");       
-        int canPick;
+        
 	    Group destGroup = new Group();
 		
 		Canvas scoreBG = new Canvas(60, 60);
@@ -54,6 +54,7 @@ public class Destiny100 extends Application {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Exit clicked");
+				
             }
         });
 	   		
@@ -91,13 +92,13 @@ public class Destiny100 extends Application {
 		choiceStack3.setStyle("-fx-padding: 20px;");
 		
 		Label choice1 = new Label("0");
-		choice1.setStyle("-fx-font-size: 30px;");
+		choice1.setStyle("-fx-font-size: 15px;");
 		Label choice2 = new Label("0");
-		choice2.setStyle("-fx-font-size: 30px;");
+		choice2.setStyle("-fx-font-size: 15px;");
 		Label choice3 = new Label("0");
-		choice3.setStyle("-fx-font-size: 30px;");
+		choice3.setStyle("-fx-font-size: 15px;");
 		
-		canPick = 1;
+		//canPick = 1;
 		startNewGame(score, choice1, choice2, choice3);
 		
 		choiceStack1.getChildren().add(choiceBG1);
@@ -140,6 +141,7 @@ public class Destiny100 extends Application {
  
             @Override
             public void handle(ActionEvent event) {
+				System.out.println(canPick);
 				if(canPick == 1){
 					String numL = choice1.getText();
 					String numTop = score.getText();
@@ -155,6 +157,9 @@ public class Destiny100 extends Application {
 					choiceStack1.getChildren().add(choice1);
 					canPick = 0;
 				}
+				else{
+					choice1.setText("Click\n Next\n Cards");
+				}
 				
             }
         });
@@ -165,6 +170,7 @@ public class Destiny100 extends Application {
  
             @Override
             public void handle(ActionEvent event) {
+				System.out.println(canPick);
 				if(canPick == 1){
 					String numL = choice2.getText();
 					String numTop = score.getText();
@@ -180,6 +186,9 @@ public class Destiny100 extends Application {
 					choiceStack2.getChildren().add(choice2);
 					canPick = 0;
 				}
+				else{					
+					choice2.setText("Click\n Next\n Cards");				
+				}
 				
             }
         });
@@ -190,7 +199,9 @@ public class Destiny100 extends Application {
  
             @Override
             public void handle(ActionEvent event) {
+				System.out.println(canPick);
 				if(canPick == 1){
+					
 					String numL = choice3.getText();
 					String numTop = score.getText();
 					
@@ -205,21 +216,26 @@ public class Destiny100 extends Application {
 					choiceStack3.getChildren().add(choice3);
 					canPick = 0;
 				}
+				else{
+					choice3.setText("Click\n Next\n Cards");
+				}
 				
             }
         });
 		
 		Button btnNextPick = new Button();
-        btnNextPick.setText("Next Pick");		
+        btnNextPick.setText("Next Cards");		
 		btnNextPick.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {		
+			   System.out.println(canPick);
                 choiceStack1.getChildren().remove(choice1);	
 				choiceStack2.getChildren().remove(choice2);
 				choiceStack3.getChildren().remove(choice3);
 				canPick = 1;
 				pickNewCards(choice1, choice2, choice3);
+				System.out.println(canPick);
             }
         });
 		
@@ -292,12 +308,12 @@ Label myLabel = new Label("Start");
 myLabel.textProperty().bind(valueProperty);*/
 
 
-/** Returns an integer between low and high, inclusive. */ /*
+/* Returns an integer between low and high, inclusive. */ /*
 function Rnd(low: Integer, high: Integer): Integer
 {
      return (low + (high - low) * Math.random() + 0.5) as Integer;
-}
-/** Returns an integer between 0 and limit, inclusive. */ /*
+}*/
+/* Returns an integer between 0 and limit, inclusive. */ /*
 function Rnd(limit: Integer): Integer
 {
   return Rnd(0, limit);
