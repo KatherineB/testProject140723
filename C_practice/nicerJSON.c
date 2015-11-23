@@ -16,7 +16,6 @@ main(int argc, char *argv[])
 		       switch(c){
 		       case '[':
 		            leftSquareBracketCount++;
-		            doIndent(leftSquareBracketCount);
 		            printf("%c",c);
 		            break;
 		       case ']':
@@ -46,29 +45,28 @@ main(int argc, char *argv[])
 	 while(c != EOF && numCharReq < inputNumChar){   
 		c = getc(fp);
 		if(c != EOF){   
-		       switch(c){
-		       case '[':
-		            leftSquareBracketCount++;
-		            doIndent(leftSquareBracketCount);
-		            printf("%c",c);
-		            break;
-		       case ']':
-		            leftSquareBracketCount--;
-		            printf("%c",c);
-		            break;
-		       case '{':
-		            doIndent(leftSquareBracketCount);
-		            printf("%c",c);
-		            break;
-		       case ',':
-		            printf("%c",c);
-		            doIndent(leftSquareBracketCount);
-		            break;
-		       default:
-		            printf("%c",c);
-		       }
-		 }
-		 numCharReq++;    
+		        switch(c){
+			case '[':
+			    leftSquareBracketCount++;
+			    printf("%c",c);
+			    break;
+			case ']':
+			    leftSquareBracketCount--;
+			    printf("%c",c);
+			    break;
+			case '{':
+			    doIndent(leftSquareBracketCount);
+			    printf("%c",c);
+			    break;
+			case ',':
+			    printf("%c",c);
+			    doIndent(leftSquareBracketCount);
+			    break;
+			default:
+			    printf("%c",c);
+			} 
+		}
+		numCharReq++;    
 	 }
  }
  else{
@@ -77,9 +75,7 @@ main(int argc, char *argv[])
      printf("to see a bit of the file without converting the whole thing.\n");
  }
 
-  printf("\n\n");
-  printf("The number of characters was %d\n",numCharReq);
-  printf("The number of left brackets was %d\n",leftSquareBracketCount);
+  
 }
 
 doIndent(int count){
