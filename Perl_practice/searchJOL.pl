@@ -19,7 +19,7 @@ my $line2Counter = 0;
 my $check;
 
 open my $file, '<', $file_in;
-open my $file2, '<', $file_list;
+
 
 while(my $line = <$file>){
     my $currentLine = $line;
@@ -44,31 +44,34 @@ while(my $line = <$file>){
     }
     print "Item Line:" . "\n";
     print $currentLine . "\n";
-   
-    while(my $line2 = <$file2>){
-         my $currentLine2 = $line2;
-         $line2Counter++;
-         #print $currentLine2 . "\n";
-         my $matches = 0;
-         for (my $j = 0; $j < $numberOfKeys; $j++){
-               if (index($currentLine2,$jsonData[$j]) != -1){
-                   $matches++;
-               }
-               if ($matches == 4){
-                  print "Found " .  $jsonData[$j] . " in line " . $line2Counter . " with matches: " . $matches . "\n";
-                  print $currentLine2 . "\n";
-               }
-         }
-        
-         #last if $line2Counter > 500;
-          #last if ($matches == 4 || $line2Counter > 10000);
-          last if $matches == 4;
-    }
-   
 
-    last if $lineCounter > 0;
+    open my $file2, '<', $file_list;
+    while(my $line2 = <$file2>){
+	 my $currentLine2 = $line2;
+	 $line2Counter++;
+	# print $currentLine2 . "\n";
+	 my $matches = 0;
+         print $line2Counter . "\n";
+	 for (my $j = 0; $j < $numberOfKeys; $j++){
+	       if (index($currentLine2,$jsonData[$j]) != -1){
+	           $matches++;
+                   print $j . " " . $matches . "\n";
+	       }	
+               	                            
+	 }
+         if ($matches == 4){
+	          print "Found in line " . $line2Counter . " with matches: " . $matches . "\n";
+	          print $currentLine2 . "\n";
+                  last;
+	  }
+
+    }   
+    $line2Counter = 0;
+    close($file2);
+    print "Line Counter=" . $lineCounter . "\n";
+    last if $lineCounter > 3;
 }
 
 
-close($file2);
+
 close($file);
