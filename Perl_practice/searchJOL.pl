@@ -4,8 +4,8 @@ use warnings;
 
 my $file_in = $ARGV[0];
 my $file_list = $ARGV[1];
- #my @jsonKey = ("product_name","manufacturer","model","family");
- my @jsonKey = ("space_vehicle","manufacturer","model","manu_date");
+ my @jsonKey = ("product_name","manufacturer","model","family");
+# my @jsonKey = ("space_vehicle","manufacturer","model","manu_date");
 my $numberOfKeys = 4;
 my @jsonData;
 my $divider = 3;
@@ -51,26 +51,45 @@ while(my $line = <$file>){
 	 $line2Counter++;
 	# print $currentLine2 . "\n";
 	 my $matches = 0;
-         print $line2Counter . "\n";
-	 for (my $j = 0; $j < $numberOfKeys; $j++){
-	       if (index($currentLine2,$jsonData[$j]) != -1){
-	           $matches++;
-                   print $j . " " . $matches . "\n";
-	       }	
+        # print $line2Counter . "\n";
+	# for (my $j = 0; $j < $numberOfKeys; $j++){
+	     #  if (index($currentLine2,$jsonData[$j]) != -1){
+	      #     $matches++;
+                  # print "Partial Match: " . $jsonData[$j] . " " . $j . " " . $matches . "\n";
+                  # print $currentLine2 . "\n"; 
+                      #  if ($matches > 1){
+			#  print "Partial Match: " . $jsonKey[$j] . " " . $jsonData[$j] . "\n";
+			#  print "Found in line " . $line2Counter . " with matches: " . $matches . "\n";
+			#  print $currentLine2 . "\n";
+			#  last;
+	              #  }
+	     #  }	
+           if (index($currentLine2,$jsonData[2]) != -1){
+                    if(index($currentLine2,$jsonData[1]) != -1){
+                         print "Partial Match: " . $jsonKey[2] . " " . $jsonData[2] . "\n";
+                          print "Partial Match: " . $jsonKey[1] . " " . $jsonData[1] . "\n";
+			  print "Found in line " . $line2Counter . " with matches: " . $matches . "\n";
+			 print $currentLine2 . "\n";
+                    }
+                   elsif(index($currentLine2,$jsonData[3]) != -1){
+                       print "Partial Match: " . $jsonKey[2] . " " . $jsonData[2] . "\n";
+                          print "Partial Match: " . $jsonKey[3] . " " . $jsonData[3] . "\n";
+			  print "Found in line " . $line2Counter . " with matches: " . $matches . "\n";
+			  print $currentLine2 . "\n";
+                   }
+           }
                	                            
-	 }
-         if ($matches == 4){
-	          print "Found in line " . $line2Counter . " with matches: " . $matches . "\n";
-	          print $currentLine2 . "\n";
-                  last;
-	  }
-
+	# }
+       # if ($matches == 4){ 
+            
+       # last if $line2Counter > 5000;
     }   
     $line2Counter = 0;
     close($file2);
     print "Line Counter=" . $lineCounter . "\n";
     last if $lineCounter > 3;
 }
+
 
 
 
