@@ -1,6 +1,3 @@
-testProject140723
-=================
+# testProject140723
 
-testing
-
-I'm just learning how to do this
+This is my repo for small practice projects and learning how to use GitHub.
