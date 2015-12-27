@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+# use JSON;  Does not work, seems to be unavailable on my system. 
 
 my $file_in = $ARGV[0];
 my $file_list = $ARGV[1];
@@ -63,22 +64,26 @@ while(my $line = <$file>){
 			#  print $currentLine2 . "\n";
 			#  last;
 	              #  }
-	     #  }	
-           if (index($currentLine2,$jsonData[2]) != -1){
-                    if(index($currentLine2,$jsonData[1]) != -1){
-                         print "Partial Match: " . $jsonKey[2] . " " . $jsonData[2] . "\n";
-                          print "Partial Match: " . $jsonKey[1] . " " . $jsonData[1] . "\n";
-			  print "Found in line " . $line2Counter . " with matches: " . $matches . "\n";
-			 print $currentLine2 . "\n";
-                    }
-                   elsif(index($currentLine2,$jsonData[3]) != -1){
-                       print "Partial Match: " . $jsonKey[2] . " " . $jsonData[2] . "\n";
-                          print "Partial Match: " . $jsonKey[3] . " " . $jsonData[3] . "\n";
-			  print "Found in line " . $line2Counter . " with matches: " . $matches . "\n";
-			  print $currentLine2 . "\n";
-                   }
-           }
-               	                            
+	     #  }
+               if($lineCounter > 6 && $lineCounter < 10){
+                           # looking for model first because it seems like the most unique string	
+			   if (index($currentLine2,$jsonData[2]) != -1){
+                                    # look for manufacturer
+				    if(index($currentLine2,$jsonData[1]) != -1){
+				         print "Partial Match: " . $jsonKey[2] . " " . $jsonData[2] . "\n";
+				          print "Partial Match: " . $jsonKey[1] . " " . $jsonData[1] . "\n";
+					  print "Found in line " . $line2Counter . " with matches: " . $matches . "\n";
+					 print $currentLine2 . "\n";
+				    }
+                                    # look for family
+				   elsif(index($currentLine2,$jsonData[3]) != -1){
+				       print "Partial Match: " . $jsonKey[2] . " " . $jsonData[2] . "\n";
+				          print "Partial Match: " . $jsonKey[3] . " " . $jsonData[3] . "\n";
+					  print "Found in line " . $line2Counter . " with matches: " . $matches . "\n";
+					  print $currentLine2 . "\n";
+				   }
+			   }
+               }	                            
 	# }
        # if ($matches == 4){ 
             
@@ -87,7 +92,7 @@ while(my $line = <$file>){
     $line2Counter = 0;
     close($file2);
     print "Line Counter=" . $lineCounter . "\n";
-    last if $lineCounter > 3;
+    last if $lineCounter > 9;
 }
 
 
