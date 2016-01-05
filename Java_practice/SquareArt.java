@@ -9,6 +9,10 @@ import java.awt.image.*;
 import java.awt.Color;
 import java.text.*;
 import java.io.*;
+import java.util.*;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
 
 public class SquareArt extends JFrame{
 	 JPanel spot1 = new JPanel();
@@ -49,6 +53,7 @@ public class SquareArt extends JFrame{
 	   
 	   JPanel avail1 = new JPanel();
 	   avail1.setBackground(Color.decode("#ffffff"));
+	//   avail1.addMouseListener(this);
 	   SquareArtSquare greenSquare = new SquareArtSquare("#00dd00");
 	   greenSquare.setPreferredSize(new Dimension(30,30));	
        avail1.add(greenSquare);	   
@@ -75,16 +80,46 @@ public class SquareArt extends JFrame{
 	   avail4.add(redSquare);
 	   squaresAvail.add(avail4);
 	   
-	   changeColour();
+	   /* //test color chooser
+	    JPanel bottomPanel = new JPanel();
+	 
+	   background.add(bottomPanel, BorderLayout.SOUTH);
+        JColorChooser colorChooser = new JColorChooser();
+        bottomPanel.add(colorChooser); */
+	   
+	   //addColour(0,"#00dd00");
 	  
 	   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	 }
-	 private void changeColour(){		 
-		 spot[0].setBackground(Color.decode("#00ccaa"));
-		 spot[1].setBackground(Color.decode("#77ee33"));
-		 spot[2].setBackground(Color.decode("#dd6699"));
-		 spot[3].setBackground(Color.decode("#aa88ee"));
+	 private void addColour(int spotN, String colour){		 
+		 spot[spotN].setBackground(Color.decode(colour));
 	 }
+	 
+	/* public void mouseClicked(MouseEvent e) {
+        	   addColour(0,"#00dd00");
+
+    }*/
+	 avail1.addMouseListener(new MouseAdapter() { 
+	    //  @Override
+          public void mouseClicked(MouseEvent me) { 
+            System.out.println(me); 
+          } 
+        }); 
+		
+	/*	MouseListener mouseListener = new MouseAdapter(){
+			public void mouseClicked(MouseEvent me) { 
+            System.out.println(me); 
+          } 
+        };*/
+ 
+
+
+	/* label.addMouseListener(new MouseAdapter() {
+    public void mouseClicked(MouseEvent e) {
+        System.out.println("Clicked!");
+    }
+    });*/
+}
 	 
      public static void main(String[]args){		 		  
 	   SquareArt screen = new SquareArt();  
