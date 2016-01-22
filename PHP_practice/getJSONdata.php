@@ -1,18 +1,22 @@
 <?php
-    echo $_GET['file'];
+   /* echo $_GET['file'];
 	echo $_GET['top'];
-	echo $_GET['deep'];
+	echo $_GET['deep'];*/
 	
-	print_r($_GET);
+	/*print_r($_GET);*/
 	
+	$file = $_GET['file'];
 	$top = $_GET['top'];
+	$deep = $_GET['deep'];
 	
+	echo $file;
 	echo $top;
+	echo $deep;
 	
-	$str = file_get_contents('members.json');
+	$str = file_get_contents($file);
 	$json = json_decode($str, true);
 	echo '<pre>' . print_r($json, true) . '</pre>';
 	
-	$year_joined = $json['members'][$top]['year_joined'];
-	echo $year_joined;
+	$data = $json['members'][$top][$deep];
+	echo $data; 
 ?>
