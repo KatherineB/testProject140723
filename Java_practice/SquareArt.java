@@ -20,6 +20,11 @@ public class SquareArt extends JFrame{
 	 JPanel spot3 = new JPanel();
 	 JPanel spot4 = new JPanel();
 	 
+	 JPanel avail1 = new JPanel();
+	 JPanel avail2 = new JPanel();
+	 JPanel avail3 = new JPanel();
+	 JPanel avail4 = new JPanel();
+	 
 	 int NumSpots = 4;
 	 int i;
 	 JPanel[] spot = new JPanel[4];
@@ -51,42 +56,38 @@ public class SquareArt extends JFrame{
 	//   squaresAvail.setPreferredSize(new Dimension(80,80));
 	   background.add(squaresAvail, BorderLayout.EAST);	   
 	   
-	   JPanel avail1 = new JPanel();
+	   
 	   avail1.setBackground(Color.decode("#ffffff"));
-	//   avail1.addMouseListener(this);
 	   SquareArtSquare greenSquare = new SquareArtSquare("#00dd00");
 	   greenSquare.setPreferredSize(new Dimension(30,30));	
        avail1.add(greenSquare);	   
 	   squaresAvail.add(avail1);
+	   avail1.addMouseListener(new CustomMouseListener());
 	   
-	   JPanel avail2 = new JPanel();
+	   
 	   avail2.setBackground(Color.decode("#ffffff"));
 	   SquareArtSquare blueSquare = new SquareArtSquare("#0000ff");
 	   blueSquare.setPreferredSize(new Dimension(30,30));
 	   avail2.add(blueSquare);
 	   squaresAvail.add(avail2);
+	   avail2.addMouseListener(new CustomMouseListener());
 	   
-	   JPanel avail3 = new JPanel();
+	   
 	   avail3.setBackground(Color.decode("#ffffff"));
 	   SquareArtSquare yellowSquare = new SquareArtSquare("#ffff00");
 	   yellowSquare.setPreferredSize(new Dimension(30,30));
 	   avail3.add(yellowSquare);
 	   squaresAvail.add(avail3);
+	   avail3.addMouseListener(new CustomMouseListener());
 	   
-	   JPanel avail4 = new JPanel();
+	   
 	   avail4.setBackground(Color.decode("#ffffff"));
 	   SquareArtSquare redSquare = new SquareArtSquare("#ff0000");
 	   redSquare.setPreferredSize(new Dimension(30,30));
 	   avail4.add(redSquare);
 	   squaresAvail.add(avail4);
-	   
-	   /* //test color chooser
-	    JPanel bottomPanel = new JPanel();
-	 
-	   background.add(bottomPanel, BorderLayout.SOUTH);
-        JColorChooser colorChooser = new JColorChooser();
-        bottomPanel.add(colorChooser); */
-	   
+	   avail4.addMouseListener(new CustomMouseListener());
+	   	   
 	   //addColour(0,"#00dd00");
 	  
 	   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -97,31 +98,55 @@ public class SquareArt extends JFrame{
 	 
 	/* public void mouseClicked(MouseEvent e) {
         	   addColour(0,"#00dd00");
-
     }*/
-	 avail1.addMouseListener(new MouseAdapter() { 
-	    //  @Override
-          public void mouseClicked(MouseEvent me) { 
-            System.out.println(me); 
-          } 
-        }); 
-		
+
 	/*	MouseListener mouseListener = new MouseAdapter(){
 			public void mouseClicked(MouseEvent me) { 
             System.out.println(me); 
           } 
-        };*/
+        }; */
  
-
-
-	/* label.addMouseListener(new MouseAdapter() {
+/*	 avail1.addMouseListener(new MouseAdapter() {
     public void mouseClicked(MouseEvent e) {
         System.out.println("Clicked!");
     }
     });*/
-}
+///
 	 
      public static void main(String[]args){		 		  
 	   SquareArt screen = new SquareArt();  
 	 }
+	 
+	 class CustomMouseListener implements MouseListener{
+      public void mouseClicked(MouseEvent e) {
+        System.out.println("Click!");
+		
+      }
+
+      public void mousePressed(MouseEvent e) {
+		  System.out.println("Down!");
+		  if (avail1.equals(e.getSource())) {
+            System.out.println("avail1");
+          }
+		  if (avail2.equals(e.getSource())) {
+            System.out.println("avail2");
+          }
+		  if (avail3.equals(e.getSource())) {
+            System.out.println("avail3");
+          }
+		  if (avail4.equals(e.getSource())) {
+            System.out.println("avail4");
+          }		
+      }
+
+      public void mouseReleased(MouseEvent e) {
+		  System.out.println("Up!");		  
+      }
+
+      public void mouseEntered(MouseEvent e) {
+      }
+
+      public void mouseExited(MouseEvent e) {	 
+      } 
+   } 
 }
