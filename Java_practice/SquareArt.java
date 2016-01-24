@@ -15,10 +15,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 
 public class SquareArt extends JFrame{
-	 JPanel spot1 = new JPanel();
+	/* JPanel spot1 = new JPanel();
 	 JPanel spot2 = new JPanel();
 	 JPanel spot3 = new JPanel();
-	 JPanel spot4 = new JPanel();
+	 JPanel spot4 = new JPanel();*/
 	 
 	 JPanel avail1 = new JPanel();
 	 JPanel avail2 = new JPanel();
@@ -27,7 +27,9 @@ public class SquareArt extends JFrame{
 	 
 	 int NumSpots = 4;
 	 int i;
+	 String selectedColour = "#ffffff";
 	 JPanel[] spot = new JPanel[4];
+	 int colourNumber = 0;
 	 
      SquareArt(){
 	   setSize(250,200);	   
@@ -47,6 +49,7 @@ public class SquareArt extends JFrame{
 		   spot[i].setPreferredSize(new Dimension(30,30));
 		   spot[i].setBackground(Color.decode("#ffffff"));
 		   spot[i].setBorder(new LineBorder(Color.BLACK, 1));
+	       spot[i].addMouseListener(new CustomMouseListener());
 		   centerArea.add(spot[i]);
 	   }
 	   
@@ -119,28 +122,52 @@ public class SquareArt extends JFrame{
 	 
 	 class CustomMouseListener implements MouseListener{
       public void mouseClicked(MouseEvent e) {
-        System.out.println("Click!");
+      //  System.out.println("Click!");
 		
       }
 
       public void mousePressed(MouseEvent e) {
-		  System.out.println("Down!");
+		 // System.out.println("Down!");
 		  if (avail1.equals(e.getSource())) {
             System.out.println("avail1");
+			selectedColour = "#00dd00";
           }
-		  if (avail2.equals(e.getSource())) {
+		  else if (avail2.equals(e.getSource())) {
             System.out.println("avail2");
+			selectedColour = "#0000ff";
           }
-		  if (avail3.equals(e.getSource())) {
+		  else if (avail3.equals(e.getSource())) {
             System.out.println("avail3");
+			selectedColour = "#ffff00";
           }
-		  if (avail4.equals(e.getSource())) {
+		  else if (avail4.equals(e.getSource())) {
             System.out.println("avail4");
+			selectedColour = "#ff0000";
           }		
       }
 
       public void mouseReleased(MouseEvent e) {
-		  System.out.println("Up!");		  
+		  	  	
+	  if (spot[0].equals(e.getSource())){
+		      colourNumber = 0;
+		   //  System.out.println(selectedColour);
+		   //  spot[0].setBackground(Color.decode(selectedColour));
+	      }
+	  else if (spot[1].equals(e.getSource())){
+		      colourNumber = 1;
+	      }
+	  else if (spot[2].equals(e.getSource())){
+		      colourNumber = 2;
+	      }
+	  else if (spot[3].equals(e.getSource())){
+		      colourNumber = 3;
+	      }
+		  
+	/*  if (spot[1].equals(e.getSource())){
+		     System.out.println(selectedColour);
+		     spot[1].setBackground(Color.decode(selectedColour));
+	      } */
+		  addColour(colourNumber,selectedColour);
       }
 
       public void mouseEntered(MouseEvent e) {
