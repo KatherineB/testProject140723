@@ -1,0 +1,137 @@
+<html>
+<head>
+<title>LightEffect</title>
+<style>
+.mainDiv{
+    text-align: center;
+	background-color: #bbb;
+}
+.heading{
+    font-size: 30px;
+	padding-top: 30px;
+}
+.optionsRow{
+   /* background-color: #ffccdd;*/
+	display:inline-block;
+}
+.title{
+    font-size: 25px;
+}
+.coloursAvail{
+    text-align: left;
+	/*display:inline-block;*/
+	/*background-color: #ffcc22;*/
+	padding: 25px;
+	margin-right: 25px;
+	/*height: 400px;*/
+	float:left;
+}
+.colourBox{
+    font-size: 25px;
+	margin-top: 15px;
+}
+.colour{
+    width: 20px;
+	height: 20px;
+}
+.timeIntervals{
+    text-align: left;
+	/*display:inline-block;*/
+	/*background-color: #22ffcc;*/
+	padding: 25px;
+	margin-left: 25px;
+/*	height: 400px;*/
+    padding-bottom: 25px;
+	top: 30px;
+	float:left;
+}
+.timeBox{
+    font-size: 25px;
+	margin-top: 15px;
+}
+.time{
+    width: 20px;
+	height: 20px;
+}
+.buttonRow{
+    margin-top: 30px;
+  /*  background-color: #77ff44;*/
+	display:inline-block;	
+}
+.btnBox{
+    display: inline-block;
+	padding: 25px;
+}
+.btn{
+    width: 80px;
+	height: 40px;
+	font-size: 25px;
+}
+</style>
+<script>
+function startShow(){
+    document.getElementById("mainDiv").style.backgroundColor = '#0fc';
+}
+</script>
+</head>
+<body>
+<div class="mainDiv" id="mainDiv">
+       <div class="heading">Light Effects</div>
+       <div class="optionsRow">
+			  <div class="coloursAvail">
+					<div class="title">Colours Available:</div>
+					<div class="colourBox">
+					  <input class="colour" type="checkbox" name="red" value="Red">Red
+					</div>
+					<div class="colourBox">
+					  <input class="colour" type="checkbox" name="orange" value="Orange">Orange
+					</div>
+					<div class="colourBox">
+					  <input class="colour" type="checkbox" name="yellow" value="Yellow">Yellow
+					</div>
+					<div class="colourBox">
+					  <input class="colour" type="checkbox" name="green" value="Green">Green
+					</div>
+					<div class="colourBox">
+					  <input class="colour" type="checkbox" name="blue" value="Blue">Blue
+					</div>			
+					<div class="colourBox">
+					  <input class="colour" type="checkbox" name="turquoise" value="Turquoise">Turquoise
+					</div>
+					<div class="colourBox">
+					  <input class="colour" type="checkbox" name="purple" value="Purple">Purple
+					</div>
+					
+			   </div>
+			   <div class="timeIntervals">
+					<div class="title">Time Intervals Available:</div>
+					<div class="timeBox">
+					  <input class="time" type="radio" name="time" value="sec5">5 Seconds
+					</div>
+					<div class="timeBox">
+					  <input class="time" type="radio" name="time" value="sec10">10 Seconds
+					</div>
+					<div class="timeBox">
+					  <input class="time" type="radio" name="time" value="sec20">20 Seconds
+					</div>
+					<div class="timeBox">
+					  <input class="time" type="radio" name="time" value="sec40">40 Seconds
+					</div>
+					<div class="timeBox">
+					  <input class="time" type="radio" name="time" value="secRand">Random
+					</div>
+			   </div>
+		</div>
+		<div style="clear:both"></div> 
+		<div class="buttonRow">
+		         <div class="btnBox">
+				  <input class="btn" type="button" name="start" value="Start" OnClick="startShow()">
+				</div>
+				<div class="btnBox">
+				  <input class="btn" type="button" name="stop" value="Stop">
+				</div>
+		</div>
+
+</div>
+</body>
+</html>
