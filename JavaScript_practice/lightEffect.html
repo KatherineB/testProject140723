@@ -5,6 +5,7 @@
 .mainDiv{
     text-align: center;
 	background-color: #bbb;
+	height: 100%;
 }
 .heading{
     font-size: 30px;
@@ -69,9 +70,74 @@
 }
 </style>
 <script>
+var colours = new Array(0,0,0,0,0,0,0);
+colours[3] = 1;
+colours[5] = 1;
+
+var duration = 30000;
+
 function startShow(){
-    document.getElementById("mainDiv").style.backgroundColor = '#0fc';
+    var redChecked = document.getElementById("red").checked;
+	var orangeChecked = document.getElementById("orange").checked;
+	var yellowChecked = document.getElementById("yellow").checked;
+    var greenChecked = document.getElementById("green").checked;
+	var blueChecked = document.getElementById("blue").checked;
+	var turquoiseChecked = document.getElementById("turquoise").checked;
+	var purpleChecked = document.getElementById("purple").checked;
+	
+	setTimeout(function() {
+	    if(redChecked){
+				  displayColour('#f03');
+		}
+		setTimeout(function() {
+		    if(orangeChecked){
+				  displayColour('#f74');
+		    }
+			setTimeout(function() {
+			    if(yellowChecked){
+				  displayColour('#ff0');
+				}
+				setTimeout(function() {
+					if(greenChecked){
+					  displayColour('#0f0');
+					}
+					setTimeout(function() {
+						if(blueChecked){
+						   displayColour('#00f');
+						}
+						setTimeout(function() {
+							if(turquoiseChecked){
+							   displayColour('#0fc');
+							}
+							setTimeout(function() {
+								if(purpleChecked){
+								   displayColour('#a0f');
+								}
+							}, duration);
+						}, duration);
+					}, duration);
+				}, duration);
+			},duration);
+		},duration);
+	}, duration);
+/*	if (greenChecked){
+	   document.getElementById("mainDiv").style.backgroundColor = '#0f0';
+	 //  setTimeout(function(){displayColour('#0f0');}, 3000);
+	 displayColour('#0f0');
+	}
+	if (turquoiseChecked){
+	   document.getElementById("mainDiv").style.backgroundColor = '#0fc';
+	// setTimeout(function(){displayColour('#0fc');}, 5000);
+	displayColour('#0f0');
+	}*/
+	
 }
+function displayColour(colour){
+    // alert("in displayColour");
+	 document.getElementById('mainDiv').style.backgroundColor = colour;
+	 
+}
+
 </script>
 </head>
 <body>
@@ -81,25 +147,25 @@ function startShow(){
 			  <div class="coloursAvail">
 					<div class="title">Colours Available:</div>
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="red" value="Red">Red
+					  <input class="colour" type="checkbox" name="red" id="red" value="Red">Red
 					</div>
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="orange" value="Orange">Orange
+					  <input class="colour" type="checkbox" name="orange" id="orange" value="Orange">Orange
 					</div>
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="yellow" value="Yellow">Yellow
+					  <input class="colour" type="checkbox" name="yellow" id="yellow" value="Yellow">Yellow
 					</div>
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="green" value="Green">Green
+					  <input class="colour" type="checkbox" name="green" id="green" value="Green">Green
 					</div>
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="blue" value="Blue">Blue
+					  <input class="colour" type="checkbox" name="blue" id="blue" value="Blue">Blue
 					</div>			
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="turquoise" value="Turquoise">Turquoise
+					  <input class="colour" type="checkbox" name="turquoise" id="turquoise" value="Turquoise">Turquoise
 					</div>
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="purple" value="Purple">Purple
+					  <input class="colour" type="checkbox" name="purple" id="purple" value="Purple">Purple
 					</div>
 					
 			   </div>
