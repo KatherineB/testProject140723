@@ -12,7 +12,6 @@
 	padding-top: 30px;
 }
 .optionsRow{
-   /* background-color: #ffccdd;*/
 	display:inline-block;
 }
 .title{
@@ -20,11 +19,7 @@
 }
 .coloursAvail{
     text-align: left;
-	/*display:inline-block;*/
-	/*background-color: #ffcc22;*/
-	padding: 25px;
-	margin-right: 25px;
-	/*height: 400px;*/
+	padding: 45px;
 	float:left;
 }
 .colourBox{
@@ -37,11 +32,7 @@
 }
 .timeIntervals{
     text-align: left;
-	/*display:inline-block;*/
-	/*background-color: #22ffcc;*/
-	padding: 25px;
-	margin-left: 25px;
-/*	height: 400px;*/
+	padding: 45px;
     padding-bottom: 25px;
 	top: 30px;
 	float:left;
@@ -54,9 +45,23 @@
     width: 20px;
 	height: 20px;
 }
+.loopChoice{
+    text-align: left;
+	padding: 45px;
+    padding-bottom: 25px;
+	top: 30px;
+	float:left;
+}
+.loopBox{
+    font-size: 25px;
+	margin-top: 15px;
+}
+.loop{
+    width: 20px;
+	height: 20px;
+}
 .buttonRow{
     margin-top: 30px;
-  /*  background-color: #77ff44;*/
 	display:inline-block;	
 }
 .btnBox{
@@ -70,13 +75,67 @@
 }
 </style>
 <script>
-var colours = new Array(0,0,0,0,0,0,0);
-colours[3] = 1;
-colours[5] = 1;
-
-var duration = 30000;
+var NUMBER_OF_COLOURS = 7;
+var duration;
+var loop;
 
 function startShow(){
+	 var cycleArray = document.getElementsByName("loop");
+	 
+	 for(var i = 0; i < cycleArray.length; i++) {
+	   if(cycleArray[i].checked == true) {
+		   numberCycles = cycleArray[i].value;
+	   }
+	 }
+	 
+	 var durationArray = document.getElementsByName("time");
+	 
+	 for(var i = 0; i < durationArray.length; i++) {
+	   if(durationArray[i].checked == true) {
+		   duration = durationArray[i].value;
+	   }
+	 }
+	 
+	 loop = duration * NUMBER_OF_COLOURS;
+	 
+	 setTimeout(function() {
+			if(numberCycles > 0){
+			   runCycle();
+			}
+			setTimeout(function() {
+				if(numberCycles > 1){
+				   runCycle();
+				}
+				setTimeout(function() {
+					if(numberCycles > 2){
+					   runCycle();
+					}
+					setTimeout(function() {
+						if(numberCycles > 3){
+						   runCycle();
+						}
+						setTimeout(function() {
+							if(numberCycles > 4){
+							   runCycle();
+							}
+							setTimeout(function() {
+								if(numberCycles > 5){
+								   runCycle();
+								}
+								setTimeout(function() {
+									if(numberCycles > 6){
+									   runCycle();
+									}
+				                }, loop);
+				            }, loop);
+				        }, loop);
+				    }, loop);
+				}, loop);
+			}, loop);
+		}, 1000);
+}
+
+function runCycle(){
     var redChecked = document.getElementById("red").checked;
 	var orangeChecked = document.getElementById("orange").checked;
 	var yellowChecked = document.getElementById("yellow").checked;
@@ -119,23 +178,10 @@ function startShow(){
 				}, duration);
 			},duration);
 		},duration);
-	}, duration);
-/*	if (greenChecked){
-	   document.getElementById("mainDiv").style.backgroundColor = '#0f0';
-	 //  setTimeout(function(){displayColour('#0f0');}, 3000);
-	 displayColour('#0f0');
-	}
-	if (turquoiseChecked){
-	   document.getElementById("mainDiv").style.backgroundColor = '#0fc';
-	// setTimeout(function(){displayColour('#0fc');}, 5000);
-	displayColour('#0f0');
-	}*/
-	
+	}, 1000);
 }
 function displayColour(colour){
-    // alert("in displayColour");
-	 document.getElementById('mainDiv').style.backgroundColor = colour;
-	 
+	 document.getElementById('mainDiv').style.backgroundColor = colour;	 
 }
 
 </script>
@@ -145,7 +191,7 @@ function displayColour(colour){
        <div class="heading">Light Effects</div>
        <div class="optionsRow">
 			  <div class="coloursAvail">
-					<div class="title">Colours Available:</div>
+					<div class="title">Colours:</div>
 					<div class="colourBox">
 					  <input class="colour" type="checkbox" name="red" id="red" value="Red">Red
 					</div>
@@ -170,21 +216,36 @@ function displayColour(colour){
 					
 			   </div>
 			   <div class="timeIntervals">
-					<div class="title">Time Intervals Available:</div>
+					<div class="title">Time Interval:</div>				
 					<div class="timeBox">
-					  <input class="time" type="radio" name="time" value="sec5">5 Seconds
+					  <input class="time" type="radio" name="time" value="10000">10 Seconds
 					</div>
 					<div class="timeBox">
-					  <input class="time" type="radio" name="time" value="sec10">10 Seconds
+					  <input class="time" type="radio" name="time" value="20000">20 Seconds
 					</div>
 					<div class="timeBox">
-					  <input class="time" type="radio" name="time" value="sec20">20 Seconds
+					  <input class="time" type="radio" name="time" value="40000">40 Seconds
 					</div>
 					<div class="timeBox">
-					  <input class="time" type="radio" name="time" value="sec40">40 Seconds
+					  <input class="time" type="radio" name="time" value="80000">80 Seconds
 					</div>
-					<div class="timeBox">
+				<!--	<div class="timeBox">
 					  <input class="time" type="radio" name="time" value="secRand">Random
+					</div>-->
+			   </div>
+			   <div class="loopChoice">
+					<div class="title">Loops:</div>
+					<div class="loopBox">
+					  <input class="loop" type="radio" name="loop" value="1">1
+					</div>
+					<div class="loopBox">
+					  <input class="loop" type="radio" name="loop" value="3">3
+					</div>
+					<div class="loopBox">
+					  <input class="loop" type="radio" name="loop" value="5">5
+					</div>
+					<div class="loopBox">
+					  <input class="loop" type="radio" name="loop" value="7">7
 					</div>
 			   </div>
 		</div>
