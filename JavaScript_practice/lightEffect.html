@@ -1,188 +1,12 @@
 <html>
 <head>
 <title>LightEffect</title>
+<link rel="stylesheet" href="lightEffect.css">
 <style>
-.mainDiv{
-    text-align: center;
-	background-color: #bbb;
-	height: 100%;
-}
-.heading{
-    font-size: 30px;
-	padding-top: 30px;
-}
-.optionsRow{
-	display:inline-block;
-}
-.title{
-    font-size: 25px;
-}
-.coloursAvail{
-    text-align: left;
-	padding: 45px;
-	float:left;
-}
-.colourBox{
-    font-size: 25px;
-	margin-top: 15px;
-}
-.colour{
-    width: 20px;
-	height: 20px;
-}
-.timeIntervals{
-    text-align: left;
-	padding: 45px;
-    padding-bottom: 25px;
-	top: 30px;
-	float:left;
-}
-.timeBox{
-    font-size: 25px;
-	margin-top: 15px;
-}
-.time{
-    width: 20px;
-	height: 20px;
-}
-.loopChoice{
-    text-align: left;
-	padding: 45px;
-    padding-bottom: 25px;
-	top: 30px;
-	float:left;
-}
-.loopBox{
-    font-size: 25px;
-	margin-top: 15px;
-}
-.loop{
-    width: 20px;
-	height: 20px;
-}
-.buttonRow{
-    margin-top: 30px;
-	display:inline-block;	
-}
-.btnBox{
-    display: inline-block;
-	padding: 25px;
-}
-.btn{
-    width: 80px;
-	height: 40px;
-	font-size: 25px;
-}
+
 </style>
 <script>
-var NUMBER_OF_COLOURS = 7;
-var duration;
-var loop;
 
-function startShow(){
-	 var cycleArray = document.getElementsByName("loop");
-	 
-	 for(var i = 0; i < cycleArray.length; i++) {
-	   if(cycleArray[i].checked == true) {
-		   numberCycles = cycleArray[i].value;
-	   }
-	 }
-	 
-	 var durationArray = document.getElementsByName("time");
-	 
-	 for(var i = 0; i < durationArray.length; i++) {
-	   if(durationArray[i].checked == true) {
-		   duration = durationArray[i].value;
-	   }
-	 }
-	 
-	 loop = duration * NUMBER_OF_COLOURS;
-	 
-	 setTimeout(function() {
-			if(numberCycles > 0){
-			   runCycle();
-			}
-			setTimeout(function() {
-				if(numberCycles > 1){
-				   runCycle();
-				}
-				setTimeout(function() {
-					if(numberCycles > 2){
-					   runCycle();
-					}
-					setTimeout(function() {
-						if(numberCycles > 3){
-						   runCycle();
-						}
-						setTimeout(function() {
-							if(numberCycles > 4){
-							   runCycle();
-							}
-							setTimeout(function() {
-								if(numberCycles > 5){
-								   runCycle();
-								}
-								setTimeout(function() {
-									if(numberCycles > 6){
-									   runCycle();
-									}
-				                }, loop);
-				            }, loop);
-				        }, loop);
-				    }, loop);
-				}, loop);
-			}, loop);
-		}, 1000);
-}
-
-function runCycle(){
-    var redChecked = document.getElementById("red").checked;
-	var orangeChecked = document.getElementById("orange").checked;
-	var yellowChecked = document.getElementById("yellow").checked;
-    var greenChecked = document.getElementById("green").checked;
-	var blueChecked = document.getElementById("blue").checked;
-	var turquoiseChecked = document.getElementById("turquoise").checked;
-	var purpleChecked = document.getElementById("purple").checked;
-	
-	setTimeout(function() {
-	    if(redChecked){
-				  displayColour('#f03');
-		}
-		setTimeout(function() {
-		    if(orangeChecked){
-				  displayColour('#f74');
-		    }
-			setTimeout(function() {
-			    if(yellowChecked){
-				  displayColour('#ff0');
-				}
-				setTimeout(function() {
-					if(greenChecked){
-					  displayColour('#0f0');
-					}
-					setTimeout(function() {
-						if(blueChecked){
-						   displayColour('#00f');
-						}
-						setTimeout(function() {
-							if(turquoiseChecked){
-							   displayColour('#0fc');
-							}
-							setTimeout(function() {
-								if(purpleChecked){
-								   displayColour('#a0f');
-								}
-							}, duration);
-						}, duration);
-					}, duration);
-				}, duration);
-			},duration);
-		},duration);
-	}, 1000);
-}
-function displayColour(colour){
-	 document.getElementById('mainDiv').style.backgroundColor = colour;	 
-}
 
 </script>
 </head>
@@ -193,25 +17,25 @@ function displayColour(colour){
 			  <div class="coloursAvail">
 					<div class="title">Colours:</div>
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="red" id="red" value="Red">Red
+					  <input class="colour" type="checkbox" name="colours" id="red" value="Red">Red
 					</div>
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="orange" id="orange" value="Orange">Orange
+					  <input class="colour" type="checkbox" name="colours" id="orange" value="Orange">Orange
 					</div>
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="yellow" id="yellow" value="Yellow">Yellow
+					  <input class="colour" type="checkbox" name="colours" id="yellow" value="Yellow">Yellow
 					</div>
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="green" id="green" value="Green">Green
+					  <input class="colour" type="checkbox" name="colours" id="green" value="Green">Green
 					</div>
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="blue" id="blue" value="Blue">Blue
+					  <input class="colour" type="checkbox" name="colours" id="blue" value="Blue">Blue
 					</div>			
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="turquoise" id="turquoise" value="Turquoise">Turquoise
+					  <input class="colour" type="checkbox" name="colours" id="turquoise" value="Turquoise">Turquoise
 					</div>
 					<div class="colourBox">
-					  <input class="colour" type="checkbox" name="purple" id="purple" value="Purple">Purple
+					  <input class="colour" type="checkbox" name="colours" id="purple" value="Purple">Purple
 					</div>
 					
 			   </div>
@@ -252,7 +76,7 @@ function displayColour(colour){
 		<div style="clear:both"></div> 
 		<div class="buttonRow">
 		         <div class="btnBox">
-				  <input class="btn" type="button" name="start" value="Start" OnClick="startShow()">
+				  <input class="btn" type="button" name="start" value="Start" OnClick="runShow()">
 				</div>
 				<div class="btnBox">
 				  <input class="btn" type="button" name="stop" value="Stop">
@@ -260,5 +84,6 @@ function displayColour(colour){
 		</div>
 
 </div>
+<script src="lightEffect.js"></script>
 </body>
 </html>

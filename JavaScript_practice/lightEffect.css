@@ -1,0 +1,72 @@
+/* lightEffect CSS */
+.mainDiv{
+    text-align: center;
+	background-color: #bbb;
+	height: 100%;
+}
+.heading{
+    font-size: 30px;
+	padding-top: 30px;
+}
+.optionsRow{
+	display:inline-block;
+}
+.title{
+    font-size: 25px;
+}
+.coloursAvail{
+    text-align: left;
+	padding: 45px;
+	float:left;
+}
+.colourBox{
+    font-size: 25px;
+	margin-top: 15px;
+}
+.colour{
+    width: 20px;
+	height: 20px;
+}
+.timeIntervals{
+    text-align: left;
+	padding: 45px;
+    padding-bottom: 25px;
+	top: 30px;
+	float:left;
+}
+.timeBox{
+    font-size: 25px;
+	margin-top: 15px;
+}
+.time{
+    width: 20px;
+	height: 20px;
+}
+.loopChoice{
+    text-align: left;
+	padding: 45px;
+    padding-bottom: 25px;
+	top: 30px;
+	float:left;
+}
+.loopBox{
+    font-size: 25px;
+	margin-top: 15px;
+}
+.loop{
+    width: 20px;
+	height: 20px;
+}
+.buttonRow{
+    margin-top: 30px;
+	display:inline-block;	
+}
+.btnBox{
+    display: inline-block;
+	padding: 25px;
+}
+.btn{
+    width: 80px;
+	height: 40px;
+	font-size: 25px;
+}
