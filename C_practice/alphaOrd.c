@@ -11,11 +11,14 @@ char letterSquare[5][5];
 int outer = 5;
 int inner = 5;
 char sequence[];
+int length;
+int score;
 
 
 main(){
    char letters[26] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
    int number;
+
    unsigned int seed;
    srand(time(NULL));
 
@@ -62,43 +65,47 @@ int checkForDuplicates(int pick){
      return 0;
 }
 void searchLetterSquareArray(char sequence[]){
-    char letter1 = sequence[0];
-    char letter2 = sequence[1];
-    int x1, x2, y1, y2;
-    int xDiff, yDiff;
-    
-    for(i=0; i<outer; i++)
-     {
-      for(j=0; j<inner; j++)
-        {
-          if(letter1 == letterSquare[i][j]){
-               printf("The first letter %c is in position %d %d \n",letter1,i,j);  
-               x1 = i;
-               y1 = j;          
-          }
-        }
-     }
+     int x1, x2, y1, y2;
+     int xDiff, yDiff;
+     length = 7;
+     score = 1;
+     for(k=0; k<length-1; k++){
+	    char letter1 = sequence[0+k];
+	    char letter2 = sequence[1+k];  
+	    for(i=0; i<outer; i++)
+	     {
+	      for(j=0; j<inner; j++)
+		{
+		  if(letter1 == letterSquare[i][j]){
+		       printf("The first letter %c is in position %d %d \n",letter1,i,j);  
+		       x1 = i;
+		       y1 = j;          
+		  }
+		}
+	     }
 
-     for(i=0; i<outer; i++)
-     {
-      for(j=0; j<inner; j++)
-        {
-          if(letter2 == letterSquare[i][j]){
-               printf("The second letter %c is in position %d %d \n",letter2,i,j);   
-               x2 = i;
-               y2 = j;          
-          }
-        }
-     }
-     xDiff = x1 - x2;
-     yDiff = y1 - y2;
+	     for(i=0; i<outer; i++)
+	     {
+	      for(j=0; j<inner; j++)
+		{
+		  if(letter2 == letterSquare[i][j]){
+		       printf("The second letter %c is in position %d %d \n",letter2,i,j);   
+		       x2 = i;
+		       y2 = j;          
+		  }
+		}
+	     }
+	     xDiff = abs(x1 - x2);
+	     yDiff = abs(y1 - y2);
 
-     if( xDiff < 2  && yDiff < 2 && xDiff > -2 && yDiff > -2){
-         printf("Correct sequence!\n");
-     }
-     else{
-        printf("Not a correct sequence\n");
-     }
-
+	     if( xDiff < 2  && yDiff < 2){
+		 score = score * (2 + k);
+                 printf("score=%d\n",score);
+	     }
+	     else{
+		printf("Not a correct sequence\n");
+	     }
+      }
+      
 } 
 
