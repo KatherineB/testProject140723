@@ -3,13 +3,6 @@ var NUMBER_OF_COLOURS = 7;
 var numberColoursPicked = 0;
 var interval;
 var loop;
-var redChecked;
-var orangeChecked;
-var yellowChecked;
-var greenChecked;
-var blueChecked;
-var turquoiseChecked;
-var purpleChecked;
 
 function runShow(){
 	handleUserInput();
@@ -18,21 +11,13 @@ function runShow(){
 }
 
 function handleUserInput(){
-	 /*redChecked = document.getElementById("red").checked;
-	 orangeChecked = document.getElementById("orange").checked;
-	 yellowChecked = document.getElementById("yellow").checked;
-     greenChecked = document.getElementById("green").checked;
-	 blueChecked = document.getElementById("blue").checked;
-	 turquoiseChecked = document.getElementById("turquoise").checked;
-	 purpleChecked = document.getElementById("purple").checked;*/
-	 
 	 
 	 var colourArray = document.getElementsByName("colours");
 	
 	 for(var i = 0; i < colourArray.length; i++) {
 	   if(colourArray[i].checked == true) {
 		   //colourTest = colourArray[i].value;
-		  // alert(colourArray[i].value);
+		   alert(colourArray[i].value);
 		  coloursPicked[i] = 1;
 		  numberColoursPicked++;
 	   }
@@ -60,6 +45,7 @@ function handleUserInput(){
 }
 
 function controlNumberLoops(){	 
+     alert(numberLoops);
 	 setTimeout(function() {
 			if(numberLoops > 0){
 			   runCycle();
@@ -98,33 +84,33 @@ function controlNumberLoops(){
 }
 
 function runCycle(){
-    
+    alert("runC");
 	setTimeout(function() {
-	    if(redChecked){
+	    if(coloursPicked[0]){
 			displayColour('#f03');
 		}
 		setTimeout(function() {
-		    if(orangeChecked){
+		    if(coloursPicked[1]){
 				  displayColour('#f74');
 		    }
 			setTimeout(function() {
-			    if(yellowChecked){
+			    if(coloursPicked[2]){
 				  displayColour('#ff0');
 				}
 				setTimeout(function() {
-					if(greenChecked){
+					if(coloursPicked[3]){
 					  displayColour('#0f0');
 					}
 					setTimeout(function() {
-						if(blueChecked){
+						if(coloursPicked[4]){
 						   displayColour('#00f');
 						}
 						setTimeout(function() {
-							if(turquoiseChecked){
+							if(coloursPicked[5]){
 							   displayColour('#0fc');
 							}
 							setTimeout(function() {
-								if(purpleChecked){
+								if(coloursPicked[6]){
 								   displayColour('#a0f');
 								}
 							}, interval);
