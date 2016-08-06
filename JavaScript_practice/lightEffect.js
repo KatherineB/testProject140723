@@ -1,6 +1,8 @@
+var coloursAvailable = new Array('#f03','#f74','#ff0','#0f0','#00f','#0fc','#a0f');
 var coloursPicked = new Array(0,0,0,0,0,0,0);
 var NUMBER_OF_COLOURS = 7;
 var numberColoursPicked = 0;
+var firstColourPicked = -1;
 var interval;
 var loop;
 
@@ -41,11 +43,12 @@ function handleUserInput(){
 	   }
 	 }
 	  
-	 loop = interval * NUMBER_OF_COLOURS;
+	// loop = interval * NUMBER_OF_COLOURS;
 }
 
 function controlNumberLoops(){	 
-     alert(numberLoops);
+    // alert(numberLoops);
+	loop = 1000;
 	 setTimeout(function() {
 			if(numberLoops > 0){
 			   runCycle();
@@ -87,31 +90,31 @@ function runCycle(){
     alert("runC");
 	setTimeout(function() {
 	    if(coloursPicked[0]){
-			displayColour('#f03');
+			displayColour(coloursAvailable[0]);
 		}
 		setTimeout(function() {
 		    if(coloursPicked[1]){
-				  displayColour('#f74');
+				displayColour(coloursAvailable[1]);
 		    }
 			setTimeout(function() {
 			    if(coloursPicked[2]){
-				  displayColour('#ff0');
+				  displayColour(coloursAvailable[2]);
 				}
 				setTimeout(function() {
 					if(coloursPicked[3]){
-					  displayColour('#0f0');
+					  displayColour(coloursAvailable[3]);
 					}
 					setTimeout(function() {
 						if(coloursPicked[4]){
-						   displayColour('#00f');
+						   displayColour(coloursAvailable[4]);
 						}
 						setTimeout(function() {
 							if(coloursPicked[5]){
-							   displayColour('#0fc');
+							   displayColour(coloursAvailable[5]);
 							}
 							setTimeout(function() {
 								if(coloursPicked[6]){
-								   displayColour('#a0f');
+								   displayColour(coloursAvailable[6]);
 								}
 							}, interval);
 						}, interval);
@@ -119,7 +122,7 @@ function runCycle(){
 				}, interval);
 			},interval);
 		},interval);
-	}, 1000);
+	}, interval);
 }
 function displayColour(colour){
 	 document.getElementById('mainDiv').style.backgroundColor = colour;	 
