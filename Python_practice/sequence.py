@@ -1,3 +1,13 @@
+#
+# Sequence Guessing Game
+# ----------------------
+# A sequence of five numbers from 1 to 3 is chosen at random.  The player must try to guess them.
+# The player inputs the numbers, one by one.  The program looks for correct three number partial 
+# sequences within the five number sequence.  It also counts the first two numbers and last two 
+# numbers in the five number sequence as partial sequences that could be right or wrong.  It reports 
+# the number of sequences that the play got right.
+
+
 import random
 from array import *
 
@@ -5,7 +15,7 @@ randomNumbers = [0,0,0,0,0]
 guesses = array('i',[0,0,0,0,0])
 checks = array('i',[0,0,0,0,0])
 correct = 0
-#loops = 0
+info = 0
 play = 1
 
 def doGuesses():
@@ -57,12 +67,12 @@ def runGame():
     for i in range(0, len(randomNumbers)):
         randomNumbers[i] = random.randint(1,3)
  
-    for i in range(0, len(checks)):
-        checks[i] = 0
-
     while loops < 6 and correct != 5:
-        correct = doGuesses()
+        for i in range(0, len(checks)):
+            checks[i] = 0
         loops += 1
+        print "Enter set ", loops, " of guesses for five number sequence:"
+        correct = doGuesses()    
 
     if correct == 5:
         print "YOU WIN !!!  You correctly guessed the sequence!"
@@ -74,19 +84,22 @@ def runGame():
     for j in randomNumbers:
         print(j)
 
-    print "Play again?"
-    
-    play = input()
-
-    print play
-
-    #if again == "y" or again == "Y":
-       # play = 1
-    #else:
-       # play = 0;
-    #print again
-    #print play 
+def showHowToPlay():
+    print "A sequence of five numbers from 1 to 3 is chosen at random.  The player must try to guess them."
+    print "The player inputs the numbers, one by one.  The program looks for correct three number partial" 
+    print "sequences within the five number sequence.  It also counts the first two numbers and last two" 
+    print "numbers in the five number sequence as partial sequences that could be right or wrong.  It reports" 
+    print "the number of sequences that the play got right."
 
 while play == 1:
+    info = input("Display instructions? (1/0)")
+    if info == 1:
+        showHowToPlay()
     runGame()
-
+    play = input("Play again? (1/0)")
+    #again = input("Play again? (y/n)")
+    #if again == "y" or again == "Y":
+        #play = 1
+    #else:
+       #play = 0;
+   
