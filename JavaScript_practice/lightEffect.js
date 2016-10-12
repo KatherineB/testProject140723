@@ -50,31 +50,31 @@ function controlNumberLoops(){
 	loop = 10000 * numberColoursPicked;
 	 setTimeout(function() {
 			if(numberLoops > 0){
-			   runCycle();			   
+			   controlColours();			   
 			}
 			setTimeout(function() {
 				if(numberLoops > 1){
-				   runCycle();
+				   controlColours();
 				}
 				setTimeout(function() {
 					if(numberLoops > 2){
-					   runCycle();
+					   controlColours();
 					}
 					setTimeout(function() {
 						if(numberLoops > 3){
-						   runCycle();
+						   controlColours();
 						}
 						setTimeout(function() {
 							if(numberLoops > 4){
-							   runCycle();
+							   controlColours();
 							}
 							setTimeout(function() {
 								if(numberLoops > 5){
-								   runCycle();
+								   controlColours();
 								}
 								setTimeout(function() {
 									if(numberLoops > 6){
-									   runCycle();
+									   controlColours();
 									}
 				                }, loop);
 				            }, loop);
@@ -85,9 +85,10 @@ function controlNumberLoops(){
 		}, 1000); 
 }
 
-function runCycle(){
+function controlColours(){
 	/* This display of a colour is so that a colour will display immediately,
-	   not after a time interval delay that will give the appearance that the program is doing nothing.  The last colour on the list picked is the
+	   not after a time interval delay that will give the appearance that the 
+	   program is doing nothing.  The last colour on the list picked is the
 	   colour displayed so that the order of colours is maintained when the
 	   timeed colour changes start.
 	 */   
@@ -131,4 +132,14 @@ function runCycle(){
 }
 function displayColour(colour){
 	 document.getElementById('mainDiv').style.backgroundColor = colour;	 
+}
+function clearColours(){
+	for(var i=0; i<7; i++){
+	    coloursPicked[i] = 0;
+		colourTimes[i] = 1;
+	}
+	numberColoursPicked = 0;
+	firstColourPicked = -1;
+	lastColourPicked = -1;
+	displayColour("#bbb");
 }
