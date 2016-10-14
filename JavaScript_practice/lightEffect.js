@@ -48,6 +48,15 @@ function handleUserInput(){
 
 function controlNumberLoops(){	 
 	loop = 10000 * numberColoursPicked;
+	
+	/* This display of a colour is so that a colour will display immediately,
+	   not after a time interval delay that will give the appearance that the 
+	   program is doing nothing.  The last colour on the list picked is the
+	   colour displayed so that the order of colours is maintained when the
+	   timeed colour changes start.
+	 */   
+	displayColour(coloursAvailable[lastColourPicked]);
+	
 	 setTimeout(function() {
 			if(numberLoops > 0){
 			   controlColours();			   
@@ -76,6 +85,21 @@ function controlNumberLoops(){
 									if(numberLoops > 6){
 									   controlColours();
 									}
+									setTimeout(function() {
+										if(numberLoops > 7){
+										   controlColours();
+										}
+										setTimeout(function() {
+											if(numberLoops > 8){
+											   controlColours();
+											}
+											setTimeout(function() {
+												if(numberLoops > 9){
+												   controlColours();
+												}
+				                            }, loop);
+				                        }, loop);
+				                    }, loop);
 				                }, loop);
 				            }, loop);
 				        }, loop);
@@ -83,17 +107,19 @@ function controlNumberLoops(){
 				}, loop);
 			}, loop);
 		}, 1000); 
+		
+		 
+		/*
+		for(var i = 0; i < numberLoops; i++){
+			setTimeout(function() {		
+                 alert("in timeout");			
+				 controlColours();								
+			}, loop);
+		}*/
 }
 
 function controlColours(){
-	/* This display of a colour is so that a colour will display immediately,
-	   not after a time interval delay that will give the appearance that the 
-	   program is doing nothing.  The last colour on the list picked is the
-	   colour displayed so that the order of colours is maintained when the
-	   timeed colour changes start.
-	 */   
-    displayColour(coloursAvailable[lastColourPicked]);
-	
+
 	setTimeout(function() {
 	    if(coloursPicked[0]){
 			displayColour(coloursAvailable[0]);
