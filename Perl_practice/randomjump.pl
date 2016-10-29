@@ -6,12 +6,15 @@ my $x = 0;
 my $y = 0;
 my $x_prev = 0;
 my $y_prev = 0;
+my $k = 0;
 my $squareTotal = 0;
 my $score = 0;
 my $step = 0;
+my $nextStep = 0;
 my $withinLimits = 0;
 my $properDiff = 0;
 my $legalMove = 0;
+my $canMove = 0;
 
 my @square;
  
@@ -30,7 +33,7 @@ for (my $i = 0; $i < 8; $i++){
 
 
 
-for (my $k = 0; $k<8; $k++){
+while ($k < 8){
 	for (my $i = 0; $i < 4; $i++){
 	      for (my $j = 0; $j < 4; $j++){
 		   print $square[$i][$j] , ' ';         
@@ -66,7 +69,10 @@ for (my $k = 0; $k<8; $k++){
         print "\n";
 
         $step = $route[$k];
-       # print "step=", $step, "\n";
+        if ($k < 7){
+          $nextStep = $route[$k+1];
+        }
+       print "step=", $step, "\n";
 
         $legalMove = validateMove($x,$y,$x_prev,$y_prev,$step);
         
@@ -77,6 +83,8 @@ for (my $k = 0; $k<8; $k++){
 
 		$x_prev = $x;
 		$y_prev = $y;
+
+                $k++;
                 
                 if ($k < 7){
 		       print "Score=", $score, "\n\n";
@@ -84,7 +92,16 @@ for (my $k = 0; $k<8; $k++){
         }
         else{
                 print "Please enter a legal move.\n\n";
-                $k--;
+        }
+
+        if ($nextStep == 3){
+                print "In 3 check\n";
+                $canMove = checkForLegalMoves($x,$y);
+                if ($canMove == 0){
+                       $k = 8;
+                       print "Sorry, there are no legal moves possible now.\n\n";
+                }
+                
         }
 }
 print "Game over, your final score is ", $score, "\n";
@@ -136,5 +153,38 @@ sub validateMove {
        }
 
        return($legalMove);
+}
+
+sub checkForLegalMoves {
+
+       print "in new function\n";
+       $x = $_[0];
+       $y = $_[1];
+
+      print "x=", $x, "\n";
+      print "y=", $y, "\n";
+
+       my $option = 0;
+
+       if ( ($x + 3) > -1 && ($x + 3) < 4 ){
+             $option = 1;
+              print "1 legal options found\n";
+       }
+       elsif ( ($x - 3) > -1 && ($x - 3) < 4 ){
+             $option = 1;
+             print "2 legal options found\n";
+       }
+       elsif ( ($y + 3) > -1 && ($y + 3) < 4 ){
+             $option = 1;
+             print "3 legal options found\n";
+       }
+       elsif ( ($y - 3) > -1 && ($y - 3) < 4 ){
+             $option = 1;
+             print "3 legal options found\n";
+       }
+       else{
+             print "No legal options found\n";
+       }
+       return($option);
 }
 
