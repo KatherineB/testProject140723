@@ -92,11 +92,11 @@ public class Destiny100 extends Application {
 		choiceStack3.setStyle("-fx-padding: 20px;");
 		
 		Label choice1 = new Label("0");
-		choice1.setStyle("-fx-font-size: 15px;");
+		choice1.setStyle("-fx-font-size: 30px;");
 		Label choice2 = new Label("0");
-		choice2.setStyle("-fx-font-size: 15px;");
+		choice2.setStyle("-fx-font-size: 30px;");
 		Label choice3 = new Label("0");
-		choice3.setStyle("-fx-font-size: 15px;");
+		choice3.setStyle("-fx-font-size: 30px;");
 		
 		//canPick = 1;
 		startNewGame(score, choice1, choice2, choice3);
@@ -277,6 +277,9 @@ public class Destiny100 extends Application {
 		choice1.setText(check1);
 		choice2.setText(check2);
 		choice3.setText(check3);
+		choice1.setStyle("-fx-font-size: 30px;");
+		choice2.setStyle("-fx-font-size: 30px;");
+		choice3.setStyle("-fx-font-size: 30px;");
 	}
 	private void createScoreBGRect(GraphicsContext gcScoreBG) {
 		gcScoreBG.setFill(Color.WHITE);
