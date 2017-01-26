@@ -59,7 +59,7 @@ function controlNumberLoops(){
 	
 	 setTimeout(function() {
 			if(numberLoops > 0){
-			   controlColours();			   
+			   controlColours();					   
 			}
 			setTimeout(function() {
 				if(numberLoops > 1){
@@ -107,15 +107,6 @@ function controlNumberLoops(){
 				}, loop);
 			}, loop);
 		}, 1000); 
-		
-		 
-		/*
-		for(var i = 0; i < numberLoops; i++){
-			setTimeout(function() {		
-                 alert("in timeout");			
-				 controlColours();								
-			}, loop);
-		}*/
 }
 
 function controlColours(){
