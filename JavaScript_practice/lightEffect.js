@@ -1,6 +1,7 @@
 var coloursAvailable = new Array('#f03','#f74','#ff0','#0f0','#00f','#0fc','#a0f');
 var coloursPicked = new Array(0,0,0,0,0,0,0);
 var colourTimes = new Array(1,1,1,1,1,1,1);
+var colourIDs = new Array("red","orange","yellow","green","blue","turquoise","purple");
 var NUMBER_OF_COLOURS = 7;
 var numberColoursPicked = 0;
 var firstColourPicked = -1;
@@ -154,9 +155,19 @@ function clearColours(){
 	for(var i=0; i<7; i++){
 	    coloursPicked[i] = 0;
 		colourTimes[i] = 1;
+	    document.getElementById(colourIDs[i]).checked = false;
 	}
 	numberColoursPicked = 0;
 	firstColourPicked = -1;
 	lastColourPicked = -1;
 	displayColour("#bbb");
+	
+	var time_rads = document.getElementsByName("time");
+    for(var i=0;i<time_rads.length;i++)
+        time_rads[i].checked = false;
+	
+	var loop_rads = document.getElementsByName("loop");
+    for(var i=0;i<loop_rads.length;i++)
+        loop_rads[i].checked = false;
+	
 }
