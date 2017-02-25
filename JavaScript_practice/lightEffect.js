@@ -6,13 +6,24 @@ var NUMBER_OF_COLOURS = 7;
 var numberColoursPicked = 0;
 var firstColourPicked = -1;
 var lastColourPicked = -1;
-var interval;
+var interval = -1;
 var loop;
-var numberLoops;
+var numberLoops = -1;
 
 function runShow(){
 	handleUserInput();
-	controlNumberLoops();
+	if(numberColoursPicked < 2){
+		alert("Please pick at least two colours for best results.");
+	}
+	else if(interval == -1){
+		alert("Please pick how many seconds each colour is to last.");
+	}
+	else if(numberLoops == -1){
+		alert("Please choose the number of loops for the chosen colours to be repeated.");
+	}
+	else{
+	    controlNumberLoops();
+	}
 }
 
 function handleUserInput(){
@@ -161,6 +172,8 @@ function clearColours(){
 	firstColourPicked = -1;
 	lastColourPicked = -1;
 	displayColour("#bbb");
+	interval = -1;
+	numberLoops = -1;
 	
 	var time_rads = document.getElementsByName("time");
     for(var i=0;i<time_rads.length;i++)
