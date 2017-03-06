@@ -1,21 +1,24 @@
 { "members":
     {       
-        "Sheila": 
+        "1":
         {
+		"first_name": "Sheila",
+		"last_name": "Morris",
         "year_joined": 2012,
-        "number": 1,
 		"involvement":[{"executive":"vice-president 2013",
 		               "committees":"gardening 2015"}]
         },
-		"David": 
+		"2":
         {
-        "year_joined": 2012,
-        "number": 2
+		"first_name": "David",
+		"last_name": "Cameron",
+        "year_joined": 2012
         },
-        "Mary": 
+        "3":
         {
-        "year_joined": 2014,
-        "number": 3
+		"first_name": "Mary",
+		"last_name": "Birk",
+        "year_joined": 2014
         }
     }
 }  

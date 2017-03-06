@@ -16,7 +16,9 @@
 	$str = file_get_contents($file);
 	$json = json_decode($str, true);
 	echo '<pre>' . print_r($json, true) . '</pre>';
-	
-	$data = $json['members'][$top][$deep];
-	echo $data; 
+	for($i=0;$i<3;$i++){
+	   $data = $json['members'][$i+1][$deep];
+	   echo $data;
+	}
+	 
 ?>
