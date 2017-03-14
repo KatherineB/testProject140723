@@ -15,16 +15,21 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 
 public class SquareArt extends JFrame{
+	 JPanel[] spot = new JPanel[16];
+     JPanel[] avail = new JPanel[8];
+	 String[] colours = {"#de4532","#aef534","#ccaa99","#7845dc","#2399ff","#bb9955","#aaff66", "#11ff55"};
+	// SquareArtSquare[] squares = new SquareArtSquare[8];
 	 
-	 JPanel avail1 = new JPanel();
+	/* JPanel avail1 = new JPanel();
 	 JPanel avail2 = new JPanel();
 	 JPanel avail3 = new JPanel();
-	 JPanel avail4 = new JPanel();
+	 JPanel avail4 = new JPanel(); */
 	 
 	 int numSpots = 16;
+	 int numColours = 8;
 	 int i;
 	 String selectedColour = "#ffffff";
-	 JPanel[] spot = new JPanel[16];
+	 
 	 
      SquareArt(){
 	   setSize(250,200);	   
@@ -54,8 +59,17 @@ public class SquareArt extends JFrame{
 	//   squaresAvail.setPreferredSize(new Dimension(80,80));
 	   background.add(squaresAvail, BorderLayout.EAST);	   
 	   
+	   for(i=0; i < numColours; i++){
+		   avail[i] = new JPanel();
+		   avail[i].setBackground(Color.decode("#ffffff"));
+		   SquareArtSquare square = new SquareArtSquare(colours[i]);
+		   square.setPreferredSize(new Dimension(30,30));	
+		   avail[i].add(square);	   
+		   squaresAvail.add(avail[i]);
+		   avail[i].addMouseListener(new ColourMouseListener());
+	   }
 	   
-	   avail1.setBackground(Color.decode("#ffffff"));
+	  /* avail1.setBackground(Color.decode("#ffffff"));
 	   SquareArtSquare greenSquare = new SquareArtSquare("#00dd00");
 	   greenSquare.setPreferredSize(new Dimension(30,30));	
        avail1.add(greenSquare);	   
@@ -84,7 +98,7 @@ public class SquareArt extends JFrame{
 	   redSquare.setPreferredSize(new Dimension(30,30));
 	   avail4.add(redSquare);
 	   squaresAvail.add(avail4);
-	   avail4.addMouseListener(new ColourMouseListener());
+	   avail4.addMouseListener(new ColourMouseListener());*/
 	   	     
 	   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	 }
@@ -103,8 +117,15 @@ public class SquareArt extends JFrame{
 
       public void mousePressed(MouseEvent e) {
 		 System.out.println("Down!");
+		 for (i=0; i<numColours; i++){
+				 if (avail[i].equals(e.getSource())){
+		           System.out.println(selectedColour);
+				   selectedColour = colours[i];
+		           //spot[i].setBackground(Color.decode(selectedColour));
+				 }
+            }	
 		// System.out.println(e.getSource());
-		  if (avail1.equals(e.getSource())) {
+		/*  if (avail1.equals(e.getSource())) {
             System.out.println("avail1");
 			selectedColour = "#00dd00";
           }
@@ -119,7 +140,7 @@ public class SquareArt extends JFrame{
 		  else if (avail4.equals(e.getSource())) {
             System.out.println("avail4");
 			selectedColour = "#ff0000";
-          }		
+          }		*/
       }
 
       public void mouseReleased(MouseEvent e) {
@@ -148,8 +169,10 @@ public class SquareArt extends JFrame{
 
       public void mousePressed(MouseEvent e2) {
 		 System.out.println("Down!");
+		 
+		 
 		// System.out.println(e2.getSource());
-		  if (avail1.equals(e2.getSource())) {
+		 /* if (avail1.equals(e2.getSource())) {
             System.out.println("avail1 or spot?");
 			selectedColour = "#00dd00";
 			spot[0].setBackground(Color.decode(selectedColour));
@@ -165,7 +188,7 @@ public class SquareArt extends JFrame{
 		  else if (avail4.equals(e2.getSource())) {
             System.out.println("avail4");
 			selectedColour = "#ff0000";
-          }		
+          }		*/
       }
 
       public void mouseReleased(MouseEvent e2) {
