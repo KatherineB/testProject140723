@@ -15,24 +15,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 
 public class SquareArt extends JFrame{
-	 JPanel[] spot = new JPanel[16];
-     JPanel[] avail = new JPanel[8];
-	 String[] colours = {"#de4532","#aef534","#ccaa99","#7845dc","#2399ff","#bb9955","#aaff66", "#11ff55"};
-	// SquareArtSquare[] squares = new SquareArtSquare[8];
-	 
-	/* JPanel avail1 = new JPanel();
-	 JPanel avail2 = new JPanel();
-	 JPanel avail3 = new JPanel();
-	 JPanel avail4 = new JPanel(); */
-	 
-	 int numSpots = 16;
-	 int numColours = 8;
+	 JPanel[] spot = new JPanel[36];
+     JPanel[] avail = new JPanel[16];
+	 String[] colours = {"#ffffff","#ff4488","#0000ff","#00aa00","#ffff00","#00dddd","#ff0000", "#00ff00","#999999","#995500","#5555dd","#880099","#66ccee","#005555","#ff7700", "#000000"};
+	
+	 int numSpots = 36;
+	 int numColours = 16;
 	 int i;
 	 String selectedColour = "#ffffff";
-	 
-	 
+	 	 
      SquareArt(){
-	   setSize(250,200);	   
+	   setSize(280,200);	   
 	   setVisible(true);
 	   
 	   Container background = getContentPane();
@@ -40,13 +33,13 @@ public class SquareArt extends JFrame{
 	   background.setBackground(Color.decode("#bbeeee"));
 	   
 	   JPanel centerArea = new JPanel();
-	   centerArea.setLayout(new GridLayout(4,4));
+	   centerArea.setLayout(new GridLayout(6,6));
 	   centerArea.setBackground(Color.decode("#bbaaff"));   
 	   background.add(centerArea, BorderLayout.CENTER);
 	   	 
 	   for( i = 0; i < numSpots; i++){
 		   spot[i] = new JPanel(); 
-		   spot[i].setPreferredSize(new Dimension(30,30));
+		   spot[i].setPreferredSize(new Dimension(29,29));
 		   spot[i].setBackground(Color.decode("#ffffff"));
 		   spot[i].setBorder(new LineBorder(Color.BLACK, 1));
 	       spot[i].addMouseListener(new SpotMouseListener());
@@ -54,52 +47,22 @@ public class SquareArt extends JFrame{
 	   }
 	     
 	   JPanel squaresAvail = new JPanel();
-	   squaresAvail.setLayout(new GridLayout(8,1));
-	   squaresAvail.setBackground(Color.decode("#ffffff"));
+	   squaresAvail.setLayout(new GridLayout(8,2));
+	 //  squaresAvail.setBackground(Color.decode("#999977"));
 	//   squaresAvail.setPreferredSize(new Dimension(80,80));
 	   background.add(squaresAvail, BorderLayout.EAST);	   
 	   
 	   for(i=0; i < numColours; i++){
 		   avail[i] = new JPanel();
-		   avail[i].setBackground(Color.decode("#ffffff"));
+		   spot[i].setPreferredSize(new Dimension(30,30));
+		   avail[i].setBackground(Color.decode("#ccccaa"));
 		   SquareArtSquare square = new SquareArtSquare(colours[i]);
 		   square.setPreferredSize(new Dimension(30,30));	
 		   avail[i].add(square);	   
 		   squaresAvail.add(avail[i]);
 		   avail[i].addMouseListener(new ColourMouseListener());
 	   }
-	   
-	  /* avail1.setBackground(Color.decode("#ffffff"));
-	   SquareArtSquare greenSquare = new SquareArtSquare("#00dd00");
-	   greenSquare.setPreferredSize(new Dimension(30,30));	
-       avail1.add(greenSquare);	   
-	   squaresAvail.add(avail1);
-	   avail1.addMouseListener(new ColourMouseListener());
-	   
-	   
-	   avail2.setBackground(Color.decode("#ffffff"));
-	   SquareArtSquare blueSquare = new SquareArtSquare("#0000ff");
-	   blueSquare.setPreferredSize(new Dimension(30,30));
-	   avail2.add(blueSquare);
-	   squaresAvail.add(avail2);
-	   avail2.addMouseListener(new ColourMouseListener());
-	   
-	   
-	   avail3.setBackground(Color.decode("#ffffff"));
-	   SquareArtSquare yellowSquare = new SquareArtSquare("#ffff00");
-	   yellowSquare.setPreferredSize(new Dimension(30,30));
-	   avail3.add(yellowSquare);
-	   squaresAvail.add(avail3);
-	   avail3.addMouseListener(new ColourMouseListener());
-	   
-	   
-	   avail4.setBackground(Color.decode("#ffffff"));
-	   SquareArtSquare redSquare = new SquareArtSquare("#ff0000");
-	   redSquare.setPreferredSize(new Dimension(30,30));
-	   avail4.add(redSquare);
-	   squaresAvail.add(avail4);
-	   avail4.addMouseListener(new ColourMouseListener());*/
-	   	     
+	    	     
 	   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	 }
 	 private void addColour(int spotN, String colour){		 
