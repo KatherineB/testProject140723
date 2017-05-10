@@ -85,21 +85,24 @@ def runGame():
         print(j)
 
 def showHowToPlay():
-    print "A sequence of five numbers from 1 to 3 is chosen at random.  The player must try to guess them."
-    print "The player inputs the numbers, one by one.  The program looks for correct three number partial" 
-    print "sequences within the five number sequence.  It also counts the first two numbers and last two" 
-    print "numbers in the five number sequence as partial sequences that could be right or wrong.  It reports" 
-    print "the number of sequences that the play got right."
+    print ""
+    print "A sequence of five numbers from 1 to 3 is chosen at random.  The player must try"
+    print "to guess them.  The player inputs the numbers, one by one.  The program looks for" 
+    print "correct three number partial sequences within the five number sequence.  It also" 
+    print "counts the first two numbers and last two numbers in the five number sequence as" 
+    print "partial sequences that could be right or wrong.  It reports the number of"
+    print "sequences that the player got right."
+    print ""
 
 while play == 1:
-    info = input("Display instructions? (1/0)")
-    if info == 1:
+    info = raw_input("Display instructions? (y/n)")
+    if info == "y" or info == "Y":
         showHowToPlay()
     runGame()
-    play = input("Play again? (1/0)")
-    #again = input("Play again? (y/n)")
-    #if again == "y" or again == "Y":
-        #play = 1
-    #else:
-       #play = 0;
+
+    again = raw_input("Play again? (y/n)")
+    if again == "y" or again == "Y":
+        play = 1
+    else:
+       play = 0;
    
