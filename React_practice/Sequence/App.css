@@ -1,0 +1,66 @@
+
+.App {
+  text-align: center;
+  background-color: #ddffff;
+}
+.App-header {
+  background-color: #055;
+  padding: 0.5em;
+  color: white;
+  height: 1.3em;
+  font-size: 1.5em;
+  text-align: center;
+}
+.seq-main{
+	padding: 1em;
+}
+.guess-box-header{
+  height: 1.1em;
+  font-size: 1.1em;
+  text-align: left;
+}
+.App-intro {
+  font-size: large;
+}
+.guess-box{
+	float: left;
+	display: inline-block;
+}
+.number-box{
+	height: 1.2em;
+	width: 1.2em;
+	border: 1px solid black;
+	font-size: 2em;
+	background-color:#ffffff;
+	margin-bottom: 0.5em;
+	text-align: center;
+}
+.results-box{
+	float: left;
+	display: inline-block;
+	margin-left: 2em;
+/*	padding-left: 1em;
+	padding-right: 1em; */
+}
+.result-number{
+	margin-top: 0.005em;
+	height: 1.2em;
+	width: 1.2em;
+	border: 1px solid black;
+	font-size: 2em;
+	background-color:#ffffff;
+	margin-bottom: 0.58em;
+	text-align: center;
+}
+.button{
+	height: 30px;
+	width: 180px;
+	color: #ffffff;
+	background-color: #007777;
+	font-size: 1.4em;
+	margin: 10px;
+	text-align: center;
+	line-height: 1.4;
+	float: left;
+	border-radius: 5px;
+}
