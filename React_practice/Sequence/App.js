@@ -130,63 +130,65 @@ class App extends Component {
    }
    squaresN_3_0(evt) {
     this.setState({
-      inputValueN_2_0: evt.target.value,
-	  squaresN_2_0: evt.target.value
+      inputValueN_3_0: evt.target.value,
+	  squaresN_3_0: evt.target.value
     });
    }
    squaresN_3_1(evt) {
     this.setState({
-      inputValueN_2_1: evt.target.value,
-	  squaresN_2_1: evt.target.value
+      inputValueN_3_1: evt.target.value,
+	  squaresN_3_1: evt.target.value
     });
    }
    squaresN_3_2(evt) {
     this.setState({
-      inputValueN_2_2: evt.target.value,
-	  squaresN_2_2: evt.target.value
+      inputValueN_3_2: evt.target.value,
+	  squaresN_3_2: evt.target.value
     });
    }
    squaresN_3_3(evt) {
     this.setState({
-      inputValueN_2_3: evt.target.value,
-	  squaresN_2_3: evt.target.value
+      inputValueN_3_3: evt.target.value,
+	  squaresN_3_3: evt.target.value
     });
    }
    squaresN_3_4(evt) {
     this.setState({
-      inputValueN_2_4: evt.target.value,
-	  squaresN_2_4: evt.target.value
+      inputValueN_3_4: evt.target.value,
+	  squaresN_3_4: evt.target.value
     });
-   }squaresN_4_0(evt) {
+   }
+   squaresN_4_0(evt) {
     this.setState({
-      inputValueN_2_0: evt.target.value,
-	  squaresN_2_0: evt.target.value
+      inputValueN_4_0: evt.target.value,
+	  squaresN_4_0: evt.target.value
     });
    }
    squaresN_4_1(evt) {
     this.setState({
-      inputValueN_2_1: evt.target.value,
-	  squaresN_2_1: evt.target.value
+      inputValueN_4_1: evt.target.value,
+	  squaresN_4_1: evt.target.value
     });
    }
    squaresN_4_2(evt) {
     this.setState({
-      inputValueN_2_2: evt.target.value,
-	  squaresN_2_2: evt.target.value
+      inputValueN_4_2: evt.target.value,
+	  squaresN_4_2: evt.target.value
     });
    }
    squaresN_4_3(evt) {
     this.setState({
-      inputValueN_2_3: evt.target.value,
-	  squaresN_2_3: evt.target.value
+      inputValueN_4_3: evt.target.value,
+	  squaresN_4_3: evt.target.value
     });
    }
    squaresN_4_4(evt) {
     this.setState({
-      inputValueN_2_4: evt.target.value,
-	  squaresN_2_4: evt.target.value
+      inputValueN_4_4: evt.target.value,
+	  squaresN_4_4: evt.target.value
     });
    }
+   
    
   checkGuess(){
 	  const results = this.state.results;
@@ -336,35 +338,43 @@ class App extends Component {
 						<table> 
 						  <tr> Line 1 </tr>
 						  <tr>			
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_0_0} onChange={evt => this.squaresN_0_0(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_0_1} onChange={evt => this.squaresN_0_1(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_0_2} onChange={evt => this.squaresN_0_2(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_0_3} onChange={evt => this.squaresN_0_3(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_0_4} onChange={evt => this.squaresN_0_4(evt)}/></td>						
+							<td><input type="text" className="number-box" value={this.state.squaresN_0_0} onChange={evt => this.squaresN_0_0(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_0_1} onChange={evt => this.squaresN_0_1(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_0_2} onChange={evt => this.squaresN_0_2(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_0_3} onChange={evt => this.squaresN_0_3(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_0_4} onChange={evt => this.squaresN_0_4(evt)}/></td>						
 						  </tr>
 						  <tr> Line 2 </tr>
 						  <tr>			
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_1_0} onChange={evt => this.squaresN_1_0(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_1_1} onChange={evt => this.squaresN_1_1(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_1_2} onChange={evt => this.squaresN_1_2(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_1_3} onChange={evt => this.squaresN_1_3(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_1_4} onChange={evt => this.squaresN_1_4(evt)}/></td>						
+							<td><input type="text" className="number-box" value={this.state.squaresN_1_0} onChange={evt => this.squaresN_1_0(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_1_1} onChange={evt => this.squaresN_1_1(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_1_2} onChange={evt => this.squaresN_1_2(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_1_3} onChange={evt => this.squaresN_1_3(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_1_4} onChange={evt => this.squaresN_1_4(evt)}/></td>						
 						  </tr>
 						  <tr> Line 3 </tr>
 						  <tr>			
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_2_0} onChange={evt => this.squaresN_2_0(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_2_1} onChange={evt => this.squaresN_2_1(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_2_2} onChange={evt => this.squaresN_2_2(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_2_3} onChange={evt => this.squaresN_2_3(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_2_4} onChange={evt => this.squaresN_2_4(evt)}/></td>						
+							<td><input type="text" className="number-box" value={this.state.squaresN_2_0} onChange={evt => this.squaresN_2_0(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_2_1} onChange={evt => this.squaresN_2_1(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_2_2} onChange={evt => this.squaresN_2_2(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_2_3} onChange={evt => this.squaresN_2_3(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_2_4} onChange={evt => this.squaresN_2_4(evt)}/></td>						
 						  </tr>
 						  <tr> Line 4 </tr>
 						  <tr>			
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_3_0} onChange={evt => this.squaresN_3_0(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_3_1} onChange={evt => this.squaresN_3_1(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_3_2} onChange={evt => this.squaresN_3_2(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_3_3} onChange={evt => this.squaresN_3_3(evt)}/></td>
-							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_3_4} onChange={evt => this.squaresN_3_4(evt)}/></td>						
+							<td><input type="text" className="number-box" value={this.state.squaresN_3_0} onChange={evt => this.squaresN_3_0(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_3_1} onChange={evt => this.squaresN_3_1(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_3_2} onChange={evt => this.squaresN_3_2(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_3_3} onChange={evt => this.squaresN_3_3(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_3_4} onChange={evt => this.squaresN_3_4(evt)}/></td>						
+						  </tr>
+						  <tr> Line 5 </tr>
+						  <tr>			
+							<td><input type="text" className="number-box" value={this.state.squaresN_4_0} onChange={evt => this.squaresN_4_0(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_4_1} onChange={evt => this.squaresN_4_1(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_4_2} onChange={evt => this.squaresN_4_2(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_4_3} onChange={evt => this.squaresN_4_3(evt)}/></td>
+							<td><input type="text" className="number-box" value={this.state.squaresN_4_4} onChange={evt => this.squaresN_4_4(evt)}/></td>						
 						  </tr>
 						</table> 
 						</div>
@@ -385,6 +395,10 @@ class App extends Component {
 							  <tr> Result 4</tr>
 							  <tr>
 								<td> <div className="result-number">{this.state.result_3}</div></td>
+							  </tr>
+							  <tr> Result 5</tr>
+							  <tr>
+								<td> <div className="result-number">{this.state.result_4}</div></td>
 							  </tr>
 							 </table>
 						</div>
