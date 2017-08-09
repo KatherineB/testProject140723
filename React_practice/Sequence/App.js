@@ -19,6 +19,21 @@ class App extends Component {
 		  inputValueN_1_2: '',
 		  inputValueN_1_3: '',
 		  inputValueN_1_4: '',
+		  inputValueN_2_0: '',
+		  inputValueN_2_1: '',
+		  inputValueN_2_2: '',
+		  inputValueN_2_3: '',
+		  inputValueN_2_4: '',
+		  inputValueN_3_0: '',
+		  inputValueN_3_1: '',
+		  inputValueN_3_2: '',
+		  inputValueN_3_3: '',
+		  inputValueN_3_4: '',
+		  inputValueN_4_0: '',
+		  inputValueN_4_1: '',
+		  inputValueN_4_2: '',
+		  inputValueN_4_3: '',
+		  inputValueN_4_4: '',
 		//  row: 0,
 		  totalRight: [0,0,0,0,0]
 		 };
@@ -83,6 +98,96 @@ class App extends Component {
 	  squaresN_1_4: evt.target.value
     });
    }
+   squaresN_2_0(evt) {
+    this.setState({
+      inputValueN_2_0: evt.target.value,
+	  squaresN_2_0: evt.target.value
+    });
+   }
+   squaresN_2_1(evt) {
+    this.setState({
+      inputValueN_2_1: evt.target.value,
+	  squaresN_2_1: evt.target.value
+    });
+   }
+   squaresN_2_2(evt) {
+    this.setState({
+      inputValueN_2_2: evt.target.value,
+	  squaresN_2_2: evt.target.value
+    });
+   }
+   squaresN_2_3(evt) {
+    this.setState({
+      inputValueN_2_3: evt.target.value,
+	  squaresN_2_3: evt.target.value
+    });
+   }
+   squaresN_2_4(evt) {
+    this.setState({
+      inputValueN_2_4: evt.target.value,
+	  squaresN_2_4: evt.target.value
+    });
+   }
+   squaresN_3_0(evt) {
+    this.setState({
+      inputValueN_2_0: evt.target.value,
+	  squaresN_2_0: evt.target.value
+    });
+   }
+   squaresN_3_1(evt) {
+    this.setState({
+      inputValueN_2_1: evt.target.value,
+	  squaresN_2_1: evt.target.value
+    });
+   }
+   squaresN_3_2(evt) {
+    this.setState({
+      inputValueN_2_2: evt.target.value,
+	  squaresN_2_2: evt.target.value
+    });
+   }
+   squaresN_3_3(evt) {
+    this.setState({
+      inputValueN_2_3: evt.target.value,
+	  squaresN_2_3: evt.target.value
+    });
+   }
+   squaresN_3_4(evt) {
+    this.setState({
+      inputValueN_2_4: evt.target.value,
+	  squaresN_2_4: evt.target.value
+    });
+   }squaresN_4_0(evt) {
+    this.setState({
+      inputValueN_2_0: evt.target.value,
+	  squaresN_2_0: evt.target.value
+    });
+   }
+   squaresN_4_1(evt) {
+    this.setState({
+      inputValueN_2_1: evt.target.value,
+	  squaresN_2_1: evt.target.value
+    });
+   }
+   squaresN_4_2(evt) {
+    this.setState({
+      inputValueN_2_2: evt.target.value,
+	  squaresN_2_2: evt.target.value
+    });
+   }
+   squaresN_4_3(evt) {
+    this.setState({
+      inputValueN_2_3: evt.target.value,
+	  squaresN_2_3: evt.target.value
+    });
+   }
+   squaresN_4_4(evt) {
+    this.setState({
+      inputValueN_2_4: evt.target.value,
+	  squaresN_2_4: evt.target.value
+    });
+   }
+   
   checkGuess(){
 	  const results = this.state.results;
 	  const squareNumbers = this.state.squareNumbers;
@@ -99,7 +204,23 @@ class App extends Component {
 	  const inputValueN_1_2 = this.state.inputValueN_1_2;
 	  const inputValueN_1_3 = this.state.inputValueN_1_3;
 	  const inputValueN_1_4 = this.state.inputValueN_1_4;
-	  var row = 0;
+	  const inputValueN_2_0 = this.state.inputValueN_2_0;
+	  const inputValueN_2_1 = this.state.inputValueN_2_1;
+	  const inputValueN_2_2 = this.state.inputValueN_2_2;
+	  const inputValueN_2_3 = this.state.inputValueN_2_3;
+	  const inputValueN_2_4 = this.state.inputValueN_2_4;
+	  const inputValueN_3_0 = this.state.inputValueN_3_0;
+	  const inputValueN_3_1 = this.state.inputValueN_3_1;
+	  const inputValueN_3_2 = this.state.inputValueN_3_2;
+	  const inputValueN_3_3 = this.state.inputValueN_3_3;
+	  const inputValueN_3_4 = this.state.inputValueN_3_4;
+	  const inputValueN_4_0 = this.state.inputValueN_4_0;
+	  const inputValueN_4_1 = this.state.inputValueN_4_1;
+	  const inputValueN_4_2 = this.state.inputValueN_4_2;
+	  const inputValueN_4_3 = this.state.inputValueN_4_3;
+	  const inputValueN_4_4 = this.state.inputValueN_4_4;
+	  
+	  var row = add();
 	  
 	  if(row == 0){
 		  guesses[0] = inputValueN_0_0;
@@ -114,6 +235,27 @@ class App extends Component {
 		  guesses[2] = inputValueN_1_2;
 		  guesses[3] = inputValueN_1_3;
 		  guesses[4] = inputValueN_1_4;
+	  }
+	  else if(row == 2){
+		  guesses[0] = inputValueN_2_0;
+		  guesses[1] = inputValueN_2_1;
+		  guesses[2] = inputValueN_2_2;
+		  guesses[3] = inputValueN_2_3;
+		  guesses[4] = inputValueN_2_4;
+	  }
+	  else if(row == 3){
+		  guesses[0] = inputValueN_3_0;
+		  guesses[1] = inputValueN_3_1;
+		  guesses[2] = inputValueN_3_2;
+		  guesses[3] = inputValueN_3_3;
+		  guesses[4] = inputValueN_3_4;
+	  }
+	  else if(row == 4){
+		  guesses[0] = inputValueN_4_0;
+		  guesses[1] = inputValueN_4_1;
+		  guesses[2] = inputValueN_4_2;
+		  guesses[3] = inputValueN_4_3;
+		  guesses[4] = inputValueN_4_4;
 	  }
 	  
 	 if(guesses[0] == targetNumbers[0]){ 
@@ -141,7 +283,7 @@ class App extends Component {
 			totalRight[row]++;
 		 }
 	 }
-      
+      alert(row);
      if(row == 0){
 		 this.setState({
 				result_0: totalRight[0]
@@ -152,9 +294,21 @@ class App extends Component {
 				result_1: totalRight[1]
 		 });
 	 }
-	 
-	 row++;
-		  
+	 else if(row == 2){
+		 this.setState({
+				result_2: totalRight[2]
+		 });
+	 }
+	 else if(row == 3){
+		 this.setState({
+				result_3: totalRight[3]
+		 });
+	 }
+	 else if(row == 4){
+		 this.setState({
+				result_4: totalRight[4]
+		 });
+	 }
   }
   
   newGame() {
@@ -204,6 +358,14 @@ class App extends Component {
 							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_2_3} onChange={evt => this.squaresN_2_3(evt)}/></td>
 							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_2_4} onChange={evt => this.squaresN_2_4(evt)}/></td>						
 						  </tr>
+						  <tr> Line 4 </tr>
+						  <tr>			
+							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_3_0} onChange={evt => this.squaresN_3_0(evt)}/></td>
+							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_3_1} onChange={evt => this.squaresN_3_1(evt)}/></td>
+							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_3_2} onChange={evt => this.squaresN_3_2(evt)}/></td>
+							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_3_3} onChange={evt => this.squaresN_3_3(evt)}/></td>
+							<td><input type="text" className="number-box" id="n1" value={this.state.squaresN_3_4} onChange={evt => this.squaresN_3_4(evt)}/></td>						
+						  </tr>
 						</table> 
 						</div>
 						<div className="results-box">
@@ -220,6 +382,10 @@ class App extends Component {
 							  <tr>
 								<td> <div className="result-number">{this.state.result_2}</div></td>
 							  </tr>
+							  <tr> Result 4</tr>
+							  <tr>
+								<td> <div className="result-number">{this.state.result_3}</div></td>
+							  </tr>
 							 </table>
 						</div>
 						<div style={{clear:'both'}}></div>
@@ -234,5 +400,9 @@ class App extends Component {
 		
 	}
 }
-
+var add = (function () {
+    var counter = -1;
+    return function () {return counter += 1;}
+    })();
+	
 export default App;
