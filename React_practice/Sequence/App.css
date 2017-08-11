@@ -2,6 +2,7 @@
 .App {
   text-align: center;
   background-color: #ddffff;
+  height: 100%;
 }
 .App-header {
   background-color: #055;
@@ -12,7 +13,12 @@
   text-align: center;
 }
 .seq-main{
-	padding: 1em;
+	float: left;
+	padding: 1em;	
+}
+.controls{
+	float: left;
+	padding: 2em;
 }
 .guess-box-header{
   height: 1.1em;
@@ -61,6 +67,5 @@
 	margin: 10px;
 	text-align: center;
 	line-height: 1.4;
-	float: left;
 	border-radius: 5px;
 }

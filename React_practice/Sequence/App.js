@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 
+ var add = (function () {
+    var counter = -1;
+    return function () {return counter += 1;}
+    })();
+ 	
 class App extends Component {
   constructor(props) {
     super(props);
@@ -191,8 +196,8 @@ class App extends Component {
    
    
   checkGuess(){
-	  const results = this.state.results;
-	  const squareNumbers = this.state.squareNumbers;
+	/*  const results = this.state.results;
+	  const squareNumbers = this.state.squareNumbers; */
 	  const targetNumbers = this.state.targetNumbers;
 	  const totalRight = this.state.totalRight;
 	  const guesses = this.state.guesses;
@@ -311,20 +316,24 @@ class App extends Component {
 				result_4: totalRight[4]
 		 });
 	 }
+	 alert(targetNumbers[0] + " " + targetNumbers[1] + " " + targetNumbers[2] + " " + targetNumbers[3] + " " + targetNumbers[4]);
   }
   
   newGame() {
 	  
 	  const targetNumbers = this.state.targetNumbers;
+	  
 	  for (var k = 0; k<5; k++){
 			  targetNumbers[k] = Math.floor((Math.random() * 3) + 1)
 		  }
 		  alert(targetNumbers[0] + " " + targetNumbers[1] + " " + targetNumbers[2] + " " + targetNumbers[3] + " " + targetNumbers[4]);
   }
+  showSoln(){
+	  const targetNumbers = this.state.targetNumbers;
+	  alert(targetNumbers[0] + " " + targetNumbers[1] + " " + targetNumbers[2] + " " + targetNumbers[3] + " " + targetNumbers[4]);
+  }
 
-  
 	render()  {
-		
 		return(
 				<div className="App">
 				    <div className="App-header">
@@ -402,21 +411,20 @@ class App extends Component {
 							  </tr>
 							 </table>
 						</div>
-						<div style={{clear:'both'}}></div>
-						<div className="button" onClick={() => this.checkGuess()}>Enter Guess</div>
-						<div className="button" onClick={() => this.newGame()}>New Game</div>
+						<div style={{clear:'both'}}></div>						
 					</div>	
-				
-				</div>
-				
-				
+					<div className="controls">
+					    <div className="button" onClick={() => this.checkGuess()}>Enter Guess</div>
+						<div className="button" onClick={() => this.newGame()}>New Game</div>
+						<div className="button" onClick={() => this.showHowToPlay()}>How to Play</div>
+						<div className="button" onClick={() => this.showSoln()}>Show Solution</div>
+					</div>
+				    <div style={{clear:'both'}}></div>
+				</div>		
 	    );
 		
 	}
 }
-var add = (function () {
-    var counter = -1;
-    return function () {return counter += 1;}
-    })();
+
 	
 export default App;
