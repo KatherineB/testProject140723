@@ -5,6 +5,12 @@ import './App.css';
     var counter = -1;
     return function () {return counter += 1;}
     })();
+window.onload = function() {
+			
+			() => this.newGame();
+		   //alert("test");
+		};		
+
  	
 class App extends Component {
   constructor(props) {
@@ -316,7 +322,7 @@ class App extends Component {
 				result_4: totalRight[4]
 		 });
 	 }
-	 alert(targetNumbers[0] + " " + targetNumbers[1] + " " + targetNumbers[2] + " " + targetNumbers[3] + " " + targetNumbers[4]);
+	 /*alert(targetNumbers[0] + " " + targetNumbers[1] + " " + targetNumbers[2] + " " + targetNumbers[3] + " " + targetNumbers[4]);*/
   }
   
   newGame() {
@@ -326,14 +332,30 @@ class App extends Component {
 	  for (var k = 0; k<5; k++){
 			  targetNumbers[k] = Math.floor((Math.random() * 3) + 1)
 		  }
-		  alert(targetNumbers[0] + " " + targetNumbers[1] + " " + targetNumbers[2] + " " + targetNumbers[3] + " " + targetNumbers[4]);
+		/*  alert(targetNumbers[0] + " " + targetNumbers[1] + " " + targetNumbers[2] + " " + targetNumbers[3] + " " + targetNumbers[4]); */
   }
   showSoln(){
 	  const targetNumbers = this.state.targetNumbers;
 	  alert(targetNumbers[0] + " " + targetNumbers[1] + " " + targetNumbers[2] + " " + targetNumbers[3] + " " + targetNumbers[4]);
+      this.setState({
+				sol_0: targetNumbers[0]
+	  });
+	  this.setState({
+				sol_1: targetNumbers[1]
+	  });
+	  this.setState({
+				sol_2: targetNumbers[2]
+	  });
+	  this.setState({
+				sol_3: targetNumbers[3]
+	  });
+	  this.setState({
+				sol_4: targetNumbers[4]
+	  });
   }
 
 	render()  {
+		
 		return(
 				<div className="App">
 				    <div className="App-header">
@@ -418,6 +440,16 @@ class App extends Component {
 						<div className="button" onClick={() => this.newGame()}>New Game</div>
 						<div className="button" onClick={() => this.showHowToPlay()}>How to Play</div>
 						<div className="button" onClick={() => this.showSoln()}>Show Solution</div>
+						<table>
+						<tr> Solution </tr>
+						  <tr>	
+						    <td><div className="result-number">{this.state.sol_0}</div></td>
+							<td><div className="result-number">{this.state.sol_1}</div></td>
+							<td><div className="result-number">{this.state.sol_2}</div></td>
+							<td><div className="result-number">{this.state.sol_3}</div></td>
+							<td><div className="result-number">{this.state.sol_4}</div></td>							
+						  </tr>
+						 </table>
 					</div>
 				    <div style={{clear:'both'}}></div>
 				</div>		
