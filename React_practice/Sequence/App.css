@@ -62,10 +62,20 @@
 	height: 30px;
 	width: 180px;
 	color: #ffffff;
-	background-color: #007777;
-	font-size: 1.4em;
+	background-color: #004444;
+	font-size: 1.2em;
 	margin: 10px;
 	text-align: center;
-	line-height: 1.4;
+	line-height: 1.55;
 	border-radius: 5px;
+}
+.button:hover{
+	background-color: #007777;
+}
+.button:active{
+	background-color: #00aa77;
+}
+.soln-box{
+    margin-top: 40px;
+	margin-left: 5px;
 }
