@@ -25,9 +25,6 @@
   font-size: 1.1em;
   text-align: left;
 }
-.App-intro {
-  font-size: large;
-}
 .guess-box{
 	float: left;
 	display: inline-block;
@@ -68,6 +65,7 @@
 	text-align: center;
 	line-height: 1.55;
 	border-radius: 5px;
+	cursor: pointer;
 }
 .button:hover{
 	background-color: #007777;
@@ -78,4 +76,24 @@
 .soln-box{
     margin-top: 40px;
 	margin-left: 5px;
+}
+.instruct-box{
+	text-align: left;
+	border: 1px solid #000000;
+	width: 300px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	border-radius: 5px;
+	background-color: #ffffff;
+	/*display: none;*/
+}
+.instruct-text{
+	margin-top: 10px;
+	font-size: 0.8em;
+}
+.instruct-close-x{
+	font-size: 1.5em;
+	text-align: right;
+	cursor: pointer;
 }

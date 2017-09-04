@@ -5,21 +5,21 @@ import './App.css';
     var counter = -1;
     return function () {return counter += 1;}
     })();
-window.onload = function() {
-			
-			() => this.newGame();
-		   //alert("test");
-		};		
+window.onload = function() {		
+	//() => App.newGame();
+	//alert("test");
+	//App.newGame();
+	};		
 
  	
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-         // squareNumbers: [ [0,0,0,0,0] , [0,0,0,0,0] , [0,0,0,0,0] ],
+    this.state = {        
 		  targetNumbers: [0,0,0,0,0],
 		  guesses: [0,0,0,0,0],
-		//  results: [0,0,0],
+		  div_state: {display: 'none'},
+		  inst_state: {display: 'none'},
 		  inputValueN_0_0: '',
 		  inputValueN_0_1: '',
 		  inputValueN_0_2: '',
@@ -334,6 +334,16 @@ class App extends Component {
 		  }
 		/*  alert(targetNumbers[0] + " " + targetNumbers[1] + " " + targetNumbers[2] + " " + targetNumbers[3] + " " + targetNumbers[4]); */
   }
+  showHowToPlay(){
+	  this.setState({
+            inst_state: {display: 'block'}
+      });
+  }
+  hideHowToPlay(){
+	  this.setState({
+            inst_state: {display: 'none'}
+      });
+  }
   showSoln(){
 	  const targetNumbers = this.state.targetNumbers;
 	  alert(targetNumbers[0] + " " + targetNumbers[1] + " " + targetNumbers[2] + " " + targetNumbers[3] + " " + targetNumbers[4]);
@@ -352,6 +362,9 @@ class App extends Component {
 	  this.setState({
 				sol_4: targetNumbers[4]
 	  });
+	  this.setState({
+            div_state: {display: 'block'}
+      });
   }
 
 	render()  {
@@ -440,18 +453,29 @@ class App extends Component {
 						<div className="button" onClick={() => this.newGame()}>New Game</div>
 						<div className="button" onClick={() => this.showHowToPlay()}>How to Play</div>
 						<div className="button" onClick={() => this.showSoln()}>Show Solution</div>
-						<table>
-						<tr> Solution </tr>
-						  <tr>	
-						    <td><div className="result-number">{this.state.sol_0}</div></td>
-							<td><div className="result-number">{this.state.sol_1}</div></td>
-							<td><div className="result-number">{this.state.sol_2}</div></td>
-							<td><div className="result-number">{this.state.sol_3}</div></td>
-							<td><div className="result-number">{this.state.sol_4}</div></td>							
-						  </tr>
-						 </table>
+						<div className="soln-box" style={this.state.div_state}>
+							<table>
+							<tr> Solution </tr>
+							  <tr>	
+								<td><div className="result-number">{this.state.sol_0}</div></td>
+								<td><div className="result-number">{this.state.sol_1}</div></td>
+								<td><div className="result-number">{this.state.sol_2}</div></td>
+								<td><div className="result-number">{this.state.sol_3}</div></td>
+								<td><div className="result-number">{this.state.sol_4}</div></td>							
+							  </tr>
+							 </table>
+						</div>
+						<div className="instruct-box" style={this.state.inst_state}>
+						      <div className="instruct-close-x" onClick={() => this.hideHowToPlay()}>&times;</div>
+							  <div className="instruct-heading">How to Play Sequence</div>
+							  <div className="instruct-text">
+								A sequence of five numbers from 1 to 3 is chosen at random.  The player must try to guess them.  To make a guess, the player puts 5 numbers into the squares of a line and then clicks "enter guess".  The program looks for correct three number partial sequences within the five number sequence.  It also counts the first two numbers and last two numbers in the five number sequence as partial sequences that could be right or wrong.  It reports the number of sequences that the play got right.
+							  </div>
+						</div>
 					</div>
 				    <div style={{clear:'both'}}></div>
+					
+					
 				</div>		
 	    );
 		
