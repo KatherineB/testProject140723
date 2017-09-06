@@ -9,6 +9,10 @@ window.onload = function() {
 	//() => App.newGame();
 	//alert("test");
 	//App.newGame();
+	var firstTargetNumbers = [0,0,0,0,0];
+	  for (var k = 0; k<5; k++){
+			  firstTargetNumbers[k] = Math.floor((Math.random() * 3) + 1)
+		  }
 	};		
 
  	
@@ -45,7 +49,7 @@ class App extends Component {
 		  inputValueN_4_2: '',
 		  inputValueN_4_3: '',
 		  inputValueN_4_4: '',
-		//  row: 0,
+		  row: 0,
 		  totalRight: [0,0,0,0,0]
 		 };
   }
@@ -328,7 +332,6 @@ class App extends Component {
   newGame() {
 	  
 	  const targetNumbers = this.state.targetNumbers;
-	  const inputValueN_0_0 = this.state.inputValueN_0_0;
 	  
 	  for (var k = 0; k<5; k++){
 			  targetNumbers[k] = Math.floor((Math.random() * 3) + 1)
@@ -339,6 +342,26 @@ class App extends Component {
 	  this.setState({ squaresN_0_2: ''});
 	  this.setState({ squaresN_0_3: ''});
 	  this.setState({ squaresN_0_4: ''});
+	  this.setState({ squaresN_1_0: ''});
+	  this.setState({ squaresN_1_1: ''});
+	  this.setState({ squaresN_1_2: ''});
+	  this.setState({ squaresN_1_3: ''});
+	  this.setState({ squaresN_1_4: ''});
+	  this.setState({ squaresN_2_0: ''});
+	  this.setState({ squaresN_2_1: ''});
+	  this.setState({ squaresN_2_2: ''});
+	  this.setState({ squaresN_2_3: ''});
+	  this.setState({ squaresN_2_4: ''});
+	  this.setState({ squaresN_3_0: ''});
+	  this.setState({ squaresN_3_1: ''});
+	  this.setState({ squaresN_3_2: ''});
+	  this.setState({ squaresN_3_3: ''});
+	  this.setState({ squaresN_3_4: ''});
+	  this.setState({ squaresN_4_0: ''});
+	  this.setState({ squaresN_4_1: ''});
+	  this.setState({ squaresN_4_2: ''});
+	  this.setState({ squaresN_4_3: ''});
+	  this.setState({ squaresN_4_4: ''});
   
   }
   showHowToPlay(){
@@ -395,43 +418,43 @@ class App extends Component {
 						<table> 
 						  <tr> Line 1 </tr>
 						  <tr>			
-							<td><input type="number" className="number-box" pattern="\d*" value={this.state.squaresN_0_0} onChange={evt => this.squaresN_0_0(evt)}/></td>
-							<td><input type="number" className="number-box" pattern="\d*" value={this.state.squaresN_0_1} onChange={evt => this.squaresN_0_1(evt)}/></td>
-							<td><input type="number" className="number-box" pattern="\d*" value={this.state.squaresN_0_2} onChange={evt => this.squaresN_0_2(evt)}/></td>
-							<td><input type="number" className="number-box" pattern="\d*" value={this.state.squaresN_0_3} onChange={evt => this.squaresN_0_3(evt)}/></td>
-							<td><input type="number" className="number-box" pattern="\d*" value={this.state.squaresN_0_4} onChange={evt => this.squaresN_0_4(evt)}/></td>						
+							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_0} onChange={evt => this.squaresN_0_0(evt)}/></td>
+							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_1} onChange={evt => this.squaresN_0_1(evt)}/></td>
+							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_2} onChange={evt => this.squaresN_0_2(evt)}/></td>
+							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_3} onChange={evt => this.squaresN_0_3(evt)}/></td>
+							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_4} onChange={evt => this.squaresN_0_4(evt)}/></td>						
 						  </tr>
 						  <tr> Line 2 </tr>
 						  <tr>			
-							<td><input type="number" className="number-box" value={this.state.squaresN_1_0} onChange={evt => this.squaresN_1_0(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_1_1} onChange={evt => this.squaresN_1_1(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_1_2} onChange={evt => this.squaresN_1_2(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_1_3} onChange={evt => this.squaresN_1_3(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_1_4} onChange={evt => this.squaresN_1_4(evt)}/></td>						
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_0} onChange={evt => this.squaresN_1_0(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_1} onChange={evt => this.squaresN_1_1(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_2} onChange={evt => this.squaresN_1_2(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_3} onChange={evt => this.squaresN_1_3(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_4} onChange={evt => this.squaresN_1_4(evt)}/></td>						
 						  </tr>
 						  <tr> Line 3 </tr>
 						  <tr>			
-							<td><input type="number" className="number-box" value={this.state.squaresN_2_0} onChange={evt => this.squaresN_2_0(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_2_1} onChange={evt => this.squaresN_2_1(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_2_2} onChange={evt => this.squaresN_2_2(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_2_3} onChange={evt => this.squaresN_2_3(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_2_4} onChange={evt => this.squaresN_2_4(evt)}/></td>						
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_0} onChange={evt => this.squaresN_2_0(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_1} onChange={evt => this.squaresN_2_1(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_2} onChange={evt => this.squaresN_2_2(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_3} onChange={evt => this.squaresN_2_3(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_4} onChange={evt => this.squaresN_2_4(evt)}/></td>						
 						  </tr>
 						  <tr> Line 4 </tr>
 						  <tr>			
-							<td><input type="number" className="number-box" value={this.state.squaresN_3_0} onChange={evt => this.squaresN_3_0(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_3_1} onChange={evt => this.squaresN_3_1(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_3_2} onChange={evt => this.squaresN_3_2(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_3_3} onChange={evt => this.squaresN_3_3(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_3_4} onChange={evt => this.squaresN_3_4(evt)}/></td>						
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_0} onChange={evt => this.squaresN_3_0(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_1} onChange={evt => this.squaresN_3_1(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_2} onChange={evt => this.squaresN_3_2(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_3} onChange={evt => this.squaresN_3_3(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_4} onChange={evt => this.squaresN_3_4(evt)}/></td>						
 						  </tr>
 						  <tr> Line 5 </tr>
 						  <tr>			
-							<td><input type="number" className="number-box" value={this.state.squaresN_4_0} onChange={evt => this.squaresN_4_0(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_4_1} onChange={evt => this.squaresN_4_1(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_4_2} onChange={evt => this.squaresN_4_2(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_4_3} onChange={evt => this.squaresN_4_3(evt)}/></td>
-							<td><input type="number" className="number-box" value={this.state.squaresN_4_4} onChange={evt => this.squaresN_4_4(evt)}/></td>						
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_0} onChange={evt => this.squaresN_4_0(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_1} onChange={evt => this.squaresN_4_1(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_2} onChange={evt => this.squaresN_4_2(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_3} onChange={evt => this.squaresN_4_3(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_4} onChange={evt => this.squaresN_4_4(evt)}/></td>						
 						  </tr>
 						</table> 
 						</div>
