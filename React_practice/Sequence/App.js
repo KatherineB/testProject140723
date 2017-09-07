@@ -5,6 +5,10 @@ import './App.css';
     var counter = -1;
     return function () {return counter += 1;}
     })();
+var resetResults = (function () {
+    var counter = -1;
+    return counter;
+    })();
 window.onload = function() {		
 	//() => App.newGame();
 	//alert("test");
@@ -49,7 +53,7 @@ class App extends Component {
 		  inputValueN_4_2: '',
 		  inputValueN_4_3: '',
 		  inputValueN_4_4: '',
-		  row: 0,
+
 		  totalRight: [0,0,0,0,0]
 		 };
   }
@@ -326,18 +330,17 @@ class App extends Component {
 				result_4: totalRight[4]
 		 });
 	 }
-	 /*alert(targetNumbers[0] + " " + targetNumbers[1] + " " + targetNumbers[2] + " " + targetNumbers[3] + " " + targetNumbers[4]);*/
+	
   }
   
   newGame() {
-	  
-	  const targetNumbers = this.state.targetNumbers;
+	  const targetNumbers = this.state.targetNumbers;	  
 	  
 	  for (var k = 0; k<5; k++){
 			  targetNumbers[k] = Math.floor((Math.random() * 3) + 1)
 		  }
-		/*  alert(targetNumbers[0] + " " + targetNumbers[1] + " " + targetNumbers[2] + " " + targetNumbers[3] + " " + targetNumbers[4]); */
-      this.setState({ squaresN_0_0: ''});
+			  
+	  this.setState({ squaresN_0_0: ''});
 	  this.setState({ squaresN_0_1: ''});
 	  this.setState({ squaresN_0_2: ''});
 	  this.setState({ squaresN_0_3: ''});
@@ -362,6 +365,17 @@ class App extends Component {
 	  this.setState({ squaresN_4_2: ''});
 	  this.setState({ squaresN_4_3: ''});
 	  this.setState({ squaresN_4_4: ''});
+	  this.setState({result_0: ''});
+	  this.setState({result_1: ''});
+	  this.setState({result_2: ''});
+	  this.setState({result_3: ''});
+	  this.setState({result_4: ''});
+	  this.setState({
+            div_state: {display: 'none'}
+      });
+	  this.setState({
+            inst_state: {display: 'none'}
+      });
   
   }
   showHowToPlay(){
@@ -493,11 +507,11 @@ class App extends Component {
 							<table>
 							<tr> Solution </tr>
 							  <tr>	
-								<td><div className="result-number">{this.state.sol_0}</div></td>
-								<td><div className="result-number">{this.state.sol_1}</div></td>
-								<td><div className="result-number">{this.state.sol_2}</div></td>
-								<td><div className="result-number">{this.state.sol_3}</div></td>
-								<td><div className="result-number">{this.state.sol_4}</div></td>							
+								<td><div className="soln-number">{this.state.sol_0}</div></td>
+								<td><div className="soln-number">{this.state.sol_1}</div></td>
+								<td><div className="soln-number">{this.state.sol_2}</div></td>
+								<td><div className="soln-number">{this.state.sol_3}</div></td>
+								<td><div className="soln-number">{this.state.sol_4}</div></td>							
 							  </tr>
 							 </table>
 						</div>

@@ -77,6 +77,14 @@
     margin-top: 40px;
 	margin-left: 5px;
 }
+.soln-number{
+	height: 1.195em;
+	width: 1.2em;
+	border: 1px solid black;
+	font-size: 2em;
+	background-color:#ffffff;
+	text-align: center;
+}
 .instruct-box{
 	text-align: left;
 	border: 1px solid #000000;
