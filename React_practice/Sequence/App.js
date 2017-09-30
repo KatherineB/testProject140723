@@ -5,14 +5,9 @@ import './App.css';
     var counter = -1;
     return function () {return counter += 1;}
     })();
-var resetResults = (function () {
-    var counter = -1;
-    return counter;
-    })();
+	
 window.onload = function() {		
-	//() => App.newGame();
-	//alert("test");
-	//App.newGame();
+	
 	var firstTargetNumbers = [0,0,0,0,0];
 	  for (var k = 0; k<5; k++){
 			  firstTargetNumbers[k] = Math.floor((Math.random() * 3) + 1)
@@ -210,8 +205,6 @@ class App extends Component {
    
    
   checkGuess(){
-	/*  const results = this.state.results;
-	  const squareNumbers = this.state.squareNumbers; */
 	  const targetNumbers = this.state.targetNumbers;
 	  const totalRight = this.state.totalRight;
 	  const guesses = this.state.guesses;
@@ -241,7 +234,7 @@ class App extends Component {
 	  const inputValueN_4_3 = this.state.inputValueN_4_3;
 	  const inputValueN_4_4 = this.state.inputValueN_4_4;
 	  
-	  var row = add();
+	  var row = (add()) % 5;
 	  
 	  if(row == 0){
 		  guesses[0] = inputValueN_0_0;
@@ -519,7 +512,7 @@ class App extends Component {
 						      <div className="instruct-close-x" onClick={() => this.hideHowToPlay()}>&times;</div>
 							  <div className="instruct-heading">How to Play Sequence</div>
 							  <div className="instruct-text">
-								A sequence of five numbers from 1 to 3 is chosen at random.  The player must try to guess them.  To make a guess, the player puts 5 numbers into the squares of a line and then clicks "enter guess".  The program looks for correct three number partial sequences within the five number sequence.  It also counts the first two numbers and last two numbers in the five number sequence as partial sequences that could be right or wrong.  It reports the number of sequences that the play got right.
+								A sequence of five numbers from 1 to 3 is chosen at random.  The player must try to guess them.  To make a guess, the player puts 5 numbers into the squares of a line and then clicks "enter guess".  The program looks for correct three number partial sequences within the five number sequence.  It also counts the first two numbers and last two numbers in the five number sequence as partial sequences that could be right or wrong.  It reports the number of sequences that the player got right.
 							  </div>
 						</div>
 					</div>
@@ -532,5 +525,4 @@ class App extends Component {
 	}
 }
 
-	
 export default App;
