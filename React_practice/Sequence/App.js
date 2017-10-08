@@ -423,70 +423,54 @@ class App extends Component {
 						</div>
 						<div className="guess-box">				  
 						<table> 
-						  <tr> Line 1 </tr>
-						  <tr>			
-							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_0} onChange={evt => this.squaresN_0_0(evt)}/></td>
+						<tbody>
+						  <tr><td>Line 1</td></tr>
+						  <tr><td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_0} onChange={evt => this.squaresN_0_0(evt)}/></td>
 							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_1} onChange={evt => this.squaresN_0_1(evt)}/></td>
 							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_2} onChange={evt => this.squaresN_0_2(evt)}/></td>
 							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_3} onChange={evt => this.squaresN_0_3(evt)}/></td>
-							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_4} onChange={evt => this.squaresN_0_4(evt)}/></td>						
-						  </tr>
-						  <tr> Line 2 </tr>
-						  <tr>			
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_0} onChange={evt => this.squaresN_1_0(evt)}/></td>
+							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_4} onChange={evt => this.squaresN_0_4(evt)}/></td></tr>
+						  <tr><td>Line 2</td></tr>
+						  <tr><td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_0} onChange={evt => this.squaresN_1_0(evt)}/></td>
 							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_1} onChange={evt => this.squaresN_1_1(evt)}/></td>
 							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_2} onChange={evt => this.squaresN_1_2(evt)}/></td>
 							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_3} onChange={evt => this.squaresN_1_3(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_4} onChange={evt => this.squaresN_1_4(evt)}/></td>						
-						  </tr>
-						  <tr> Line 3 </tr>
-						  <tr>			
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_0} onChange={evt => this.squaresN_2_0(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_4} onChange={evt => this.squaresN_1_4(evt)}/></td></tr>
+						  <tr><td>Line 3</td></tr>
+						  <tr><td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_0} onChange={evt => this.squaresN_2_0(evt)}/></td>
 							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_1} onChange={evt => this.squaresN_2_1(evt)}/></td>
 							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_2} onChange={evt => this.squaresN_2_2(evt)}/></td>
 							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_3} onChange={evt => this.squaresN_2_3(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_4} onChange={evt => this.squaresN_2_4(evt)}/></td>						
-						  </tr>
-						  <tr> Line 4 </tr>
-						  <tr>			
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_0} onChange={evt => this.squaresN_3_0(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_4} onChange={evt => this.squaresN_2_4(evt)}/></td></tr>
+						  <tr><td>Line 4</td></tr>
+						  <tr><td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_0} onChange={evt => this.squaresN_3_0(evt)}/></td>
 							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_1} onChange={evt => this.squaresN_3_1(evt)}/></td>
 							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_2} onChange={evt => this.squaresN_3_2(evt)}/></td>
 							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_3} onChange={evt => this.squaresN_3_3(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_4} onChange={evt => this.squaresN_3_4(evt)}/></td>						
-						  </tr>
-						  <tr> Line 5 </tr>
-						  <tr>			
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_0} onChange={evt => this.squaresN_4_0(evt)}/></td>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_4} onChange={evt => this.squaresN_3_4(evt)}/></td></tr>
+						  <tr><td>Line 5</td></tr>
+						  <tr><td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_0} onChange={evt => this.squaresN_4_0(evt)}/></td>
 							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_1} onChange={evt => this.squaresN_4_1(evt)}/></td>
 							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_2} onChange={evt => this.squaresN_4_2(evt)}/></td>
 							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_3} onChange={evt => this.squaresN_4_3(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_4} onChange={evt => this.squaresN_4_4(evt)}/></td>						
-						  </tr>
+							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_4} onChange={evt => this.squaresN_4_4(evt)}/></td></tr>
+						</tbody>
 						</table> 
 						</div>
 						<div className="results-box">
 							 <table>
-							  <tr> Result 1</tr>
-							  <tr>
-								<td> <div className="result-number">{this.state.result_0}</div></td>
-							  </tr>
-							  <tr> Result 2</tr>
-							  <tr>
-								<td> <div className="result-number">{this.state.result_1}</div></td> 
-							  </tr>
-							  <tr> Result 3</tr>
-							  <tr>
-								<td> <div className="result-number">{this.state.result_2}</div></td>
-							  </tr>
-							  <tr> Result 4</tr>
-							  <tr>
-								<td> <div className="result-number">{this.state.result_3}</div></td>
-							  </tr>
-							  <tr> Result 5</tr>
-							  <tr>
-								<td> <div className="result-number">{this.state.result_4}</div></td>
-							  </tr>
+							 <tbody>
+							  <tr><td>Result 1</td></tr>
+							  <tr><td> <div className="result-number">{this.state.result_0}</div></td></tr>
+							  <tr><td>Result 2</td></tr>
+							  <tr><td> <div className="result-number">{this.state.result_1}</div></td> </tr>
+							  <tr><td>Result 3</td></tr>
+							  <tr><td> <div className="result-number">{this.state.result_2}</div></td></tr>
+							  <tr><td> Result 4</td></tr>
+							  <tr><td> <div className="result-number">{this.state.result_3}</div></td></tr>
+							  <tr><td>Result 5</td></tr>
+							  <tr><td> <div className="result-number">{this.state.result_4}</div></td></tr>
+							  </tbody>
 							 </table>
 						</div>
 						<div style={{clear:'both'}}></div>						
@@ -498,14 +482,14 @@ class App extends Component {
 						<div className="button" onClick={() => this.showSoln()}>Show Solution</div>
 						<div className="soln-box" style={this.state.div_state}>
 							<table>
-							<tr> Solution </tr>
-							  <tr>	
-								<td><div className="soln-number">{this.state.sol_0}</div></td>
+							<tbody>
+							<tr><td>Solution</td></tr>
+							  <tr><td><div className="soln-number">{this.state.sol_0}</div></td>
 								<td><div className="soln-number">{this.state.sol_1}</div></td>
 								<td><div className="soln-number">{this.state.sol_2}</div></td>
 								<td><div className="soln-number">{this.state.sol_3}</div></td>
-								<td><div className="soln-number">{this.state.sol_4}</div></td>							
-							  </tr>
+								<td><div className="soln-number">{this.state.sol_4}</div></td></tr>
+							 </tbody>
 							 </table>
 						</div>
 						<div className="instruct-box" style={this.state.inst_state}>
@@ -517,8 +501,7 @@ class App extends Component {
 						</div>
 					</div>
 				    <div style={{clear:'both'}}></div>
-					
-					
+									
 				</div>		
 	    );
 		
