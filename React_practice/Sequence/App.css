@@ -31,7 +31,8 @@
 }
 .number-box{
 	height: 1.2em;
-	width: 1.2em;
+	width: 1.5em;
+	padding-left: 0.4em;
 	border: 1px solid black;
 	font-size: 2em;
 	background-color:#ffffff;

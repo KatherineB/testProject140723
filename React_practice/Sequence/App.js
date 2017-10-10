@@ -4,17 +4,8 @@ import './App.css';
  var add = (function () {
     var counter = -1;
     return function () {return counter += 1;}
-    })();
+    })();	
 	
-window.onload = function() {		
-	
-	var firstTargetNumbers = [0,0,0,0,0];
-	  for (var k = 0; k<5; k++){
-			  firstTargetNumbers[k] = Math.floor((Math.random() * 3) + 1)
-		  }
-	};		
-
- 	
 class App extends Component {
   constructor(props) {
     super(props);
@@ -51,6 +42,11 @@ class App extends Component {
 
 		  totalRight: [0,0,0,0,0]
 		 };
+
+		  const targetNumbers = this.state.targetNumbers;
+		  for (var k = 0; k<5; k++){
+			  targetNumbers[k] = Math.floor((Math.random() * 3) + 1)
+		  }
   }
    squaresN_0_0(evt) {
     this.setState({
@@ -328,11 +324,13 @@ class App extends Component {
   
   newGame() {
 	  const targetNumbers = this.state.targetNumbers;	  
+	  const guesses = this.state.guesses;
 	  
 	  for (var k = 0; k<5; k++){
+	          guesses[k] = 0;
 			  targetNumbers[k] = Math.floor((Math.random() * 3) + 1)
 		  }
-			  
+		  
 	  this.setState({ squaresN_0_0: ''});
 	  this.setState({ squaresN_0_1: ''});
 	  this.setState({ squaresN_0_2: ''});
