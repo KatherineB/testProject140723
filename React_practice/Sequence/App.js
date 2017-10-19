@@ -46,7 +46,7 @@ class App extends Component {
 		  const targetNumbers = this.state.targetNumbers;
 		  for (var k = 0; k<5; k++){
 			  targetNumbers[k] = Math.floor((Math.random() * 3) + 1)
-		  }
+		  } 
   }
    squaresN_0_0(evt) {
     this.setState({
@@ -319,14 +319,16 @@ class App extends Component {
 				result_4: totalRight[4]
 		 });
 	 }
-	
+	 	
   }
   
   newGame() {
 	  const targetNumbers = this.state.targetNumbers;	  
 	  const guesses = this.state.guesses;
+	  const totalRight = this.state.totalRight;
 	  
 	  for (var k = 0; k<5; k++){
+		      totalRight[k] = 0;
 	          guesses[k] = 0;
 			  targetNumbers[k] = Math.floor((Math.random() * 3) + 1)
 		  }
