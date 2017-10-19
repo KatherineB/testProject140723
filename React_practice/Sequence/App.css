@@ -75,7 +75,7 @@
 	background-color: #00aa77;
 }
 .soln-box{
-    margin-top: 40px;
+    margin-top: 15px;
 	margin-left: 5px;
 }
 .soln-number{
@@ -95,7 +95,6 @@
 	padding-bottom: 15px;
 	border-radius: 5px;
 	background-color: #ffffff;
-	/*display: none;*/
 }
 .instruct-text{
 	margin-top: 10px;
@@ -105,4 +104,21 @@
 	font-size: 1.5em;
 	text-align: right;
 	cursor: pointer;
+}
+.lose-box{
+	margin-top: 15px;
+	width: 300px;
+	font-size: 1.1em;
+	text-align: left;
+	color: #992222;
+}
+.win-box{
+	margin-top: 15px;
+	width: 300px;
+	font-size: 1.3em;
+	text-align: left;
+	color: #2277bb;	
+}
+.win-box span{
+	font-weight: bold;
 }

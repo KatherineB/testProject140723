@@ -14,6 +14,8 @@ class App extends Component {
 		  guesses: [0,0,0,0,0],
 		  div_state: {display: 'none'},
 		  inst_state: {display: 'none'},
+		  lose_state: {display: 'none'},
+		  win_state: {display: 'none'},
 		  inputValueN_0_0: '',
 		  inputValueN_0_1: '',
 		  inputValueN_0_2: '',
@@ -298,26 +300,56 @@ class App extends Component {
 		 this.setState({
 				result_0: totalRight[0]
 		 });
+		 if(totalRight[0] == 5){
+			 this.setState({
+                win_state: {display: 'block'}
+             });
+		 }
 	 }
 	 else if(row == 1){
 		 this.setState({
 				result_1: totalRight[1]
 		 });
+		 if(totalRight[1] == 5){
+			 this.setState({
+                win_state: {display: 'block'}
+             });
+		 }
 	 }
 	 else if(row == 2){
 		 this.setState({
 				result_2: totalRight[2]
 		 });
+		 if(totalRight[2] == 5){
+			 this.setState({
+                win_state: {display: 'block'}
+             });
+		 }
 	 }
 	 else if(row == 3){
 		 this.setState({
 				result_3: totalRight[3]
 		 });
+		 if(totalRight[3] == 5){
+			 this.setState({
+                win_state: {display: 'block'}
+             });
+		 }
 	 }
 	 else if(row == 4){
 		 this.setState({
 				result_4: totalRight[4]
 		 });
+		 if(totalRight[4] == 5){
+			 this.setState({
+                win_state: {display: 'block'}
+             });
+		 }
+		 else{
+			 this.setState({
+                lose_state: {display: 'block'}
+             });
+		 }
 	 }
 	 	
   }
@@ -368,6 +400,12 @@ class App extends Component {
       });
 	  this.setState({
             inst_state: {display: 'none'}
+      });
+	  this.setState({
+            win_state: {display: 'none'}
+      });
+	  this.setState({
+            lose_state: {display: 'none'}
       });
   
   }
@@ -498,6 +536,12 @@ class App extends Component {
 							  <div className="instruct-text">
 								A sequence of five numbers from 1 to 3 is chosen at random.  The player must try to guess them.  To make a guess, the player puts 5 numbers into the squares of a line and then clicks "enter guess".  The program looks for correct three number partial sequences within the five number sequence.  It also counts the first two numbers and last two numbers in the five number sequence as partial sequences that could be right or wrong.  It reports the number of sequences that the player got right.
 							  </div>
+						</div>
+						<div className="lose-box" style={this.state.lose_state}>
+						  Sorry, you have lost.  You failed to guess the sequence.
+						</div>
+						<div className="win-box" style={this.state.win_state}>
+						  <span> YOU WIN!!! </span>  You guessed the sequence correctly!
 						</div>
 					</div>
 				    <div style={{clear:'both'}}></div>
