@@ -534,7 +534,10 @@ class App extends Component {
 						      <div className="instruct-close-x" onClick={() => this.hideHowToPlay()}>&times;</div>
 							  <div className="instruct-heading">How to Play Sequence</div>
 							  <div className="instruct-text">
-								A sequence of five numbers from 1 to 3 is chosen at random.  The player must try to guess them.  To make a guess, the player puts 5 numbers into the squares of a line and then clicks "enter guess".  The program looks for correct three number partial sequences within the five number sequence.  It also counts the first two numbers and last two numbers in the five number sequence as partial sequences that could be right or wrong.  It reports the number of sequences that the player got right.
+								A sequence of five numbers from 1 to 3 is chosen at random.  The player must try to guess them.  To make a guess, the player puts 5 numbers into the rectangles of a line and then clicks "Enter Guess".  
+							  </div>
+							  <div className="instruct-text">
+								Instead of counting the number of correct numbers in correct rectangles, the game counts correct partial sequences and displays that number as a result.  A partial equence is any number, the number to the left of it and the number to the right of it in the order they appear on the line.  For numbers at an end of the line, just the number beside it counts.  Thus partial sequences can contain either two or three numbers.
 							  </div>
 						</div>
 						<div className="lose-box" style={this.state.lose_state}>
