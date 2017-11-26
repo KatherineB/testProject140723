@@ -1,0 +1,44 @@
+/* CSS for StillSea Template */
+
+@media (min-width: 280px) {body {font-size: 12px;} }
+@media (min-width: 320px) {body {font-size: 14px;} }
+@media (min-width: 423px) {body {font-size: 17px;} }
+@media (min-width: 526px) {body {font-size: 20px;} }
+@media (min-width: 768px) {body {font-size: 23px;} }
+@media (min-width: 992px) {body {font-size: 28px;} }
+@media (min-width: 1200px) {body {font-size: 34px;} }
+
+.App {
+  text-align: center;
+}
+.App-header {
+  background-color: #446;
+  height: 2.5em;
+  padding: 0.5em;
+  color: white;
+}
+
+.logo-box {
+ /* background: url("logo.png");
+  background-repeat: no-repeat;*/
+  float: left;
+}
+.logo {
+	height: 2em;
+	width: 2em;
+   
+}
+.main-title{
+	float: left;
+	margin-left: 1em;
+	margin-top: 0.3em;
+	font-size: 1.3em;
+}
+.section-1{
+	 background: url("bg_image1.png");
+     background-repeat: no-repeat;
+}
+
+
+
+
