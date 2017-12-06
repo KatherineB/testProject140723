@@ -19,14 +19,11 @@
 }
 
 .logo-box {
- /* background: url("logo.png");
-  background-repeat: no-repeat;*/
   float: left;
 }
 .logo {
-	height: 2em;
-	width: 2em;
-   
+	height: 2.2em;
+	width: 2.2em;
 }
 .main-title{
 	float: left;
@@ -35,8 +32,47 @@
 	font-size: 1.3em;
 }
 .section-1{
-	 background: url("bg_image1.png");
+	 background: url("./images/bg_image1.png");
      background-repeat: no-repeat;
+	 background-size: cover;
+     background-position: center center;
+	 text-align: centre;
+	 padding: 1em;
+}
+.text-slide{
+	height: 10em;
+	width: 15em;
+	background-color: #eeeeee;
+	border: 2px solid #ddd;
+	display: inline-block;
+	border-radius: 0.5em;
+	line-height: 5;
+	}
+#ts01{
+	
+}
+#ts02{
+	display: none;
+}
+#ts03{
+	display: none;
+}
+.radbtnA-holder{
+	background-color: #ffffff;
+	height: 0.8em;
+	width: 0.8em;
+	border-radius: 0.4em;
+	display: inline-block;
+	text-align: centre;
+	line-height: 0.64;
+	margin: 1em;
+}
+.radbtnA{
+	background-color: #446;
+	height: 0.5em;
+	width: 0.5em;
+	border-radius: 0.25em;
+	display: inline-block;
 }
 
 
