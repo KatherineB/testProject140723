@@ -6,9 +6,46 @@ class App extends Component {
     super();
 
     this.state = { 
-		//logo-box: {backgroundImage: 'url("logo.png")'}
+	       ts1_state: {display: 'inline-block'},
+		   ts2_state: {display: 'none'},
+		   ts3_state: {display: 'none'},
+		   rbA1_state: {backgroundColor: '#fff'},
+		   rbA2_state: {backgroundColor: '#fff'},
+		   rbA3_state: {backgroundColor: '#fff'}
 		};   
 	}
+	
+   radbtnA_1(){
+	  this.setState({         
+			
+			rbA1_state: {backgroundColor: '#446'},
+            rbA2_state: {backgroundColor: '#fff'},
+            rbA3_state: {backgroundColor: '#fff'},
+			ts1_state: {display: 'inline-block'},
+		    ts2_state: {display: 'none'},
+		    ts3_state: {display: 'none'}
+      });
+  }
+  radbtnA_2(){
+	  this.setState({
+            rbA1_state: {backgroundColor: '#fff'},
+            rbA2_state: {backgroundColor: '#446'},
+            rbA3_state: {backgroundColor: '#fff'},
+			ts1_state: {display: 'none'},
+		    ts2_state: {display: 'inline-block'},
+		    ts3_state: {display: 'none'}
+      });
+  }
+  radbtnA_3(){
+	  this.setState({
+            rbA1_state: {backgroundColor: '#fff'},
+            rbA2_state: {backgroundColor: '#fff'},
+            rbA3_state: {backgroundColor: '#446'},
+			ts1_state: {display: 'none'},
+		    ts2_state: {display: 'none'},
+		    ts3_state: {display: 'inline-block'}
+      });
+  }
   render() {
     return (
       <div className="App">
@@ -23,25 +60,25 @@ class App extends Component {
 			</div>    
 			
             <div className="section-1">
-			      <div className="text-slide" id="ts01">
+			      <div className="text-slide" style={this.state.ts1_state}>
 				       A stitch in time saves nine.
 				  </div>
-				  <div className="text-slide" id="ts02">
-				       Better late than never.
+				  <div className="text-slide" style={this.state.ts2_state}>
+				       Do not count your chickens before they are hatched.
 				  </div>
-				  <div className="text-slide" id="ts03">
+				  <div className="text-slide" style={this.state.ts3_state}>
 				       An ounce of prevention is worth a pound of cure.
 				  </div>
 				  <div style={{clear:'both'}}></div>
 				  <div>
-				       <div className="radbtnA-holder">
-							  <div className="radbtnA" onClick={() => this.radbtnA_1()}></div>
+				       <div className="radbtnA-holder" >
+							  <div className="radbtnA"  onClick={() => this.radbtnA_1()} style={this.state.rbA1_state}></div>
 					   </div>
 					   <div className="radbtnA-holder">
-							  <div className="radbtnA" onClick={() => this.radbtnA_2()}></div>
+							  <div className="radbtnA" onClick={() => this.radbtnA_2()} style={this.state.rbA2_state}></div>
 					   </div>
 					   <div className="radbtnA-holder">
-							  <div className="radbtnA" onClick={() => this.radbtnA_3()}></div>
+							  <div className="radbtnA" onClick={() => this.radbtnA_3()} style={this.state.rbA3_state}></div>
 					   </div>
 					  <div style={{clear:'both'}}></div>
 				  </div>

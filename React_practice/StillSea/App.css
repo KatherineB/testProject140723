@@ -37,26 +37,21 @@
 	 background-size: cover;
      background-position: center center;
 	 text-align: centre;
-	 padding: 1em;
+	 display: inline-block;
+	 width: 100%;
 }
 .text-slide{
-	height: 10em;
+	height: 8em;
 	width: 15em;
+	margin-top: 2em;
 	background-color: #eeeeee;
 	border: 2px solid #ddd;
 	display: inline-block;
 	border-radius: 0.5em;
-	line-height: 5;
+	line-height: 2;
+	padding: 2em;
 	}
-#ts01{
-	
-}
-#ts02{
-	display: none;
-}
-#ts03{
-	display: none;
-}
+
 .radbtnA-holder{
 	background-color: #ffffff;
 	height: 0.8em;
@@ -68,12 +63,12 @@
 	margin: 1em;
 }
 .radbtnA{
-	background-color: #446;
 	height: 0.5em;
 	width: 0.5em;
 	border-radius: 0.25em;
 	display: inline-block;
 }
+
 
 
 
