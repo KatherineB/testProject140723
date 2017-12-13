@@ -82,6 +82,16 @@ class App extends Component {
 					   </div>
 					  <div style={{clear:'both'}}></div>
 				  </div>
+            </div>		
+            <div className="section-2">	
+			      <img className="graph-grid" src={ require('./images/grid.png') } />
+				  <img className="graph-data" src={ require('./images/data1.png') } />
+				  <img className="graph-data" src={ require('./images/data2.png') } />
+				  <img className="graph-data" src={ require('./images/data3.png') } />
+				  <img className="graph-data" src={ require('./images/data4.png') } />
+				  <img className="graph-data" src={ require('./images/data5.png') } />
+            </div>	
+            <div className="section-3">	
             </div>			
       </div>
     );

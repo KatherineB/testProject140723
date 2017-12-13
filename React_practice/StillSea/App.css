@@ -68,6 +68,33 @@
 	border-radius: 0.25em;
 	display: inline-block;
 }
+.section-2{
+	 background-color: #eee;
+	 text-align: centre;
+	 display: inline-block;
+	 width: 100%;
+}
+.graph-grid{
+	height: 8em;
+	width: 15em;
+	margin-top: 2em;
+	background-color: #eeeeee;
+	border: 2px solid #ddd;
+	display: inline-block;
+	border-radius: 0.5em;
+	line-height: 2;
+}
+.graph-data{
+	height: 8em;
+	width: 15em;
+	background-color: transparent;
+	border: 2px solid #ddd;
+    position: absolute;
+	border-radius: 0.5em;
+	line-height: 2;
+	top: 22.5em;
+	left: 6.75em;
+}
 
 
 
