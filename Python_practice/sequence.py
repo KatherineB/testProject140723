@@ -17,10 +17,20 @@ checks = array('i',[0,0,0,0,0])
 correct = 0
 info = 0
 play = 1
+inputNumber = 0
+i = 0;
+
 
 def doGuesses():
-    for i in range(0, len(guesses)):
-        guesses[i] = int(input("Enter Number:"))
+    counter = 0
+  
+    while counter < 5:
+        inputNumber = int(input("Enter Number:"))
+        if inputNumber < 4 and inputNumber > 0 and inputNumber != "":
+             guesses[i] = inputNumber
+             counter += 1
+        else:
+             print "Please enter a number from 1 to 3"     
 
     if guesses[0] == randomNumbers[0]:
         if guesses[1] == randomNumbers[1]:
