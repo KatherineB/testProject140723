@@ -2,11 +2,12 @@
 # Sequence Guessing Game
 # ----------------------
 # A sequence of five numbers from 1 to 3 is chosen at random.  The player must try to guess them.
-# The player inputs the numbers, one by one.  The program looks for correct three number partial 
-# sequences within the five number sequence.  It also counts the first two numbers and last two 
-# numbers in the five number sequence as partial sequences that could be right or wrong.  It reports 
-# the number of sequences that the play got right.
-
+# The player inputs five numbers, one by one, to make a guess. Instead of counting the number of 
+# correct numbers in correct positions, the game counts the number of correct partial sequences   
+# and displays that number as a result.  A partial sequence is any number, the number before it 
+# and the number after it in the order that they were entered by the player.  For first and last 
+# numbers in a guess of five numbers, just the number and the number before or after it counts.  
+# Thus partial sequences can contain either two or three numbers.
 
 import random
 from array import *
@@ -96,12 +97,17 @@ def runGame():
 
 def showHowToPlay():
     print ""
-    print "A sequence of five numbers from 1 to 3 is chosen at random.  The player must try"
-    print "to guess them.  The player inputs the numbers, one by one.  The program looks for" 
-    print "correct three number partial sequences within the five number sequence.  It also" 
-    print "counts the first two numbers and last two numbers in the five number sequence as" 
-    print "partial sequences that could be right or wrong.  It reports the number of"
-    print "sequences that the player got right."
+    print "A sequence of five numbers from 1 to 3 is chosen at random."
+    print "The player must try to guess them.  The player inputs five" 
+    print "numbers, one by one, to make a guess.  Instead of counting" 
+    print "the number of correct numbers in correct positions, the game" 
+    print "counts the number of correct partial sequences and displays"
+    print "that number as a result.  A partial sequence is any number,"
+    print "the number before it and the number after it in the order"
+    print "that they were entered by the player.  For first and last"
+    print "numbers in a guess of five numbers, just the number and"
+    print "the number before or after it counts. Thus partial sequences"
+    print "can contain either two or three numbers."
     print ""
 
 while play == 1:
