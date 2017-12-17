@@ -28,40 +28,40 @@ def doGuesses():
     while counter < 5:
         inputNumber = int(input("Enter Number:"))
         if inputNumber < 4 and inputNumber > 0 and inputNumber != "":
-             guesses[i] = inputNumber
+             guesses[counter] = inputNumber
              counter += 1
         else:
              print "Please enter a number from 1 to 3"     
 
-    if guesses[0] == randomNumbers[0]:
+        if guesses[0] == randomNumbers[0]:
+	    if guesses[1] == randomNumbers[1]:
+	        checks[0] = 1
+	    else:
+	        checks[0] = 0
+
         if guesses[1] == randomNumbers[1]:
-	    checks[0] = 1
-        else:
-            checks[0] = 0
+	    if guesses[0] == randomNumbers[0] and guesses[2] == randomNumbers[2]:
+                checks[1] = 1
+            else:
+                checks[1] = 0
 
-    if guesses[1] == randomNumbers[1]:
-	if guesses[0] == randomNumbers[0] and guesses[2] == randomNumbers[2]:
-            checks[1] = 1
-        else:
-            checks[1] = 0
+        if guesses[2] == randomNumbers[2]:
+	    if guesses[1] == randomNumbers[1] and guesses[3] == randomNumbers[3]:
+	        checks[2] = 1
+            else:
+                checks[2] = 0
 
-    if guesses[2] == randomNumbers[2]:
-	if guesses[1] == randomNumbers[1] and guesses[3] == randomNumbers[3]:
-	    checks[2] = 1
-        else:
-            checks[2] = 0
+        if guesses[3] == randomNumbers[3]:
+	    if guesses[2] == randomNumbers[2] and guesses[4] == randomNumbers[4]:
+	        checks[3] = 1
+            else:
+                checks[3] = 0
 
-    if guesses[3] == randomNumbers[3]:
-	if guesses[2] == randomNumbers[2] and guesses[4] == randomNumbers[4]:
-	    checks[3] = 1
-        else:
-            checks[3] = 0
-
-    if guesses[4] == randomNumbers[4]:
-	if guesses[3] == randomNumbers[3]:
-            checks[4] = 1
-        else:
-            checks[4] = 0
+        if guesses[4] == randomNumbers[4]:
+	    if guesses[3] == randomNumbers[3]:
+                checks[4] = 1
+            else:
+                checks[4] = 0
 
     correct = checks[0] + checks[1] + checks[2] + checks[3] + checks[4]
 
