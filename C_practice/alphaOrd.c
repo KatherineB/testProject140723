@@ -13,6 +13,7 @@ int inner = 5;
 char sequence[];
 int length;
 int score;
+int temp;
 
 
 main(){
@@ -44,9 +45,17 @@ main(){
             printf("%c ",letters[number]);         
         }   
        printf("\n");
-    }
+    } 
    printf("Enter a letter sequence\n");
    scanf("%s", sequence);
+   printf("sequence=%s \n", sequence);
+   printf("first letter=%c \n", sequence[0]);
+
+
+     printf("length of sequence=%d \n", strlen(sequence));
+     length = strlen(sequence);
+     /*printf("length of sequence=%d \n", length);*/
+
    
    searchLetterSquareArray(sequence); 
    return 0;
@@ -67,8 +76,9 @@ int checkForDuplicates(int pick){
 void searchLetterSquareArray(char sequence[]){
      int x1, x2, y1, y2;
      int xDiff, yDiff;
-     length = 7;
-     score = 1;
+     int multiplier=2;
+
+     score = 0;
      for(k=0; k<length-1; k++){
 	    char letter1 = sequence[0+k];
 	    char letter2 = sequence[1+k];  
@@ -77,7 +87,7 @@ void searchLetterSquareArray(char sequence[]){
 	      for(j=0; j<inner; j++)
 		{
 		  if(letter1 == letterSquare[i][j]){
-		       printf("The first letter %c is in position %d %d \n",letter1,i,j);  
+		       printf("Letter %d is in position %d %d \n",k+1,i,j);  
 		       x1 = i;
 		       y1 = j;          
 		  }
@@ -89,7 +99,7 @@ void searchLetterSquareArray(char sequence[]){
 	      for(j=0; j<inner; j++)
 		{
 		  if(letter2 == letterSquare[i][j]){
-		       printf("The second letter %c is in position %d %d \n",letter2,i,j);   
+		       printf("Letter %d is in position %d %d \n",k+2,i,j);   
 		       x2 = i;
 		       y2 = j;          
 		  }
@@ -99,13 +109,17 @@ void searchLetterSquareArray(char sequence[]){
 	     yDiff = abs(y1 - y2);
 
 	     if( xDiff < 2  && yDiff < 2){
-		 score = score * (2 + k);
+		 score = score + multiplier;
                  printf("score=%d\n",score);
 	     }
 	     else{
 		printf("Not a correct sequence\n");
 	     }
+             multiplier = multiplier * 2;
       }
       
+      
 } 
+
+
 
