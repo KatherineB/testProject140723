@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int checkForDuplicates(int);
-void searchLetterSquareArray(char[]);
+int searchLetterSquareArray(char[]);
 int i,j,k;
 char checkArray[25] = "1234567890123456789012345";
 int counter = 0;
@@ -12,8 +12,10 @@ int outer = 5;
 int inner = 5;
 char sequence[];
 int length;
-int score;
+int sequenceScore;
+int finalScore;
 int temp;
+int gameOver = 0;
 
 
 main(){
@@ -42,22 +44,34 @@ main(){
             checkArray[counter] = letters[number];
             counter++;
             letterSquare[i][j] = letters[number];
-            printf("%c ",letters[number]);         
         }   
-       printf("\n");
     } 
-   printf("Enter a letter sequence\n");
-   scanf("%s", sequence);
-   printf("sequence=%s \n", sequence);
-   printf("first letter=%c \n", sequence[0]);
+   printf("Enter incorrect sequence to make game end\n\n");
 
+   while(gameOver != 1){ 
+       for(i=0; i<outer; i++){
+           for(j=0; j<inner; j++)
+              {   
+                printf("%c ",letterSquare[i][j]);         
+              }   
+           printf("\n");
+       } 
+       printf("Enter a letter sequence\n");
+       scanf("%s", sequence);
+       printf("sequence=%s \n", sequence);
+       printf("first letter=%c \n", sequence[0]);
 
-     printf("length of sequence=%d \n", strlen(sequence));
-     length = strlen(sequence);
-     /*printf("length of sequence=%d \n", length);*/
-
+       printf("length of sequence=%d \n", strlen(sequence));
+       length = strlen(sequence);
+  
+       sequenceScore = searchLetterSquareArray(sequence); 
+       finalScore += sequenceScore;
+       if (sequenceScore == 0){
+          gameOver = 1;
+       }
+   }
    
-   searchLetterSquareArray(sequence); 
+   printf("Final Score: %d \n", finalScore);
    return 0;
 } 
 
@@ -73,10 +87,11 @@ int checkForDuplicates(int pick){
       }
      return 0;
 }
-void searchLetterSquareArray(char sequence[]){
+int searchLetterSquareArray(char sequence[]){
      int x1, x2, y1, y2;
      int xDiff, yDiff;
      int multiplier=2;
+     int score;
 
      score = 0;
      for(k=0; k<length-1; k++){
@@ -108,7 +123,7 @@ void searchLetterSquareArray(char sequence[]){
 	     xDiff = abs(x1 - x2);
 	     yDiff = abs(y1 - y2);
 
-	     if( xDiff < 2  && yDiff < 2){
+	     if( xDiff < 2  && yDiff < 2 && (xDiff + yDiff) != 0){
 		 score = score + multiplier;
                  printf("score=%d\n",score);
 	     }
@@ -117,6 +132,7 @@ void searchLetterSquareArray(char sequence[]){
 	     }
              multiplier = multiplier * 2;
       }
+      return score;
       
       
 } 
