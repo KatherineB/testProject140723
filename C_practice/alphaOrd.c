@@ -46,7 +46,7 @@ main(){
             letterSquare[i][j] = letters[number];
         }   
     } 
-   printf("Enter incorrect sequence to make game end\n\n");
+   printf("Enter Q to make game end\n\n");
 
    while(gameOver != 1){ 
        for(i=0; i<outer; i++){
@@ -56,19 +56,26 @@ main(){
               }   
            printf("\n");
        } 
+
        printf("Enter a letter sequence\n");
        scanf("%s", sequence);
+
        printf("sequence=%s \n", sequence);
        printf("first letter=%c \n", sequence[0]);
-
        printf("length of sequence=%d \n", strlen(sequence));
+
        length = strlen(sequence);
   
+       if (sequence[0] == 'Q' && length == 1)
+         {
+          gameOver = 1;
+         }
+
        sequenceScore = searchLetterSquareArray(sequence); 
        finalScore += sequenceScore;
-       if (sequenceScore == 0){
+        /*if (sequenceScore == 0){
           gameOver = 1;
-       }
+       }*/
    }
    
    printf("Final Score: %d \n", finalScore);
@@ -102,7 +109,7 @@ int searchLetterSquareArray(char sequence[]){
 	      for(j=0; j<inner; j++)
 		{
 		  if(letter1 == letterSquare[i][j]){
-		       printf("Letter %d is in position %d %d \n",k+1,i,j);  
+		       printf("Letter %d is in position %d %d ASCII: %d\n",k+1,i,j,letterSquare[i][j]);  
 		       x1 = i;
 		       y1 = j;          
 		  }
@@ -114,21 +121,34 @@ int searchLetterSquareArray(char sequence[]){
 	      for(j=0; j<inner; j++)
 		{
 		  if(letter2 == letterSquare[i][j]){
-		       printf("Letter %d is in position %d %d \n",k+2,i,j);   
+		       printf("Letter %d is in position %d %d ASCII: %d\n",k+2,i,j,letterSquare[i][j]);   
 		       x2 = i;
 		       y2 = j;          
 		  }
 		}
 	     }
-	     xDiff = abs(x1 - x2);
+	     
+             xDiff = abs(x1 - x2);
 	     yDiff = abs(y1 - y2);
 
+             if(length > 0)   /* for testing */
+               {
+                printf("xDiff = %d   yDiff = %d \n", xDiff,yDiff);
+               }
+
 	     if( xDiff < 2  && yDiff < 2 && (xDiff + yDiff) != 0){
-		 score = score + multiplier;
-                 printf("score=%d\n",score);
+                  if(letterSquare[x1][y1] + 1 == letterSquare[x2][y2])
+                    {
+                     printf("ASCII 1: %d ASCII 2: %d\n", letterSquare[x1][y1],letterSquare[x2][y2]); 
+		     score = score + multiplier;
+                     printf("score=%d\n",score);
+                    }
+                  else{
+                    printf("Letters of alphabet must be consecutive\n");
+                   }
 	     }
 	     else{
-		printf("Not a correct sequence\n");
+		printf("Next letter must be adjacent horizontally, vertically or diagonally\n");
 	     }
              multiplier = multiplier * 2;
       }
