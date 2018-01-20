@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>  
 
 int checkForDuplicates(int);
 int searchLetterSquareArray(char[]);
-int i,j,k;
+int i,j,k,m;
 char checkArray[25] = "1234567890123456789012345";
 int counter = 0;
 int flag = 0;
@@ -14,9 +15,7 @@ char sequence[];
 int length;
 int sequenceScore;
 int finalScore;
-int temp;
 int gameOver = 0;
-
 
 main(){
    char letters[26] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -66,16 +65,13 @@ main(){
 
        length = strlen(sequence);
   
-       if (sequence[0] == 'Q' && length == 1)
+       if ( (sequence[0] == 'Q' || sequence[0] == 'q') && length == 1)
          {
           gameOver = 1;
          }
 
        sequenceScore = searchLetterSquareArray(sequence); 
        finalScore += sequenceScore;
-        /*if (sequenceScore == 0){
-          gameOver = 1;
-       }*/
    }
    
    printf("Final Score: %d \n", finalScore);
@@ -101,6 +97,14 @@ int searchLetterSquareArray(char sequence[]){
      int score;
 
      score = 0;
+
+     /* convert any lower case letters to upper case */
+     for(m=0; m<length; m++){
+           if (sequence[m] >= 97 && sequence[m] <= 122){
+               sequence[m] = sequence[m] - 32;
+           }
+     }
+
      for(k=0; k<length-1; k++){
 	    char letter1 = sequence[0+k];
 	    char letter2 = sequence[1+k];  
@@ -153,7 +157,6 @@ int searchLetterSquareArray(char sequence[]){
              multiplier = multiplier * 2;
       }
       return score;
-      
       
 } 
 
