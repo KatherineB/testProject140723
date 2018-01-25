@@ -4,8 +4,10 @@
 
 int checkForDuplicates(int);
 int searchLetterSquareArray(char[]);
+
 int i,j,k,m;
 char checkArray[25] = "1234567890123456789012345";
+int lettersUsed[26] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 int counter = 0;
 int flag = 0;
 char letterSquare[5][5];
@@ -75,6 +77,13 @@ main(){
    }
    
    printf("Final Score: %d \n", finalScore);
+
+   for (i=0; i<26; i++)
+     {
+      printf("%c %d   ",letters[i],lettersUsed[i]);
+     }
+   printf("\n");
+
    return 0;
 } 
 
@@ -143,22 +152,39 @@ int searchLetterSquareArray(char sequence[]){
 	     if( xDiff < 2  && yDiff < 2 && (xDiff + yDiff) != 0){
                   if(letterSquare[x1][y1] + 1 == letterSquare[x2][y2])
                     {
-                     printf("ASCII 1: %d ASCII 2: %d\n", letterSquare[x1][y1],letterSquare[x2][y2]); 
-		     score = score + multiplier;
-                     printf("score=%d\n",score);
+                              if(lettersUsed[letterSquare[x1][y1]-65] == 0 && lettersUsed[letterSquare[x2][y2]-65] == 0)
+                               {
+                                 printf("ASCII 1: %d ASCII 2: %d\n", letterSquare[x1][y1],letterSquare[x2][y2]); 
+		                 score = score + multiplier;
+
+                                 if(length < 3)
+                                  {
+                                   lettersUsed[letterSquare[x1][y1]-65] = 1;
+                                   lettersUsed[letterSquare[x2][y2]-65] = 1;
+                                  }
+                                 if(length > 2 ) 
+                                   {
+                                     lettersUsed[letterSquare[x2][y2]-65] = 1; 
+                                   }
+
+                                 printf("score=%d\n",score);
+                               }
+                             else{
+                                printf("Each letter can only be used once when entering sequences\n");
+                            }
                     }
                   else{
-                    printf("Letters of alphabet must be consecutive\n");
+                    printf("Letters of alphabet must be consecutive and in proper alphabetical order\n");
                    }
 	     }
 	     else{
 		printf("Next letter must be adjacent horizontally, vertically or diagonally\n");
 	     }
              multiplier = multiplier * 2;
+             
       }
       return score;
       
 } 
-
 
 
