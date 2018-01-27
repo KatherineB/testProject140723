@@ -3,7 +3,7 @@
 #include <string.h>  
 
 int checkForDuplicates(int);
-int searchLetterSquareArray(char[]);
+int checkAndScore(char[]);
 
 int i,j,k,m;
 char checkArray[25] = "1234567890123456789012345";
@@ -72,7 +72,7 @@ main(){
           gameOver = 1;
          }
 
-       sequenceScore = searchLetterSquareArray(sequence); 
+       sequenceScore = checkAndScore(sequence); 
        finalScore += sequenceScore;
    }
    
@@ -99,7 +99,7 @@ int checkForDuplicates(int pick){
       }
      return 0;
 }
-int searchLetterSquareArray(char sequence[]){
+int checkAndScore(char sequence[]){
      int x1, x2, y1, y2;
      int xDiff, yDiff;
      int multiplier=2;
@@ -149,29 +149,30 @@ int searchLetterSquareArray(char sequence[]){
                 printf("xDiff = %d   yDiff = %d \n", xDiff,yDiff);
                }
 
+             /* check that one letter is adjacent to another letter and that they are not both in the same position */
 	     if( xDiff < 2  && yDiff < 2 && (xDiff + yDiff) != 0){
+                  /* check that the letters are in proper alphabetical order and one is right after the other */
                   if(letterSquare[x1][y1] + 1 == letterSquare[x2][y2])
                     {
-                              if(lettersUsed[letterSquare[x1][y1]-65] == 0 && lettersUsed[letterSquare[x2][y2]-65] == 0)
-                               {
-                                 printf("ASCII 1: %d ASCII 2: %d\n", letterSquare[x1][y1],letterSquare[x2][y2]); 
-		                 score = score + multiplier;
+                        /* check if letter has already been used */
+                        if(lettersUsed[letterSquare[x1][y1]-65] == 0 && lettersUsed[letterSquare[x2][y2]-65] == 0)
+                          {
+                           printf("ASCII 1: %d ASCII 2: %d\n", letterSquare[x1][y1],letterSquare[x2][y2]); 
+		           score = score + multiplier;
 
-                                 if(length < 3)
-                                  {
-                                   lettersUsed[letterSquare[x1][y1]-65] = 1;
-                                   lettersUsed[letterSquare[x2][y2]-65] = 1;
-                                  }
-                                 if(length > 2 ) 
-                                   {
-                                     lettersUsed[letterSquare[x2][y2]-65] = 1; 
-                                   }
+                           lettersUsed[letterSquare[x1][y1]-65] = 1;
+                           lettersUsed[letterSquare[x2][y2]-65] = 1; 
 
-                                 printf("score=%d\n",score);
-                               }
-                             else{
-                                printf("Each letter can only be used once when entering sequences\n");
-                            }
+                           if(k <  length - 2)
+                              {
+                               lettersUsed[letterSquare[x2][y2]-65] = 0;
+                              }
+
+                           printf("score=%d  k=%d\n",score,k);
+                          }
+                        else{
+                           printf("Each letter can only be used once when entering sequences\n");
+                          }
                     }
                   else{
                     printf("Letters of alphabet must be consecutive and in proper alphabetical order\n");
@@ -184,7 +185,6 @@ int searchLetterSquareArray(char sequence[]){
              
       }
       return score;
-      
 } 
 
 
