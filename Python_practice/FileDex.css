@@ -1,0 +1,51 @@
+/* CSS for ClassClean.html */
+
+@media (min-width: 280px) {body {font-size: 12px;} }
+@media (min-width: 320px) {body {font-size: 14px;} }
+@media (min-width: 423px) {body {font-size: 17px;} }
+@media (min-width: 526px) {body {font-size: 20px;} }
+@media (min-width: 768px) {body {font-size: 23px;} }
+@media (min-width: 992px) {body {font-size: 28px;} }
+@media (min-width: 1200px) {body {font-size: 34px;} }
+
+html{
+	 background-color: #ddffff;
+	 font-family:  arial, "sans-serif";
+	 text-align: center;
+}
+.heading{
+	font-size: 2em;
+}
+.op-type-box{
+        background-color: #ddeeff;
+	margin-top: 1.5em;
+	text-align: left;
+	display: inline-block;
+	font-size: 1em;   
+}
+.checkbox-holder{
+	margin-top: 0.3em;
+}
+input[type='checkbox'] {
+        width: 1.5em;
+        height: 1.5em;
+        margin: 0.5em;
+}
+.file-input{
+	margin-top: 2em;
+	text-align: left;
+	font-size: 1em;
+        width: 20em;
+}
+#sort1{
+	margin-top: 0.5em;
+	font-size: 0.8em;
+}
+#sort2{
+	margin-top: 0.5em;
+	font-size: 0.8em;
+}
+#sort3{
+	margin-top: 0.5em;
+	font-size: 0.8em;
+}

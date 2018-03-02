@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head><title>FileDex</title>
+<link rel="stylesheet" href="FileDex.css">
+</head>
+<body>
+<div class="main-div">
+     <div class="heading">FileDex</div>
+	 <div class="op-type-box">
+		<div class="op-type-label">Sort</div>
+		<div class="checkbox-holder">
+		  <input class="op-type-checkbox" type="checkbox" value="classes"> Enter file: <input type="file" class="file-input" id="sort1">
+                </div>
+                <div class="checkbox-holder">
+		  <input class="op-type-checkbox" type="checkbox" value="classes"> Enter file: <input type="file" class="file-input" id="sort2">
+                </div>
+                <div class="checkbox-holder">
+		  <input class="op-type-checkbox" type="checkbox" value="classes"> Enter file: <input type="file" class="file-input" id="sort3">
+                </div>
+	  </div>
+      </div>
+</div>
+	
+
+<script type="text/javascript">
+var htmlText = "";
+
+document.getElementById('sort1').addEventListener('change', readFile, false);
+document.getElementById('sort2').addEventListener('change', readFile, false);
+document.getElementById('sort3').addEventListener('change', readFile, false);
+
+function readFile(evt) {
+    alert("in readfile");
+   
+    var f = evt.target.files[0]; 
+    
+    alert("f=",f);
+
+    if (f) {
+		  var r = new FileReader();
+		  r.onload = function(e) { 
+			  var contents = e.target.result;
+			alert( "chosen file = " + f.name);  
+			  alert(f.size);
+			  alert(f.type);
+			  alert( contents.substr(1, contents.indexOf(10)));
+		  }
+    r.readAsText(f);
+	htmlText = r.readAsText(f);
+	
+    } 
+	else { 
+          alert("Failed to load file");
+    }
+	alert(htmlText);
+  }
+  
+  
+</script>
+
+</body>
+</html>
