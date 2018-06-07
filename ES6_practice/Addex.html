@@ -180,18 +180,25 @@
 	</div>
 </div>
 <script type="text/javascript">
-let numbersRand = [];
+let columnsRand = [];
 const numbersRandIds = ["nd00","nd01","nd02","nd03","nd04","nd05","nd06","nd07","nd08","nd09","nd10","nd11"];
 const numberSizeLimit = 9;
 const arraySizeLimit = 12;
 
-let numPic = () => Math.floor(Math.random() * numberSizeLimit) + 1;
+function NumberCol(numberSizeLimit){
+  this.none = false,
+  this.plus = false,
+  this.equals = false,
+  this.numberSizeLimit = numberSizeLimit,
+  this.number = Math.floor(Math.random() * numberSizeLimit) + 1;
+};
+
+let objectPic = () => new NumberCol(numberSizeLimit);
  
 for (let i=0; i<arraySizeLimit; i++){
-    numbersRand.push(numPic());
-	document.getElementById(numbersRandIds[i]).innerHTML = numbersRand[i];
+    columnsRand.push(objectPic());
+	document.getElementById(numbersRandIds[i]).innerHTML = columnsRand[i].number;
 }
-
 </script>
 
 </body>
