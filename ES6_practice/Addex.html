@@ -174,13 +174,14 @@
 		    <input class="btn" type="button" value="Count" onClick="count()">
 		</div>
 		<div class="btn-holder">
-		    <input class="btn" type="button" value="Clear" onClick+"clear()">
+		    <input class="btn" type="button" value="Clear" onClick="resetRads()">
 		</div>
 	    <div style="clear:both"></div>  
 	</div>
 </div>
 <script type="text/javascript">
 let columnsRand = [];
+let score = 0;
 const columnsRandIds = [ {"noneId": "none00", "plusId" : "plus00", "eqId" : "eq00", "ndId":"nd00"}, 
                          {"noneId": "none01", "plusId" : "plus01", "eqId" : "eq01", "ndId":"nd01"},
                          {"noneId": "none02", "plusId" : "plus02", "eqId" : "eq02", "ndId":"nd02"}, 
@@ -213,6 +214,37 @@ for (let i=0; i<arraySizeLimit; i++){
       let radiobtn = document.getElementById(columnsRandIds[i].noneId);
       radiobtn.checked = true;
 	  document.getElementById(columnsRandIds[i].ndId).innerHTML = columnsRand[i].number;
+}
+function count(){
+     let plusSum = 0;
+	 let equal = 0;
+    for (let i=0; i<arraySizeLimit; i++){
+	    let plusCheck = document.getElementById(columnsRandIds[i].plusId);
+	    if( plusCheck.checked ){
+		    alert(columnsRand[i].number);
+			plusSum += columnsRand[i].number;
+			alert(plusSum);
+		}
+	}
+	for (let i=0; i<arraySizeLimit; i++){
+	    let eqCheck = document.getElementById(columnsRandIds[i].eqId);
+	    if( eqCheck.checked && equal == 0){
+		    alert(columnsRand[i].number);
+			equal = columnsRand[i].number;
+			alert(equal);
+		}
+	}
+	if (plusSum == equal){
+	     alert("Right! They are equal.");
+         score++;		 
+	}
+	alert("Score=" + score);
+}
+function resetRads(){
+     for (let i=0; i<arraySizeLimit; i++){
+	    let radiobtn = document.getElementById(columnsRandIds[i].noneId);
+        radiobtn.checked = true;
+	 }
 }
 
 </script>
