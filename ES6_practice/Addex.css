@@ -17,13 +17,20 @@ html{
 	font-size: 1.7em;
 	color: #ffffff;
 }
+.user-notify{
+	color: #ff00ff;
+	/*background-color: #00ff00;*/
+	height: 1.4em;
+	margin-top: 0.7em;
+	font-size: 0.9em;
+}
 .number-box{
-	margin-top: 1.5em;
+	/*margin-top: 0.6em;*/
 	display: inline-block;
 }
 .number-column{
 	float: left;
-	margin-left: 0,5em;
+	margin-left: 0.5em;
 	margin-right: 0.5em;
 	background-color: #330066;
 	margin-top: 1em;
@@ -34,22 +41,18 @@ html{
 	background-color: #330066;
 	margin-left: 0.2em;
 	margin-right: 0.2em;
-	/*width: 3em;*/
 }
 .num-display{
 	text-align : center;
 	font-size: 1.7em;
 	margin-top: 0.2em;
-	/*margin-left: 0.2em;*/
 	background-color: #330066;
 	color: #ffffff;
-	/*width: 3em;*/
 }
 .button-box{
-
+    margin-top: 1em;
 }
 .btn-holder{
-	margin-top: 2em;
 	margin-left: 0.2em;
 	margin-right: 0.2em;
 	display: inline-block;
@@ -61,6 +64,18 @@ html{
 	height: 1.5em;
 	font-size: 1.0em;
 	border: none;
+}
+.score-box{
+    margin-top: 0.7em;
+	color: #ffffff;
+	font-size: 1.2em;
+}
+.score-label{
+	display: inline-block;
+}
+.score{
+	display: inline-block;
+	width: 1.8em;
 }
 
 @media (min-width: 526px) {

@@ -7,6 +7,7 @@
 <body>
 <div class="main-div">
     <div class="main-title">Addex Game</div>
+	<div class="user-notify" id="user-notify"></div>
     <div class="number-box">
 	      <div class="half">
 		          <div class="quarter">
@@ -178,6 +179,10 @@
 		</div>
 	    <div style="clear:both"></div>  
 	</div>
+	<div class="score-box">
+	     <div class="score-label">Score:</div>
+		 <div class="score" id="score"></div>
+	</div>
 </div>
 <script type="text/javascript">
 let columnsRand = [];
@@ -216,31 +221,34 @@ for (let i=0; i<arraySizeLimit; i++){
 	  document.getElementById(columnsRandIds[i].ndId).innerHTML = columnsRand[i].number;
 }
 function count(){
-     let plusSum = 0;
-	 let equal = 0;
+    let plusSum = 0;
+	let equal = 0;
+	document.getElementById('user-notify').innerHTML = "";
     for (let i=0; i<arraySizeLimit; i++){
 	    let plusCheck = document.getElementById(columnsRandIds[i].plusId);
 	    if( plusCheck.checked ){
-		    alert(columnsRand[i].number);
 			plusSum += columnsRand[i].number;
-			alert(plusSum);
 		}
 	}
 	for (let i=0; i<arraySizeLimit; i++){
 	    let eqCheck = document.getElementById(columnsRandIds[i].eqId);
 	    if( eqCheck.checked && equal == 0){
-		    alert(columnsRand[i].number);
 			equal = columnsRand[i].number;
-			alert(equal);
 		}
 	}
 	if (plusSum == equal){
-	     alert("Right! They are equal.");
-         score++;		 
+         score += 5;		 
+		 document.getElementById('score').innerHTML = score;
+		 resetRads();
 	}
-	alert("Score=" + score);
+	else{
+	    alert("Sorry, that is not a valid combination. Please try again.")
+		document.getElementById('user-notify').innerHTML = "Sorry, that is not a valid combination. Please try again.";
+	}
+	
 }
 function resetRads(){
+     document.getElementById('user-notify').innerHTML = "";
      for (let i=0; i<arraySizeLimit; i++){
 	    let radiobtn = document.getElementById(columnsRandIds[i].noneId);
         radiobtn.checked = true;
