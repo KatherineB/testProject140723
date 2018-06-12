@@ -201,6 +201,8 @@ const columnsRandIds = [ {"noneId": "none00", "plusId" : "plus00", "eqId" : "eq0
                          {"noneId": "none11", "plusId" : "plus11", "eqId" : "eq11", "ndId":"nd11"}  ];
 const numberSizeLimit = 9;
 const arraySizeLimit = 12;
+let entries = [];
+
 
 // constructor to create number column objects
 function NumberCol(numberSizeLimit){
@@ -223,26 +225,35 @@ for (let i=0; i<arraySizeLimit; i++){
 function count(){
     let plusSum = 0;
 	let equal = 0;
+	let entry = '';
 	document.getElementById('user-notify').innerHTML = "";
     for (let i=0; i<arraySizeLimit; i++){
 	    let plusCheck = document.getElementById(columnsRandIds[i].plusId);
 	    if( plusCheck.checked ){
 			plusSum += columnsRand[i].number;
+			entry += columnsRandIds[i].plusId;
 		}
 	}
 	for (let i=0; i<arraySizeLimit; i++){
 	    let eqCheck = document.getElementById(columnsRandIds[i].eqId);
 	    if( eqCheck.checked && equal == 0){
 			equal = columnsRand[i].number;
+			entry += columnsRandIds[i].eqId;
 		}
 	}
 	if (plusSum == equal){
-         score += 5;		 
-		 document.getElementById('score').innerHTML = score;
-		 resetRads();
+	    let dupCheck = duplicateCheck(entry);
+	         if(dupCheck == 0){
+				 score += 5;		 
+				 document.getElementById('score').innerHTML = score;
+				 entries.push(entry);
+				 resetRads(); 
+			 }
+			 else{
+				 document.getElementById('user-notify').innerHTML = "Sorry, that combination has already been used. Please try again.";
+			 }
 	}
 	else{
-	    alert("Sorry, that is not a valid combination. Please try again.")
 		document.getElementById('user-notify').innerHTML = "Sorry, that is not a valid combination. Please try again.";
 	}
 	
@@ -253,6 +264,15 @@ function resetRads(){
 	    let radiobtn = document.getElementById(columnsRandIds[i].noneId);
         radiobtn.checked = true;
 	 }
+	 alert(entries.length);
+}
+function duplicateCheck(entry){
+     for (let i=0; i<entries.length; i++){
+	     if(entry === entries[i]){
+			 return 1;
+		 }
+	 }
+	 return 0;
 }
 
 </script>
