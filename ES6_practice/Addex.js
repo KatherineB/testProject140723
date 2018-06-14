@@ -28,12 +28,15 @@ function NumberCol(numberSizeLimit){
 
 let objectPic = () => new NumberCol(numberSizeLimit);
 
-// Fill array of column objects and adjust display to match
-for (let i=0; i<arraySizeLimit; i++){
-      columnsRand.push(objectPic());
-      let radiobtn = document.getElementById(columnsRandIds[i].noneId);
-      radiobtn.checked = true;
-	  document.getElementById(columnsRandIds[i].ndId).innerHTML = columnsRand[i].number;
+setUp();
+
+function setUp(){
+	for (let i=0; i<arraySizeLimit; i++){
+		  columnsRand.push(objectPic());
+		  let radiobtn = document.getElementById(columnsRandIds[i].noneId);
+		  radiobtn.checked = true;
+		  document.getElementById(columnsRandIds[i].ndId).innerHTML = columnsRand[i].number;
+	}
 }
 function count(){
     let plusSum = 0;
@@ -54,7 +57,7 @@ function count(){
 			entry += columnsRandIds[i].eqId;
 		}
 	}
-	if (plusSum == equal){
+	if (plusSum == equal && equal != 0){
 	    let dupCheck = duplicateCheck(entry);
 	         if(dupCheck == 0){
 				 score += 5;		 
@@ -77,7 +80,6 @@ function resetRads(){
 	    let radiobtn = document.getElementById(columnsRandIds[i].noneId);
         radiobtn.checked = true;
 	 }
-	 alert(entries.length);
 }
 function duplicateCheck(entry){
      for (let i=0; i<entries.length; i++){
@@ -86,4 +88,12 @@ function duplicateCheck(entry){
 		 }
 	 }
 	 return 0;
+}
+function startNewGame(){
+	score = 0;
+	document.getElementById('score').innerHTML = '';
+	entries = [];
+	columnsRand = [];
+	resetRads();
+	setUp();
 }
