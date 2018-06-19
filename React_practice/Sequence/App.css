@@ -1,72 +1,97 @@
+/* CSS for React Sequence */
 
+@media (min-width: 280px) {body {font-size: 12px;} }
+@media (min-width: 320px) {body {font-size: 14px;} }
+@media (min-width: 423px) {body {font-size: 17px;} }
+@media (min-width: 526px) {body {font-size: 20px;} }
+@media (min-width: 768px) {body {font-size: 23px;} }
+@media (min-width: 992px) {body {font-size: 28px;} }
+@media (min-width: 1200px) {body {font-size: 34px;} }
+body{
+  background-color: #ddffff;
+  height: 100%;
+}
 .App {
   text-align: center;
   background-color: #ddffff;
   height: 100%;
+  width: 100%;
+  display:inline-block;
 }
 .App-header {
   background-color: #055;
-  padding: 0.5em;
+  padding: 0.3em;
   color: white;
-  height: 1.3em;
-  font-size: 1.5em;
+  height: 1.1em;
+  font-size: 1.2em;
   text-align: center;
 }
 .seq-main{
-	float: left;
-	padding: 1em;	
+	/*float: left;*/
+	padding: 0.4em;	
+	display: inline-block;
 }
 .controls{
-	float: left;
-	padding: 2em;
+	/*float: left;*/
+	padding: 0.8em;
 }
 .guess-box-header{
-  height: 1.1em;
-  font-size: 1.1em;
+  height: 0.9em;
+  font-size: 0.95em;
   text-align: left;
 }
 .guess-box{
 	float: left;
 	display: inline-block;
+	margin-top: 0.2em;
+}
+.guess-box > table{
+	font-size: 0.8em;
 }
 .number-box{
-	height: 1.2em;
+	height: 1.1em;
 	width: 1.5em;
-	padding-left: 0.4em;
+	padding-left: 0.2em;
 	border: 1px solid black;
-	font-size: 2em;
+	font-size: 1.5em;
 	background-color:#ffffff;
-	margin-bottom: 0.5em;
+	margin-bottom: 0.3em;
 	text-align: center;
 }
 .results-box{
 	float: left;
 	display: inline-block;
-	margin-left: 2em;
-/*	padding-left: 1em;
-	padding-right: 1em; */
+	margin-left: 0.7em;
+	margin-top: 0.2em;
+}
+.results-box > table{
+	font-size: 0.8em;
 }
 .result-number{
 	margin-top: 0.002em;
-	height: 1.195em;
-	width: 1.2em;
+	height: 1.1em;
+	width: 1.1em;
 	border: 1px solid black;
-	font-size: 2em;
+	font-size: 1.5em;
 	background-color:#ffffff;
-	margin-bottom: 0.58em;
+	margin-bottom: 0.4em;
 	text-align: center;
 }
+.btn-row{
+	display: inline-block;
+}
 .button{
-	height: 30px;
-	width: 180px;
+	height: 1.8em;
+	width: 8em;
 	color: #ffffff;
 	background-color: #004444;
-	font-size: 1.2em;
-	margin: 10px;
+	font-size: 0.8em;
+	margin: 0.4em;
 	text-align: center;
-	line-height: 1.55;
+	line-height: 1.75;
 	border-radius: 5px;
 	cursor: pointer;
+	float: left;
 }
 .button:hover{
 	background-color: #007777;
@@ -77,33 +102,45 @@
 .soln-box{
     margin-top: 15px;
 	margin-left: 5px;
+	display: inline-block;
+}
+.soln-box > table{
+	font-size: 0.8em;
 }
 .soln-number{
-	height: 1.195em;
-	width: 1.9em;
+	height: 1.1em;
+	width: 1.6em;
 	border: 1px solid black;
-	font-size: 2em;
+	font-size: 1.3em;
 	background-color:#ffffff;
 	text-align: center;
+	margin-right: 0.1em;
 }
 .instruct-box{
 	text-align: left;
+	margin-top: 0.5em;
+	margin-left: 0.3em;
 	border: 1px solid #000000;
-	width: 375px;
+	width: 12em;
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-bottom: 15px;
 	border-radius: 5px;
 	background-color: #ffffff;
+	display: inline-block;
+}
+.instruct-heading{
+	font-size: 0.7em;
 }
 .instruct-text{
 	margin-top: 10px;
-	font-size: 0.8em;
+	font-size: 0.5em;
 }
 .instruct-close-x{
-	font-size: 1.5em;
+	font-size: 1.1em;
 	text-align: right;
 	cursor: pointer;
+	height: 1em;
 }
 .lose-box{
 	margin-top: 15px;

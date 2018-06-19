@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {        
 		  targetNumbers: [0,0,0,0,0],
 		  guesses: [0,0,0,0,0],
-		  div_state: {display: 'none'},
+		  soln_state: {display: 'none'},
 		  inst_state: {display: 'none'},
 		  lose_state: {display: 'none'},
 		  win_state: {display: 'none'},
@@ -396,7 +396,7 @@ class App extends Component {
 	  this.setState({result_3: ''});
 	  this.setState({result_4: ''});
 	  this.setState({
-            div_state: {display: 'none'}
+            soln_state: {display: 'none'}
       });
 	  this.setState({
             inst_state: {display: 'none'}
@@ -411,10 +411,10 @@ class App extends Component {
   }
   showHowToPlay(){
 	  this.setState({
-            inst_state: {display: 'block'}
+            inst_state: {display: 'inline-block'}
       });
 	  this.setState({
-            div_state: {display: 'none'}
+            soln_state: {display: 'none'}
       });
   }
   hideHowToPlay(){
@@ -441,7 +441,7 @@ class App extends Component {
 				sol_4: targetNumbers[4]
 	  });
 	  this.setState({
-            div_state: {display: 'block'}
+            soln_state: {display: 'inline-block'}
       });
 	  this.setState({
             inst_state: {display: 'none'}
@@ -514,19 +514,27 @@ class App extends Component {
 						<div style={{clear:'both'}}></div>						
 					</div>	
 					<div className="controls">
-					    <div className="button" onClick={() => this.checkGuess()}>Enter Guess</div>
-						<div className="button" onClick={() => this.newGame()}>New Game</div>
-						<div className="button" onClick={() => this.showHowToPlay()}>How to Play</div>
-						<div className="button" onClick={() => this.showSoln()}>Show Solution</div>
-						<div className="soln-box" style={this.state.div_state}>
+					    <div className="btn-row">
+								<div className="button" onClick={() => this.checkGuess()}>Enter Guess</div>
+								<div className="button" onClick={() => this.newGame()}>New Game</div>
+								<div style={{clear:'both'}}></div>
+						</div>
+						<div className="btn-row">
+								<div className="button" onClick={() => this.showHowToPlay()}>How to Play</div>
+								<div className="button" onClick={() => this.showSoln()}>Show Solution</div>
+								<div style={{clear:'both'}}></div>
+						</div>
+						<div className="soln-box" style={this.state.soln_state}>
 							<table>
 							<tbody>
 							<tr><td>Solution</td></tr>
-							  <tr><td><div className="soln-number">{this.state.sol_0}</div></td>
+							  <tr>
+								<td><div className="soln-number">{this.state.sol_0}</div></td>
 								<td><div className="soln-number">{this.state.sol_1}</div></td>
 								<td><div className="soln-number">{this.state.sol_2}</div></td>
 								<td><div className="soln-number">{this.state.sol_3}</div></td>
-								<td><div className="soln-number">{this.state.sol_4}</div></td></tr>
+								<td><div className="soln-number">{this.state.sol_4}</div></td>
+							  </tr>
 							 </tbody>
 							 </table>
 						</div>
