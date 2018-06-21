@@ -424,7 +424,6 @@ class App extends Component {
   }
   showSoln(){
 	  const targetNumbers = this.state.targetNumbers;
-	  alert(targetNumbers[0] + " " + targetNumbers[1] + " " + targetNumbers[2] + " " + targetNumbers[3] + " " + targetNumbers[4]);
       this.setState({
 				sol_0: targetNumbers[0]
 	  });
@@ -452,67 +451,96 @@ class App extends Component {
 		
 		return(
 				<div className="App">
-				    <div className="App-header">
-					  Sequence
+				    <div className="App-header">Sequence</div>
+					<div className="play-area">
+						<div className="heading">Guesses</div>
+						<div className="play-row">	
+						       <div className="guesses">
+									  <div className="subHeading">Line 1</div>
+									  <div>
+											<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_0} onChange={evt => this.squaresN_0_0(evt)}/>
+											<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_1} onChange={evt => this.squaresN_0_1(evt)}/>
+											<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_2} onChange={evt => this.squaresN_0_2(evt)}/>
+											<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_3} onChange={evt => this.squaresN_0_3(evt)}/>
+											<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_4} onChange={evt => this.squaresN_0_4(evt)}/>
+									  </div>
+							   </div>
+							   <div className="results">         
+							           <div className="subHeading">Result 1</div>
+						               <div className="result-number">{this.state.result_0}</div>
+							   </div>
+							   <div style={{clear:'both'}}></div>
+						</div>
+						<div className="play-row">
+						       <div className="guesses">
+						              <div className="subHeading">Line 2</div>
+									  <div>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_0} onChange={evt => this.squaresN_1_0(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_1} onChange={evt => this.squaresN_1_1(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_2} onChange={evt => this.squaresN_1_2(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_3} onChange={evt => this.squaresN_1_3(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_4} onChange={evt => this.squaresN_1_4(evt)}/>
+									  </div>
+							  </div>
+							   <div className="results">         
+							           <div className="subHeading">Result 2</div>
+						               <div className="result-number">{this.state.result_1}</div>
+							   </div>
+							  <div style={{clear:'both'}}></div>
+						</div>
+						<div className="play-row">
+						       <div className="guesses">
+							          <div className="subHeading">Line 3</div>
+									  <div>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_0} onChange={evt => this.squaresN_2_0(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_1} onChange={evt => this.squaresN_2_1(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_2} onChange={evt => this.squaresN_2_2(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_3} onChange={evt => this.squaresN_2_3(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_4} onChange={evt => this.squaresN_2_4(evt)}/>
+									  </div>
+							  </div>
+							   <div className="results">         
+							           <div className="subHeading">Result 3</div>
+						               <div className="result-number">{this.state.result_2}</div>
+							   </div>
+							  <div style={{clear:'both'}}></div>
+					    </div>
+						<div className="play-row">
+						       <div className="guesses">
+							          <div className="subHeading">Line 4</div>
+									  <div>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_0} onChange={evt => this.squaresN_3_0(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_1} onChange={evt => this.squaresN_3_1(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_2} onChange={evt => this.squaresN_3_2(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_3} onChange={evt => this.squaresN_3_3(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_4} onChange={evt => this.squaresN_3_4(evt)}/>
+									  </div>
+							  </div>
+							   <div className="results">         
+							           <div className="subHeading">Result 4</div>
+						               <div className="result-number">{this.state.result_3}</div>
+							   </div>
+							  <div style={{clear:'both'}}></div>
+						</div>
+						<div className="play-row">
+						       <div className="guesses">
+							          <div className="subHeading">Line 5</div>
+									  <div>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_0} onChange={evt => this.squaresN_4_0(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_1} onChange={evt => this.squaresN_4_1(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_2} onChange={evt => this.squaresN_4_2(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_3} onChange={evt => this.squaresN_4_3(evt)}/>
+											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_4} onChange={evt => this.squaresN_4_4(evt)}/>
+									  </div>	
+							  </div>
+							   <div className="results">         
+							           <div className="subHeading">Result 5</div>
+						               <div className="result-number">{this.state.result_4}</div>
+							   </div>
+							  <div style={{clear:'both'}}></div>	
+                        </div>							  
 					</div>
-					<div className="seq-main">
-						<div className="guess-box-header">
-						  Guesses
-						</div>
-						<div className="guess-box">				  
-						<table> 
-						<tbody>
-						  <tr><td>Line 1</td></tr>
-						  <tr><td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_0} onChange={evt => this.squaresN_0_0(evt)}/></td>
-							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_1} onChange={evt => this.squaresN_0_1(evt)}/></td>
-							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_2} onChange={evt => this.squaresN_0_2(evt)}/></td>
-							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_3} onChange={evt => this.squaresN_0_3(evt)}/></td>
-							<td><input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_4} onChange={evt => this.squaresN_0_4(evt)}/></td></tr>
-						  <tr><td>Line 2</td></tr>
-						  <tr><td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_0} onChange={evt => this.squaresN_1_0(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_1} onChange={evt => this.squaresN_1_1(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_2} onChange={evt => this.squaresN_1_2(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_3} onChange={evt => this.squaresN_1_3(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_4} onChange={evt => this.squaresN_1_4(evt)}/></td></tr>
-						  <tr><td>Line 3</td></tr>
-						  <tr><td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_0} onChange={evt => this.squaresN_2_0(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_1} onChange={evt => this.squaresN_2_1(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_2} onChange={evt => this.squaresN_2_2(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_3} onChange={evt => this.squaresN_2_3(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_4} onChange={evt => this.squaresN_2_4(evt)}/></td></tr>
-						  <tr><td>Line 4</td></tr>
-						  <tr><td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_0} onChange={evt => this.squaresN_3_0(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_1} onChange={evt => this.squaresN_3_1(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_2} onChange={evt => this.squaresN_3_2(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_3} onChange={evt => this.squaresN_3_3(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_4} onChange={evt => this.squaresN_3_4(evt)}/></td></tr>
-						  <tr><td>Line 5</td></tr>
-						  <tr><td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_0} onChange={evt => this.squaresN_4_0(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_1} onChange={evt => this.squaresN_4_1(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_2} onChange={evt => this.squaresN_4_2(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_3} onChange={evt => this.squaresN_4_3(evt)}/></td>
-							<td><input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_4} onChange={evt => this.squaresN_4_4(evt)}/></td></tr>
-						</tbody>
-						</table> 
-						</div>
-						<div className="results-box">
-							 <table>
-							 <tbody>
-							  <tr><td>Result 1</td></tr>
-							  <tr><td> <div className="result-number">{this.state.result_0}</div></td></tr>
-							  <tr><td>Result 2</td></tr>
-							  <tr><td> <div className="result-number">{this.state.result_1}</div></td> </tr>
-							  <tr><td>Result 3</td></tr>
-							  <tr><td> <div className="result-number">{this.state.result_2}</div></td></tr>
-							  <tr><td> Result 4</td></tr>
-							  <tr><td> <div className="result-number">{this.state.result_3}</div></td></tr>
-							  <tr><td>Result 5</td></tr>
-							  <tr><td> <div className="result-number">{this.state.result_4}</div></td></tr>
-							  </tbody>
-							 </table>
-						</div>
-						<div style={{clear:'both'}}></div>						
-					</div>	
+										
 					<div className="controls">
 					    <div className="btn-row">
 								<div className="button" onClick={() => this.checkGuess()}>Enter Guess</div>
@@ -525,18 +553,13 @@ class App extends Component {
 								<div style={{clear:'both'}}></div>
 						</div>
 						<div className="soln-box" style={this.state.soln_state}>
-							<table>
-							<tbody>
-							<tr><td>Solution</td></tr>
-							  <tr>
-								<td><div className="soln-number">{this.state.sol_0}</div></td>
-								<td><div className="soln-number">{this.state.sol_1}</div></td>
-								<td><div className="soln-number">{this.state.sol_2}</div></td>
-								<td><div className="soln-number">{this.state.sol_3}</div></td>
-								<td><div className="soln-number">{this.state.sol_4}</div></td>
-							  </tr>
-							 </tbody>
-							 </table>
+							<div className="heading">Solution</div>
+							<div className="soln-number">{this.state.sol_0}</div>
+							<div className="soln-number">{this.state.sol_1}</div>
+							<div className="soln-number">{this.state.sol_2}</div>
+							<div className="soln-number">{this.state.sol_3}</div>
+							<div className="soln-number">{this.state.sol_4}</div>
+							<div style={{clear:'both'}}></div>
 						</div>
 						<div className="instruct-box" style={this.state.inst_state}>
 						      <div className="instruct-close-x" onClick={() => this.hideHowToPlay()}>&times;</div>
@@ -555,8 +578,7 @@ class App extends Component {
 						  <span> YOU WIN!!! </span>  You guessed the sequence correctly!
 						</div>
 					</div>
-				    <div style={{clear:'both'}}></div>
-									
+				    <div style={{clear:'both'}}></div>					
 				</div>		
 	    );
 		

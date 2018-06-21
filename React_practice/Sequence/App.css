@@ -26,27 +26,30 @@ body{
   font-size: 1.2em;
   text-align: center;
 }
-.seq-main{
-	/*float: left;*/
+.play-area{
 	padding: 0.4em;	
 	display: inline-block;
 }
 .controls{
-	/*float: left;*/
 	padding: 0.8em;
-}
-.guess-box-header{
-  height: 0.9em;
-  font-size: 0.95em;
-  text-align: left;
-}
-.guess-box{
-	float: left;
 	display: inline-block;
+}
+.heading{
+    height: 0.9em;
+    font-size: 0.95em;
+    text-align: left;
+}
+.subHeading{
+	margin-top: 0.2em;
+	height: 0.8em;
+    font-size: 0.85em;
+    text-align: left;
+}
+.play-row{
 	margin-top: 0.2em;
 }
-.guess-box > table{
-	font-size: 0.8em;
+.guesses{
+	float: left;
 }
 .number-box{
 	height: 1.1em;
@@ -55,8 +58,14 @@ body{
 	border: 1px solid black;
 	font-size: 1.5em;
 	background-color:#ffffff;
+	margin-top: 0.2em;
 	margin-bottom: 0.3em;
+	margin-right: 0.2em;
 	text-align: center;
+}
+.results{
+	float: left;
+	margin-left: 1em;
 }
 .results-box{
 	float: left;
@@ -68,17 +77,14 @@ body{
 	font-size: 0.8em;
 }
 .result-number{
-	margin-top: 0.002em;
-	height: 1.1em;
-	width: 1.1em;
+	margin-top: 0.2em;
+	height: 1.14em;
+	width: 1.8em;
 	border: 1px solid black;
 	font-size: 1.5em;
 	background-color:#ffffff;
 	margin-bottom: 0.4em;
 	text-align: center;
-}
-.btn-row{
-	display: inline-block;
 }
 .button{
 	height: 1.8em;
@@ -104,9 +110,6 @@ body{
 	margin-left: 5px;
 	display: inline-block;
 }
-.soln-box > table{
-	font-size: 0.8em;
-}
 .soln-number{
 	height: 1.1em;
 	width: 1.6em;
@@ -115,6 +118,8 @@ body{
 	background-color:#ffffff;
 	text-align: center;
 	margin-right: 0.1em;
+	margin-top: 0.3em;
+	float: left;
 }
 .instruct-box{
 	text-align: left;
@@ -144,15 +149,17 @@ body{
 }
 .lose-box{
 	margin-top: 15px;
+	margin-left: 0.49em;
 	width: 300px;
-	font-size: 1.1em;
+	font-size: 0.8em;
 	text-align: left;
 	color: #992222;
 }
 .win-box{
 	margin-top: 15px;
+	margin-left: 0.49em;
 	width: 300px;
-	font-size: 1.3em;
+	font-size: 1em;
 	text-align: left;
 	color: #2277bb;	
 }
