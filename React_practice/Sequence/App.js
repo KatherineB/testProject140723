@@ -208,9 +208,7 @@ class App extends Component {
 	  const squaresN_4_4 = this.state.squaresN_4_4;
 	  
 	  var row = (add()) % 5;
-	  
-	  	   alert(squaresN_0_0);
-	  
+	  	  
 	  if(row == 0){
 		  guesses[0] = squaresN_0_0;
 		  guesses[1] = squaresN_0_1;
@@ -272,14 +270,16 @@ class App extends Component {
 			totalRight[row]++;
 		 }
 	 }
-      alert(row);
+
      if(row == 0){
 		 this.setState({
 				result_0: totalRight[0]
 		 });
 		 if(totalRight[0] == 5){
 			 this.setState({
-                win_state: {display: 'block'}
+                win_state: {display: 'block'},
+				soln_state: {display: 'none'},
+		        inst_state: {display: 'none'}
              });
 		 }
 	 }
@@ -289,7 +289,9 @@ class App extends Component {
 		 });
 		 if(totalRight[1] == 5){
 			 this.setState({
-                win_state: {display: 'block'}
+                win_state: {display: 'block'},
+				soln_state: {display: 'none'},
+		        inst_state: {display: 'none'}
              });
 		 }
 	 }
@@ -299,7 +301,9 @@ class App extends Component {
 		 });
 		 if(totalRight[2] == 5){
 			 this.setState({
-                win_state: {display: 'block'}
+                win_state: {display: 'block'},
+				soln_state: {display: 'none'},
+		        inst_state: {display: 'none'}
              });
 		 }
 	 }
@@ -309,7 +313,9 @@ class App extends Component {
 		 });
 		 if(totalRight[3] == 5){
 			 this.setState({
-                win_state: {display: 'block'}
+                win_state: {display: 'block'},
+				soln_state: {display: 'none'},
+		        inst_state: {display: 'none'}
              });
 		 }
 	 }
@@ -319,12 +325,16 @@ class App extends Component {
 		 });
 		 if(totalRight[4] == 5){
 			 this.setState({
-                win_state: {display: 'block'}
+                win_state: {display: 'block'},
+				soln_state: {display: 'none'},
+		        inst_state: {display: 'none'}
              });
 		 }
 		 else{
 			 this.setState({
-                lose_state: {display: 'block'}
+                lose_state: {display: 'block'},
+				soln_state: {display: 'none'},
+		        inst_state: {display: 'none'}
              });
 		 }
 	 }
@@ -391,12 +401,16 @@ class App extends Component {
             inst_state: {display: 'inline-block'}
       });
 	  this.setState({
-            soln_state: {display: 'none'}
+            soln_state: {display: 'none'},
+			lose_state: {display: 'none'},
+		    win_state: {display: 'none'}
       });
   }
   hideHowToPlay(){
 	  this.setState({
-            inst_state: {display: 'none'}
+            inst_state: {display: 'none'},
+			lose_state: {display: 'none'},
+		    win_state: {display: 'none'}
       });
   }
   showSoln(){
@@ -420,7 +434,9 @@ class App extends Component {
             soln_state: {display: 'inline-block'}
       });
 	  this.setState({
-            inst_state: {display: 'none'}
+            inst_state: {display: 'none'},
+			lose_state: {display: 'none'},
+		    win_state: {display: 'none'}
       });
   }
 
