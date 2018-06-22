@@ -16,31 +16,31 @@ class App extends Component {
 		  inst_state: {display: 'none'},
 		  lose_state: {display: 'none'},
 		  win_state: {display: 'none'},
-		  inputValueN_0_0: '',
-		  inputValueN_0_1: '',
-		  inputValueN_0_2: '',
-		  inputValueN_0_3: '',
-		  inputValueN_0_4: '',
-		  inputValueN_1_0: '',
-		  inputValueN_1_1: '',
-		  inputValueN_1_2: '',
-		  inputValueN_1_3: '',
-		  inputValueN_1_4: '',
-		  inputValueN_2_0: '',
-		  inputValueN_2_1: '',
-		  inputValueN_2_2: '',
-		  inputValueN_2_3: '',
-		  inputValueN_2_4: '',
-		  inputValueN_3_0: '',
-		  inputValueN_3_1: '',
-		  inputValueN_3_2: '',
-		  inputValueN_3_3: '',
-		  inputValueN_3_4: '',
-		  inputValueN_4_0: '',
-		  inputValueN_4_1: '',
-		  inputValueN_4_2: '',
-		  inputValueN_4_3: '',
-		  inputValueN_4_4: '',
+		  squaresN_0_0: '',
+		  squaresN_0_1: '',
+		  squaresN_0_2: '',
+		  squaresN_0_3: '',
+		  squaresN_0_4: '',
+		  squaresN_1_0: '',
+		  squaresN_1_1: '',
+		  squaresN_1_2: '',
+		  squaresN_1_3: '',
+		  squaresN_1_4: '',
+		  squaresN_2_0: '',
+		  squaresN_2_1: '',
+		  squaresN_2_2: '',
+		  squaresN_2_3: '',
+		  squaresN_2_4: '',
+		  squaresN_3_0: '',
+		  squaresN_3_1: '',
+		  squaresN_3_2: '',
+		  squaresN_3_3: '',
+		  squaresN_3_4: '',
+		  squaresN_4_0: '',
+		  squaresN_4_1: '',
+		  squaresN_4_2: '',
+		  squaresN_4_3: '',
+		  squaresN_4_4: '',
 
 		  totalRight: [0,0,0,0,0]
 		 };
@@ -50,153 +50,128 @@ class App extends Component {
 			  targetNumbers[k] = Math.floor((Math.random() * 3) + 1)
 		  } 
   }
-   squaresN_0_0(evt) {
+   squaresN_0_0(evt) {   
     this.setState({
-      inputValueN_0_0: evt.target.value,
 	  squaresN_0_0: evt.target.value
     });
    }
    squaresN_0_1(evt) {
     this.setState({
-      inputValueN_0_1: evt.target.value,
 	  squaresN_0_1: evt.target.value
     });
    }
    squaresN_0_2(evt) {
     this.setState({
-      inputValueN_0_2: evt.target.value,
 	  squaresN_0_2: evt.target.value
     });
    }
    squaresN_0_3(evt) {
     this.setState({
-      inputValueN_0_3: evt.target.value,
 	  squaresN_0_3: evt.target.value
     });
    }
    squaresN_0_4(evt) {
     this.setState({
-      inputValueN_0_4: evt.target.value,
 	  squaresN_0_4: evt.target.value
     });
    }
    squaresN_1_0(evt) {
     this.setState({
-      inputValueN_1_0: evt.target.value,
 	  squaresN_1_0: evt.target.value
     });
    }
    squaresN_1_1(evt) {
     this.setState({
-      inputValueN_1_1: evt.target.value,
 	  squaresN_1_1: evt.target.value
     });
    }
    squaresN_1_2(evt) {
     this.setState({
-      inputValueN_1_2: evt.target.value,
 	  squaresN_1_2: evt.target.value
     });
    }
    squaresN_1_3(evt) {
     this.setState({
-      inputValueN_1_3: evt.target.value,
 	  squaresN_1_3: evt.target.value
     });
    }
    squaresN_1_4(evt) {
     this.setState({
-      inputValueN_1_4: evt.target.value,
 	  squaresN_1_4: evt.target.value
     });
    }
    squaresN_2_0(evt) {
     this.setState({
-      inputValueN_2_0: evt.target.value,
 	  squaresN_2_0: evt.target.value
     });
    }
    squaresN_2_1(evt) {
     this.setState({
-      inputValueN_2_1: evt.target.value,
 	  squaresN_2_1: evt.target.value
     });
    }
    squaresN_2_2(evt) {
     this.setState({
-      inputValueN_2_2: evt.target.value,
 	  squaresN_2_2: evt.target.value
     });
    }
    squaresN_2_3(evt) {
     this.setState({
-      inputValueN_2_3: evt.target.value,
 	  squaresN_2_3: evt.target.value
     });
    }
    squaresN_2_4(evt) {
     this.setState({
-      inputValueN_2_4: evt.target.value,
 	  squaresN_2_4: evt.target.value
     });
    }
    squaresN_3_0(evt) {
     this.setState({
-      inputValueN_3_0: evt.target.value,
 	  squaresN_3_0: evt.target.value
     });
    }
    squaresN_3_1(evt) {
     this.setState({
-      inputValueN_3_1: evt.target.value,
 	  squaresN_3_1: evt.target.value
     });
    }
    squaresN_3_2(evt) {
     this.setState({
-      inputValueN_3_2: evt.target.value,
 	  squaresN_3_2: evt.target.value
     });
    }
    squaresN_3_3(evt) {
     this.setState({
-      inputValueN_3_3: evt.target.value,
 	  squaresN_3_3: evt.target.value
     });
    }
    squaresN_3_4(evt) {
     this.setState({
-      inputValueN_3_4: evt.target.value,
 	  squaresN_3_4: evt.target.value
     });
    }
    squaresN_4_0(evt) {
     this.setState({
-      inputValueN_4_0: evt.target.value,
 	  squaresN_4_0: evt.target.value
     });
    }
    squaresN_4_1(evt) {
     this.setState({
-      inputValueN_4_1: evt.target.value,
 	  squaresN_4_1: evt.target.value
     });
    }
    squaresN_4_2(evt) {
     this.setState({
-      inputValueN_4_2: evt.target.value,
 	  squaresN_4_2: evt.target.value
     });
    }
    squaresN_4_3(evt) {
     this.setState({
-      inputValueN_4_3: evt.target.value,
 	  squaresN_4_3: evt.target.value
     });
    }
    squaresN_4_4(evt) {
     this.setState({
-      inputValueN_4_4: evt.target.value,
 	  squaresN_4_4: evt.target.value
     });
    }
@@ -206,68 +181,70 @@ class App extends Component {
 	  const targetNumbers = this.state.targetNumbers;
 	  const totalRight = this.state.totalRight;
 	  const guesses = this.state.guesses;
-	  const inputValueN_0_0 = this.state.inputValueN_0_0;
-	  const inputValueN_0_1 = this.state.inputValueN_0_1;
-	  const inputValueN_0_2 = this.state.inputValueN_0_2;
-	  const inputValueN_0_3 = this.state.inputValueN_0_3;
-	  const inputValueN_0_4 = this.state.inputValueN_0_4;
-	  const inputValueN_1_0 = this.state.inputValueN_1_0;
-	  const inputValueN_1_1 = this.state.inputValueN_1_1;
-	  const inputValueN_1_2 = this.state.inputValueN_1_2;
-	  const inputValueN_1_3 = this.state.inputValueN_1_3;
-	  const inputValueN_1_4 = this.state.inputValueN_1_4;
-	  const inputValueN_2_0 = this.state.inputValueN_2_0;
-	  const inputValueN_2_1 = this.state.inputValueN_2_1;
-	  const inputValueN_2_2 = this.state.inputValueN_2_2;
-	  const inputValueN_2_3 = this.state.inputValueN_2_3;
-	  const inputValueN_2_4 = this.state.inputValueN_2_4;
-	  const inputValueN_3_0 = this.state.inputValueN_3_0;
-	  const inputValueN_3_1 = this.state.inputValueN_3_1;
-	  const inputValueN_3_2 = this.state.inputValueN_3_2;
-	  const inputValueN_3_3 = this.state.inputValueN_3_3;
-	  const inputValueN_3_4 = this.state.inputValueN_3_4;
-	  const inputValueN_4_0 = this.state.inputValueN_4_0;
-	  const inputValueN_4_1 = this.state.inputValueN_4_1;
-	  const inputValueN_4_2 = this.state.inputValueN_4_2;
-	  const inputValueN_4_3 = this.state.inputValueN_4_3;
-	  const inputValueN_4_4 = this.state.inputValueN_4_4;
+	  const squaresN_0_0 = this.state.squaresN_0_0;
+	  const squaresN_0_1 = this.state.squaresN_0_1;
+	  const squaresN_0_2 = this.state.squaresN_0_2;
+	  const squaresN_0_3 = this.state.squaresN_0_3;
+	  const squaresN_0_4 = this.state.squaresN_0_4;
+	  const squaresN_1_0 = this.state.squaresN_1_0;
+	  const squaresN_1_1 = this.state.squaresN_1_1;
+	  const squaresN_1_2 = this.state.squaresN_1_2;
+	  const squaresN_1_3 = this.state.squaresN_1_3;
+	  const squaresN_1_4 = this.state.squaresN_1_4;
+	  const squaresN_2_0 = this.state.squaresN_2_0;
+	  const squaresN_2_1 = this.state.squaresN_2_1;
+	  const squaresN_2_2 = this.state.squaresN_2_2;
+	  const squaresN_2_3 = this.state.squaresN_2_3;
+	  const squaresN_2_4 = this.state.squaresN_2_4;
+	  const squaresN_3_0 = this.state.squaresN_3_0;
+	  const squaresN_3_1 = this.state.squaresN_3_1;
+	  const squaresN_3_2 = this.state.squaresN_3_2;
+	  const squaresN_3_3 = this.state.squaresN_3_3;
+	  const squaresN_3_4 = this.state.squaresN_3_4;
+	  const squaresN_4_0 = this.state.squaresN_4_0;
+	  const squaresN_4_1 = this.state.squaresN_4_1;
+	  const squaresN_4_2 = this.state.squaresN_4_2;
+	  const squaresN_4_3 = this.state.squaresN_4_3;
+	  const squaresN_4_4 = this.state.squaresN_4_4;
 	  
 	  var row = (add()) % 5;
 	  
+	  	   alert(squaresN_0_0);
+	  
 	  if(row == 0){
-		  guesses[0] = inputValueN_0_0;
-		  guesses[1] = inputValueN_0_1;
-		  guesses[2] = inputValueN_0_2;
-		  guesses[3] = inputValueN_0_3;
-		  guesses[4] = inputValueN_0_4;
+		  guesses[0] = squaresN_0_0;
+		  guesses[1] = squaresN_0_1;
+		  guesses[2] = squaresN_0_2;
+		  guesses[3] = squaresN_0_3;
+		  guesses[4] = squaresN_0_4;
 	  }
 	  else if(row == 1){
-		  guesses[0] = inputValueN_1_0;
-		  guesses[1] = inputValueN_1_1;
-		  guesses[2] = inputValueN_1_2;
-		  guesses[3] = inputValueN_1_3;
-		  guesses[4] = inputValueN_1_4;
+		  guesses[0] = squaresN_1_0;
+		  guesses[1] = squaresN_1_1;
+		  guesses[2] = squaresN_1_2;
+		  guesses[3] = squaresN_1_3;
+		  guesses[4] = squaresN_1_4;
 	  }
 	  else if(row == 2){
-		  guesses[0] = inputValueN_2_0;
-		  guesses[1] = inputValueN_2_1;
-		  guesses[2] = inputValueN_2_2;
-		  guesses[3] = inputValueN_2_3;
-		  guesses[4] = inputValueN_2_4;
+		  guesses[0] = squaresN_2_0;
+		  guesses[1] = squaresN_2_1;
+		  guesses[2] = squaresN_2_2;
+		  guesses[3] = squaresN_2_3;
+		  guesses[4] = squaresN_2_4;
 	  }
 	  else if(row == 3){
-		  guesses[0] = inputValueN_3_0;
-		  guesses[1] = inputValueN_3_1;
-		  guesses[2] = inputValueN_3_2;
-		  guesses[3] = inputValueN_3_3;
-		  guesses[4] = inputValueN_3_4;
+		  guesses[0] = squaresN_3_0;
+		  guesses[1] = squaresN_3_1;
+		  guesses[2] = squaresN_3_2;
+		  guesses[3] = squaresN_3_3;
+		  guesses[4] = squaresN_3_4;
 	  }
 	  else if(row == 4){
-		  guesses[0] = inputValueN_4_0;
-		  guesses[1] = inputValueN_4_1;
-		  guesses[2] = inputValueN_4_2;
-		  guesses[3] = inputValueN_4_3;
-		  guesses[4] = inputValueN_4_4;
+		  guesses[0] = squaresN_4_0;
+		  guesses[1] = squaresN_4_1;
+		  guesses[2] = squaresN_4_2;
+		  guesses[3] = squaresN_4_3;
+		  guesses[4] = squaresN_4_4;
 	  }
 	  
 	 if(guesses[0] == targetNumbers[0]){ 
