@@ -1,12 +1,12 @@
 /* CSS for React Sequence */
 
 @media (min-width: 280px) {body {font-size: 12px;} }
-@media (min-width: 320px) {body {font-size: 14px;} }
-@media (min-width: 423px) {body {font-size: 17px;} }
-@media (min-width: 526px) {body {font-size: 20px;} }
-@media (min-width: 768px) {body {font-size: 23px;} }
-@media (min-width: 992px) {body {font-size: 28px;} }
-@media (min-width: 1200px) {body {font-size: 34px;} }
+@media (min-width: 320px) {body {font-size: 13px;} }
+@media (min-width: 423px) {body {font-size: 14px;} }
+@media (min-width: 526px) {body {font-size: 15px;} }
+@media (min-width: 768px) {body {font-size: 18px;} }
+@media (min-width: 992px) {body {font-size: 20px;} }
+@media (min-width: 1200px) {body {font-size: 24px;} }
 body{
   background-color: #ddffff;
   height: 100%;
@@ -16,7 +16,7 @@ body{
   background-color: #ddffff;
   height: 100%;
   width: 100%;
-  display:inline-block;
+  /*display:inline-block;*/
 }
 .App-header {
   background-color: #055;
@@ -26,18 +26,27 @@ body{
   font-size: 1.2em;
   text-align: center;
 }
+.main-content{
+	margin-top: 0.5em;
+	text-align: center;
+	display: inline-block;
+}
 .play-area{
 	padding: 0.4em;	
-	display: inline-block;
+	text-align: center;
+	width: 20em;
+	/*display: inline-block;*/
 }
 .controls{
 	padding: 0.8em;
-	display: inline-block;
+	width: 20em;
+	text-align: center;
+	/*display: inline-block;*/
 }
 .heading{
     height: 0.9em;
     font-size: 0.95em;
-    text-align: left;
+    text-align: center;
 }
 .subHeading{
 	margin-top: 0.2em;
@@ -47,6 +56,8 @@ body{
 }
 .play-row{
 	margin-top: 0.2em;
+	display: inline-block;
+
 }
 .guesses{
 	float: left;
@@ -86,6 +97,12 @@ body{
 	margin-bottom: 0.4em;
 	text-align: center;
 }
+.button-panel{
+	text-align: center;	
+}
+.btn-row{
+    display: inline-block;
+}
 .button{
 	height: 1.8em;
 	width: 8em;
@@ -108,7 +125,6 @@ body{
 .soln-box{
     margin-top: 0.1em;
 	margin-left: 0.5em;
-	display: inline-block;
 }
 .soln-number{
 	height: 1.1em;
@@ -132,7 +148,6 @@ body{
 	padding-bottom: 0.6em;
 	border-radius: 5px;
 	background-color: #ffffff;
-	display: inline-block;
 }
 .instruct-heading{
 	font-size: 0.7em;
@@ -165,4 +180,14 @@ body{
 }
 .win-box span{
 	font-weight: bold;
+}
+@media screen and (min-width: 992px){
+	.play-area{
+		/*display: inline-block;*/
+		float: left;
+	}
+	.controls{
+		/*display: inline-block;*/
+		float: left;
+	}
 }

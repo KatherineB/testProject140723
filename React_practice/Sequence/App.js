@@ -445,133 +445,138 @@ class App extends Component {
 		return(
 				<div className="App">
 				    <div className="App-header">Sequence</div>
-					<div className="play-area">
-						<div className="heading">Guesses</div>
-						<div className="play-row">	
-						       <div className="guesses">
-									  <div className="subHeading">Line 1</div>
-									  <div>
-											<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_0} onChange={evt => this.squaresN_0_0(evt)}/>
-											<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_1} onChange={evt => this.squaresN_0_1(evt)}/>
-											<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_2} onChange={evt => this.squaresN_0_2(evt)}/>
-											<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_3} onChange={evt => this.squaresN_0_3(evt)}/>
-											<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_4} onChange={evt => this.squaresN_0_4(evt)}/>
+					    <div className="main-content">
+							<div className="play-area">
+								<div className="heading">Guesses</div>
+								<div className="play-row">	
+									   <div className="guesses">
+											  <div className="subHeading">Line 1</div>
+											  <div>
+													<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_0} onChange={evt => this.squaresN_0_0(evt)}/>
+													<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_1} onChange={evt => this.squaresN_0_1(evt)}/>
+													<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_2} onChange={evt => this.squaresN_0_2(evt)}/>
+													<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_3} onChange={evt => this.squaresN_0_3(evt)}/>
+													<input type="number" className="number-box"  min="1" max="3" value={this.state.squaresN_0_4} onChange={evt => this.squaresN_0_4(evt)}/>
+											  </div>
+									   </div>
+									   <div className="results">         
+											   <div className="subHeading">Result 1</div>
+											   <div className="result-number">{this.state.result_0}</div>
+									   </div>
+									   <div style={{clear:'both'}}></div>
+								</div>
+								<div className="play-row">
+									   <div className="guesses">
+											  <div className="subHeading">Line 2</div>
+											  <div>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_0} onChange={evt => this.squaresN_1_0(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_1} onChange={evt => this.squaresN_1_1(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_2} onChange={evt => this.squaresN_1_2(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_3} onChange={evt => this.squaresN_1_3(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_4} onChange={evt => this.squaresN_1_4(evt)}/>
+											  </div>
 									  </div>
-							   </div>
-							   <div className="results">         
-							           <div className="subHeading">Result 1</div>
-						               <div className="result-number">{this.state.result_0}</div>
-							   </div>
-							   <div style={{clear:'both'}}></div>
-						</div>
-						<div className="play-row">
-						       <div className="guesses">
-						              <div className="subHeading">Line 2</div>
-									  <div>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_0} onChange={evt => this.squaresN_1_0(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_1} onChange={evt => this.squaresN_1_1(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_2} onChange={evt => this.squaresN_1_2(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_3} onChange={evt => this.squaresN_1_3(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_1_4} onChange={evt => this.squaresN_1_4(evt)}/>
+									   <div className="results">         
+											   <div className="subHeading">Result 2</div>
+											   <div className="result-number">{this.state.result_1}</div>
+									   </div>
+									  <div style={{clear:'both'}}></div>
+								</div>
+								<div className="play-row">
+									   <div className="guesses">
+											  <div className="subHeading">Line 3</div>
+											  <div>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_0} onChange={evt => this.squaresN_2_0(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_1} onChange={evt => this.squaresN_2_1(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_2} onChange={evt => this.squaresN_2_2(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_3} onChange={evt => this.squaresN_2_3(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_4} onChange={evt => this.squaresN_2_4(evt)}/>
+											  </div>
 									  </div>
-							  </div>
-							   <div className="results">         
-							           <div className="subHeading">Result 2</div>
-						               <div className="result-number">{this.state.result_1}</div>
-							   </div>
-							  <div style={{clear:'both'}}></div>
-						</div>
-						<div className="play-row">
-						       <div className="guesses">
-							          <div className="subHeading">Line 3</div>
-									  <div>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_0} onChange={evt => this.squaresN_2_0(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_1} onChange={evt => this.squaresN_2_1(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_2} onChange={evt => this.squaresN_2_2(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_3} onChange={evt => this.squaresN_2_3(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_2_4} onChange={evt => this.squaresN_2_4(evt)}/>
+									   <div className="results">         
+											   <div className="subHeading">Result 3</div>
+											   <div className="result-number">{this.state.result_2}</div>
+									   </div>
+									  <div style={{clear:'both'}}></div>
+								</div>
+								<div className="play-row">
+									   <div className="guesses">
+											  <div className="subHeading">Line 4</div>
+											  <div>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_0} onChange={evt => this.squaresN_3_0(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_1} onChange={evt => this.squaresN_3_1(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_2} onChange={evt => this.squaresN_3_2(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_3} onChange={evt => this.squaresN_3_3(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_4} onChange={evt => this.squaresN_3_4(evt)}/>
+											  </div>
 									  </div>
-							  </div>
-							   <div className="results">         
-							           <div className="subHeading">Result 3</div>
-						               <div className="result-number">{this.state.result_2}</div>
-							   </div>
-							  <div style={{clear:'both'}}></div>
-					    </div>
-						<div className="play-row">
-						       <div className="guesses">
-							          <div className="subHeading">Line 4</div>
-									  <div>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_0} onChange={evt => this.squaresN_3_0(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_1} onChange={evt => this.squaresN_3_1(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_2} onChange={evt => this.squaresN_3_2(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_3} onChange={evt => this.squaresN_3_3(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_3_4} onChange={evt => this.squaresN_3_4(evt)}/>
+									   <div className="results">         
+											   <div className="subHeading">Result 4</div>
+											   <div className="result-number">{this.state.result_3}</div>
+									   </div>
+									  <div style={{clear:'both'}}></div>
+								</div>
+								<div className="play-row">
+									   <div className="guesses">
+											  <div className="subHeading">Line 5</div>
+											  <div>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_0} onChange={evt => this.squaresN_4_0(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_1} onChange={evt => this.squaresN_4_1(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_2} onChange={evt => this.squaresN_4_2(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_3} onChange={evt => this.squaresN_4_3(evt)}/>
+													<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_4} onChange={evt => this.squaresN_4_4(evt)}/>
+											  </div>	
 									  </div>
-							  </div>
-							   <div className="results">         
-							           <div className="subHeading">Result 4</div>
-						               <div className="result-number">{this.state.result_3}</div>
-							   </div>
-							  <div style={{clear:'both'}}></div>
-						</div>
-						<div className="play-row">
-						       <div className="guesses">
-							          <div className="subHeading">Line 5</div>
-									  <div>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_0} onChange={evt => this.squaresN_4_0(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_1} onChange={evt => this.squaresN_4_1(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_2} onChange={evt => this.squaresN_4_2(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_3} onChange={evt => this.squaresN_4_3(evt)}/>
-											<input type="number" className="number-box" min="1" max="3" value={this.state.squaresN_4_4} onChange={evt => this.squaresN_4_4(evt)}/>
-									  </div>	
-							  </div>
-							   <div className="results">         
-							           <div className="subHeading">Result 5</div>
-						               <div className="result-number">{this.state.result_4}</div>
-							   </div>
-							  <div style={{clear:'both'}}></div>	
-                        </div>							  
-					</div>
-										
-					<div className="controls">
-					    <div className="btn-row">
-								<div className="button" onClick={() => this.checkGuess()}>Enter Guess</div>
-								<div className="button" onClick={() => this.newGame()}>New Game</div>
-								<div style={{clear:'both'}}></div>
-						</div>
-						<div className="btn-row">
-								<div className="button" onClick={() => this.showHowToPlay()}>How to Play</div>
-								<div className="button" onClick={() => this.showSoln()}>Show Solution</div>
-								<div style={{clear:'both'}}></div>
-						</div>
-						<div className="soln-box" style={this.state.soln_state}>
-							<div className="heading">Solution</div>
-							<div className="soln-number">{this.state.sol_0}</div>
-							<div className="soln-number">{this.state.sol_1}</div>
-							<div className="soln-number">{this.state.sol_2}</div>
-							<div className="soln-number">{this.state.sol_3}</div>
-							<div className="soln-number">{this.state.sol_4}</div>
-							<div style={{clear:'both'}}></div>
-						</div>
-						<div className="instruct-box" style={this.state.inst_state}>
-						      <div className="instruct-close-x" onClick={() => this.hideHowToPlay()}>&times;</div>
-							  <div className="instruct-heading">How to Play Sequence</div>
-							  <div className="instruct-text">
-								A sequence of five numbers from 1 to 3 is chosen at random.  The player must try to guess them.  To make a guess, the player puts 5 numbers into the rectangles of a line and then clicks "Enter Guess".  
-							  </div>
-							  <div className="instruct-text">
-								Instead of counting the number of correct numbers in correct rectangles, the game counts correct partial sequences and displays that number as a result.  A partial equence is any number, the number to the left of it and the number to the right of it in the order they appear on the line.  For numbers at an end of the line, just the number beside it counts.  Thus partial sequences can contain either two or three numbers.
-							  </div>
-						</div>
-						<div className="lose-box" style={this.state.lose_state}>
-						  Sorry, you have lost.  You failed to guess the sequence.
-						</div>
-						<div className="win-box" style={this.state.win_state}>
-						  <span> YOU WIN!!! </span>  You guessed the sequence correctly!
-						</div>
-					</div>
-				    <div style={{clear:'both'}}></div>					
+									   <div className="results">         
+											   <div className="subHeading">Result 5</div>
+											   <div className="result-number">{this.state.result_4}</div>
+									   </div>
+									  <div style={{clear:'both'}}></div>	
+								</div>							  
+							</div>
+												
+							<div className="controls">
+							    <div className="button-panel">
+										<div className="btn-row">
+												<div className="button" onClick={() => this.checkGuess()}>Enter Guess</div>
+												<div className="button" onClick={() => this.newGame()}>New Game</div>
+												<div style={{clear:'both'}}></div>
+										</div>
+										<div className="btn-row">
+												<div className="button" onClick={() => this.showHowToPlay()}>How to Play</div>
+												<div className="button" onClick={() => this.showSoln()}>Show Solution</div>
+												<div style={{clear:'both'}}></div>
+										</div>
+										<div style={{clear:'both'}}></div>
+								</div>
+								<div className="soln-box" style={this.state.soln_state}>
+									<div className="heading">Solution</div>
+									<div className="soln-number">{this.state.sol_0}</div>
+									<div className="soln-number">{this.state.sol_1}</div>
+									<div className="soln-number">{this.state.sol_2}</div>
+									<div className="soln-number">{this.state.sol_3}</div>
+									<div className="soln-number">{this.state.sol_4}</div>
+									<div style={{clear:'both'}}></div>
+								</div>
+								<div className="instruct-box" style={this.state.inst_state}>
+									  <div className="instruct-close-x" onClick={() => this.hideHowToPlay()}>&times;</div>
+									  <div className="instruct-heading">How to Play Sequence</div>
+									  <div className="instruct-text">
+										A sequence of five numbers from 1 to 3 is chosen at random.  The player must try to guess them.  To make a guess, the player puts 5 numbers into the rectangles of a line and then clicks "Enter Guess".  
+									  </div>
+									  <div className="instruct-text">
+										Instead of counting the number of correct numbers in correct rectangles, the game counts correct partial sequences and displays that number as a result.  A partial equence is any number, the number to the left of it and the number to the right of it in the order they appear on the line.  For numbers at an end of the line, just the number beside it counts.  Thus partial sequences can contain either two or three numbers.
+									  </div>
+								</div>
+								<div className="lose-box" style={this.state.lose_state}>
+								  Sorry, you have lost.  You failed to guess the sequence.
+								</div>
+								<div className="win-box" style={this.state.win_state}>
+								  <span> YOU WIN!!! </span>  You guessed the sequence correctly!
+								</div>
+							</div>
+							<div style={{clear:'both'}}></div>	
+                        </div>							
 				</div>		
 	    );
 		
