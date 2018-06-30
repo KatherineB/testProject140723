@@ -11,7 +11,9 @@ class App extends Component {
 		   ts3_state: {display: 'none'},
 		   rbA1_state: {backgroundColor: '#fff'},
 		   rbA2_state: {backgroundColor: '#fff'},
-		   rbA3_state: {backgroundColor: '#fff'}
+		   rbA3_state: {backgroundColor: '#fff'},
+		   cb2_1_state: {backgroundColor: '#fff'},
+		   cb2_1_state: {opacity: '0'}
 		};   
 	}
 	
@@ -44,6 +46,12 @@ class App extends Component {
 			ts1_state: {display: 'none'},
 		    ts2_state: {display: 'none'},
 		    ts3_state: {display: 'inline-block'}
+      });
+  }
+  cb2_1(){
+	  this.setState({
+            cb2_1_state: {backgroundColor: '#446'},
+			cb2_1_state: {opacity: '1'}
       });
   }
   render() {
@@ -84,12 +92,22 @@ class App extends Component {
 				  </div>
             </div>		
             <div className="section-2">	
-			      <img className="graph-grid" src={ require('./images/grid.png') } />
-				  <img className="graph-data" src={ require('./images/data1.png') } />
-				  <img className="graph-data" src={ require('./images/data2.png') } />
-				  <img className="graph-data" src={ require('./images/data3.png') } />
-				  <img className="graph-data" src={ require('./images/data4.png') } />
-				  <img className="graph-data" src={ require('./images/data5.png') } />
+			      <div className="graph-holder">
+					  <img className="graph-grid" src={ require('./images/grid.png') } />
+					  <img className="graph-data" id="gd1" src={ require('./images/data1.png') } />
+					  <img className="graph-data" src={ require('./images/data2.png') } />
+					  <img className="graph-data" src={ require('./images/data3.png') } />
+					  <img className="graph-data" src={ require('./images/data4.png') } />
+					  <img className="graph-data" src={ require('./images/data5.png') } />
+				  </div>
+				  <div className="checkbox-div">
+				        <div className="checkbox-holder">
+							  <div className="chkbox2" id="cb2_1" onClick={() => this.cb2_1()} style={this.state.cb2_1_state}></div>
+							  <label for="cb2_1" className="chkbox2-label">Graph 1</label>
+							  <div style={{clear:'both'}}></div>
+						</div>
+				  </div>
+				  <div style={{clear:'both'}}></div>
             </div>	
             <div className="section-3">	
             </div>			

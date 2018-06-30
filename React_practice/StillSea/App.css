@@ -1,9 +1,9 @@
 /* CSS for StillSea Template */
 
-@media (min-width: 280px) {body {font-size: 12px;} }
-@media (min-width: 320px) {body {font-size: 14px;} }
-@media (min-width: 423px) {body {font-size: 17px;} }
-@media (min-width: 526px) {body {font-size: 20px;} }
+@media (min-width: 280px) {body {font-size: 9px;} }
+@media (min-width: 320px) {body {font-size: 9px;} }
+@media (min-width: 423px) {body {font-size: 12px;} }
+@media (min-width: 526px) {body {font-size: 16px;} }
 @media (min-width: 768px) {body {font-size: 23px;} }
 @media (min-width: 992px) {body {font-size: 28px;} }
 @media (min-width: 1200px) {body {font-size: 34px;} }
@@ -36,7 +36,7 @@
      background-repeat: no-repeat;
 	 background-size: cover;
      background-position: center center;
-	 text-align: centre;
+	 text-align: center;
 	 display: inline-block;
 	 width: 100%;
 }
@@ -70,30 +70,52 @@
 }
 .section-2{
 	 background-color: #eee;
-	 text-align: centre;
-	 display: inline-block;
+	 text-align: center;
 	 width: 100%;
+	 padding: 1em;
+	 height: 9em;
+}
+.graph-holder{
+	display: inline-block;
+	width: 12em;
 }
 .graph-grid{
-	height: 8em;
-	width: 15em;
-	margin-top: 2em;
+	width: 14em;
 	background-color: #eeeeee;
 	border: 2px solid #ddd;
-	display: inline-block;
 	border-radius: 0.5em;
 	line-height: 2;
+	position: absolute;
+	top: 22em;
+	left: 5em;
 }
 .graph-data{
-	height: 8em;
-	width: 15em;
+	width: 14em;
 	background-color: transparent;
 	border: 2px solid #ddd;
     position: absolute;
 	border-radius: 0.5em;
 	line-height: 2;
-	top: 22.5em;
-	left: 6.75em;
+	top: 22em;
+	left: 5em;
+	opacity: 0;
+}
+.checkbox-div{
+	width: 7em;
+	display: inline-block;
+	margin-top: 1em;
+}
+.chkbox2{
+	height: 0.5em;
+	width: 0.5em;
+	border: 1px solid #000;
+	float: left;
+}
+.chkbox2-label{
+	height: 1em;
+	width: 5em;
+	font-size: 0.6em;
+	float: left;
 }
 
 
