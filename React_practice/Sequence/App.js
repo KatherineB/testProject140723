@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
 
- var add = (function () {
-    var counter = -1;
-    return function () {return counter += 1;}
-    })();	
+var adjustRowCounter = (function () {
+    var counter = 0;
+    return {
+			increment: function() {
+			  counter++;
+			},
+			reset: function() {
+			  counter = 0;
+			},
+			value: function() {
+			  return counter;
+			}
+    };   
+})();	
 	
 class App extends Component {
   constructor(props) {
@@ -175,8 +185,7 @@ class App extends Component {
 	  squaresN_4_4: evt.target.value
     });
    }
-   
-   
+  
   checkGuess(){
 	  const targetNumbers = this.state.targetNumbers;
 	  const totalRight = this.state.totalRight;
@@ -206,8 +215,9 @@ class App extends Component {
 	  const squaresN_4_2 = this.state.squaresN_4_2;
 	  const squaresN_4_3 = this.state.squaresN_4_3;
 	  const squaresN_4_4 = this.state.squaresN_4_4;
-	  
-	  var row = (add()) % 5;
+	    
+	  var row = adjustRowCounter.value();
+	  adjustRowCounter.increment();
 	  	  
 	  if(row == 0){
 		  guesses[0] = squaresN_0_0;
@@ -394,7 +404,7 @@ class App extends Component {
 	  this.setState({
             lose_state: {display: 'none'}
       });
-  
+      adjustRowCounter.reset();
   }
   showHowToPlay(){
 	  this.setState({
