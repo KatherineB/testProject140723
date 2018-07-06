@@ -38,6 +38,12 @@ function setUp(){
 		  document.getElementById(columnsRandIds[i].ndId).innerHTML = columnsRand[i].number;
 	}
 }
+function howToPlay(){
+	document.getElementById('how-to-play').style.display = "block";
+}
+function closeHow(){
+	document.getElementById('how-to-play').style.display = "none";
+}
 function count(){
     let plusSum = 0;
 	let equal = 0;

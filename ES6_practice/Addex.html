@@ -8,6 +8,20 @@
 <div class="main-div">
     <div class="main-title">Addex Game</div>
 	<div class="user-notify" id="user-notify"></div>
+	<div class="how-to-play-box" id="how-to-play">
+	    <div class="how-x" onClick="closeHow()">&times;</div>
+	    <div class="how-heading"> How to Play Addex </div>
+		<div class="how-text">
+		  In this game, twelve numbers from 1 to 9 are chosen at random. The player must select numbers that add up to another number. It does not
+		  matter how many numbers are chosen to add up to that other number. 
+		  Five points are awarded for each correct sum. As an example, consider 
+		  a set of numbers that includes 1, 3, 4 and 8. For the 1, the 3 and 
+		  the 4, select + from the set of choices above it. Select = for the 8.
+		  Then click 'Count'. The object of the game is to come up with as many 
+		  different sums as possible. The 'Clear' button is for setting all the choices back to none and can be clicked any time you want to clear 
+		  away all the choices and start over.		    
+		</div>
+	</div>
     <div class="number-box">
 	      <div class="half">
 		          <div class="quarter">
@@ -171,6 +185,9 @@
 		  </div>			 
     </div>
 	<div class="button-box">
+	     <div class="btn-holder">
+		    <input class="btn" type="button" value="How to Play" onClick="howToPlay()">
+		</div>
 	     <div class="btn-holder">
 		    <input class="btn" type="button" value="Count" onClick="count()">
 		</div>

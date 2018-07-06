@@ -24,6 +24,34 @@ html{
 	margin-top: 0.7em;
 	font-size: 0.9em;
 }
+.how-to-play-box{
+	background-color: #fff;
+	background: rgba(250,250,250,0.9);
+	width: 80%;
+	margin-left: 4%;
+	padding-top: 0.5em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-bottom: 1em;
+	display: none;
+	position: absolute;
+}
+.how-x{
+	text-align: right;
+	font-size:1.4em;
+	font-weight: bold;
+	cursor: default;
+}
+.how-heading{
+	font-size: 1em;
+	font-weight: bold;
+}
+.how-text{
+	margin-top: 0.3em;
+	font-size: 0.7em;
+	text-align: left;
+	line-height: 1.4;
+}
 .number-box{
 	/*margin-top: 0.6em;*/
 	display: inline-block;
