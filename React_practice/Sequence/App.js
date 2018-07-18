@@ -287,7 +287,7 @@ class App extends Component {
 		 });
 		 if(totalRight[0] == 5){
 			 this.setState({
-                win_state: {display: 'block'},
+                win_state: {display: 'inline-block'},
 				soln_state: {display: 'none'},
 		        inst_state: {display: 'none'}
              });
@@ -299,7 +299,7 @@ class App extends Component {
 		 });
 		 if(totalRight[1] == 5){
 			 this.setState({
-                win_state: {display: 'block'},
+                win_state: {display: 'inline-block'},
 				soln_state: {display: 'none'},
 		        inst_state: {display: 'none'}
              });
@@ -311,7 +311,7 @@ class App extends Component {
 		 });
 		 if(totalRight[2] == 5){
 			 this.setState({
-                win_state: {display: 'block'},
+                win_state: {display: 'inline-block'},
 				soln_state: {display: 'none'},
 		        inst_state: {display: 'none'}
              });
@@ -323,7 +323,7 @@ class App extends Component {
 		 });
 		 if(totalRight[3] == 5){
 			 this.setState({
-                win_state: {display: 'block'},
+                win_state: {display: 'inline-block'},
 				soln_state: {display: 'none'},
 		        inst_state: {display: 'none'}
              });
@@ -335,14 +335,14 @@ class App extends Component {
 		 });
 		 if(totalRight[4] == 5){
 			 this.setState({
-                win_state: {display: 'block'},
+                win_state: {display: 'inline-block'},
 				soln_state: {display: 'none'},
 		        inst_state: {display: 'none'}
              });
 		 }
 		 else{
 			 this.setState({
-                lose_state: {display: 'block'},
+                lose_state: {display: 'inline-block'},
 				soln_state: {display: 'none'},
 		        inst_state: {display: 'none'}
              });
@@ -579,10 +579,10 @@ class App extends Component {
 									  </div>
 								</div>
 								<div className="lose-box" style={this.state.lose_state}>
-								  Sorry, you have lost.  You failed to guess the sequence.
+								  <div className="lose-msg">Sorry, you have lost.  You failed to guess the sequence.</div>
 								</div>
 								<div className="win-box" style={this.state.win_state}>
-								  <span> YOU WIN!!! </span>  You guessed the sequence correctly!
+								  <div className="win-msg"><span> YOU WIN!!! </span>  You guessed the sequence correctly!</div>
 								</div>
 							</div>
 							<div style={{clear:'both'}}></div>	
