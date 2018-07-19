@@ -1,4 +1,4 @@
-let columnsRand = [];
+let columnsRand = new Array();
 let score = 0;
 const columnsRandIds = [ {"noneId": "none00", "plusId" : "plus00", "eqId" : "eq00", "ndId":"nd00"}, 
                          {"noneId": "none01", "plusId" : "plus01", "eqId" : "eq01", "ndId":"nd01"},
@@ -16,26 +16,16 @@ const numberSizeLimit = 9;
 const arraySizeLimit = 12;
 let entries = [];
 
-
-// constructor to create number column objects
-function NumberCol(numberSizeLimit){
-  this.none = true,
-  this.plus = false,
-  this.equals = false,
-  this.numberSizeLimit = numberSizeLimit,
-  this.number = Math.floor(Math.random() * numberSizeLimit) + 1;
-};
-
-let objectPic = () => new NumberCol(numberSizeLimit);
+let randNumPic = () => Math.floor(Math.random() * numberSizeLimit) + 1;
 
 setUp();
 
 function setUp(){
 	for (let i=0; i<arraySizeLimit; i++){
-		  columnsRand.push(objectPic());
+		  columnsRand.push(randNumPic());
 		  let radiobtn = document.getElementById(columnsRandIds[i].noneId);
 		  radiobtn.checked = true;
-		  document.getElementById(columnsRandIds[i].ndId).innerHTML = columnsRand[i].number;
+		  document.getElementById(columnsRandIds[i].ndId).innerHTML = columnsRand[i];
 	}
 }
 function howToPlay(){
@@ -52,14 +42,14 @@ function count(){
     for (let i=0; i<arraySizeLimit; i++){
 	    let plusCheck = document.getElementById(columnsRandIds[i].plusId);
 	    if( plusCheck.checked ){
-			plusSum += columnsRand[i].number;
+			plusSum += columnsRand[i];
 			entry += columnsRandIds[i].plusId;
 		}
 	}
 	for (let i=0; i<arraySizeLimit; i++){
 	    let eqCheck = document.getElementById(columnsRandIds[i].eqId);
 	    if( eqCheck.checked && equal == 0){
-			equal = columnsRand[i].number;
+			equal = columnsRand[i];
 			entry += columnsRandIds[i].eqId;
 		}
 	}
