@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><title>Naviska</title>
+<head><title>Kipinade</title>
 <meta charset="utf-8"/>
 <style>
 @media (min-width: 280px) {body {font-size: 12px;} }
@@ -16,6 +16,7 @@
 	float: left;
 	margin: 1.5em;
 }
+
 .square{
     height: 1.7em;
     width: 1.7em;
@@ -24,6 +25,8 @@
 	text-align: center;
 	line-height: 1.7;
 	font-weight: bold;
+    font-size: 1em;
+    margin: 0.2em;
 }
 .options-grid{
     display: block;
@@ -43,7 +46,7 @@
 <body>
 
 <div class="main-div">
-    <div class="top-heading">Naviska</div>
+    <div class="top-heading">Kipinade</div>
     <div class="squares-grid">
         <div class="squares-row">
             <div class="square" id='s00' onClick="move(0,0)"> </div>
@@ -172,6 +175,11 @@ var posY;
 var xPrev;
 var yPrev;
 
+var firstPairSet = 0;
+
+var a = -1;
+var b = -1;
+
 posX = Math.floor(Math.random() * 4 + 1);
 posY = Math.floor(Math.random() * 4 + 1);
 xPrev = posX;
@@ -196,7 +204,21 @@ function move(x,y){
     yPrev = y;
     
 }
- 
+function record(x,y){
+    if (firstPairSet){
+       let shelf = posValues[x][y]; 
+       posValues[x][y] = posValues[a][b];
+       posValues[a][b] = shelf;
+       document.getElementById(posIds[a][b]).innerHTML = posValues[a][b];
+       document.getElementById(posIds[x][y]).innerHTML = posValues[x][y];
+       firstPairSet = 0;
+    }
+    else{
+       a = x;
+       b = y;
+       firstPairSet = 1;
+    }
+}
  
 </script>
 
