@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head><title>Hadamard 1Q</title>
+<meta charset="utf-8"/>
+<style>
+@media (min-width: 280px) {body {font-size: 12px;} }
+@media (min-width: 320px) {body {font-size: 11px;} }
+@media (min-width: 423px) {body {font-size: 13px;} }
+@media (min-width: 526px) {body {font-size: 16px;} }
+@media (min-width: 768px) {body {font-size: 20px;} }
+@media (min-width: 992px) {body {font-size: 23px;} }
+@media (min-width: 1200px) {body {font-size: 27px;} }
+
+html{
+  background-color: #ffe680;
+  font-family:  arial, "sans-serif";
+  text-align: center;
+}
+.main-title{
+	font-size: 1.7em;
+	color: #000000;
+	margin-bottom: 1em;
+}
+.steps-row{
+    display:inline-block;
+	text-align: center;
+}
+.init-bit{
+    border: 1px solid #000;
+	width: 2em;
+	height: 2.1em;
+	display:inline-block;
+	float: left;
+	font-size: 2em;
+	text-align: center;
+	line-height: 2;
+}
+.prob-state{
+    border: 5px solid #864;
+	width: 4em;
+	height: 4em;
+	display:inline-block;
+	float: left;
+	background: linear-gradient(to bottom, #ffe680 , #5ea4ee);
+}
+#ps-00{
+    background: #5ea4ee;
+}
+#ps-10{
+    background: #ffe680;
+}
+.trans-info{
+    border: 1px solid #000;
+	width: 4em;
+	height: 4.2em;
+	display:inline-block;
+	float: left;
+}
+.btns-row{
+    display:inline-block;
+	text-align: center;
+}
+.btn-square{
+    border: 1px solid #000;
+	width: 4.2em;
+	height: 4.2em;
+	display:inline-block;
+	float: left;
+}
+</style>
+</head>
+<body>
+<div class="main-div">
+      <div class="main-title">Hadamard for 1 Qubit</div>
+	  <div class="steps-row">
+	      <div class="init-bit">0</div>
+		  <div class="prob-state" id="ps-00"></div>
+		  <div class="trans-info"></div>
+		  <div class="prob-state" id="ps-01"></div>
+		  <div class="trans-info"></div>
+		  <div class="prob-state" id="ps-02"></div>	
+          <div style="clear:both"></div>  
+	  </div>
+      <div class="steps-row">
+	      <div class="init-bit">1</div>
+		  <div class="prob-state" id="ps-10"></div>
+		  <div class="trans-info"></div>
+		  <div class="prob-state" id="ps-11"></div>
+		  <div class="trans-info"></div>
+		  <div class="prob-state" id="ps-12"></div>	
+          <div style="clear:both"></div>  
+	  </div>
+	  <div class="btns-row">
+	      <div class="btn-square"></div>
+		  <div class="btn-square" ></div>
+		  <div class="btn-square"></div>
+		  <div class="btn-square" ></div>
+		  <div class="btn-square"></div>
+		  <div class="btn-square" ></div>	
+          <div style="btn-square"></div>  
+	  </div>
+
+</div>
+<script type="text/javascript">
+ 
+</script>
+
+</body>
+</html>
+
