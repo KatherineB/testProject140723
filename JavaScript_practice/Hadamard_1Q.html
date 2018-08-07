@@ -36,18 +36,27 @@ html{
 	line-height: 2;
 }
 .prob-state{
-    border: 5px solid #864;
-	width: 4em;
-	height: 4em;
+    border: 0.2em solid #864;
+	width: 3.95em;
+	height: 3.95em;
 	display:inline-block;
-	float: left;
-	background: linear-gradient(to bottom, #ffe680 , #5ea4ee);
+	float: left;	
 }
-#ps-00{
-    background: #5ea4ee;
+.top-fill{
+    width: 3.6em;
+	height: 1.7em;
+	background-color: #ffe680;
+	font-size: 1.1em;
+	text-align: center;
+	line-height: 2;
 }
-#ps-10{
-    background: #ffe680;
+.bottom-fill{
+    width: 3.6em;
+	height: 1.9em;
+	background-color: #ffe680;
+	font-size: 1.1em;
+	text-align: center;
+	line-height: 2;
 }
 .trans-info{
     border: 1px solid #000;
@@ -67,6 +76,9 @@ html{
 	display:inline-block;
 	float: left;
 }
+.btn{
+   /* white-space: normal;*/
+}
 </style>
 </head>
 <body>
@@ -74,35 +86,120 @@ html{
       <div class="main-title">Hadamard for 1 Qubit</div>
 	  <div class="steps-row">
 	      <div class="init-bit">0</div>
-		  <div class="prob-state" id="ps-00"></div>
+		  <div class="prob-state" id="ps-00">
+		       <div class="top-fill" id="tf-00"></div>
+			   <div class="bottom-fill" id="bf-00"></div>
+		  </div>
 		  <div class="trans-info"></div>
-		  <div class="prob-state" id="ps-01"></div>
+		  <div class="prob-state" id="ps-01">
+		       <div class="top-fill" id="tf-01"></div>
+			   <div class="bottom-fill" id="bf-01"></div>
+		  </div>
 		  <div class="trans-info"></div>
-		  <div class="prob-state" id="ps-02"></div>	
+		  <div class="prob-state" id="ps-02">
+		       <div class="top-fill" id="tf-02"></div>
+			   <div class="bottom-fill" id="bf-02"></div>
+		  </div>	
           <div style="clear:both"></div>  
 	  </div>
       <div class="steps-row">
 	      <div class="init-bit">1</div>
-		  <div class="prob-state" id="ps-10"></div>
+		  <div class="prob-state" id="ps-10">
+		       <div class="top-fill" id="tf-10"></div>
+			   <div class="bottom-fill" id="bf-10"></div>
+		  </div>
 		  <div class="trans-info"></div>
-		  <div class="prob-state" id="ps-11"></div>
+		  <div class="prob-state" id="ps-11">
+		       <div class="top-fill" id="tf-11"></div>
+			   <div class="bottom-fill" id="bf-11"></div>
+		  </div>
 		  <div class="trans-info"></div>
-		  <div class="prob-state" id="ps-12"></div>	
+		  <div class="prob-state" id="ps-12">
+		       <div class="top-fill" id="tf-12"></div>
+			   <div class="bottom-fill" id="bf-12"></div>
+		  </div>	
           <div style="clear:both"></div>  
 	  </div>
 	  <div class="btns-row">
-	      <div class="btn-square"></div>
-		  <div class="btn-square" ></div>
+	      <div class="btn-square">
+		      <div>Initial State:</div>
+			  <input class="btn" type="button" value="0" onClick="setInitialState(0)">
+			  <input class="btn" type="button" value="1" onClick="setInitialState(1)">
+		  </div>
+		  <div class="btn-square" >
+		      
+		  </div>
 		  <div class="btn-square"></div>
 		  <div class="btn-square" ></div>
 		  <div class="btn-square"></div>
 		  <div class="btn-square" ></div>	
           <div style="btn-square"></div>  
 	  </div>
-
+	  <div>
+        <input class="btn" type="button" value="Perform Hadamard" onClick="doHadamard()">
+	  </div>
 </div>
 <script type="text/javascript">
- 
+let firstState = -1;
+let hadsDone = 0;
+function setInitialState(iState){
+    firstState = iState;
+    if(iState == 0){
+	    document.getElementById('tf-00').style.backgroundColor = "#5ea4ee";
+		document.getElementById('bf-00').style.backgroundColor = "#5ea4ee";
+		document.getElementById('tf-10').style.backgroundColor = "#ffe680";
+		document.getElementById('bf-10').style.backgroundColor = "#ffe680";
+		document.getElementById('bf-00').innerHTML = "E";
+		document.getElementById('bf-10').innerHTML = "";
+	}
+	if(iState == 1){
+	    document.getElementById('tf-10').style.backgroundColor = "#5ea4ee";
+		document.getElementById('bf-10').style.backgroundColor = "#5ea4ee";
+		document.getElementById('tf-00').style.backgroundColor = "#ffe680";
+		document.getElementById('bf-00').style.backgroundColor = "#ffe680";
+		document.getElementById('bf-10').innerHTML = "E";
+		document.getElementById('bf-00').innerHTML = "";
+	}
+}
+function doHadamard(){
+    if(hadsDone == 0){
+       if(firstState == 0){
+	    document.getElementById('tf-01').style.backgroundColor = "#ffe680";
+		document.getElementById('bf-01').style.backgroundColor = "#5ea4ee";
+		document.getElementById('tf-11').style.backgroundColor = "#ffe680";
+		document.getElementById('bf-11').style.backgroundColor = "#5ea4ee";
+		document.getElementById('bf-01').innerHTML = "E";
+		document.getElementById('bf-11').innerHTML = "E";
+	   }
+	   if(firstState == 1){
+	    document.getElementById('tf-01').style.backgroundColor = "#ffe680";
+		document.getElementById('bf-01').style.backgroundColor = "#5ea4ee";
+		document.getElementById('tf-11').style.backgroundColor = "#ffe680";
+		document.getElementById('bf-11').style.backgroundColor = "#5ea4ee";
+		document.getElementById('bf-01').innerHTML = "E";
+		document.getElementById('bf-11').innerHTML = "W";
+	   }
+	}
+	if(hadsDone == 1){
+       if(firstState == 0){
+	    document.getElementById('tf-02').style.backgroundColor = "#5ea4ee";
+		document.getElementById('bf-02').style.backgroundColor = "#5ea4ee";
+		document.getElementById('tf-12').style.backgroundColor = "#ffe680";
+		document.getElementById('bf-12').style.backgroundColor = "#ffe680";
+		document.getElementById('bf-02').innerHTML = "E";
+		document.getElementById('bf-12').innerHTML = "";
+	   }
+	   if(firstState == 1){
+	    document.getElementById('tf-02').style.backgroundColor = "#ffe680";
+		document.getElementById('bf-02').style.backgroundColor = "#ffe680";
+		document.getElementById('tf-12').style.backgroundColor = "#5ea4ee";
+		document.getElementById('bf-12').style.backgroundColor = "#5ea4ee";
+		document.getElementById('bf-02').innerHTML = "";
+		document.getElementById('bf-12').innerHTML = "E";
+	   }
+	}
+	hadsDone++;
+} 
 </script>
 
 </body>
