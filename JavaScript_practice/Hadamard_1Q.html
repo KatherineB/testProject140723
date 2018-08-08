@@ -12,7 +12,8 @@
 @media (min-width: 1200px) {body {font-size: 27px;} }
 
 html{
-  background-color: #ffe680;
+/*  background-color:  #ccbb88; */
+   background-color: #ccbb88;
   font-family:  arial, "sans-serif";
   text-align: center;
 }
@@ -26,7 +27,7 @@ html{
 	text-align: center;
 }
 .init-bit{
-    border: 1px solid #000;
+   /* border: 1px solid #000;*/
 	width: 2em;
 	height: 2.1em;
 	display:inline-block;
@@ -36,7 +37,8 @@ html{
 	line-height: 2;
 }
 .prob-state{
-    border: 0.2em solid #864;
+    border: 0.2em solid #888888;
+    border-top: 0;
 	width: 3.95em;
 	height: 3.95em;
 	display:inline-block;
@@ -45,7 +47,7 @@ html{
 .top-fill{
     width: 3.6em;
 	height: 1.7em;
-	background-color: #ffe680;
+	background-color:  #ccbb88;
 	font-size: 1.1em;
 	text-align: center;
 	line-height: 2;
@@ -53,13 +55,13 @@ html{
 .bottom-fill{
     width: 3.6em;
 	height: 1.9em;
-	background-color: #ffe680;
+	background-color:  #ccbb88;
 	font-size: 1.1em;
 	text-align: center;
 	line-height: 2;
 }
 .trans-info{
-    border: 1px solid #000;
+  /*  border: 1px solid #000;*/
 	width: 4em;
 	height: 4.2em;
 	display:inline-block;
@@ -70,7 +72,7 @@ html{
 	text-align: center;
 }
 .btn-square{
-    border: 1px solid #000;
+   /* border: 1px solid #000; */
 	width: 4.2em;
 	height: 4.2em;
 	display:inline-block;
@@ -147,16 +149,16 @@ function setInitialState(iState){
     if(iState == 0){
 	    document.getElementById('tf-00').style.backgroundColor = "#5ea4ee";
 		document.getElementById('bf-00').style.backgroundColor = "#5ea4ee";
-		document.getElementById('tf-10').style.backgroundColor = "#ffe680";
-		document.getElementById('bf-10').style.backgroundColor = "#ffe680";
+		document.getElementById('tf-10').style.backgroundColor = " #ccbb88";
+		document.getElementById('bf-10').style.backgroundColor = " #ccbb88";
 		document.getElementById('bf-00').innerHTML = "E";
 		document.getElementById('bf-10').innerHTML = "";
 	}
 	if(iState == 1){
 	    document.getElementById('tf-10').style.backgroundColor = "#5ea4ee";
 		document.getElementById('bf-10').style.backgroundColor = "#5ea4ee";
-		document.getElementById('tf-00').style.backgroundColor = "#ffe680";
-		document.getElementById('bf-00').style.backgroundColor = "#ffe680";
+		document.getElementById('tf-00').style.backgroundColor = " #ccbb88";
+		document.getElementById('bf-00').style.backgroundColor = " #ccbb88";
 		document.getElementById('bf-10').innerHTML = "E";
 		document.getElementById('bf-00').innerHTML = "";
 	}
@@ -164,34 +166,34 @@ function setInitialState(iState){
 function doHadamard(){
     if(hadsDone == 0){
        if(firstState == 0){
-	    document.getElementById('tf-01').style.backgroundColor = "#ffe680";
+	    document.getElementById('tf-01').style.backgroundColor = " #ccbb88";
 		document.getElementById('bf-01').style.backgroundColor = "#5ea4ee";
-		document.getElementById('tf-11').style.backgroundColor = "#ffe680";
+		document.getElementById('tf-11').style.backgroundColor = " #ccbb88";
 		document.getElementById('bf-11').style.backgroundColor = "#5ea4ee";
-		document.getElementById('bf-01').innerHTML = "E";
-		document.getElementById('bf-11').innerHTML = "E";
+		document.getElementById('bf-01').innerHTML = "0.5E";
+		document.getElementById('bf-11').innerHTML = "0.5E";
 	   }
 	   if(firstState == 1){
-	    document.getElementById('tf-01').style.backgroundColor = "#ffe680";
+	    document.getElementById('tf-01').style.backgroundColor = " #ccbb88";
 		document.getElementById('bf-01').style.backgroundColor = "#5ea4ee";
-		document.getElementById('tf-11').style.backgroundColor = "#ffe680";
+		document.getElementById('tf-11').style.backgroundColor = " #ccbb88";
 		document.getElementById('bf-11').style.backgroundColor = "#5ea4ee";
-		document.getElementById('bf-01').innerHTML = "E";
-		document.getElementById('bf-11').innerHTML = "W";
+		document.getElementById('bf-01').innerHTML = "0.5E";
+		document.getElementById('bf-11').innerHTML = "0.5W";
 	   }
 	}
 	if(hadsDone == 1){
        if(firstState == 0){
 	    document.getElementById('tf-02').style.backgroundColor = "#5ea4ee";
 		document.getElementById('bf-02').style.backgroundColor = "#5ea4ee";
-		document.getElementById('tf-12').style.backgroundColor = "#ffe680";
-		document.getElementById('bf-12').style.backgroundColor = "#ffe680";
+		document.getElementById('tf-12').style.backgroundColor = " #ccbb88";
+		document.getElementById('bf-12').style.backgroundColor = " #ccbb88";
 		document.getElementById('bf-02').innerHTML = "E";
 		document.getElementById('bf-12').innerHTML = "";
 	   }
 	   if(firstState == 1){
-	    document.getElementById('tf-02').style.backgroundColor = "#ffe680";
-		document.getElementById('bf-02').style.backgroundColor = "#ffe680";
+	    document.getElementById('tf-02').style.backgroundColor = " #ccbb88";
+		document.getElementById('bf-02').style.backgroundColor = " #ccbb88";
 		document.getElementById('tf-12').style.backgroundColor = "#5ea4ee";
 		document.getElementById('bf-12').style.backgroundColor = "#5ea4ee";
 		document.getElementById('bf-02').innerHTML = "";
