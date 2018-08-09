@@ -12,7 +12,6 @@
 @media (min-width: 1200px) {body {font-size: 27px;} }
 
 html{
-/*  background-color:  #ccbb88; */
    background-color: #ccbb88;
   font-family:  arial, "sans-serif";
   text-align: center;
@@ -25,6 +24,8 @@ html{
 .steps-row{
     display:inline-block;
 	text-align: center;
+	margin-top: 1em;
+	border: 1px solid #000;
 }
 .init-bit{
    /* border: 1px solid #000;*/
@@ -139,6 +140,7 @@ html{
 	  </div>
 	  <div>
         <input class="btn" type="button" value="Perform Hadamard" onClick="doHadamard()">
+		<input class="btn" type="button" value="Reset" onClick="reset()">
 	  </div>
 </div>
 <script type="text/javascript">
@@ -149,16 +151,16 @@ function setInitialState(iState){
     if(iState == 0){
 	    document.getElementById('tf-00').style.backgroundColor = "#5ea4ee";
 		document.getElementById('bf-00').style.backgroundColor = "#5ea4ee";
-		document.getElementById('tf-10').style.backgroundColor = " #ccbb88";
-		document.getElementById('bf-10').style.backgroundColor = " #ccbb88";
+		document.getElementById('tf-10').style.backgroundColor = "#ccbb88";
+		document.getElementById('bf-10').style.backgroundColor = "#ccbb88";
 		document.getElementById('bf-00').innerHTML = "E";
 		document.getElementById('bf-10').innerHTML = "";
 	}
 	if(iState == 1){
 	    document.getElementById('tf-10').style.backgroundColor = "#5ea4ee";
 		document.getElementById('bf-10').style.backgroundColor = "#5ea4ee";
-		document.getElementById('tf-00').style.backgroundColor = " #ccbb88";
-		document.getElementById('bf-00').style.backgroundColor = " #ccbb88";
+		document.getElementById('tf-00').style.backgroundColor = "#ccbb88";
+		document.getElementById('bf-00').style.backgroundColor = "#ccbb88";
 		document.getElementById('bf-10').innerHTML = "E";
 		document.getElementById('bf-00').innerHTML = "";
 	}
@@ -166,17 +168,17 @@ function setInitialState(iState){
 function doHadamard(){
     if(hadsDone == 0){
        if(firstState == 0){
-	    document.getElementById('tf-01').style.backgroundColor = " #ccbb88";
+	    document.getElementById('tf-01').style.backgroundColor = "#ccbb88";
 		document.getElementById('bf-01').style.backgroundColor = "#5ea4ee";
-		document.getElementById('tf-11').style.backgroundColor = " #ccbb88";
+		document.getElementById('tf-11').style.backgroundColor = "#ccbb88";
 		document.getElementById('bf-11').style.backgroundColor = "#5ea4ee";
 		document.getElementById('bf-01').innerHTML = "0.5E";
 		document.getElementById('bf-11').innerHTML = "0.5E";
 	   }
 	   if(firstState == 1){
-	    document.getElementById('tf-01').style.backgroundColor = " #ccbb88";
+	    document.getElementById('tf-01').style.backgroundColor = "#ccbb88";
 		document.getElementById('bf-01').style.backgroundColor = "#5ea4ee";
-		document.getElementById('tf-11').style.backgroundColor = " #ccbb88";
+		document.getElementById('tf-11').style.backgroundColor = "#ccbb88";
 		document.getElementById('bf-11').style.backgroundColor = "#5ea4ee";
 		document.getElementById('bf-01').innerHTML = "0.5E";
 		document.getElementById('bf-11').innerHTML = "0.5W";
@@ -186,14 +188,14 @@ function doHadamard(){
        if(firstState == 0){
 	    document.getElementById('tf-02').style.backgroundColor = "#5ea4ee";
 		document.getElementById('bf-02').style.backgroundColor = "#5ea4ee";
-		document.getElementById('tf-12').style.backgroundColor = " #ccbb88";
-		document.getElementById('bf-12').style.backgroundColor = " #ccbb88";
+		document.getElementById('tf-12').style.backgroundColor = "#ccbb88";
+		document.getElementById('bf-12').style.backgroundColor = "#ccbb88";
 		document.getElementById('bf-02').innerHTML = "E";
 		document.getElementById('bf-12').innerHTML = "";
 	   }
 	   if(firstState == 1){
-	    document.getElementById('tf-02').style.backgroundColor = " #ccbb88";
-		document.getElementById('bf-02').style.backgroundColor = " #ccbb88";
+	    document.getElementById('tf-02').style.backgroundColor = "#ccbb88";
+		document.getElementById('bf-02').style.backgroundColor = "#ccbb88";
 		document.getElementById('tf-12').style.backgroundColor = "#5ea4ee";
 		document.getElementById('bf-12').style.backgroundColor = "#5ea4ee";
 		document.getElementById('bf-02').innerHTML = "";
@@ -202,6 +204,30 @@ function doHadamard(){
 	}
 	hadsDone++;
 } 
+function reset(){
+    firstState = -1;
+    hadsDone = 0;
+	
+	document.getElementById('tf-00').style.backgroundColor = "#ccbb88";
+	document.getElementById('bf-00').style.backgroundColor = "#ccbb88";
+	document.getElementById('tf-10').style.backgroundColor = "#ccbb88";
+	document.getElementById('bf-10').style.backgroundColor = "#ccbb88";
+	document.getElementById('tf-01').style.backgroundColor = "#ccbb88";
+	document.getElementById('bf-01').style.backgroundColor = "#ccbb88";
+	document.getElementById('tf-11').style.backgroundColor = "#ccbb88";
+	document.getElementById('bf-11').style.backgroundColor = "#ccbb88";
+	document.getElementById('tf-02').style.backgroundColor = "#ccbb88";
+	document.getElementById('bf-02').style.backgroundColor = "#ccbb88";
+	document.getElementById('tf-12').style.backgroundColor = "#ccbb88";
+	document.getElementById('bf-12').style.backgroundColor = "#ccbb88";
+		
+	document.getElementById('bf-00').innerHTML = "";
+	document.getElementById('bf-01').innerHTML = "";
+	document.getElementById('bf-02').innerHTML = "";
+	document.getElementById('bf-10').innerHTML = "";
+    document.getElementById('bf-11').innerHTML = "";
+    document.getElementById('bf-12').innerHTML = "";
+}
 </script>
 
 </body>
