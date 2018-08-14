@@ -174,50 +174,69 @@ var posX;
 var posY;
 var xPrev;
 var yPrev;
+var diffX = 0;
+var diffY = 0;
 
 var firstPairSet = 0;
 
 var a = -1;
 var b = -1;
 
+var initialTrades = 0;
+const INITIAL_TRADES_LIMIT = 5;
+
 posX = Math.floor(Math.random() * 4 + 1);
 posY = Math.floor(Math.random() * 4 + 1);
 xPrev = posX;
 yPrev = posY;
 
+
 document.getElementById(posIds[posX][posY]).style.borderColor = "#bb22ff";
 
 for(let i=0; i<6; i++){
-    posValues[i] = [];
+	posValues[i] = [];
     for(let j=0; j<6; j++){
        posValues[i][j] = Math.floor(Math.random() * 5 + 1);
        document.getElementById(posIds[i][j]).innerHTML = posValues[i][j];
     }
-
 }
 
-function move(x,y){
-    
-    document.getElementById(posIds[x][y]).style.borderColor = "#bb22ff";
-    document.getElementById(posIds[xPrev][yPrev]).style.borderColor = "#998";
-    xPrev = x;
-    yPrev = y;
-    
+function move(x,y){  
+    diffX = x-xPrev;
+	diffY = y-yPrev;
+	if (diffX > -2 && diffX < 2 && diffY > -2 && diffY < 2){
+		document.getElementById(posIds[x][y]).style.borderColor = "#bb22ff";
+		document.getElementById(posIds[xPrev][yPrev]).style.borderColor = "#998";
+		posValues[xPrev][yPrev] = Math.floor(Math.random() * 4 + 1);
+		document.getElementById(posIds[xPrev][yPrev]).innerHTML = posValues[xPrev][yPrev];
+		xPrev = x;
+		yPrev = y;
+	}
+	else{
+	    alert("You may not move more than one square at a time. Please try again.");
+	}
 }
+
 function record(x,y){
-    if (firstPairSet){
-       let shelf = posValues[x][y]; 
-       posValues[x][y] = posValues[a][b];
-       posValues[a][b] = shelf;
-       document.getElementById(posIds[a][b]).innerHTML = posValues[a][b];
-       document.getElementById(posIds[x][y]).innerHTML = posValues[x][y];
-       firstPairSet = 0;
-    }
-    else{
-       a = x;
-       b = y;
-       firstPairSet = 1;
-    }
+      if(initialTrades < INITIAL_TRADES_LIMIT){
+			if (firstPairSet){
+			   let shelf = posValues[x][y]; 
+			   posValues[x][y] = posValues[a][b];
+			   posValues[a][b] = shelf;
+			   document.getElementById(posIds[a][b]).innerHTML = posValues[a][b];
+			   document.getElementById(posIds[x][y]).innerHTML = posValues[x][y];
+			   firstPairSet = 0;
+			   initialTrades++;
+			}
+			else{
+			   a = x;
+			   b = y;
+			   firstPairSet = 1;
+			}		
+	  }
+	  else{
+	        alert("Sorry, you may not make another trade at this time, your initial 5 free trades have all been used.");
+	  }
 }
  
 </script>
