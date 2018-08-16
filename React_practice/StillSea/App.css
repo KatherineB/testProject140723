@@ -76,8 +76,9 @@
 	 height: 9em;
 }
 .graph-holder{
-	display: inline-block;
+	/*display: inline-block;*/
 	width: 12em;
+	background-color: yellow;
 }
 .graph-grid{
 	width: 14em;
@@ -102,12 +103,18 @@
 }
 .checkbox-div{
 	width: 7em;
-	display: inline-block;
+	/*display: inline-block;*/
+	float: right;
+	margin-top: 1em;
+	margin-right: 5em;
+	background-color: #0ff;
+}
+.checkbox-wrap{
 	margin-top: 1em;
 }
 .chkbox2{
-	height: 0.5em;
-	width: 0.5em;
+	height: 1em;
+	width: 1em;
 	border: 1px solid #000;
 	float: left;
 }

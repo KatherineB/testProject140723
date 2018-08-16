@@ -1,10 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
 
+var checkbox1_state = (function () {
+    var cb_state = 1;
+    return {
+			on: function() {
+			  cb_state = 1;
+			},
+			off: function() {
+			  cb_state = 0;
+			},
+			state: function() {
+			  return cb_state;
+			}
+    };   
+})();	
+
 class App extends Component {
 	constructor() {
     super();
-
+    
     this.state = { 
 	       ts1_state: {display: 'inline-block'},
 		   ts2_state: {display: 'none'},
@@ -12,9 +27,11 @@ class App extends Component {
 		   rbA1_state: {backgroundColor: '#fff'},
 		   rbA2_state: {backgroundColor: '#fff'},
 		   rbA3_state: {backgroundColor: '#fff'},
-		   cb2_1_state: {backgroundColor: '#fff'},
-		   cb2_1_state: {opacity: '0'}
-		};   
+	       gd_1: {opacity: '0'},
+		   cb2_1_flag: 0
+		  
+		};  
+        const cb2_1_flag = this.state.cb2_1_flag;		
 	}
 	
    radbtnA_1(){
@@ -49,9 +66,34 @@ class App extends Component {
       });
   }
   cb2_1(){
+	  const cb2_1_flag = this.state.cb2_1_flag;
+	  if(checkbox1_state.state()){
+		  alert("its checked");  
+		  alert(checkbox1_state.state());
+		  this.setState({
+		    gd_1: {opacity: '1'}
+		  });
+		  checkbox1_state.off();
+	  }
+	  else{
+		  alert("its not checked");
+          alert(checkbox1_state.state());
+		  this.setState({
+		    gd_1: {opacity: '0'}
+		  });
+		  checkbox1_state.on();
+	  }
+  }
+  cb2_2(){
 	  this.setState({
-            cb2_1_state: {backgroundColor: '#446'},
-			cb2_1_state: {opacity: '1'}
+            cb2_2_state: {backgroundColor: '#446'},
+			cb2_2_state: {opacity: '1'}
+      });
+  }
+  cb2_3(){
+	  this.setState({
+            cb2_3_state: {backgroundColor: '#446'},
+			cb2_3_state: {opacity: '1'}
       });
   }
   render() {
@@ -80,7 +122,7 @@ class App extends Component {
 				  <div style={{clear:'both'}}></div>
 				  <div>
 				       <div className="radbtnA-holder" >
-							  <div className="radbtnA"  onClick={() => this.radbtnA_1()} style={this.state.rbA1_state}></div>
+							  <div className="radbtnA" onClick={() => this.radbtnA_1()} style={this.state.rbA1_state}></div>
 					   </div>
 					   <div className="radbtnA-holder">
 							  <div className="radbtnA" onClick={() => this.radbtnA_2()} style={this.state.rbA2_state}></div>
@@ -94,7 +136,7 @@ class App extends Component {
             <div className="section-2">	
 			      <div className="graph-holder">
 					  <img className="graph-grid" src={ require('./images/grid.png') } />
-					  <img className="graph-data" id="gd1" src={ require('./images/data1.png') } />
+					  <img className="graph-data" id="gd1" style={this.state.gd_1} src={ require('./images/data1.png') } />
 					  <img className="graph-data" src={ require('./images/data2.png') } />
 					  <img className="graph-data" src={ require('./images/data3.png') } />
 					  <img className="graph-data" src={ require('./images/data4.png') } />
@@ -102,8 +144,18 @@ class App extends Component {
 				  </div>
 				  <div className="checkbox-div">
 				        <div className="checkbox-holder">
-							  <div className="chkbox2" id="cb2_1" onClick={() => this.cb2_1()} style={this.state.cb2_1_state}></div>
-							  <label for="cb2_1" className="chkbox2-label">Graph 1</label>
+						      <div className="checkbox-wrap">
+								  <input className="chkbox2" id="cb2_1" type="checkbox" onClick={() => this.cb2_1()} style={this.state.cb2_1_state}/>
+								  <label for="cb2_1" className="chkbox2-label">Graph 1</label>
+							  </div>
+                              <div className="checkbox-wrap">							 
+								  <input className="chkbox2" id="cb2_2" type="checkbox" onClick={() => this.cb2_2()} style={this.state.cb2_2_state}/>
+								  <label for="cb2_2" className="chkbox2-label">Graph 2</label>
+							  </div>
+                              <div className="checkbox-wrap">		  
+								  <input className="chkbox2" id="cb2_3" type="checkbox" onClick={() => this.cb2_3()} style={this.state.cb2_3_state}/>
+								  <label for="cb2_3" className="chkbox2-label">Graph 3</label>
+							  </div>
 							  <div style={{clear:'both'}}></div>
 						</div>
 				  </div>
