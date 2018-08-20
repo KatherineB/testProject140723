@@ -14,6 +14,21 @@ var checkbox1_state = (function () {
 			  return cb_state;
 			}
     };   
+})();
+
+var chkBoxStateTracker = (function () {
+	var cbStates = [1,1,1,1,1];
+    return {
+			on: function(graphNo) {
+			   cbStates[graphNo-1] = 1;
+			},
+			off: function(graphNo) {
+			   cbStates[graphNo-1] = 0;
+			},
+			state: function(graphNo) {
+			   return cbStates[graphNo-1];
+			}
+    };   
 })();	
 
 class App extends Component {
@@ -28,10 +43,12 @@ class App extends Component {
 		   rbA2_state: {backgroundColor: '#fff'},
 		   rbA3_state: {backgroundColor: '#fff'},
 	       gd_1: {opacity: '0'},
-		   cb2_1_flag: 0
-		  
+		   gd_2: {opacity: '0'},	
+           gd_3: {opacity: '0'},
+		   gd_4: {opacity: '0'},
+           gd_5: {opacity: '0'}	   
 		};  
-        const cb2_1_flag = this.state.cb2_1_flag;		
+       
 	}
 	
    radbtnA_1(){
@@ -66,35 +83,74 @@ class App extends Component {
       });
   }
   cb2_1(){
-	  const cb2_1_flag = this.state.cb2_1_flag;
-	  if(checkbox1_state.state()){
-		  alert("its checked");  
-		  alert(checkbox1_state.state());
+	  if(chkBoxStateTracker.state(1)){
 		  this.setState({
 		    gd_1: {opacity: '1'}
 		  });
-		  checkbox1_state.off();
+		  chkBoxStateTracker.off(1);
 	  }
 	  else{
-		  alert("its not checked");
-          alert(checkbox1_state.state());
 		  this.setState({
 		    gd_1: {opacity: '0'}
 		  });
-		  checkbox1_state.on();
+		  chkBoxStateTracker.on(1);
 	  }
   }
-  cb2_2(){
-	  this.setState({
-            cb2_2_state: {backgroundColor: '#446'},
-			cb2_2_state: {opacity: '1'}
-      });
+  cb2_2(){    
+	   if(chkBoxStateTracker.state(2)){
+		  this.setState({
+			gd_2: {opacity: '1'}
+		  });
+		chkBoxStateTracker.off(2);
+	   }
+	   else{
+		  this.setState({
+			gd_2: {opacity: '0'}
+		  });
+		 chkBoxStateTracker.on(2);
+	   }   
   }
   cb2_3(){
-	  this.setState({
-            cb2_3_state: {backgroundColor: '#446'},
-			cb2_3_state: {opacity: '1'}
-      });
+	  if(chkBoxStateTracker.state(3)){
+		  this.setState({
+			gd_3: {opacity: '1'}
+		  });
+		chkBoxStateTracker.off(3);
+	   }
+	   else{
+		  this.setState({
+			gd_3: {opacity: '0'}
+		  });
+		 chkBoxStateTracker.on(3);
+	   }   
+  }
+  cb2_4(){
+	  if(chkBoxStateTracker.state(4)){
+		  this.setState({
+			gd_4: {opacity: '1'}
+		  });
+		chkBoxStateTracker.off(4);
+	   }
+	   else{
+		  this.setState({
+			gd_4: {opacity: '0'}
+		  });
+		 chkBoxStateTracker.on(4);
+	   }   
+  }
+  cb2_5(){
+	  if(chkBoxStateTracker.state(5)){
+		  this.setState({
+			gd_5: {opacity: '1'}
+		  });
+		chkBoxStateTracker.off(5);
+	   }
+	   else{
+		  this.setState({
+			gd_5: {opacity: '0'}
+		  });
+		 chkBoxStateTracker.on(5);
+	   }   
   }
   render() {
     return (
@@ -137,10 +193,10 @@ class App extends Component {
 			      <div className="graph-holder">
 					  <img className="graph-grid" src={ require('./images/grid.png') } />
 					  <img className="graph-data" id="gd1" style={this.state.gd_1} src={ require('./images/data1.png') } />
-					  <img className="graph-data" src={ require('./images/data2.png') } />
-					  <img className="graph-data" src={ require('./images/data3.png') } />
-					  <img className="graph-data" src={ require('./images/data4.png') } />
-					  <img className="graph-data" src={ require('./images/data5.png') } />
+					  <img className="graph-data" id="gd2" style={this.state.gd_2} src={ require('./images/data2.png') } />
+					  <img className="graph-data" id="gd3" style={this.state.gd_3} src={ require('./images/data3.png') } />
+					  <img className="graph-data" id="gd4" style={this.state.gd_4} src={ require('./images/data4.png') } />
+					  <img className="graph-data" id="gd5" style={this.state.gd_5} src={ require('./images/data5.png') } />
 				  </div>
 				  <div className="checkbox-div">
 				        <div className="checkbox-holder">
@@ -155,6 +211,14 @@ class App extends Component {
                               <div className="checkbox-wrap">		  
 								  <input className="chkbox2" id="cb2_3" type="checkbox" onClick={() => this.cb2_3()} style={this.state.cb2_3_state}/>
 								  <label for="cb2_3" className="chkbox2-label">Graph 3</label>
+							  </div>
+							  <div className="checkbox-wrap">							 
+								  <input className="chkbox2" id="cb2_4" type="checkbox" onClick={() => this.cb2_4()} style={this.state.cb2_4_state}/>
+								  <label for="cb2_4" className="chkbox2-label">Graph 4</label>
+							  </div>
+                              <div className="checkbox-wrap">		  
+								  <input className="chkbox2" id="cb2_5" type="checkbox" onClick={() => this.cb2_5()} style={this.state.cb2_5_state}/>
+								  <label for="cb2_5" className="chkbox2-label">Graph 5</label>
 							  </div>
 							  <div style={{clear:'both'}}></div>
 						</div>
