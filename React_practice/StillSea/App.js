@@ -1,21 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 
-var checkbox1_state = (function () {
-    var cb_state = 1;
-    return {
-			on: function() {
-			  cb_state = 1;
-			},
-			off: function() {
-			  cb_state = 0;
-			},
-			state: function() {
-			  return cb_state;
-			}
-    };   
-})();
-
 var chkBoxStateTracker = (function () {
 	var cbStates = [1,1,1,1,1];
     return {
@@ -190,40 +175,46 @@ class App extends Component {
 				  </div>
             </div>		
             <div className="section-2">	
-			      <div className="graph-holder">
-					  <img className="graph-grid" src={ require('./images/grid.png') } />
-					  <img className="graph-data" id="gd1" style={this.state.gd_1} src={ require('./images/data1.png') } />
-					  <img className="graph-data" id="gd2" style={this.state.gd_2} src={ require('./images/data2.png') } />
-					  <img className="graph-data" id="gd3" style={this.state.gd_3} src={ require('./images/data3.png') } />
-					  <img className="graph-data" id="gd4" style={this.state.gd_4} src={ require('./images/data4.png') } />
-					  <img className="graph-data" id="gd5" style={this.state.gd_5} src={ require('./images/data5.png') } />
-				  </div>
-				  <div className="checkbox-div">
-				        <div className="checkbox-holder">
-						      <div className="checkbox-wrap">
-								  <input className="chkbox2" id="cb2_1" type="checkbox" onClick={() => this.cb2_1()} style={this.state.cb2_1_state}/>
-								  <label for="cb2_1" className="chkbox2-label">Graph 1</label>
-							  </div>
-                              <div className="checkbox-wrap">							 
-								  <input className="chkbox2" id="cb2_2" type="checkbox" onClick={() => this.cb2_2()} style={this.state.cb2_2_state}/>
-								  <label for="cb2_2" className="chkbox2-label">Graph 2</label>
-							  </div>
-                              <div className="checkbox-wrap">		  
-								  <input className="chkbox2" id="cb2_3" type="checkbox" onClick={() => this.cb2_3()} style={this.state.cb2_3_state}/>
-								  <label for="cb2_3" className="chkbox2-label">Graph 3</label>
-							  </div>
-							  <div className="checkbox-wrap">							 
-								  <input className="chkbox2" id="cb2_4" type="checkbox" onClick={() => this.cb2_4()} style={this.state.cb2_4_state}/>
-								  <label for="cb2_4" className="chkbox2-label">Graph 4</label>
-							  </div>
-                              <div className="checkbox-wrap">		  
-								  <input className="chkbox2" id="cb2_5" type="checkbox" onClick={() => this.cb2_5()} style={this.state.cb2_5_state}/>
-								  <label for="cb2_5" className="chkbox2-label">Graph 5</label>
-							  </div>
-							  <div style={{clear:'both'}}></div>
-						</div>
-				  </div>
-				  <div style={{clear:'both'}}></div>
+			      <div className="sec-2-content">
+					  <div className="graph-div">
+						  <img className="graph-grid" src={ require('./images/grid.png') } />
+						  <img className="graph-data" id="gd1" style={this.state.gd_1} src={ require('./images/data1.png') } />
+						  <img className="graph-data" id="gd2" style={this.state.gd_2} src={ require('./images/data2.png') } />
+						  <img className="graph-data" id="gd3" style={this.state.gd_3} src={ require('./images/data3.png') } />
+						  <img className="graph-data" id="gd4" style={this.state.gd_4} src={ require('./images/data4.png') } />
+						  <img className="graph-data" id="gd5" style={this.state.gd_5} src={ require('./images/data5.png') } />
+					  </div>
+					  <div className="checkbox-div">
+							<div className="checkbox-holder">
+								  <div className="checkbox-wrap">
+									  <input className="chkbox2" id="cb2_1" type="checkbox" onClick={() => this.cb2_1()} style={this.state.cb2_1_state}/>
+									  <label for="cb2_1" className="chkbox2-label">Graph 1</label>
+									  <div style={{clear:'both'}}></div>
+								  </div>
+								  <div className="checkbox-wrap">				
+								     <input className="chkbox2" id="cb2_2" type="checkbox" onClick={() => this.cb2_2()} style={this.state.cb2_2_state}/>
+									  <label for="cb2_2" className="chkbox2-label">Graph 2</label>
+									  <div style={{clear:'both'}}></div>
+								  </div>
+								  <div className="checkbox-wrap">		  
+									  <input className="chkbox2" id="cb2_3" type="checkbox" onClick={() => this.cb2_3()} style={this.state.cb2_3_state}/>
+									  <label for="cb2_3" className="chkbox2-label">Graph 3</label>
+									  <div style={{clear:'both'}}></div>
+								  </div>
+								  <div className="checkbox-wrap">					
+								      <input className="chkbox2" id="cb2_4" type="checkbox" onClick={() => this.cb2_4()} style={this.state.cb2_4_state}/>
+									  <label for="cb2_4" className="chkbox2-label">Graph 4</label>
+									  <div style={{clear:'both'}}></div>
+								  </div>
+								  <div className="checkbox-wrap">		  
+									  <input className="chkbox2" id="cb2_5" type="checkbox" onClick={() => this.cb2_5()} style={this.state.cb2_5_state}/>
+									  <label for="cb2_5" className="chkbox2-label">Graph 5</label>
+									  <div style={{clear:'both'}}></div>
+								  </div>
+							</div>
+					  </div>
+					  <div style={{clear:'both'}}></div>
+				  </div>  
             </div>	
             <div className="section-3">	
             </div>			
