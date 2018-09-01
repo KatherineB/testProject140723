@@ -1,5 +1,5 @@
 /* CSS for Hadamard_1Q */
-@media (min-width: 280px) {body {font-size: 12px;} }
+
 @media (min-width: 320px) {body {font-size: 11px;} }
 @media (min-width: 423px) {body {font-size: 13px;} }
 @media (min-width: 526px) {body {font-size: 16px;} }
@@ -21,7 +21,7 @@ html{
     display:inline-block;
 	text-align: center;
 	margin-top: 1em;
-	border: 1px solid #000;
+	/*border: 1px solid #000;*/
 }
 .init-bit{
    /* border: 1px solid #000;*/
@@ -64,19 +64,26 @@ html{
 	display:inline-block;
 	float: left;
 }
-.btns-row{
-    display:inline-block;
-	text-align: center;
+.btns-init-label{
+	margin-top: 0.5em;
+	width: 25em;
+	text-align: left;
+	display: inline-block;
 }
-.btn-square{
-   /* border: 1px solid #000; */
-	width: 4.2em;
-	height: 4.2em;
-	display:inline-block;
-	float: left;
+.btns-init{
+	width: 25em;
+	text-align: left;
+	display: inline-block;
+}
+.btn-init{
+	
+}
+.btns{
+	margin-top: 1em;
 }
 .btn{
-   /* white-space: normal;*/
+   /*white-space: normal;*/
 }
+
 
 
