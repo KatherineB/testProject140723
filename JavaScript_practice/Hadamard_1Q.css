@@ -1,8 +1,8 @@
 /* CSS for Hadamard_1Q */
 
-@media (min-width: 320px) {body {font-size: 11px;} }
-@media (min-width: 423px) {body {font-size: 13px;} }
-@media (min-width: 526px) {body {font-size: 16px;} }
+@media (min-width: 320px) {body {font-size: 8px;} }
+@media (min-width: 423px) {body {font-size: 11px;} }
+@media (min-width: 526px) {body {font-size: 13px;} }
 @media (min-width: 768px) {body {font-size: 20px;} }
 @media (min-width: 992px) {body {font-size: 23px;} }
 @media (min-width: 1200px) {body {font-size: 27px;} }
@@ -25,33 +25,33 @@ html{
 }
 .init-bit{
    /* border: 1px solid #000;*/
-	width: 2em;
-	height: 2.1em;
+	width: 3em;
+	height: 3.1em;
 	display:inline-block;
 	float: left;
 	font-size: 2em;
 	text-align: center;
-	line-height: 2;
+	line-height: 2.6;
 }
 .prob-state{
     border: 0.2em solid #888888;
     border-top: 0;
-	width: 3.95em;
-	height: 3.95em;
+	width: 4.95em;
+	height: 4.95em;
 	display:inline-block;
 	float: left;	
 }
 .top-fill{
-    width: 3.6em;
-	height: 1.7em;
+    width: 4.5em;
+	height: 2.25em;
 	background-color:  #ccbb88;
 	font-size: 1.1em;
 	text-align: center;
 	line-height: 2;
 }
 .bottom-fill{
-    width: 3.6em;
-	height: 1.9em;
+    width: 4.5em;
+	height: 2.25em;
 	background-color:  #ccbb88;
 	font-size: 1.1em;
 	text-align: center;
@@ -59,19 +59,19 @@ html{
 }
 .trans-info{
   /*  border: 1px solid #000;*/
-	width: 4em;
-	height: 4.2em;
+	width: 7em;
+	height: 7.2em;
 	display:inline-block;
 	float: left;
 }
 .btns-init-label{
 	margin-top: 0.5em;
-	width: 25em;
+	width: 31em;
 	text-align: left;
 	display: inline-block;
 }
 .btns-init{
-	width: 25em;
+	width: 31em;
 	text-align: left;
 	display: inline-block;
 }
