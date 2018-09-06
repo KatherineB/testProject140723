@@ -15,7 +15,7 @@ html{
 .main-title{
 	font-size: 1.7em;
 	color: #000000;
-	margin-bottom: 1em;
+	margin-bottom: 1.5em;
 }
 .steps-row{
     display:inline-block;
@@ -41,6 +41,21 @@ html{
 	display:inline-block;
 	float: left;	
 }
+.ps-holder{
+       margin-top: -19em;
+       margin-left: -1.7em;
+       text-align: center;
+       display: inline-block; 
+       position: absolute;
+}
+.prob-state-small{
+       border: 0.2em solid #888888;
+        border-top: 0;
+	width: 3em;
+	height: 3em;      
+        margin-top: 1.5em;
+
+}
 .top-fill{
     width: 4.5em;
 	height: 2.25em;
@@ -57,12 +72,25 @@ html{
 	text-align: center;
 	line-height: 2;
 }
+.small-fill{
+        width: 2.75em;
+	height: 0.8em;
+	background-color:  #5ea4ee;
+	font-size: 1.1em;
+	text-align: center;
+	line-height: 2;
+}
+.small-label{
+         padding-top:1.2em;
+         font-size: 0.9em;
+}
 .trans-info{
   /*  border: 1px solid #000;*/
 	width: 7em;
 	height: 5.2em;
 	display:inline-block;
 	float: left;
+        text-align: center;
 }
 #svg-t0-s1{
        display: none;
@@ -71,8 +99,11 @@ html{
        display: none;
        margin-top: -7.4em;
 }
+#svg-t0-s2{
+       display: block;
+}
 .btns-init-label{
-	margin-top: 0.5em;
+	margin-top: 3em;
 	width: 31em;
 	text-align: left;
 	display: inline-block;

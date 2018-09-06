@@ -28,8 +28,8 @@ function doHadamard(){
 				document.getElementById('bf-01').style.backgroundColor = "#5ea4ee";
 				document.getElementById('tf-11').style.backgroundColor = "#ccbb88";
 				document.getElementById('bf-11').style.backgroundColor = "#5ea4ee";
-				document.getElementById('bf-01').innerHTML = "0.5E";
-				document.getElementById('bf-11').innerHTML = "0.5E";
+				document.getElementById('bf-01').innerHTML = "0.5 E";
+				document.getElementById('bf-11').innerHTML = "0.5 E";
                                 if(arrows == 1){
                                     document.getElementById('svg-t0-s1').style.display = 'block';
                                 }
@@ -39,8 +39,8 @@ function doHadamard(){
 				document.getElementById('bf-01').style.backgroundColor = "#5ea4ee";
 				document.getElementById('tf-11').style.backgroundColor = "#ccbb88";
 				document.getElementById('bf-11').style.backgroundColor = "#5ea4ee";
-				document.getElementById('bf-01').innerHTML = "0.5E";
-				document.getElementById('bf-11').innerHTML = "0.5W";
+				document.getElementById('bf-01').innerHTML = "0.5 E";
+				document.getElementById('bf-11').innerHTML = "0.5 W";
                                 if(arrows == 1){
                                     document.getElementById('svg-t1-s1').style.display = 'block';
                                 }
