@@ -1,5 +1,6 @@
 let firstState = -1;
 let hadsDone = 0;
+let arrows = 1;
 function setInitialState(iState){
     firstState = iState;
     if(iState == 0){
@@ -29,6 +30,9 @@ function doHadamard(){
 				document.getElementById('bf-11').style.backgroundColor = "#5ea4ee";
 				document.getElementById('bf-01').innerHTML = "0.5E";
 				document.getElementById('bf-11').innerHTML = "0.5E";
+                                if(arrows == 1){
+                                    document.getElementById('svg-t0-s1').style.display = 'block';
+                                }
 			   }
 			   else if(firstState == 1){
 				document.getElementById('tf-01').style.backgroundColor = "#ccbb88";
@@ -37,6 +41,9 @@ function doHadamard(){
 				document.getElementById('bf-11').style.backgroundColor = "#5ea4ee";
 				document.getElementById('bf-01').innerHTML = "0.5E";
 				document.getElementById('bf-11').innerHTML = "0.5W";
+                                if(arrows == 1){
+                                    document.getElementById('svg-t1-s1').style.display = 'block';
+                                }
 			   }
 			   hadsDone++;
 			}
@@ -90,5 +97,7 @@ function reset(){
 	document.getElementById('bf-10').innerHTML = "";
     document.getElementById('bf-11').innerHTML = "";
     document.getElementById('bf-12').innerHTML = "";
+      document.getElementById('svg-t0-s1').style.display = 'none';
+      document.getElementById('svg-t1-s1').style.display = 'none';
 }
 

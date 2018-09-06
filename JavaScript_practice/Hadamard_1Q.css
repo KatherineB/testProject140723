@@ -60,9 +60,16 @@ html{
 .trans-info{
   /*  border: 1px solid #000;*/
 	width: 7em;
-	height: 7.2em;
+	height: 5.2em;
 	display:inline-block;
 	float: left;
+}
+#svg-t0-s1{
+       display: none;
+}
+#svg-t1-s1{
+       display: none;
+       margin-top: -7.4em;
 }
 .btns-init-label{
 	margin-top: 0.5em;
@@ -84,6 +91,5 @@ html{
 .btn{
    /*white-space: normal;*/
 }
-
 
 
