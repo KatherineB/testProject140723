@@ -55,6 +55,13 @@ function doHadamard(){
 				document.getElementById('bf-12').style.backgroundColor = "#ccbb88";
 				document.getElementById('bf-02').innerHTML = "E";
 				document.getElementById('bf-12').innerHTML = "";
+                                if(arrows == 1){
+                                     document.getElementById('svg-t0-s2').style.display = 'block';
+                                     document.getElementById('ps-holder').style.display = 'inline-block';
+                                     document.getElementById('ps-holder').style.marginTop = '-19em';
+                                     document.getElementById('small-label-b').innerHTML = '0.25 E';
+                                     document.getElementById('small-label-d').innerHTML = '0.25 W';
+                                }
 			   }
 			   else if(firstState == 1){
 				document.getElementById('tf-02').style.backgroundColor = "#ccbb88";
@@ -63,6 +70,13 @@ function doHadamard(){
 				document.getElementById('bf-12').style.backgroundColor = "#5ea4ee";
 				document.getElementById('bf-02').innerHTML = "";
 				document.getElementById('bf-12').innerHTML = "E";
+                                if(arrows == 1){
+                                     document.getElementById('svg-t1-s2').style.display = 'block';
+                                     document.getElementById('ps-holder').style.display = 'inline-block';
+                                     document.getElementById('ps-holder').style.marginTop = '-3.7em';
+                                     document.getElementById('small-label-b').innerHTML = '0.25 W';
+                                     document.getElementById('small-label-d').innerHTML = '0.25 E';
+                                }
 			   }
 			   hadsDone++;
 			}
@@ -99,5 +113,8 @@ function reset(){
     document.getElementById('bf-12').innerHTML = "";
       document.getElementById('svg-t0-s1').style.display = 'none';
       document.getElementById('svg-t1-s1').style.display = 'none';
+      document.getElementById('svg-t0-s2').style.display = 'none';
+      document.getElementById('svg-t1-s2').style.display = 'none';
+      document.getElementById('ps-holder').style.display = 'none';
 }
 

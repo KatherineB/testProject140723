@@ -42,10 +42,10 @@ html{
 	float: left;	
 }
 .ps-holder{
-       margin-top: -19em;
+       margin-top: -3.7em;
        margin-left: -1.7em;
        text-align: center;
-       display: inline-block; 
+       display: none; 
        position: absolute;
 }
 .prob-state-small{
@@ -100,7 +100,16 @@ html{
        margin-top: -7.4em;
 }
 #svg-t0-s2{
-       display: block;
+       display: none;
+       position: relative;
+       z-index: 10;
+}
+#svg-t1-s2{
+       display: none;
+       position: relative;
+       z-index: 10;
+       margin-top: -11em;
+     /*  margin-top: -7.5em; */
 }
 .btns-init-label{
 	margin-top: 3em;
