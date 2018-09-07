@@ -161,6 +161,10 @@
         </div>
     </div>
     <div style="clear:both"></div>
+    <div class="score-box">
+        <div class="score-heading">Score:</div>
+        <div class="score" id="score"></div>
+    </div>
 </div>
 <script type="text/javascript">
 
@@ -201,12 +205,14 @@ yPrev = posY;
 
 document.getElementById(posIds[posX][posY]).style.borderColor = "#bb22ff";
 
+var points = 0;
+
 for(let i=0; i<6; i++){
 	posValues[i] = [];
     for(let j=0; j<6; j++){
        //alert(i,j);
        let num = Math.floor(Math.random() * 5 + 1);
-       let colN = Math.floor(Math.random() * 4 + 1);
+       let colN = Math.floor(Math.random() * 5 + 1);
        switch(colN){
           case 1:
               col = "#ffff00";
@@ -219,6 +225,9 @@ for(let i=0; i<6; i++){
               break;
           case 4:
               col = "#00ffff";
+              break;
+          case 5:
+              col = "#ff99ff";
               break;
           default: alert("none matched in switch");
        }
@@ -235,10 +244,11 @@ function move(x,y){
     diffX = x-xPrev;
 	diffY = y-yPrev;
 	if (diffX > -2 && diffX < 2 && diffY > -2 && diffY < 2){
+             if( posValues[x][y].number == posValues[xPrev][yPrev].number || posValues[x][y].colour === posValues[xPrev][yPrev].colour ){
 		document.getElementById(posIds[x][y]).style.borderColor = "#bb22ff";
 		document.getElementById(posIds[xPrev][yPrev]).style.borderColor = "#bba";
-		posValues[xPrev][yPrev].number = Math.floor(Math.random() * 4 + 1);
-                let colN = Math.floor(Math.random() * 4 + 1);
+		posValues[xPrev][yPrev].number = Math.floor(Math.random() * 5 + 1);
+                let colN = Math.floor(Math.random() * 5 + 1);
                 switch(colN){
                   case 1:
                     col = "#ffff00";
@@ -252,6 +262,9 @@ function move(x,y){
                   case 4:
                     col = "#00ffff";
                     break;
+                  case 5:
+                    col = "#ff99ff";
+                    break;
                   default: alert("none matched in switch");
                 }
                 posValues[xPrev][yPrev].colour = col;
@@ -259,6 +272,12 @@ function move(x,y){
                 document.getElementById(posIds[xPrev][yPrev]).style.backgroundColor = posValues[xPrev][yPrev].colour;
 		xPrev = x;
 		yPrev = y;
+                points++;
+                document.getElementById('score').innerHTML = points;
+              }
+              else{
+                  alert("You may only move to a square that has the same number or the same colour as the one you are on.");
+              }
 	}
 	else{
 	    alert("You may not move more than one square at a time. Please try again.");
