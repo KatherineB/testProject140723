@@ -304,11 +304,32 @@
 		  </div>	
           <div style="clear:both"></div>  
 	  </div>
-	  <div class="btns-init-label">Initial State:</div>
-	  <div class="btns-init">	      
-		  <input class="btn-init" type="button" value="0" onClick="setInitialState(0)">
-		  <input class="btn-init" type="button" value="1" onClick="setInitialState(1)">
-	  </div>
+	  <div class="slider-section">
+			  <div class="slider-control-init">
+					  <div class="btns-init-label">Initial State:</div>
+					  <div class="init-slider-holder">
+							   <div class="init-number"> 0 </div>
+							   <div class="slider-init-box">	      
+								  <label class="slider-init" >
+									 <input type="checkbox" id="init-slider-state" onClick="setInitialState(1)"> <span class="slider-inp"></span>
+								  </label>	
+							   </div>
+							   <div class="init-number"> 1 </div>
+					  </div>
+			  </div>
+			  <div class="slider-control-extra">
+					  <div class="btns-init-label">Extra Info:</div>
+					  <div class="init-slider-holder">
+							   <div class="init-number"> OFF </div>
+							   <div class="slider-init-box">	      
+								  <label class="slider-init" >
+									 <input type="checkbox" id="extra-slider-state" onClick="setExtraState()"> <span class="slider-inp"></span>
+								  </label>	
+							   </div>
+							   <div class="init-number"> ON </div>
+					  </div>
+			  </div>
+	   </div>
 	  <div class="btns">
           <input class="btn" type="button" value="Perform Hadamard" onClick="doHadamard()">
 		  <input class="btn" type="button" value="Reset" onClick="reset()">

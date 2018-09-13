@@ -25,7 +25,7 @@ html{
 }
 .init-bit{
    /* border: 1px solid #000;*/
-	width: 3em;
+	width: 1.5em;
 	height: 3.1em;
 	display:inline-block;
 	float: left;
@@ -111,19 +111,78 @@ html{
        margin-top: -11em;
      /*  margin-top: -7.5em; */
 }
+.slider-section{
+	margin-top: 4em;
+}
+.slider-control-init{
+	display: inline-block;
+	margin-right: 8em;
+}
+.slider-control-extra{
+	display: inline-block;
+	margin-left: 8em;
+}
 .btns-init-label{
-	margin-top: 3em;
-	width: 31em;
+	margin-bottom: 0.5em;
+	text-align: left;
+}
+.init-slider-holder{
+	text-align: left;
+}
+.slider-init-box{
 	text-align: left;
 	display: inline-block;
 }
-.btns-init{
-	width: 31em;
-	text-align: left;
+.init-number{
+	font-size: 1.2em;
+	padding-bottom: 0.5em;
 	display: inline-block;
 }
-.btn-init{
-	
+.slider-init {
+  position: relative;
+  display: inline-block;
+  width: 4em;
+  height: 1.5em;
+}
+
+.slider-init input {display:none;}
+
+.slider-inp {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #055;
+}
+
+.slider-inp:before {
+  position: absolute;
+  content: "";
+  height: 1.0em;
+  width: 1.0em;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
+}
+
+input:checked + .slider-inp {
+  background-color: #055;
+}
+
+input:checked + .slider-inp:before {
+  -webkit-transform: translateX(2.6em);
+  -ms-transform: translateX(2.6em);
+  transform: translateX(2.6em);
+}
+
+.slider-inp {
+  border-radius: 1em;
+}
+
+.slider-inp:before {
+  border-radius: 50%;
 }
 .btns{
 	margin-top: 1em;
