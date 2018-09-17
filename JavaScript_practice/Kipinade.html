@@ -15,14 +15,14 @@
     display: block;
 	float: left;
 	margin: 1.5em;
-     background-color: #bba;
+     background-color: #777;
      padding: 0.2em;
 }
 
 .square{
     height: 1.7em;
     width: 1.7em;
-    border: 0.26em solid #bba;
+    border: 0.26em solid #777;
     display: inline-block;
 	text-align: center;
 	line-height: 1.7;
@@ -203,7 +203,7 @@ posY = Math.floor(Math.random() * 4 + 1);
 xPrev = posX;
 yPrev = posY;
 
-document.getElementById(posIds[posX][posY]).style.borderColor = "#bb22ff";
+document.getElementById(posIds[posX][posY]).style.borderColor = "#ff0000";
 
 var points = 0;
 
@@ -215,10 +215,10 @@ for(let i=0; i<6; i++){
        let colN = Math.floor(Math.random() * 5 + 1);
        switch(colN){
           case 1:
-              col = "#ffff00";
+              col = "#eeff44";
               break;
           case 2:
-              col = "#ffbb00";
+              col = "#ff9900";
               break;
           case 3:
               col = "#55ff55";
@@ -245,16 +245,16 @@ function move(x,y){
 	diffY = y-yPrev;
 	if (diffX > -2 && diffX < 2 && diffY > -2 && diffY < 2){
              if( posValues[x][y].number == posValues[xPrev][yPrev].number || posValues[x][y].colour === posValues[xPrev][yPrev].colour ){
-		document.getElementById(posIds[x][y]).style.borderColor = "#bb22ff";
-		document.getElementById(posIds[xPrev][yPrev]).style.borderColor = "#bba";
-		posValues[xPrev][yPrev].number = Math.floor(Math.random() * 5 + 1);
+		        document.getElementById(posIds[x][y]).style.borderColor = "#ff0000";
+		        document.getElementById(posIds[xPrev][yPrev]).style.borderColor = "#777";
+		        posValues[xPrev][yPrev].number = Math.floor(Math.random() * 5 + 1);
                 let colN = Math.floor(Math.random() * 5 + 1);
                 switch(colN){
                   case 1:
-                    col = "#ffff00";
+                    col = "#eeff44";
                     break;
                   case 2:
-                    col = "#ffbb00";
+                    col = "#ff9900";
                     break;
                   case 3:
                     col = "#55ff55";
@@ -268,15 +268,18 @@ function move(x,y){
                   default: alert("none matched in switch");
                 }
                 posValues[xPrev][yPrev].colour = col;
-		document.getElementById(posIds[xPrev][yPrev]).innerHTML = posValues[xPrev][yPrev].number;
+		        document.getElementById(posIds[xPrev][yPrev]).innerHTML = posValues[xPrev][yPrev].number;
                 document.getElementById(posIds[xPrev][yPrev]).style.backgroundColor = posValues[xPrev][yPrev].colour;
-		xPrev = x;
-		yPrev = y;
+		        xPrev = x;
+		        yPrev = y;
                 points++;
                 document.getElementById('score').innerHTML = points;
               }
               else{
                   alert("You may only move to a square that has the same number or the same colour as the one you are on.");
+				  alert(posValues[x][y].number);
+				  alert("prev=" + posValues[xPrev][yPrev].number);
+				  
               }
 	}
 	else{
@@ -287,9 +290,9 @@ function move(x,y){
 function record(x,y){
       if(initialTrades < INITIAL_TRADES_LIMIT){
 			if (firstPairSet){
-			   let shelf = posValues[x][y]; 
-			   posValues[x][y] = posValues[a][b];
-			   posValues[a][b] = shelf;
+			   let shelf = posValues[x][y].number; 
+			   posValues[x][y].number = posValues[a][b].number;
+			   posValues[a][b].number = shelf;
 			   document.getElementById(posIds[a][b]).innerHTML = posValues[a][b].number;
 			   document.getElementById(posIds[x][y]).innerHTML = posValues[x][y].number;
 			   firstPairSet = 0;
