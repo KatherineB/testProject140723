@@ -2,24 +2,41 @@
 <html>
 <head><title>Election Results</title>
 <meta charset="utf-8"/>
-<script src = "https://d3js.org/d3.v4.min.js"></script>
+<script src = "https://d3js.org/d3.v5.min.js"></script>
 <style>
+@media (min-width: 280px) {body {font-size: 12px;} }
+@media (min-width: 320px) {body {font-size: 14px;} }
+@media (min-width: 423px) {body {font-size: 17px;} }
+@media (min-width: 526px) {body {font-size: 20px;} }
+@media (min-width: 768px) {body {font-size: 23px;} }
+@media (min-width: 992px) {body {font-size: 28px;} }
+@media (min-width: 1200px) {body {font-size: 34px;} }
+body {
+   font-family: arial, verdana, sans-serif;
+   text-align: center;
+}
+
 .title{
-   font-size: 40px;
+   font-size: 1.6em;
+}
+.title-data{
+   font-size: 1.3em;
 }
 .graph{
    background-color: #aaaaaa;
    display: inline-block;
+   height: 16em;
 }
 .seats-bar{
    float: left;
    background-color: #eeeeee;
-   width: 50px;
+   width: 2.5em;
 }
 </style>
 </head>
 <body>
-<div class="title">Ontario Election 2018 </div>
+<div class="title">Election Results</div>
+<div class="title-date">Ontario Election 2018</div>
 <div class="graph"> 
     <div class="seats-bar"> </div>
     <div class="seats-bar"> </div>
@@ -29,13 +46,39 @@
 </div>
 
 <script type="text/javascript">
-colours = ["blue","orange","red","green"];
+
+var electionDataNB = [];
+var electionDataOnt = [];
+const seatsGraphHeightFactor = 16;
+const seatsBarHeightFactor = 1.15;
+
+/*d3.csv("/data/ElectionResults_2018_Ont.csv", function(data) {
+  console.log(data[0]);
+}); */
+
+
+electionDataOnt[0] = {party:"PC", seats:76, popvote:40.6, colour:"#00f"};
+electionDataOnt[1] = {party:"NDP", seats:40, popvote:33.7, colour:"#fb0"};
+electionDataOnt[2] = {party:"Lib", seats:7, popvote:19.3, colour:"#f00"};
+electionDataOnt[3] = {party:"Grn", seats:1, popvote:4.6, colour:"#0c0"};
+
+electionDataNB[0] = {party:"PC", seats:22, popvote:31.9, colour:"#00f"};
+electionDataNB[1] = {party:"Lib", seats:21, popvote:37.8, colour:"#f00"};
+electionDataNB[2] = {party:"Grn", seats:3, popvote:11.9, colour:"#0c0"};
+electionDataNB[3] = {party:"PA", seats:3, popvote:12.6, colour:"#80f"};
+
+
+seatsScaleOnt = (electionDataOnt[0].seats * seatsBarHeightFactor)/seatsGraphHeightFactor;
+seatsScaleNB = (electionDataNB[0].seats * seatsBarHeightFactor)/seatsGraphHeightFactor;
+
 
 d3.selectAll(".seats-bar") 
-  .data([76, 40, 7, 1])
-    .style("height", function(d) { return d*5 + "px"; }) 
-     .style("background-color",function(d,i) {return colours[i]})
-       .style("margin-top",function(d) {return 400-(d*5) + "px"});
+  .data(electionDataOnt)   
+      .style("height", function(d) { return d.seats/seatsScaleOnt + "em"; }) 
+      .style("background-color",function(d) {return d.colour;})
+      .style("margin-top",function(d) {return seatsGraphHeightFactor-(d.seats/seatsScaleOnt) + "em";});
+
+
 
 
  
