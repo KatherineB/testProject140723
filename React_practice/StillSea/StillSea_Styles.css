@@ -8,8 +8,9 @@
 @media (min-width: 992px) {body {font-size: 28px;} }
 @media (min-width: 1200px) {body {font-size: 34px;} }
 
-.App {
+body{
   text-align: center;
+  font-family: arial,verdana;
 }
 .App-header {
   background-color: #446;
@@ -30,6 +31,29 @@
 	margin-left: 1em;
 	margin-top: 0.3em;
 	font-size: 1.3em;
+}
+.menu-bar{
+	 background-color: #334;	 
+	 text-align: left;
+}
+.menu-item{
+	color: white;
+	float: left;
+	font-size: 0.7em;
+	margin: 0.3em;
+	padding-left: 0.6em;
+	padding-right: 0.6em;
+}
+.menu-item a{
+	color: #fff;
+	text-decoration: none;
+}
+.menu-item a:hover{
+	color: #ff0;
+	text-decoration: none;
+}
+.active{
+  color: #0f0;
 }
 .section-1{
 	 background: url("./images/bg_image1.png");
@@ -127,8 +151,3 @@
 	font-size: 0.7em;
 	float: left;
 }
-
-
-
-
-
