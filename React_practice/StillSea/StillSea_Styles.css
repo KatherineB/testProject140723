@@ -39,21 +39,19 @@ body{
 .menu-item{
 	color: white;
 	float: left;
+	height: 1.2em;
+	width: 6em;
+	text-align: center;
 	font-size: 0.7em;
-	margin: 0.3em;
-	padding-left: 0.6em;
-	padding-right: 0.6em;
+	/*margin: 0.3em;*/
 }
 .menu-item a{
 	color: #fff;
 	text-decoration: none;
 }
 .menu-item a:hover{
-	color: #ff0;
+	background-color: #258;
 	text-decoration: none;
-}
-.active{
-  color: #0f0;
 }
 .section-1{
 	 background: url("./images/bg_image1.png");
