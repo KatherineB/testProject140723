@@ -35,8 +35,8 @@ body{
 }
 .main-title{
 	float: left;
-	margin-left: 1em;
 	margin-top: 0.3em;
+	margin-left: 0.5em;
 	font-size: 1.3em;
 }
 .menu-bar{
@@ -58,6 +58,10 @@ body{
 .menu-item:hover{
 	background-color: #258;
 	text-decoration: none;
+}
+.section-title{
+	margin-top: 1em;
+	font-size: 1.7em;
 }
 .section-1{
 	 background: url("./images/bg_image1.png");
