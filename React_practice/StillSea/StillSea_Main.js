@@ -56,7 +56,7 @@ class StillSea_Main extends Component {
 				  <div style={{clear:'both'}}></div>
 			</div>    
           <div className="menu-bar">
-            <div className="menu-item" onClick={() => this.setActiveLink(0)} ><NavLink exact to="/"style={this.state.active_link_0}>Home</NavLink></div>
+            <div className="menu-item"  onClick={() => this.setActiveLink(0)} ><NavLink exact to="/" style={this.state.active_link_0}>Home</NavLink></div>
             <div className="menu-item" onClick={() => this.setActiveLink(1)}><NavLink to="/StillSea_ImgRotate" style={this.state.active_link_1}>Section 1</NavLink></div>
             <div className="menu-item" onClick={() => this.setActiveLink(2)}><NavLink to="/StillSea_ImgOverlay" style={this.state.active_link_2}>Section 2</NavLink></div>
 			<div style={{clear:'both'}}></div>
