@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head><title>Hotel Picker</title>
+<meta charset="utf-8"/>
+<style>
+html{
+  font-family: arial,verdana;
+  text-align: center;
+}
+.title{
+  font-size: 36px;
+}
+.listing-box{
+  margin-top: 10px;
+  font-size: 26px;
+  background-color: #dff;
+
+ 
+}
+.listing-table td tr{
+     border: 1px solid black;
+	  padding: 7px;
+}
+</style>
+</head>
+<body>
+  
+    <div class="title"> Hotels </dir>
+    <div class="listing-box" id="listing"></div>
+
+<script type="text/javascript">
+const hotels = [
+  { name: "Happy Hill", bar: false, restaurant: true, pool: true},
+  {name: "Purple Blossoms", bar: false, restaurant: false, pool: false},
+  { name: "Sandy Shore", bar: true, restaurant: true, pool: false},
+  { name: "Green Valley", bar: true, restaurant: true, pool: false},
+  { name: "Sunny Peaks", bar: false, restaurant: false, pool: false},
+  { name: "Midnight Sky", bar: true, restaurant: true, pool: true},
+  { name: "Forest View", bar: true, restaurant: true, pool: false},
+  { name: "Clear View", bar: true, restaurant: true, pool: true},
+  { name: "Crimson Sunset", bar: true, restaurant: true, pool: false },
+  { name: "Shady Mountain", bar: false, restaurant: false, pool: false}
+]
+
+let output = `<table class="listing-table" ><tr ><th style="padding:11px; border: 1px solid black">Hotel</th><th style="padding:11px; border: 1px solid black; width:50px">Bar</th><th style="padding:11px; border: 1px solid black; width:100px">Restaurant</th><th style="padding:11px; border: 1px solid black; width:100px">Swimming Pool</th></tr>`;
+
+let chosen = hotels.filter(item => item.restaurant == 1);
+
+console.log(chosen);
+
+for(let i=0; i<chosen.length; i++){
+	     output += `<tr><td style="border: 1px solid black; width:50px">` + chosen[i].name + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].bar + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].restaurant + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].pool + `</td></tr>`;
+}
+
+document.getElementById("listing").innerHTML =  output +`</table>`;
+</script>
+
+</body>
+</html>
+
