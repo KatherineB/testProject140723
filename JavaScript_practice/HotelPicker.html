@@ -3,30 +3,37 @@
 <head><title>Hotel Picker</title>
 <meta charset="utf-8"/>
 <style>
+@media (min-width: 280px) {body {font-size: 12px;} }
+@media (min-width: 320px) {body {font-size: 14px;} }
+@media (min-width: 423px) {body {font-size: 17px;} }
+@media (min-width: 526px) {body {font-size: 20px;} }
+@media (min-width: 768px) {body {font-size: 23px;} }
+@media (min-width: 992px) {body {font-size: 28px;} }
+@media (min-width: 1200px) {body {font-size: 34px;} }
+
 html{
   font-family: arial,verdana;
   text-align: center;
+  background-color: #ddf;
 }
 .title{
-  font-size: 36px;
+  margin-top: 1.5em;
+  font-size: 2em;
 }
 .listing-box{
-  margin-top: 10px;
-  font-size: 26px;
-  background-color: #dff;
+  margin-top: 1em;
+  font-size: 1em;
+  text-align: center;
+}
 
- 
-}
-.listing-table td tr{
-     border: 1px solid black;
-	  padding: 7px;
-}
 </style>
 </head>
 <body>
   
-    <div class="title"> Hotels </dir>
+    <div class="title"> Hotels </div>
+
     <div class="listing-box" id="listing"></div>
+
 
 <script type="text/javascript">
 const hotels = [
@@ -42,14 +49,14 @@ const hotels = [
   { name: "Shady Mountain", bar: false, restaurant: false, pool: false}
 ]
 
-let output = `<table class="listing-table" ><tr ><th style="padding:11px; border: 1px solid black">Hotel</th><th style="padding:11px; border: 1px solid black; width:50px">Bar</th><th style="padding:11px; border: 1px solid black; width:100px">Restaurant</th><th style="padding:11px; border: 1px solid black; width:100px">Swimming Pool</th></tr>`;
+let output = `<table class="listing-table" style="background-color: #fff" ><tr ><th style="padding:11px; border: 1px solid black; width:150px">Hotel</th><th style="padding:11px; border: 1px solid black; width:50px">Bar</th><th style="padding:11px; border: 1px solid black; width:100px">Restaurant</th><th style="padding:11px; border: 1px solid black; width:100px">Swimming Pool</th></tr>`;
 
-let chosen = hotels.filter(item => item.restaurant == 1);
+let chosen = hotels.filter(item => (item.restaurant == 1) && (item.pool == 1) );
 
 console.log(chosen);
 
 for(let i=0; i<chosen.length; i++){
-	     output += `<tr><td style="border: 1px solid black; width:50px">` + chosen[i].name + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].bar + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].restaurant + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].pool + `</td></tr>`;
+	     output += `<tr><td style="border: 1px solid black; width:150px">` + chosen[i].name + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].bar + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].restaurant + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].pool + `</td></tr>`;
 }
 
 document.getElementById("listing").innerHTML =  output +`</table>`;
