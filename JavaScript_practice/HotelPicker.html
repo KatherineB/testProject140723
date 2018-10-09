@@ -30,38 +30,87 @@ html{
 </head>
 <body>
   
-    <div class="title"> Hotels </div>
+    <div class="title"> Hotel Amenities</div>
+<input type="checkbox" id="irs" >In-room Safe
+<input type="checkbox" id="fwf" >Free Wi-Fi
+<input type="checkbox" id="bar" >Bar
+<input type="checkbox" id="rest" >Restaurant
+<input type="checkbox" id="pool" >Swimming Pool
+    <div>
+         <button onclick="applyChoices()">Apply Choices</button> 
+   </div>
 
     <div class="listing-box" id="listing"></div>
 
 
 <script type="text/javascript">
 const hotels = [
-  { name: "Happy Hill", bar: false, restaurant: true, pool: true},
-  {name: "Purple Blossoms", bar: false, restaurant: false, pool: false},
-  { name: "Sandy Shore", bar: true, restaurant: true, pool: false},
-  { name: "Green Valley", bar: true, restaurant: true, pool: false},
-  { name: "Sunny Peaks", bar: false, restaurant: false, pool: false},
-  { name: "Midnight Sky", bar: true, restaurant: true, pool: true},
-  { name: "Forest View", bar: true, restaurant: true, pool: false},
-  { name: "Clear View", bar: true, restaurant: true, pool: true},
-  { name: "Crimson Sunset", bar: true, restaurant: true, pool: false },
-  { name: "Shady Mountain", bar: false, restaurant: false, pool: false}
+  { name: "Happy Hill", inroomSafe: false, freewifi: true, bar: false, restaurant: false, pool: true},
+  { name: "Purple Blossoms", inroomSafe: true, freewifi: false, bar: false, restaurant: false, pool: false},
+  { name: "Sandy Shore", inroomSafe: false, freewifi: true, bar: false, restaurant: true, pool: false},
+  { name: "Green Valley", inroomSafe: true, freewifi: true, bar: true, restaurant: true, pool: true},
+  { name: "Sunny Peaks", inroomSafe: true, freewifi: false, bar: false, restaurant: false, pool: true},
+  { name: "Midnight Sky", inroomSafe: false, freewifi: true, bar: true, restaurant: true, pool: true},
+  { name: "Forest View", inroomSafe: false, freewifi: true, bar: true, restaurant: true, pool: false},
+  { name: "Clear View", inroomSafe: true, freewifi: true, bar: false, restaurant: true, pool: false},
+  { name: "Crimson Sunset", inroomSafe: true, freewifi: true, bar: true, restaurant: true, pool: true },
+  { name: "Shady Mountain", inroomSafe: false, freewifi: true, bar: false, restaurant: true, pool: true}
 ]
 
-let output = `<table class="listing-table" style="background-color: #fff" ><tr ><th style="padding:11px; border: 1px solid black; width:150px">Hotel</th><th style="padding:11px; border: 1px solid black; width:50px">Bar</th><th style="padding:11px; border: 1px solid black; width:100px">Restaurant</th><th style="padding:11px; border: 1px solid black; width:100px">Swimming Pool</th></tr>`;
+let chosen = hotels;
 
-let chosen = hotels.filter(item => (item.restaurant == 1) && (item.pool == 1) );
-
-console.log(chosen);
+let output = `<table class="listing-table" style="background-color: #fff;  border-collapse: collapse;" ><tr ><th style="padding:11px; border: 1px solid black; width:150px">Hotel</th><th style="padding:11px; border: 1px solid black; width:80px">In-room Safe</th><th style="padding:11px; border: 1px solid black; width:50px">Free Wi-Fi</th><th style="padding:11px; border: 1px solid black; width:50px">Bar</th><th style="padding:11px; border: 1px solid black; width:100px">Restaurant</th><th style="padding:11px; border: 1px solid black; width:100px">Swimming Pool</th></tr>`;
 
 for(let i=0; i<chosen.length; i++){
-	     output += `<tr><td style="border: 1px solid black; width:150px">` + chosen[i].name + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].bar + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].restaurant + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].pool + `</td></tr>`;
+	     output += `<tr><td style="border: 1px solid black; width:150px">` + chosen[i].name +  `</td><td style="border: 1px solid black; width:100px">` + chosen[i].inroomSafe + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].freewifi +`</td><td style="border: 1px solid black; width:100px">` + chosen[i].bar + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].restaurant + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].pool + `</td></tr>`;
 }
 
 document.getElementById("listing").innerHTML =  output +`</table>`;
+
+function applyChoices(){
+    let cbState;
+    let output = `<table class="listing-table" style="background-color: #fff;  border-collapse: collapse;" ><tr ><th style="padding:11px; border: 1px solid black; width:150px">Hotel</th><th style="padding:11px; border: 1px solid black; width:80px">In-room Safe</th><th style="padding:11px; border: 1px solid black; width:50px">Free Wi-Fi</th><th style="padding:11px; border: 1px solid black; width:50px">Bar</th><th style="padding:11px; border: 1px solid black; width:100px">Restaurant</th><th style="padding:11px; border: 1px solid black; width:100px">Swimming Pool</th></tr>`;
+    document.getElementById("listing").innerHTML = '';
+    chosen = hotels;
+
+    cbState = document.getElementById("irs").checked;
+
+    if(cbState){
+       chosen = chosen.filter(item => item.inroomSafe == 1);   
+    }
+
+    cbState = document.getElementById("fwf").checked;
+
+    if(cbState){
+       chosen = chosen.filter(item => item.freewifi == 1);   
+    }
+
+    cbState = document.getElementById("bar").checked;
+
+    if(cbState){
+       chosen = chosen.filter(item => item.bar == 1);   
+    }
+
+    cbState = document.getElementById("rest").checked;
+
+    if(cbState){
+       chosen = chosen.filter(item => item.restaurant == 1);   
+    }
+
+    cbState = document.getElementById("pool").checked;
+
+    if(cbState){
+       chosen = chosen.filter(item => item.pool == 1);   
+    }
+
+    for(let i=0; i<chosen.length; i++){
+	     output += `<tr><td style="border: 1px solid black; width:150px">` + chosen[i].name +  `</td><td style="border: 1px solid black; width:100px">` + chosen[i].inroomSafe + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].freewifi +`</td><td style="border: 1px solid black; width:100px">` + chosen[i].bar + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].restaurant + `</td><td style="border: 1px solid black; width:100px">` + chosen[i].pool + `</td></tr>`;
+     }
+
+    document.getElementById("listing").innerHTML =  output +`</table>`;
+}
+
 </script>
 
 </body>
 </html>
-
