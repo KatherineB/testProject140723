@@ -17,44 +17,66 @@ html{
   background-color: #ddf;
 }
 .title{
-  margin-top: 1.5em;
-  font-size: 2em;
+  margin-top: 0.5em;
+  font-size: 1.3em;
+}
+.options-box{
+  font-size: 0.7em;
+  margin-top: 1.3em;
+}
+.button-box{
+   margin-top: 0.4em;
+}
+button{
+   height: 1.8em;
+   width: 9em;
+   font-size: 0.7em;
+   background-color: #069;
+   color: #fff;
+   border: none;
 }
 .listing-box{
-  margin-top: 1em;
-  font-size: 1em;
+  margin-top: 1.4em;
+  font-size: 0.7em;
   text-align: center;
+  display: inline-block;
 }
+
 
 </style>
 </head>
 <body>
   
     <div class="title"> Hotel Amenities</div>
-<input type="checkbox" id="irs" >In-room Safe
-<input type="checkbox" id="fwf" >Free Wi-Fi
-<input type="checkbox" id="bar" >Bar
-<input type="checkbox" id="rest" >Restaurant
-<input type="checkbox" id="pool" >Swimming Pool
-    <div>
+	<div class="options-box">
+		<input type="checkbox" class="option" id="irs" >In-room Safe
+		<input type="checkbox" id="fwf" >Free Wi-Fi
+		<input type="checkbox" id="bar" >Bar
+		<input type="checkbox" id="rest" >Restaurant
+		<input type="checkbox" id="pool" >Swimming Pool
+	</div>
+    <div class="button-box">
          <button onclick="applyChoices()">Apply Choices</button> 
    </div>
 
-    <div class="listing-box" id="listing"></div>
+    <div class="listing-box">
+	    <div id="listing">
+		</div>
+	</div>
 
 
 <script type="text/javascript">
 const hotels = [
-  { name: "Happy Hill", inroomSafe: false, freewifi: true, bar: false, restaurant: false, pool: true},
-  { name: "Purple Blossoms", inroomSafe: true, freewifi: false, bar: false, restaurant: false, pool: false},
-  { name: "Sandy Shore", inroomSafe: false, freewifi: true, bar: false, restaurant: true, pool: false},
-  { name: "Green Valley", inroomSafe: true, freewifi: true, bar: true, restaurant: true, pool: true},
-  { name: "Sunny Peaks", inroomSafe: true, freewifi: false, bar: false, restaurant: false, pool: true},
-  { name: "Midnight Sky", inroomSafe: false, freewifi: true, bar: true, restaurant: true, pool: true},
-  { name: "Forest View", inroomSafe: false, freewifi: true, bar: true, restaurant: true, pool: false},
-  { name: "Clear View", inroomSafe: true, freewifi: true, bar: false, restaurant: true, pool: false},
-  { name: "Crimson Sunset", inroomSafe: true, freewifi: true, bar: true, restaurant: true, pool: true },
-  { name: "Shady Mountain", inroomSafe: false, freewifi: true, bar: false, restaurant: true, pool: true}
+  { name: "Happy Hill", inroomSafe: "", freewifi: true, bar: false, restaurant: false, pool: true},
+  { name: "Purple Blossoms", inroomSafe: "&#10004;", freewifi: false, bar: false, restaurant: false, pool: false},
+  { name: "Sandy Shore", inroomSafe: "&#10004;", freewifi: true, bar: false, restaurant: true, pool: false},
+  { name: "Green Valley", inroomSafe: "&#10004;", freewifi: true, bar: true, restaurant: true, pool: true},
+  { name: "Sunny Peaks", inroomSafe: "&#10004;", freewifi: false, bar: false, restaurant: false, pool: true},
+  { name: "Midnight Sky", inroomSafe: "", freewifi: true, bar: true, restaurant: true, pool: true},
+  { name: "Forest View", inroomSafe: "", freewifi: true, bar: true, restaurant: true, pool: false},
+  { name: "Clear View", inroomSafe: "&#10004;", freewifi: true, bar: false, restaurant: true, pool: false},
+  { name: "Crimson Sunset", inroomSafe: "&#10004;", freewifi: true, bar: true, restaurant: true, pool: true },
+  { name: "Shady Mountain", inroomSafe: "", freewifi: true, bar: false, restaurant: true, pool: true}
 ]
 
 let chosen = hotels;
@@ -76,7 +98,7 @@ function applyChoices(){
     cbState = document.getElementById("irs").checked;
 
     if(cbState){
-       chosen = chosen.filter(item => item.inroomSafe == 1);   
+       chosen = chosen.filter(item => item.inroomSafe == "&#10004;");   
     }
 
     cbState = document.getElementById("fwf").checked;
