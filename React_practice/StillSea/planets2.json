@@ -1,0 +1,56 @@
+[{
+ "planet": "Mercury",
+ "diameter": 4880,
+ "distFromSun": 57.9,
+ "numSatellites": 0,
+ "revTime": "88 days"
+},
+{
+ "planet": "Venus",
+ "diameter": 12100,
+ "distFromSun": 108.2,
+ "numSatellites": 0,
+ "revTime": "224.7 days"
+},
+{
+ "planet": "Earth",
+ "diameter": 12756,
+ "distFromSun": 149.6,
+ "numSatellites": 1,
+ "revTime": "365.2 days"
+ },
+{
+ "planet": "Mars",
+ "diameter": 6794,
+ "distFromSun": 227.9,
+ "numSatellites": 2,
+ "revTime": "687 days"
+ },
+ {
+ "planet": "Jupiter",
+ "diameter": 142800,
+ "distFromSun": 778.3,
+ "numSatellites": 63,
+ "revTime": "11.86 yrs"
+ },
+ {
+ "planet": "Saturn",
+ "diameter": 120660,
+ "distFromSun": 1427,
+ "numSatellites": 56,
+ "revTime": "29.46 yrs"
+},
+{
+ "planet": "Uranus",
+ "diameter": 51810,
+ "distFromSun": 2870,
+ "numSatellites": 27,
+ "revTime": "84 yrs"
+},
+{
+ "planet": "Neptune",
+ "diameter": 49528,
+ "distFromSun": 4497,
+ "numSatellites": 13,
+ "revTime": "165 yrs"
+}]
