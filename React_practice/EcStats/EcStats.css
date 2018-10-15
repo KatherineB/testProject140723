@@ -12,8 +12,19 @@ html{
 	font-family: ariel, verdana;
 	text-align: center;
 }
-.main-title{
-	margin-top: 1em;
+.nav-links{
+	background-color: #dea;
+	height: 2em;
+	line-height: 2.5;
+}
+.link{
+	width: 15em;
+	float: left;
+	font-size: 0.7em;
+	text-decoration: none;
+}
+.title{
+	margin-top: 2em;
 	font-size: 1.1em;
 }
 .ec-data{

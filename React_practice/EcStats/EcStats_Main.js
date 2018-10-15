@@ -1,58 +1,33 @@
 import React, { Component } from 'react';
 import './EcStats.css';
+import {Route,NavLink,HashRouter} from "react-router-dom";
+import EcStats_All from "./EcStats_All";
+import EcStats_Business from "./EcStats_Business";
+import EcStats_Society from "./EcStats_Society";
 
 class EcStats_Main extends Component {
-  constructor() {
-    super();
-    
-    this.state = { 
-		   ecStatsData: []	
-		};  
-	}
-   componentDidMount() {
-	// let index = -1;
-  fetch('EcStats_Data.json')
-     .then(response => response.json())
-	 .then(ecStatsData => this.setState({ ecStatsData }));	
-	//  .then( ecStatsData => console.log(ecStatsData[2].stocks));
-   }	
+  
    
   render() {
-	const {ecStatsData} = this.state; 	 
-	let index = -1;
+
     return (
-      <div className="main-div">
-        <div className="main-title">Economic Data</div>
-         <table className="ec-data">
-			<tr>
-			  <th>Month</th>
-			  <th>Stock Index</th>
-			  <th>Commodities Index</th>
-			  <th>Interest Rate</th>
-			  <th>Inflation Rate</th>
-			  <th>Currency Disparity</th>
-			  <th>Unemployment Rate</th>
-			  <th>Consumer Price Index</th>
-			  <th>Rental Vacancy Rate</th>
-			</tr>
-			{		
-			   ecStatsData.map(item => {
-					index++;
-					return <tr><td>{ecStatsData[index].month}</td>
-					<td>{ecStatsData[index].stocks}</td>
-					<td>{ecStatsData[index].commodities}</td>
-					<td>{ecStatsData[index].interest}</td>
-					<td>{ecStatsData[index].inflation}</td>
-					<td>{ecStatsData[index].currencyDis}</td>
-					<td>{ecStatsData[index].unemployment}</td>
-					<td>{ecStatsData[index].consPrices}</td>
-					<td>{ecStatsData[index].rentalVac}</td>
-					</tr>
-				}) 
-			  }  
-		</table>  
+	      <HashRouter>
+         <div className="main-div">  
+	     <div className="nav-links">
+            <div className="link" ><NavLink exact to="/EcStats_All">Economic Statistics</NavLink></div>
+            <div className="link" ><NavLink to="/EcStats_Business" >Business</NavLink></div>
+            <div className="link" ><NavLink to="/EcStats_Society" >Society</NavLink></div>
+			<div style={{clear:'both'}}></div>
+          </div>
+	      <div className="content">
+            <Route exact path="/EcStats_All" component={EcStats_All}/>
+            <Route path="/EcStats_Business" component={EcStats_Business}/>
+            <Route path="/EcStats_Society" component={EcStats_Society}/>
+          </div>
+       
          
       </div>
+	  </HashRouter>
     );
   }
 }
