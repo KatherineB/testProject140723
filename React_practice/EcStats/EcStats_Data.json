@@ -1,0 +1,132 @@
+[{
+"month": "January",
+"stocks": 4970,
+"commodities": 155.2,
+"interest": "1.25%",
+"inflation": "1.4%",
+"currencyDis": "-0.5%",
+"unemployment": "6.7%",
+"consPrices": "194.3",
+"rentalVac": "0.2%"
+},
+{
+"month": "February",
+"stocks": 5080,
+"commodities": 156.1,
+"interest": "1.25%",
+"inflation": "1.3%",
+"currencyDis": "-0.4%",
+"unemployment": "6.6%",
+"consPrices": "194.3",
+"rentalVac": "0.2%"
+},
+{
+"month": "March",
+"stocks": 5078,
+"commodities": 156.9,
+"interest": "1.25%",
+"inflation": "1.5%",
+"currencyDis": "-0.8%",
+"unemployment": "7.0%",
+"consPrices": "194.8",
+"rentalVac": "0.3%"
+},
+{
+"month": "April",
+"stocks": 5122,
+"commodities": 158.4,
+"interest": "1.5%",
+"inflation": "1.7%",
+"currencyDis": "-0.7%",
+"unemployment": "6.8%",
+"consPrices": "194.9",
+"rentalVac": "0.2%"
+},
+{
+"month": "May",
+"stocks": 5042,
+"commodities": 159.9,
+"interest": "1.5%",
+"inflation": "1.6%",
+"currencyDis": "-0.4%",
+"unemployment": "6.9%",
+"consPrices": "195.2",
+"rentalVac": "0.3%"
+},
+{
+"month": "June",
+"stocks": 5129,
+"commodities": 160.5,
+"interest": "1.5%",
+"inflation": "1.6%",
+"currencyDis": "-0.6%",
+"unemployment": "6.8%",
+"consPrices": "195.4",
+"rentalVac": "0.2%"
+},
+{
+"month": "July",
+"stocks": 5188,
+"commodities": 160.9,
+"interest": "1.5%",
+"inflation": "1.5%",
+"currencyDis": "-1.0%",
+"unemployment": "7.2%",
+"consPrices": "196.6",
+"rentalVac": "0.2%"
+},
+{
+"month": "August",
+"stocks": 5270,
+"commodities": 161.2,
+"interest": "1.4%",
+"inflation": "1.7%",
+"currencyDis": "-1.3%",
+"unemployment": "7.1%",
+"consPrices": "197.0",
+"rentalVac": "0.1%"
+},
+{
+"month": "September",
+"stocks": 5381,
+"commodities": 161.8,
+"interest": "1.5%",
+"inflation": "1.5%",
+"currencyDis": "-0.8%",
+"unemployment": "6.9%",
+"consPrices": "197.8",
+"rentalVac": "0.1%"
+},
+{
+"month": "October",
+"stocks": 5290,
+"commodities": 161.9,
+"interest": "1.7%",
+"inflation": "1.7%",
+"currencyDis": "-0.9%",
+"unemployment": "7.2%",
+"consPrices": "197.9",
+"rentalVac": "0.1%"
+},
+{
+"month": "November",
+"stocks": 5194,
+"commodities": 162.1,
+"interest": "1.5%",
+"inflation": "1.6%",
+"currencyDis": "-0.9%",
+"unemployment": "7.3%",
+"consPrices": "198.1",
+"rentalVac": "0.2%"
+},
+{
+"month": "December",
+"stocks": 5021,
+"commodities": 162.7,
+"interest": "1.5%",
+"inflation": "1.4%",
+"currencyDis": "-1.1%",
+"unemployment": "7.4%",
+"consPrices": "198.5",
+"rentalVac": "0.1%"
+}]
