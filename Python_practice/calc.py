@@ -1,22 +1,9 @@
 import sys
 
 itemList = []
-newList = []
-oldList = []
-partList = []
-partList5 = []
 inputString = ""
-usableString = ""
-interimString5 = ""
-result = ""
-place = 0
-factor = 0
 
 def calculate(op, ex1, ex2):
-    #print "in calcul"
-   # print op
-    #print ex1
-    #print ex2
     if op == "add":
         answer = int(ex1) + int(ex2)
         return str(answer)
@@ -30,77 +17,47 @@ def combineSet(oldList):
     place = 0
     factor = 0
     length = len(oldList)
-    print len(oldList)
     newList = []
+    prevCal = False
+
     while place < length-1:
-        print place
-        if oldList[place].isdigit() and oldList[place+1][0].isdigit():
-            print "in if"
-            trim1 = removeBrackets(oldList[place-1])
-            trim3 = removeBrackets(oldList[place+1])
-            number = calculate(trim1,oldList[place],trim3)
-            newList.pop()
+        if place + 1 < length-factor and oldList[place+factor].isdigit() and oldList[place+factor+1][0].isdigit():
+
+            if prevCal:
+                newList.pop()
+                newList.pop()
+                newList.pop()
+            else:
+                newList.pop()
+
+            trim1 = removeBrackets(oldList[place+factor-1])
+            trim3 = removeBrackets(oldList[place+factor+1])
+            number = calculate(trim1,oldList[place+factor],trim3)
+            
             newList.append(number)
             factor = factor + 2
-            if (place + factor) < length:
-                newList.append(oldList[place+factor])        
+
+            if (place) < length-factor:
+                if oldList[place+2][0].isdigit():
+                    newList.append(oldList[place+factor]) 
+                else:
+                    newList.append(oldList[place+factor]) 
+                    newList.append(oldList[place+factor+1])
+                    newList.append(oldList[place+factor+2])
+
+            prevCal = True    
+
         else:
-            print "in else"
-           # print place+factor
-           # print len(oldList)
-            if (place + factor) < length:
+            if (place) < length-factor:
                 newList.append(oldList[place+factor])
-            
+            prevCal = False
+                   
         place = place + 1
-    """
-    
-    place = 0
-    factor = 0
-    oldList = newList
-    length = len(oldList)
-    print len(oldList)
-    newList = []
-    print len(newList)
-    while place < length-1:
-        print place
-        if oldList[place].isdigit() and oldList[place+1][0].isdigit():
-            print "in if"
-            trim1 = removeBrackets(oldList[place-1])
-            trim3 = removeBrackets(oldList[place+1])
-            number = calculate(trim1,oldList[place],trim3)
-            newList.pop()
-            newList.append(number)
-            factor = factor + 2print "--- new start ---"
-            if (place + factor) < length:
-                newList.append(oldList[place+factor])        
-        else:
-            print "in else"
-           # print place+factor
-           # print len(oldList)
-            if (place + factor) < length:
-                newList.append(oldList[place+factor])
-            
-        place = place + 1
-    """
-    print "--- new start ---"
+  
     if len(newList) > 1:
         combineSet(newList)
-      
-    
-
-
-    print len(newList)
-    print newList
-    return newList
-
-    """
-    answer1 = newList[0]
-    print answer1 
-    
-
-    print newList
-    return newList
-    """
+    else:
+        print int(newList[0]) 
 
 def removeBrackets(trim):
     while '(' in trim:
@@ -108,13 +65,14 @@ def removeBrackets(trim):
 
     while ')' in trim:
         trim = trim[:-1]
-  
+
     return trim
 
 
 
-if len(sys.argv) > 1:
+if len(sys.argv) == 2:
     inputString = sys.argv[1]
+
     items = inputString.split(' ')
     for item in items:
         itemList.append(item)
@@ -122,19 +80,12 @@ if len(sys.argv) > 1:
     length = len(itemList)
 
     if length == 1:
-        result = int(itemList[0])
+        print int(itemList[0])
     else:
-        oldList = itemList
-        answer = combineSet(oldList)
-        print "Back"
-        result = answer
+        combineSet(itemList)
+      
 else:
-    result = "Please enter an expression to be evaluated."
-
-
-print "Result is"
-print result 
-
+    print "Please enter one appropriate expression to be evaluated."
 
 
     
