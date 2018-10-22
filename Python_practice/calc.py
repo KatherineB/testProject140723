@@ -52,7 +52,7 @@ def combineSet(oldList):
     if len(newList) > 1:
         combineSet(newList)
     else:
-        print int(newList[0])   
+        print(int(newList[0]))
 
 def removeBrackets(trim):
     while '(' in trim:
@@ -75,12 +75,12 @@ if len(sys.argv) == 2:
     length = len(itemList)
 
     if length == 1:
-        print int(itemList[0])
+        print(int(itemList[0]))
     else:
         combineSet(itemList)
       
 else:
-    print "Please enter one appropriate expression to be evaluated."
+    print("Please enter one appropriate expression to be evaluated.")
 
 
     
