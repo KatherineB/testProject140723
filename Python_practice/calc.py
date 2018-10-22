@@ -2,6 +2,8 @@ import sys
 
 itemList = []
 inputString = ""
+prevCal = False
+
 
 def calculate(op, ex1, ex2):
     if op == "add":
@@ -14,50 +16,43 @@ def calculate(op, ex1, ex2):
         return "An error has occurred in the calculate function."
 
 def combineSet(oldList):
-    place = 0
-    factor = 0
     length = len(oldList)
+    prevPrev = "0"
+    prev = "0"
+    curr = "0"
     newList = []
-    prevCal = False
+    ops = []
+             
+    while len(oldList) > 0:
+        prevPrev = prev
+        prev = curr
+        curr = oldList.pop(0)
 
-    while place < length-1:
-        if place + 1 < length-factor and oldList[place+factor].isdigit() and oldList[place+factor+1][0].isdigit():
+        if removeBrackets(prev).isdigit() == False and removeBrackets(curr).isdigit() == False:
+            ops.append(prev)
+            
+        if curr[0].isdigit() and prev[0].isdigit():
 
             if prevCal:
-                newList.pop()
-                newList.pop()
-                newList.pop()
+                trim1 = removeBrackets(ops.pop())
             else:
-                newList.pop()
+                trim1 = removeBrackets(prevPrev)
 
-            trim1 = removeBrackets(oldList[place+factor-1])
-            trim3 = removeBrackets(oldList[place+factor+1])
-            number = calculate(trim1,oldList[place+factor],trim3)
-            
+            trim3 = removeBrackets(curr)
+            number = calculate(trim1,prev,trim3)
+            newList.pop()
+            newList.pop()
             newList.append(number)
-            factor = factor + 2
-
-            if (place) < length-factor:
-                if oldList[place+2][0].isdigit():
-                    newList.append(oldList[place+factor]) 
-                else:
-                    newList.append(oldList[place+factor]) 
-                    newList.append(oldList[place+factor+1])
-                    newList.append(oldList[place+factor+2])
-
-            prevCal = True    
-
+            prevCal = True
+            curr = number
         else:
-            if (place) < length-factor:
-                newList.append(oldList[place+factor])
+            newList.append(curr)
             prevCal = False
-                   
-        place = place + 1
-  
+    
     if len(newList) > 1:
         combineSet(newList)
     else:
-        print int(newList[0]) 
+        print int(newList[0])   
 
 def removeBrackets(trim):
     while '(' in trim:
