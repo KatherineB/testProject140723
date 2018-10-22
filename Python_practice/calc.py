@@ -31,7 +31,7 @@ def calculate(op, ex1, ex2):
         answer = int(ex1) * int(ex2)
         return str(answer)
     else:
-        return "An error has occurred in the calculate function."
+        print("Error in calculate() function. Please check that your input is properly formatted and try again")
 
 def combineSet(oldList):
     """
@@ -44,42 +44,53 @@ This is the function that does the manipulation of the string of operators and n
     newList = []
     # stores operations when there are nested statement
     ops = []   
+    stop = False
              
     while len(oldList) > 0:
         prevPrev = prev
         prev = curr
         curr = oldList.pop(0)
 
-        # checks for consecutive operations and stores the one not used for later
-        if removeBrackets(prev).isdigit() == False and removeBrackets(curr).isdigit() == False:
-            ops.append(prev)
+        try:
+            # checks for consecutive operations and stores the one not used for later
+            if removeBrackets(prev).isdigit() == False and removeBrackets(curr).isdigit() == False:
+                ops.append(prev)
             
-        # checks for two conseutive numbers
-        if curr[0].isdigit() and prev[0].isdigit():
+            # checks for two conseutive numbers
+            if curr[0].isdigit() and prev[0].isdigit():
 
-            # checks if must use most recently taken operator from old list or one from the ops list
-            if prevCal:
-                trim1 = removeBrackets(ops.pop())
+                # checks if must use most recently taken operator from old list or one from the ops list
+                if prevCal:
+                    trim1 = removeBrackets(ops.pop())
+                else:
+                    trim1 = removeBrackets(prevPrev)
+
+                trim3 = removeBrackets(curr)
+                number = calculate(trim1,prev,trim3)
+                # elements already placed on new list must be removed when an operation gets performed
+                newList.pop()
+                newList.pop()
+                newList.append(number)
+                # prevCal keeps track of when there are operators waiting in the ops list
+                prevCal = True
+                curr = number
             else:
-                trim1 = removeBrackets(prevPrev)
+                newList.append(curr)
+                prevCal = False
 
-            trim3 = removeBrackets(curr)
-            number = calculate(trim1,prev,trim3)
-            # elements already placed on new list must be removed when an operation gets performed
-            newList.pop()
-            newList.pop()
-            newList.append(number)
-            # prevCal keeps track of when there are operators waiting in the ops list
-            prevCal = True
-            curr = number
-        else:
-            newList.append(curr)
-            prevCal = False
+        except:
+            print('Error in the combineSet() function. Please check that your input is properly formatted and try again.')
+            stop = True
     
-    if len(newList) > 1:
-        combineSet(newList)
-    else:
-        print(int(newList[0]))
+    try:
+        if stop == False:
+            if len(newList) > 1:
+                combineSet(newList)
+            else:
+                print(int(newList[0]))
+
+    except:
+        print('Error in combineSet() function recursion. Please check that your input is properly formatted and try again.')
 
 def removeBrackets(trim):
     while '(' in trim:
