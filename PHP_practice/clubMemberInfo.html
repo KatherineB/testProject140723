@@ -1,0 +1,68 @@
+<!DOCTYPE>
+<html>
+<head><title>Get JSON Data UI</title>
+<style>
+.mainDiv{
+    background-color: #ddddff;
+	text-align: center;
+}
+.title{
+    font-size: 1.8em;
+	padding: 30px;
+}
+.searchLabel{
+    font-size: 1.4em;
+	padding-bottom: 10px;
+}
+.searchText{
+    font-size: 1.4em;
+	padding-bottom: 25px;	
+	display: inline-block;
+}
+#searchFile{
+    font-size: 0.8em;
+    width: 300px;
+	height: 30px;
+}
+#topItem{
+    font-size: 0.8em;
+    width: 300px;
+	height: 30px;
+}
+#deepItem{
+    font-size: 0.8em;
+    width: 300px;
+	height: 30px;
+}
+
+</style>
+</head>
+<body>
+   <div class="mainDiv">
+        <div class="title">JSON File Search Control Screen</div>
+		<form action="clubMemberInfo.php" method="get"  id="form1"><br />
+		
+		   <!-- <div class="searchLabel">Enter name of JSON file to search:
+			</div>
+			<div class="searchText">
+			   <input type="text" id="searchFile" name="file">
+			</div> -->
+			
+			<div class="searchLabel"> Enter top item to search for:
+			</div>
+			<div class="searchText">
+			   <input type="text" id="topItem" name="top">
+			</div>
+			
+		    <div class="searchLabel"> Enter deepest item to search for:
+			</div>
+			<div class="searchText">
+			   <input type="text" id="deepItem" name="deep">
+			</div>
+		
+			<div>
+			<input type="submit" value="Submit"/>
+			</div>
+		 </form>
+   </div>
+</body>
