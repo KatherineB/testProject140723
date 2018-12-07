@@ -1,0 +1,68 @@
+{ "clubmemberinfo":
+    [            
+        {
+		"id_number":1,
+		"first_name": "Sheila",
+		"last_name": "Morris",
+        "year_joined": 2012,
+		"involvement":[{"executive":"vice-president 2013",
+		               "committees":"gardening 2015"}]
+        },
+		
+        {
+		"id_number":2,
+		"first_name": "David",
+		"last_name": "Cameron",
+        "year_joined": 2012
+        },
+
+        {
+		"id_number":3,
+		"first_name": "Mary",
+		"last_name": "Birk",
+        "year_joined": 2012
+        },
+
+        {
+		"id_number":4,
+		"first_name": "Trevor",
+		"last_name": "Iverson",
+        "year_joined": 2013
+        },
+		
+		{
+		"id_number":5,
+		"first_name": "Cheryl",
+		"last_name": "Hope",
+        "year_joined": 2013
+        },
+		
+		{
+		"id_number":6,
+		"first_name": "Mark",
+		"last_name": "Jackson",
+        "year_joined": 2014
+        },
+		
+		{
+		"id_number":7,
+		"first_name": "Daryl",
+		"last_name": "Clark",
+        "year_joined": 2014
+        },
+		
+		{
+		"id_number":8,
+		"first_name": "Mary",
+		"last_name": "Kelly",
+        "year_joined": 2014
+        },
+		
+		{
+		"id_number":9,
+		"first_name": "Judy",
+		"last_name": "Morris",
+        "year_joined": 2014
+        }
+    ]
+}  

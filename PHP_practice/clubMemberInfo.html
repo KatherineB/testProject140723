@@ -1,6 +1,6 @@
 <!DOCTYPE>
 <html>
-<head><title>Get JSON Data UI</title>
+<head><title>Club Member List</title>
 <style>
 .mainDiv{
     background-color: #ddddff;
@@ -24,40 +24,31 @@
     width: 300px;
 	height: 30px;
 }
-#topItem{
-    font-size: 0.8em;
-    width: 300px;
-	height: 30px;
-}
-#deepItem{
-    font-size: 0.8em;
-    width: 300px;
-	height: 30px;
-}
+
 
 </style>
 </head>
 <body>
    <div class="mainDiv">
-        <div class="title">JSON File Search Control Screen</div>
+        <div class="title">Club Membership List</div>
 		<form action="clubMemberInfo.php" method="get"  id="form1"><br />
-		
-		   <!-- <div class="searchLabel">Enter name of JSON file to search:
-			</div>
-			<div class="searchText">
-			   <input type="text" id="searchFile" name="file">
-			</div> -->
 			
-			<div class="searchLabel"> Enter top item to search for:
+			<div class="searchLabel"> Enter Membership ID:
 			</div>
 			<div class="searchText">
-			   <input type="text" id="topItem" name="top">
+			   <input type="text" id="mid" name="mid">
 			</div>
 			
-		    <div class="searchLabel"> Enter deepest item to search for:
+			<div class="searchLabel"> Enter First Name:
 			</div>
 			<div class="searchText">
-			   <input type="text" id="deepItem" name="deep">
+			   <input type="text" id="fn" name="fn">
+			</div>
+			
+		    <div class="searchLabel"> Enter Last Name:
+			</div>
+			<div class="searchText">
+			   <input type="text" id="ln" name="ln">
 			</div>
 		
 			<div>
