@@ -3,15 +3,30 @@
 	
 	echo "<br />";
 	
-	$file = "clubmemberinfo.json";
-	$id_number = $_GET['mid'];
-	$first_name = $_GET['fn'];
-	$last_name = $_GET['ln'];
+	$search_type = $_GET['field'];
+	$search_term = $_GET['st'];
 	
-	/*echo $file;*/
-	echo $id_number;
-	echo $first_name;
-	echo $last_name;
+	if($search_type === 'mid'){
+		$id_number = $_GET['st'];
+		$search_item = $id_number;
+		$item = 'id_number';
+	}
+	else if($search_type === 'fn'){
+		$first_name = $_GET['st'];
+		$search_item = $first_name;
+		$item = 'first_name';
+	}
+	else if($search_type === 'ln'){
+		$last_name = $_GET['st'];
+		$search_item = $last_name;
+		$item = 'last_name';
+	}
+	else{
+		echo "Error: Search type not valid";
+	}
+	
+	$file = "clubmemberinfo.json";
+
 	
 	echo "<br />";
 	
@@ -27,11 +42,15 @@
 	
 	//echo '<pre>' . print_r($json, true) . '</pre>';
 	
+	echo "Club Members Found: <br /> <br />";
+	
 	for($i=0;$i<$memberCount;$i++){
-       if($id_number == $json['clubmemberinfo'][$i]["id_number"]){
+       if($search_item == $json['clubmemberinfo'][$i][$item]){
+		   echo "Membership Number:" . $json['clubmemberinfo'][$i]['id_number'] . '<br /> ';
 		   echo $json['clubmemberinfo'][$i]['first_name'] . ' ';
 		   echo $json['clubmemberinfo'][$i]['last_name'] . "<br />";
-		   echo $json['clubmemberinfo'][$i]['year_joined'];	   
+		   echo "Joined:" . $json['clubmemberinfo'][$i]['year_joined']  . "<br />";	  
+           echo "<br />";		   
 	   }  
 	}
 	
