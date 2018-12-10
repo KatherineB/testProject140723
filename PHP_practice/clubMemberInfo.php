@@ -1,7 +1,7 @@
 <?php
-    print_r($_GET);
+  //  print_r($_GET);
 	
-	echo "<br />";
+	//echo "<br />";
 	
 	$search_type = $_GET['field'];
 	$search_term = $_GET['st'];
@@ -28,7 +28,7 @@
 	$file = "clubmemberinfo.json";
 
 	
-	echo "<br />";
+	//echo "<br />";
 	
 	$str = file_get_contents($file);
 	$json = json_decode($str, true);
@@ -36,27 +36,38 @@
 
 	
     $memberCount = count($json['clubmemberinfo']);
-	echo $memberCount;
+//	echo $memberCount;
 	
-	echo "<br />";
+//	echo "<br />";
+	
+	echo "<!DOCTYPE>
+		<html>
+		<head><title>Club Member List</title>
+		<link href='clubMemberInfo.css' rel='stylesheet'>
+		</head> 
+		<body>";
 	
 	//echo '<pre>' . print_r($json, true) . '</pre>';
 	
-	echo "Club Members Found: <br /> <br />";
+	echo "<div class='title'>Club Membership List</div>
+	      <div class='search-label'> Club Members Found: </div>	
+	
+	       
+	";
 	
 	for($i=0;$i<$memberCount;$i++){
        if($search_item == $json['clubmemberinfo'][$i][$item]){
-		   echo "Membership Number:" . $json['clubmemberinfo'][$i]['id_number'] . '<br /> ';
-		   echo $json['clubmemberinfo'][$i]['first_name'] . ' ';
-		   echo $json['clubmemberinfo'][$i]['last_name'] . "<br />";
-		   echo "Joined:" . $json['clubmemberinfo'][$i]['year_joined']  . "<br />";	  
-           echo "<br />";		   
+		   echo "<div class='found-text'> Membership Number:" . $json['clubmemberinfo'][$i]['id_number'] . '</div><br />';
+		   echo "<div class='found-text'>" . $json['clubmemberinfo'][$i]['first_name'] . ' ';
+		   echo $json['clubmemberinfo'][$i]['last_name'] . "</div><br />";
+		   echo "<div class='found-text'> Joined:" . $json['clubmemberinfo'][$i]['year_joined']  . "</div><br />";	  
+           echo "<br />";		
 	   }  
 	}
 	
-	echo "<br />";
+	echo "</body></html>";
 
-    print_r($json['clubmemberinfo'][0]['involvement']);
+ //   print_r($json['clubmemberinfo'][0]['involvement']);
 
 	 
 ?>

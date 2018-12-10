@@ -1,68 +1,27 @@
 <!DOCTYPE>
 <html>
 <head><title>Club Member List</title>
-<style>
-body{
-    background-color: #666688;
-	text-align: center;
-	color: #fff;
-	font-family: arial, verdana, "san-serif";
-}
-.mainDiv{
-   
-}
-.title{
-    font-size: 2em;
-	margin-top: 1.5em;
-	font-weight: bold;
-}
-.searchLabel{
-    font-size: 1.6em;
-	padding-bottom: 0.4em;
-	padding-top: 0.8em;
-	font-weight: bold;
-}
-.searchText{
-    font-size: 1.6em;
-	padding-bottom: 0.4em;	
-	display: inline-block;
-}
-.rad-box{
-   font-size: 1.4em;
-   text-align: left;
-   display: inline-block;
-}
-.cml-button{
-   font-size: 1.4em;
-   height: 1.5em;
-   width: 5em;
-   color: #fff;
-   background-color: #225544;
-   margin-top: 2em;
-}
-
-
-</style>
+<link href="clubMemberInfo.css" rel="stylesheet">
 </head>
 <body>
-   <div class="mainDiv">
+   <div class="main-div">
         <div class="title">Club Membership List</div>
-		<form action="clubMemberInfo.php" method="get"  id="form1"><br />
-		    <div class="searchLabel"> Choose Search Method: </div>	 
+		<form action="clubMemberInfo.php" method="get"  id="form1">
+		    <div class="search-label"> Choose Search Method: </div>	 
            <div class="rad-box">			
 			<input type = 'radio' name ='field' value= 'mid' checked >Search by Membership ID<br>			
 			<input type = 'radio' name ='field' value= 'fn' >Search by First Name<br>
-			<input type = 'radio' name ='field' value= 'ln' >search by Last Name<br>
+			<input type = 'radio' name ='field' value= 'ln' >Search by Last Name<br>
 			</div>
 			
-			<div class="searchLabel"> Enter Search Term:
+			<div class="search-label"> Enter Search Term:
 			</div>
-			<div class="searchText">
-			   <input type="text" id="st" name="st">
+			<div >
+			   <input class="search-text" type="text" id="st" name="st">
 			</div>
 		
 			<div>
-			<input class="cml-button" type="submit" value="Submit"/>
+			<input class="cml-button" type="submit" value="Search"/>
 			</div>
 		 </form>
    </div>

@@ -1,0 +1,42 @@
+
+body{
+    background-color: #666688;
+	text-align: center;
+	color: #fff;
+	font-family: arial, verdana, "san-serif";
+}
+.main-div{
+   
+}
+.title{
+    font-size: 2em;
+	margin-top: 1.5em;
+	font-weight: bold;
+}
+.search-label{
+    font-size: 1.6em;
+	padding-bottom: 0.4em;
+	padding-top: 0.8em;
+	font-weight: bold;
+}
+.search-text{
+    font-size: 1.5em;
+}
+.rad-box{
+   font-size: 1.4em;
+   text-align: left;
+   display: inline-block;
+}
+.cml-button{
+   font-size: 1.4em;
+   height: 1.5em;
+   width: 5em;
+   color: #fff;
+   background-color: #225544;
+   margin-top: 2em;
+}
+.found-text{
+    font-size: 1.4em;
+	/*padding-bottom: 0.4em;	*/
+	display: inline-block;
+}
