@@ -30,13 +30,14 @@
 	
 	//echo "<br />";
 	
+	
 	$str = file_get_contents($file);
 	$json = json_decode($str, true);
-	
+	$resultsFound = False;
 
 	
     $memberCount = count($json['clubmemberinfo']);
-//	echo $memberCount;
+// echo $memberCount;
 	
 //	echo "<br />";
 	
@@ -51,20 +52,35 @@
 	
 	echo "<div class='title'>Club Membership List</div>
 	      <div class='search-label'> Club Members Found: </div>	
-	
-	       
+	      <div class='found-text-box'>	       
 	";
-	
-	for($i=0;$i<$memberCount;$i++){
-       if($search_item == $json['clubmemberinfo'][$i][$item]){
-		   echo "<div class='found-text'> Membership Number:" . $json['clubmemberinfo'][$i]['id_number'] . '</div><br />';
+		
+   for($i=0;$i<$memberCount;$i++){
+	   
+	   if($search_item == $json['clubmemberinfo'][$i][$item]){
+		   echo "<div class='found-text'> Membership Number: " . $json['clubmemberinfo'][$i]['id_number'] . '</div><br />';
 		   echo "<div class='found-text'>" . $json['clubmemberinfo'][$i]['first_name'] . ' ';
 		   echo $json['clubmemberinfo'][$i]['last_name'] . "</div><br />";
-		   echo "<div class='found-text'> Joined:" . $json['clubmemberinfo'][$i]['year_joined']  . "</div><br />";	  
-           echo "<br />";		
+		   echo "<div class='found-text'> Joined: " . $json['clubmemberinfo'][$i]['year_joined']  . "</div><br />";	  
+		   echo "<br />";	
+           $resultsFound = True;		   
 	   }  
+	  
 	}
 	
+      if ($resultsFound == False){
+		 
+		   echo "Sorry, no matches were found in the club membership list. Please try again.
+				<br /><br />";
+	   }	
+	
+	 echo   "</div>
+	         <div>
+	         <form action='clubMemberInfo.html' method='get;  id='non-form'>
+			 <input class='cml-button' type='submit' value='New Search'/>
+			 </div>
+			 </form>";
+				
 	echo "</body></html>";
 
  //   print_r($json['clubmemberinfo'][0]['involvement']);

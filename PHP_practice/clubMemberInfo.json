@@ -25,7 +25,7 @@
 
         {
 		"id_number":4,
-		"first_name": "Trevor",
+		"first_name": "David",
 		"last_name": "Iverson",
         "year_joined": 2013
         },
@@ -82,6 +82,18 @@
 		"id_number":12,
 		"first_name": "Mary",
 		"last_name": "Dickson",
+        "year_joined": 2014
+        },
+		{
+		"id_number":13,
+		"first_name": "Karen",
+		"last_name": "Wayne",
+        "year_joined": 2014
+        },
+		{
+		"id_number":14,
+		"first_name": "Jeff",
+		"last_name": "May",
         "year_joined": 2014
         }
     ]

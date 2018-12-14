@@ -1,42 +1,60 @@
+/* CSS for Club Membership Info Project */
+
+@media (min-width: 280px) {body {font-size: 12px;} }
+@media (min-width: 320px) {body {font-size: 14px;} }
+@media (min-width: 423px) {body {font-size: 16px;} }
+@media (min-width: 526px) {body {font-size: 19px;} }
+@media (min-width: 768px) {body {font-size: 22px;} }
+@media (min-width: 992px) {body {font-size: 26px;} }
+@media (min-width: 1200px) {body {font-size: 31px;} }
 
 body{
-    background-color: #666688;
+    background-color: #666688; 
 	text-align: center;
 	color: #fff;
-	font-family: arial, verdana, "san-serif";
-}
-.main-div{
-   
+	font-family: arial, verdana, "sans-serif";
 }
 .title{
-    font-size: 2em;
+    font-size: 1.6em;
 	margin-top: 1.5em;
 	font-weight: bold;
 }
 .search-label{
-    font-size: 1.6em;
+    font-size: 1.2em;
 	padding-bottom: 0.4em;
 	padding-top: 0.8em;
 	font-weight: bold;
 }
 .search-text{
-    font-size: 1.5em;
+    font-size: 0.9em;
 }
 .rad-box{
-   font-size: 1.4em;
+   font-size: 0.9em;
    text-align: left;
    display: inline-block;
 }
 .cml-button{
-   font-size: 1.4em;
+   font-size: 1.0em;
    height: 1.5em;
-   width: 5em;
+   width: 7em;
    color: #fff;
    background-color: #225544;
    margin-top: 2em;
+   border: none;
+   border-radius: 0.4em;
+}
+.found-text-box{
+   background-color: #fff;
+   color: #000;
+   text-align: left;
+   display: inline-block;
+   padding-left: 1em;
+   padding-right: 1em;
+   padding-top: 1.2em;
+   border-radius: 0.4em;
+   width: 13em;
 }
 .found-text{
-    font-size: 1.4em;
-	/*padding-bottom: 0.4em;	*/
+    font-size: 0.9em;
 	display: inline-block;
 }
