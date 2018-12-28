@@ -104,6 +104,7 @@ class StillSea_ImgOverlay extends Component {
     return (
     <div className="section-2">	
 			      <div className="sec-2-content">
+				      <div className="section-title">Image Overlays</div>
 					  <div className="graph-div">
 						  <img className="graph-grid" src={ require('./images/grid.png') } />
 						  <img className="graph-data" id="gd1" style={this.state.gd_1} src={ require('./images/data1.png') } />
