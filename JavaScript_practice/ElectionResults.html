@@ -2,6 +2,7 @@
 <html>
 <head><title>Election Results</title>
 <meta charset="utf-8"/>
+<script src = "D3/d3.min.js"></script>
 <script src = "https://d3js.org/d3.v5.min.js"></script>
 <style>
 @media (min-width: 280px) {body {font-size: 12px;} }
@@ -11,32 +12,54 @@
 @media (min-width: 768px) {body {font-size: 23px;} }
 @media (min-width: 992px) {body {font-size: 28px;} }
 @media (min-width: 1200px) {body {font-size: 34px;} }
-body {
-   font-family: arial, verdana, sans-serif;
-   text-align: center;
-}
 
+body {
+    font-family: arial, verdana, sans-serif;
+    text-align: center;
+}
 .title{
-   font-size: 1.6em;
+    font-size: 1.6em;
+}
+.radio-btn-list{
+    font-size: 0.8em;
+    display: inline-block;
+    margin-top: 1em;
+}
+#radio-btns{
+    text-align: left;
 }
 .title-data{
-   font-size: 1.3em;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 1em;
 }
 .graph{
-   background-color: #aaaaaa;
-   display: inline-block;
-   height: 16em;
+    margin-top: 0.5em;
+    background-color: #aaaaaa;
+    display: inline-block;
+    height: 16em;
 }
 .seats-bar{
-   float: left;
-   background-color: #eeeeee;
-   width: 2.5em;
+    float: left;
+    background-color: #eeeeee;
+    width: 2.5em;
 }
 </style>
 </head>
 <body>
 <div class="title">Election Results</div>
-<div class="title-date">Ontario Election 2018</div>
+<div class="radio-btn-list">
+    <form id="radio-btns">
+		  <div>
+				<input type="radio" name="results" onClick="handleRadioBtns('Ontario Election 2018', electionDataOnt, seatsScaleOnt)" value="ont2018" checked> Ontario Election 2018
+		   </div>
+			<div>
+				<input type="radio" name="results" onClick="handleRadioBtns('New Brunswick Election 2018', electionDataNB, seatsScaleNB)" value="nb2018"> New Brunswick Election 2018
+			</div>
+    </form>
+</div>	
+	
+<div class="title-data" id="title-data"></div>
 <div class="graph"> 
     <div class="seats-bar"> </div>
     <div class="seats-bar"> </div>
@@ -52,13 +75,13 @@ var electionDataOnt = [];
 const seatsGraphHeightFactor = 16;
 const seatsBarHeightFactor = 1.15;
 
-/*d3.csv("/data/ElectionResults_2018_Ont.csv", function(data) {
+d3.csv("/Data/ElectionResults_2018_Ont.csv", function(data) {
   console.log(data[0]);
-}); */
+}); 
 
 
 electionDataOnt[0] = {party:"PC", seats:76, popvote:40.6, colour:"#00f"};
-electionDataOnt[1] = {party:"NDP", seats:40, popvote:33.7, colour:"#fb0"};
+electionDataOnt[1] = {party:"NDP", seats:40, popvote:33.7, colour:"#f72"};
 electionDataOnt[2] = {party:"Lib", seats:7, popvote:19.3, colour:"#f00"};
 electionDataOnt[3] = {party:"Grn", seats:1, popvote:4.6, colour:"#0c0"};
 
@@ -79,7 +102,16 @@ d3.selectAll(".seats-bar")
       .style("margin-top",function(d) {return seatsGraphHeightFactor-(d.seats/seatsScaleOnt) + "em";});
 
 
+function handleRadioBtns(election, electData, seatsScale){
+      document.getElementById("title-data").innerHTML = election;
+	
+	   d3.selectAll(".seats-bar") 
+		  .data(electData)   
+			  .style("height", function(d) { return d.seats/seatsScale + "em"; }) 
+			  .style("background-color",function(d) {return d.colour;})
+			  .style("margin-top",function(d) {return seatsGraphHeightFactor-(d.seats/seatsScale) + "em";});
 
+}
 
  
 </script>
