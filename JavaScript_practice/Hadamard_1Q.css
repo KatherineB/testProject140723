@@ -189,6 +189,12 @@ input:checked + .slider-inp:before {
 }
 .btn{
    /*white-space: normal;*/
+    height: 2.0em;
+	width: 10em;
+	font-size: 1.1em;
+	background-color: #055;
+	color: #fff;
+	border: none;
 }
 
 
