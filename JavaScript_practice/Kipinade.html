@@ -15,16 +15,17 @@
     display: block;
 	float: left;
 	margin: 1.5em;
-     background-color: #777;
+     background-color: #aaa;
      padding: 0.2em;
 }
 
 .square{
     height: 1.7em;
     width: 1.7em;
-    border: 0.26em solid #777;
+    border: 0.26em solid #aaa;
     display: inline-block;
 	text-align: center;
+	color: #fff;
 	line-height: 1.7;
 	font-weight: bold;
     font-size: 1em;
@@ -197,13 +198,14 @@ var b = -1;
 
 var initialTrades = 0;
 const INITIAL_TRADES_LIMIT = 5;
+const CURRENT_COLOUR_MARKER = "#333333";
 
 posX = Math.floor(Math.random() * 4 + 1);
 posY = Math.floor(Math.random() * 4 + 1);
 xPrev = posX;
 yPrev = posY;
 
-document.getElementById(posIds[posX][posY]).style.borderColor = "#ff0000";
+document.getElementById(posIds[posX][posY]).style.borderColor = CURRENT_COLOUR_MARKER;
 
 var points = 0;
 
@@ -215,19 +217,19 @@ for(let i=0; i<6; i++){
        let colN = Math.floor(Math.random() * 5 + 1);
        switch(colN){
           case 1:
-              col = "#eeff44";
+              col = "#0011dd";
               break;
           case 2:
-              col = "#ff9900";
+              col = "#dd9900";
               break;
           case 3:
-              col = "#55ff55";
+              col = "#228822";
               break;
           case 4:
-              col = "#00ffff";
+              col = "#cc0022";
               break;
           case 5:
-              col = "#ff99ff";
+              col = "#663377";
               break;
           default: alert("none matched in switch");
        }
@@ -245,25 +247,25 @@ function move(x,y){
 	diffY = y-yPrev;
 	if (diffX > -2 && diffX < 2 && diffY > -2 && diffY < 2){
              if( posValues[x][y].number == posValues[xPrev][yPrev].number || posValues[x][y].colour === posValues[xPrev][yPrev].colour ){
-		        document.getElementById(posIds[x][y]).style.borderColor = "#ff0000";
-		        document.getElementById(posIds[xPrev][yPrev]).style.borderColor = "#777";
+		        document.getElementById(posIds[x][y]).style.borderColor = CURRENT_COLOUR_MARKER;
+		        document.getElementById(posIds[xPrev][yPrev]).style.borderColor = "#aaa";
 		        posValues[xPrev][yPrev].number = Math.floor(Math.random() * 5 + 1);
                 let colN = Math.floor(Math.random() * 5 + 1);
                 switch(colN){
                   case 1:
-                    col = "#eeff44";
+                    col = "#0011dd";
                     break;
                   case 2:
-                    col = "#ff9900";
+                    col = "#dd9900";
                     break;
                   case 3:
-                    col = "#55ff55";
+                    col = "#228822";
                    break;
                   case 4:
-                    col = "#00ffff";
+                    col = "#cc0022";
                     break;
                   case 5:
-                    col = "#ff99ff";
+                    col = "#663377";
                     break;
                   default: alert("none matched in switch");
                 }
@@ -297,6 +299,7 @@ function record(x,y){
 			   document.getElementById(posIds[x][y]).innerHTML = posValues[x][y].number;
 			   firstPairSet = 0;
 			   initialTrades++;
+			   alert("Number of trades made:" + initialTrades);
 			}
 			else{
 			   a = x;
