@@ -11,10 +11,20 @@
 @media (min-width: 992px) {body {font-size: 25px;} }
 @media (min-width: 1200px) {body {font-size: 29px;} }
 
+body{
+    background-color: #134;
+	color: #fff;
+	font-family: arial, verdana, "sans-serif";
+}
+.top-heading{
+    font-size: 2.0em;
+	text-align: center;
+}
+
 .squares-grid{
-    display: block;
-	float: left;
-	margin: 1.5em;
+     display: block;
+	 float: left;
+	 margin: 1.5em;
      background-color: #aaa;
      padding: 0.2em;
 }
@@ -41,6 +51,24 @@
     border: 0.1em solid #998;
     display: inline-block;
 	text-align: center;
+}
+.notify{
+   background-color: #faa;
+   color: #000;
+   display: inline-block;
+   margin: 1.5em;
+   display: none;
+   width: 8em;
+   border-radius: 5%;
+}
+.x{
+   float: right;
+   display: inline-block;
+   margin-right: 0.3em;
+   font-size: 1.5em;
+}
+.note{
+    padding: 1em;
 }
 </style>
 
@@ -161,6 +189,11 @@
             <div style="clear:both"></div>
         </div>
     </div>
+	<div class="notify" id="notify">
+        <div class="x">&times;</div>	
+	    <div style="clear:both"></div>
+	    <div class="note" id="note">test</div>
+	</div>
     <div style="clear:both"></div>
     <div class="score-box">
         <div class="score-heading">Score:</div>
@@ -208,6 +241,10 @@ yPrev = posY;
 document.getElementById(posIds[posX][posY]).style.borderColor = CURRENT_COLOUR_MARKER;
 
 var points = 0;
+
+var notice = document.getElementById("notify");
+
+var xClose = document.getElementsByClassName("x")[0];
 
 for(let i=0; i<6; i++){
 	posValues[i] = [];
@@ -278,14 +315,16 @@ function move(x,y){
                 document.getElementById('score').innerHTML = points;
               }
               else{
-                  alert("You may only move to a square that has the same number or the same colour as the one you are on.");
+                 // alert("You may only move to a square that has the same number or the same colour as the one you are on.");
 				  alert(posValues[x][y].number);
 				  alert("prev=" + posValues[xPrev][yPrev].number);
+				  notifyUser("You may only move to a square that has the same number or the same colour as the one you are on.");
 				  
               }
 	}
 	else{
-	    alert("You may not move more than one square at a time. Please try again.");
+	  //  alert("You may not move more than one square at a time. Please try again.");
+		notifyUser("You may not move more than one square at a time. Please try again.");
 	}
 }
 
@@ -308,11 +347,20 @@ function record(x,y){
 			}		
 	  }
 	  else{
-	        alert("Sorry, you may not make another trade at this time, your initial 5 free trades have all been used.");
+	        //alert("Sorry, you may not make another trade at this time, your initial 5 free trades have all been used.");
+			notifyUser("Sorry, you may not make another trade at this time, your initial 5 free trades have all been used.");
 	  }
 }
 
- 
+ function notifyUser(msg) { 
+   document.getElementById('note').innerHTML = msg;
+   notice.style.display = "inline-block";
+}
+
+xClose.onclick = function() {
+  notice.style.display = "none";
+}
+
 </script>
 
 </body>
