@@ -43,6 +43,16 @@ body {
     float: left;
     background-color: #eeeeee;
     width: 2.5em;
+    position: relative;
+}
+.seats-label{
+    color: white;
+    margin-top: -1.2em;
+}
+.xlabel{
+    position: absolute;
+    bottom: 0;   
+    margin-bottom: -1.1em;
 }
 </style>
 </head>
@@ -91,7 +101,7 @@ electionDataNB[1] = {party:"Lib", seats:21, popvote:37.8, colour:"#f00"};
 electionDataNB[2] = {party:"Grn", seats:3, popvote:11.9, colour:"#0c0"};
 electionDataNB[3] = {party:"PA", seats:3, popvote:12.6, colour:"#80f"};
 
-electionDataCan[0] = {party:"lib", seats:184, popvote:39.5, colour:"#f00"};
+electionDataCan[0] = {party:"Lib", seats:184, popvote:39.5, colour:"#f00"};
 electionDataCan[1] = {party:"Con", seats:99, popvote:31.9, colour:"#00f"};
 electionDataCan[2] = {party:"NDP", seats:44, popvote:19.7, colour:"#f72"};
 electionDataCan[3] = {party:"BQ", seats:10, popvote:4.7, colour:"#0ff"};
@@ -109,7 +119,11 @@ function handleRadioBtns(election, electData){
       document.getElementById("title-data").innerHTML = election;
 	  
 	  for(let i=0; i<electData.length; i++){
-	     columns +=  `<div class="seats-bar"> </div>`
+	     columns +=  `<div class="seats-bar">
+                               <div class="seats-label">` + electData[i].seats + `</div>
+                               <div class="xlabel">` + electData[i].party + `</div>
+                          </div>`
+     
       }
 	  
 	  document.getElementById("seats-bar-list").innerHTML = columns;
