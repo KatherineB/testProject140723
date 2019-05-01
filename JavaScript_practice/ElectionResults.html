@@ -18,7 +18,7 @@ body {
     text-align: center;
 }
 .title{
-    font-size: 1.6em;
+    font-size: 2em;
 }
 .radio-btn-list{
     font-size: 0.8em;
@@ -29,12 +29,20 @@ body {
     text-align: left;
 }
 .title-data{
-    font-size: 1.1em;
+    font-size: 2em;
     font-weight: bold;
-    margin-top: 2em;
+    margin-top: 1.5em;
 }
-.graph{
-    margin-top: 0.5em;
+.sub-title{
+    margin-top: 0.0em;
+	font-size: 1.8em;
+}
+.seats-box{
+    display: inline-block;
+	padding: 1.0em;
+}
+.seats-graph{
+    margin-top: 0.0em;
     background-color: #888;
     display: inline-block;
     height: 16em;
@@ -50,7 +58,36 @@ body {
     margin-top: -1.2em;
 	font-size: 0.9em;
 }
-.xlabel{
+.seats-xlabel{
+    position: absolute;
+    bottom: 0;   
+    margin-bottom: -1.2em;
+	width: 3.1em;
+	font-size: 0.8em;
+	text-align: center;
+}
+.popvote-box{
+    display: inline-block;
+	padding: 1.0em;
+}
+.popvote-graph{
+    margin-top: 0.0em;
+    background-color: #888;
+    display: inline-block;
+    height: 16em;
+}
+.popvote-bar{
+    float: left;
+    background-color: #eeeeee;
+    width: 2.5em;
+    position: relative;
+}
+.popvote-label{
+    color: white;
+    margin-top: -1.2em;
+	font-size: 0.9em;
+}
+.popvote-xlabel{
     position: absolute;
     bottom: 0;   
     margin-bottom: -1.2em;
@@ -77,9 +114,21 @@ body {
 </div>	
 	
 <div class="title-data" id="title-data"></div>
-<div class="graph"> 
-	 <div id= "seats-bar-list"></div>
-     <div style="clear:both"></div>
+<div class="graphs"> 
+      <div class="seats-box">
+            <div class="sub-title">Seats</div>
+			 <div class="seats-graph">
+					<div id= "seats-bar-list"></div>
+			 </div>
+			 <div style="clear:both"></div>
+	  </div>
+	   <div class="popvote-box">
+            <div class="sub-title">Popular Vote</div>
+			 <div class="popvote-graph">
+					<div id= "popvote-bar-list"></div>
+			 </div>
+			 <div style="clear:both"></div>
+	  </div>
 </div>
 
 <script type="text/javascript">
@@ -89,6 +138,8 @@ let electionDataOnt = [];
 let electionDataCan = [];
 const seatsGraphHeightFactor = 16;
 const seatsBarHeightFactor = 1.15;
+const popvoteGraphHeightFactor = 16;
+const popvoteBarHeightFactor = 1.15;
 
 d3.csv("/Data/ElectionResults_2018_Ont.csv", function(data) {
   console.log(data[0]);
@@ -118,25 +169,46 @@ handleRadioBtns('Canada Election 2015', electionDataCan);
 function handleRadioBtns(election, electData){
 	   
 	   seatsScale = (electData[0].seats * seatsBarHeightFactor)/seatsGraphHeightFactor;
+	   popvoteScale = (electData[0].popvote * popvoteBarHeightFactor)/popvoteGraphHeightFactor;
 	   
-      let columns = '';
+      let seatsColumns = '';
+	  let popvoteColumns = '';
+	  
       document.getElementById("title-data").innerHTML = election;
 	  
 	  for(let i=0; i<electData.length; i++){
-	     columns +=  `<div class="seats-bar">
+	     seatsColumns +=  `<div class="seats-bar">
                                <div class="seats-label">` + electData[i].seats + `</div>
-                               <div class="xlabel">` + electData[i].party + `</div>
+                               <div class="seats-xlabel">` + electData[i].party + `</div>
                           </div>`
      
       }
 	  
-	  document.getElementById("seats-bar-list").innerHTML = columns;
+	  document.getElementById("seats-bar-list").innerHTML = seatsColumns;
 	
 	   d3.selectAll(".seats-bar") 
 		  .data(electData)   
 			  .style("height", function(d) { return d.seats/seatsScale + "em"; }) 
 			  .style("background-color",function(d) {return d.colour;})
 			  .style("margin-top",function(d) {return seatsGraphHeightFactor-(d.seats/seatsScale) + "em";});
+			  
+			  
+			  
+		for(let i=0; i<electData.length; i++){
+	     popvoteColumns +=  `<div class="popvote-bar">
+                               <div class="popvote-label">` + electData[i].popvote + `</div>
+                               <div class="popvote-xlabel">` + electData[i].party + `</div>
+                          </div>`
+     
+      }
+	  
+	  document.getElementById("popvote-bar-list").innerHTML = popvoteColumns;
+	
+	   d3.selectAll(".popvote-bar") 
+		  .data(electData)   
+			  .style("height", function(d) { return d.popvote/popvoteScale + "em"; }) 
+			  .style("background-color",function(d) {return d.colour;})
+			  .style("margin-top",function(d) {return popvoteGraphHeightFactor-(d.popvote/popvoteScale) + "em";});
 
 }
 
