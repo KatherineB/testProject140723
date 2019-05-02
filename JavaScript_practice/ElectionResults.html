@@ -9,9 +9,9 @@
 @media (min-width: 320px) {body {font-size: 14px;} }
 @media (min-width: 423px) {body {font-size: 17px;} }
 @media (min-width: 526px) {body {font-size: 20px;} }
-@media (min-width: 768px) {body {font-size: 23px;} }
+/*@media (min-width: 768px) {body {font-size: 23px;} }
 @media (min-width: 992px) {body {font-size: 28px;} }
-@media (min-width: 1200px) {body {font-size: 34px;} }
+@media (min-width: 1200px) {body {font-size: 34px;} }*/
 
 body {
     font-family: arial, verdana, sans-serif;
@@ -29,13 +29,13 @@ body {
     text-align: left;
 }
 .title-data{
-    font-size: 2em;
+    font-size: 1.4em;
     font-weight: bold;
     margin-top: 1.5em;
 }
 .sub-title{
     margin-top: 0.0em;
-	font-size: 1.8em;
+	font-size: 1.2em;
 }
 .seats-box{
     display: inline-block;
@@ -167,12 +167,13 @@ handleRadioBtns('Canada Election 2015', electionDataCan);
   
 
 function handleRadioBtns(election, electData){
-	   
-	   seatsScale = (electData[0].seats * seatsBarHeightFactor)/seatsGraphHeightFactor;
-	   popvoteScale = (electData[0].popvote * popvoteBarHeightFactor)/popvoteGraphHeightFactor;
-	   
-      let seatsColumns = '';
+	  let seatsColumns = '';
 	  let popvoteColumns = '';
+      let maxPopvote = 0;  
+
+	seatsScale = (electData[0].seats * seatsBarHeightFactor)/seatsGraphHeightFactor;
+	   
+        
 	  
       document.getElementById("title-data").innerHTML = election;
 	  
@@ -180,8 +181,7 @@ function handleRadioBtns(election, electData){
 	     seatsColumns +=  `<div class="seats-bar">
                                <div class="seats-label">` + electData[i].seats + `</div>
                                <div class="seats-xlabel">` + electData[i].party + `</div>
-                          </div>`
-     
+                          </div>`   
       }
 	  
 	  document.getElementById("seats-bar-list").innerHTML = seatsColumns;
@@ -199,10 +199,14 @@ function handleRadioBtns(election, electData){
                                <div class="popvote-label">` + electData[i].popvote + `</div>
                                <div class="popvote-xlabel">` + electData[i].party + `</div>
                           </div>`
-     
+						  
+               /* this is because the party with the greatest popular vote is not always the one that gets the most seats */
+                     maxPopvote = (electData[i].popvote) > maxPopvote ? electData[i].popvote : maxPopvote;
       }
+
+       popvoteScale = (maxPopvote * popvoteBarHeightFactor)/popvoteGraphHeightFactor;
 	  
-	  document.getElementById("popvote-bar-list").innerHTML = popvoteColumns;
+	   document.getElementById("popvote-bar-list").innerHTML = popvoteColumns;
 	
 	   d3.selectAll(".popvote-bar") 
 		  .data(electData)   
