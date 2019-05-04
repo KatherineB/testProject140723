@@ -136,10 +136,8 @@ body {
 let electionDataNB = [];
 let electionDataOnt = [];
 let electionDataCan = [];
-const seatsGraphHeightFactor = 16;
-const seatsBarHeightFactor = 1.15;
-const popvoteGraphHeightFactor = 16;
-const popvoteBarHeightFactor = 1.15;
+const graphHeightFactor = 16;
+const barHeightFactor = 1.15;
 
 d3.csv("/Data/ElectionResults_2018_Ont.csv", function(data) {
   console.log(data[0]);
@@ -171,7 +169,7 @@ function handleRadioBtns(election, electData){
 	  let popvoteColumns = '';
       let maxPopvote = 0;  
 
-	seatsScale = (electData[0].seats * seatsBarHeightFactor)/seatsGraphHeightFactor;
+ 	  let seatsScale = (electData[0].seats * barHeightFactor)/graphHeightFactor;
 	   
         
 	  
@@ -190,7 +188,7 @@ function handleRadioBtns(election, electData){
 		  .data(electData)   
 			  .style("height", function(d) { return d.seats/seatsScale + "em"; }) 
 			  .style("background-color",function(d) {return d.colour;})
-			  .style("margin-top",function(d) {return seatsGraphHeightFactor-(d.seats/seatsScale) + "em";});
+			  .style("margin-top",function(d) {return graphHeightFactor-(d.seats/seatsScale) + "em";});
 			  
 			  
 			  
@@ -204,7 +202,7 @@ function handleRadioBtns(election, electData){
                      maxPopvote = (electData[i].popvote) > maxPopvote ? electData[i].popvote : maxPopvote;
       }
 
-       popvoteScale = (maxPopvote * popvoteBarHeightFactor)/popvoteGraphHeightFactor;
+       let popvoteScale = (maxPopvote * barHeightFactor)/graphHeightFactor;
 	  
 	   document.getElementById("popvote-bar-list").innerHTML = popvoteColumns;
 	
@@ -212,7 +210,7 @@ function handleRadioBtns(election, electData){
 		  .data(electData)   
 			  .style("height", function(d) { return d.popvote/popvoteScale + "em"; }) 
 			  .style("background-color",function(d) {return d.colour;})
-			  .style("margin-top",function(d) {return popvoteGraphHeightFactor-(d.popvote/popvoteScale) + "em";});
+			  .style("margin-top",function(d) {return graphHeightFactor-(d.popvote/popvoteScale) + "em";});
 
 }
 
