@@ -100,7 +100,7 @@ body {
 <body>
 <div class="title">Election Results</div>
 <div class="radio-btn-list">
-    <form id="radio-btns">
+    <form name="radioBtns">
 	      <div>
 				<input type="radio" name="results" onClick="handleRadioBtns('Canada Election 2015', electionDataCan)" value="can2018" checked> Canada Election 2015
 			</div>
@@ -161,6 +161,7 @@ electionDataCan[3] = {party:"BQ", seats:10, popvote:4.7, colour:"#0ff"};
 electionDataCan[4] = {party:"Grn", seats:1, popvote:3.5, colour:"#0f0"};
 
 	  
+document.radioBtns.results[0].checked=true;
 handleRadioBtns('Canada Election 2015', electionDataCan);
   
 
