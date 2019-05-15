@@ -146,61 +146,7 @@ body{
             <div style="clear:both"></div>
         </div>
     </div>
-<!--	<div class="options-grid">
-        <div class="options-row">
-            <div class="option" id='op00' onClick="record(0,0)"> </div>
-            <div class="option" id='op01' onClick="record(0,1)"> </div>
-            <div class="option" id='op02' onClick="record(0,2)"> </div>
-            <div class="option" id='op03' onClick="record(0,3)"> </div>
-            <div class="option" id='op04' onClick="record(0,4)"> </div>
-            <div class="option" id='op05' onClick="record(0,5)"> </div>
-            <div style="clear:both"></div>
-        </div>
-        <div class="options-row">
-            <div class="option" id='op10' onClick="record(1,0)"> </div>
-            <div class="option" id='op11' onClick="record(1,1)"> </div>
-            <div class="option" id='op12' onClick="record(1,2)"> </div>
-            <div class="option" id='op13' onClick="record(1,3)"> </div>
-            <div class="option" id='op14' onClick="record(1,4)"> </div>
-            <div class="option" id='op15' onClick="record(1,5)"> </div>
-            <div style="clear:both"></div>
-        </div>
-        <div class="options-row">
-            <div class="option" id='op20' onClick="record(2,0)"> </div>
-            <div class="option" id='op21' onClick="record(2,1)"> </div>
-            <div class="option" id='op22' onClick="record(2,2)"> </div>
-            <div class="option" id='op23' onClick="record(2,3)"> </div>
-            <div class="option" id='op24' onClick="record(2,4)"> </div>
-            <div class="option" id='op25' onClick="record(2,5)"> </div>
-            <div style="clear:both"></div>
-        </div>
-        <div class="options-row">
-            <div class="option" id='op30' onClick="record(3,0)"> </div>
-            <div class="option" id='op31' onClick="record(3,1)"> </div>
-            <div class="option" id='op32' onClick="record(3,2)"> </div>
-            <div class="option" id='op33' onClick="record(3,3)"> </div>
-            <div class="option" id='op34' onClick="record(3,4)"> </div>
-            <div class="option" id='op35' onClick="record(3,5)"> </div>
-            <div style="clear:both"></div>
-        </div>
-        <div class="options-row">
-            <div class="option" id='op40' onClick="record(4,0)"> </div>
-            <div class="option" id='op41' onClick="record(4,1)"> </div>
-            <div class="option" id='op42' onClick="record(4,2)"> </div>
-            <div class="option" id='op43' onClick="record(4,3)"> </div>
-            <div class="option" id='op44' onClick="record(4,4)"> </div>
-            <div class="option" id='op45' onClick="record(4,5)"> </div>
-            <div style="clear:both"></div>
-        </div>
-        <div class="options-row">
-            <div class="option" id='op50' onClick="record(5,0)"> </div>
-            <div class="option" id='op51' onClick="record(5,1)"> </div>
-            <div class="option" id='op52' onClick="record(5,2)"> </div>
-            <div class="option" id='op53' onClick="record(5,3)"> </div>
-            <div class="option" id='op54' onClick="record(5,4)"> </div>
-            <div class="option" id='op55' onClick="record(5,5)"> </div>
-            <div style="clear:both"></div>
-        </div>-->
+
     </div>
 	<div class="notify" id="notify">
         <div class="x">&times;</div>	
@@ -371,6 +317,7 @@ function move(x,y){
 function swap(x,y){
       if(initialSwaps < INITIAL_SWAP_LIMIT){
 			if (firstPairSet){
+			   document.getElementById(posIds[a][b]).style.opacity = "1";
 			   let shelfNumber = posValues[x][y].number; 
 			   posValues[x][y].number = posValues[a][b].number;
 			   posValues[a][b].number = shelfNumber;
@@ -389,6 +336,7 @@ function swap(x,y){
 			else{
 			   a = x;
 			   b = y;
+			   document.getElementById(posIds[a][b]).style.opacity = "0.3";
 			   firstPairSet = 1;			    
 			}	     			
 	  }
