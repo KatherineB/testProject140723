@@ -299,13 +299,13 @@ function handleSwapBtn(){
           document.getElementById('swap').style.backgroundColor = "#afa";
           document.getElementById('squares-grid').style.borderColor = "#134";
           swapOn = false;
-          alert("Swap Mode now off");
+         // alert("Swap Mode now off");
        }
        else{
           document.getElementById('swap').style.backgroundColor = "#8ff";
           document.getElementById('squares-grid').style.borderColor = "#8ff";
           swapOn = true;
-          alert("Swap Mode now on");
+          //alert("Swap Mode now on");
        }
 }
 
@@ -371,20 +371,26 @@ function move(x,y){
 function swap(x,y){
       if(initialSwaps < INITIAL_SWAP_LIMIT){
 			if (firstPairSet){
-			   let shelf = posValues[x][y].number; 
+			   let shelfNumber = posValues[x][y].number; 
 			   posValues[x][y].number = posValues[a][b].number;
-			   posValues[a][b].number = shelf;
+			   posValues[a][b].number = shelfNumber;
 			   document.getElementById(posIds[a][b]).innerHTML = posValues[a][b].number;
 			   document.getElementById(posIds[x][y]).innerHTML = posValues[x][y].number;
+			   let shelfColour = posValues[x][y].colour; 
+			   posValues[x][y].colour = posValues[a][b].colour;
+			   posValues[a][b].colour = shelfColour;
+			   document.getElementById(posIds[a][b]).style.backgroundColor = posValues[a][b].colour;
+			   document.getElementById(posIds[x][y]).style.backgroundColor = posValues[x][y].colour;
 			   firstPairSet = 0;
 			   initialSwaps++;
-			   alert("Number of swaps made:" + initialSwaps);
+			  // alert("Number of swaps made:" + initialSwaps);
+			   handleSwapBtn();
 			}
 			else{
 			   a = x;
 			   b = y;
-			   firstPairSet = 1;
-			}		
+			   firstPairSet = 1;			    
+			}	     			
 	  }
 	  else{	       
 			notifyUser("Sorry, you may not make another swap at this time, your initial 5 free swaps have all been used.");
