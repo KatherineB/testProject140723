@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="Simnitor.css">
 </head>
 <body>
+
 <div class="main-title">Simnitor</div>
 <div class="content">
 		<div class="panels">
@@ -14,8 +15,9 @@
 				     <button type="button" class="update-btn">Update Status</button>
 			      </div>
 				  <div class="stat-label">Status</div>
-				  <div class="stat"></div>
+				  <div class="stat" id="stat-1"></div>
 				  <div class="details-label">Details</div>
+				  <div class="details-text" id="det-1"></div>
 					   
 			</div>
 			<div class="sect">
@@ -24,8 +26,9 @@
 				     <button type="button" class="update-btn">Update Status</button>
 			      </div>
 				  <div class="stat-label">Status</div>
-				  <div class="stat"></div>
+				  <div class="stat" id="stat-2"></div>
 				  <div class="details-label">Details</div>
+				  <div class="details-text" id="det-2"></div>
 			</div>
 			<div class="sect">
 				  <div class="heading">NZWI-16 System</div>
@@ -33,8 +36,9 @@
 				     <button type="button" class="update-btn">Update Status</button>
 			      </div>
 				  <div class="stat-label">Status</div>
-				  <div class="stat"></div>
+				  <div class="stat" id="stat-3"></div>
 				  <div class="details-label">Details</div>
+				  <div class="details-text" id="det-3"></div>
 			</div>
 						<div class="sect">
 				  <div class="heading">MX7315 System</div>
@@ -42,8 +46,9 @@
 				     <button type="button" class="update-btn">Update Status</button>
 			      </div>
 				  <div class="stat-label">Status</div>
-				  <div class="stat"></div>
+				  <div class="stat" id="stat-4"></div>
 				  <div class="details-label">Details</div>
+				  <div class="details-text" id="det-4"></div>
 					   
 			</div>
 			<div class="sect">
@@ -52,8 +57,9 @@
 				     <button type="button" class="update-btn">Update Status</button>
 			      </div>
 				  <div class="stat-label">Status</div>
-				  <div class="stat"></div>
+				  <div class="stat" id="stat-5"></div>
 				  <div class="details-label">Details</div>
+				  <div class="details-text" id="det-5"></div>
 			</div>
 			<div class="sect">
 				  <div class="heading">DKL-90 System</div>
@@ -61,9 +67,57 @@
 				     <button type="button" class="update-btn">Update Status</button>
 			      </div>
 				  <div class="stat-label">Status</div>
-				  <div class="stat"></div>
+				  <div class="stat" id="stat-6"></div>
 				  <div class="details-label">Details</div>
+				  <div class="details-text" id="det-6"></div>
 			</div>
 		</div>
 </div>
+<script type="text/javascript">
+        var workers = [];
+		
+		for(var i=0; i<6; i++){
+		    workers[i] = new Worker('simnitor_worker.js');
+		} 
+		    
+		workers[0].onmessage = function(evt) {
+		const data = evt.data;
+		document.getElementById("stat-1").style.backgroundColor = data.colour;
+	    document.getElementById("det-1").innerHTML = data.details;
+		}
+		
+		workers[1].onmessage = function(evt) {
+		const data = evt.data;
+		document.getElementById('stat-2').style.backgroundColor = data.colour;
+		document.getElementById('det-2').innerHTML = data.details;
+		} 
+		
+		workers[2].onmessage = function(evt) {
+		const data = evt.data;
+		document.getElementById("stat-3").style.backgroundColor = data.colour;
+	    document.getElementById("det-3").innerHTML = data.details;
+		}
+		
+		workers[3].onmessage = function(evt) {
+		const data = evt.data;
+		document.getElementById('stat-4').style.backgroundColor = data.colour;
+		document.getElementById('det-4').innerHTML = data.details;
+		} 
+		
+		workers[4].onmessage = function(evt) {
+		const data = evt.data;
+		document.getElementById("stat-5").style.backgroundColor = data.colour;
+	    document.getElementById("det-5").innerHTML = data.details;
+		}
+		
+		workers[5].onmessage = function(evt) {
+		const data = evt.data;
+		document.getElementById('stat-6').style.backgroundColor = data.colour;
+		document.getElementById('det-6').innerHTML = data.details;
+		} 
+		
+		
+		
+	//	worker1.postMessage("standing by");
+</script>
 </body>
