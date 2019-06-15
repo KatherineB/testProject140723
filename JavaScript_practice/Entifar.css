@@ -1,0 +1,98 @@
+/* Entifar.html CSS*/
+
+body{
+   background-color: #888;
+   font-family: verdana, tahoma, arial;
+   text-align: center;
+   color: #fff;
+}
+
+.main-content{
+	display: inline-block;
+}
+.main-title{
+   font-size: 2em;
+   font-weight: bold;  
+}
+.btn-box{
+	margin-top: 1.5em;	
+}
+.btn{
+	margin-left: 1em;
+	margin-right: 1em;
+    width: 6em;
+    height: 1.5em;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;  
+	color: #fff;
+}
+#move{
+	background-color: #729;
+}
+#progress{
+	background-color: #383;
+}
+#setback{
+	background-color: #623;
+}
+#chance{
+	background-color: #992;
+}
+.play-area{
+   margin-top: 1.5em;
+   display: grid;
+   width: 63em;  
+   grid-template-columns: 9em 9em 9em 9em 9em 9em 9em;
+   grid-template-rows: 9em 9em 9em;
+   grid-gap: 0em;
+   margin-bottom: 2.5em;
+}
+.square{
+	padding: 0.5em;
+    border-radius: 12px;
+	height: 7em;
+}
+.square-label{
+	font-size: 1.3em;
+}
+.sq-st{
+	background-color: #729;
+}
+.sq-pr{
+	background-color: #383;
+}
+.sq-se{
+	background-color: #623;
+}
+.sq-c{
+	background-color: #a93;
+}
+#sq-7{
+	margin-top: 0.5em;
+}
+#sq-14{
+	margin-top: -0.5em;
+}
+#sq-8{
+	margin-top: 0.5em;
+}
+#sq-15{
+	margin-top: -0.5em;
+}
+
+.marker{
+	margin-top: 0.2em;
+	font-size: 1.1em;
+	font-weight: bold;
+	width: 3em;
+	height: 3em;
+	border-radius: 50%;
+	background-color: #6cc;
+	display: inline-block;
+}
+
+
+
+	}
+}
