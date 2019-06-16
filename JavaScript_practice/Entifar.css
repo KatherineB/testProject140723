@@ -91,8 +91,25 @@ body{
 	background-color: #6cc;
 	display: inline-block;
 }
-
-
-
-	}
+.popup{
+	width: 20em;
+	height: 15em;
+	background-color: #999;
+	display: none;
+	position: absolute;
+	/*display: inline-block;*/
+	left: 20em;
+	top: 10em;
+	padding: 0.2em;
+	border-radius: 15px;
+}
+.x{
+	text-align: right;
+	font-size: 2.5em;
+	padding-top: 0.0em;
+	padding-right: 0.4em;
+}
+.note{
+	padding: 0.5em;
+	text-align: left;
 }

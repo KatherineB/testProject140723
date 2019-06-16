@@ -9,10 +9,10 @@
 <div class="main-content">
         <div class="main-title">Entifar</div>
 		<div class="btn-box">
-				<button type="button" class="btn" id="move" >Move</button>
-				<button type="button" class="btn" id="progress">Progress</button>
-				<button type="button" class="btn" id="setback">Setback</button>
-				<button type="button" class="btn" id="chance">Chance</button>
+				<button type="button" class="btn" id="move" onclick="displayNote('#729','2.5em')">Move</button>
+				<button type="button" class="btn" id="progress" onclick="displayNote('#383','1.5em')">Progress</button>
+				<button type="button" class="btn" id="setback" onclick="displayNote('#623','1.5em')">Setback</button>
+				<button type="button" class="btn" id="chance" onclick="displayNote('#992','1.5em')">Chance</button>
 		</div>
 
 		<div class="play-area">
@@ -105,7 +105,56 @@
 			
 		</div>
 </div>
+<div class="popup" id="popup">
+	  <div class="x" onclick="hideNote()">&times;</div>	
+	  <div style="clear:both"></div>
+	  <div class="note" id="note">test</div>
+</div>
 <script>
-       
+var moves = ["Please move 1 square.", "Pleae move 2 squares.", "Please move 3 squares."];
+var progress = ["Something from a paper that you read ten years ago helped you to solve a big problem. Move forward 3 squares.",
+                "A much wanted new piece of equipment arrived at your lab. Move forward 1 square.",
+				"Someone you ate with at lunch reccomended a useful website for researchers. Move forward 1 square.",
+				"Your latest test results were quite promising. Move forward 2 squares.",
+				"Someone spoke respectfully about your last paper. Move forward 2 squares."
+                ];
+var setbacks = ["The lab equipment was calibrated wrongly for your last two test runs. Go back 3 squares.",
+                "A misunderstanding has caused a quarrel between you and another researcher. Move back 1 square.",
+				"You forgot to acknowledge someone properly in a public speech. Move back 2 squares.",
+				"Funding for your project has been delayed by a month. Move back 2 squares.",
+				"You accidentally overwrote a file that hadn't been backed up yet. Move back 3 squares."
+             ];
+var chance = ["Someone else took credit for some of your work. Move back 2 squares.",
+               "You spilled your drink on a favourite reference book. Move back 2 squares.",
+			   "A good friend of yours now works just one floor above you. Move forward 2 squares.",
+			   "Better food is now available in your workplace. Move forward 2 squares."
+              ];
+
+function displayNote(colour, fontsize){      
+      document.getElementById("popup").style.display = "inline-block";
+	  document.getElementById("popup").style.backgroundColor = colour;
+	  document.getElementById("note").style.fontSize = fontsize;  
+	  
+	  if(colour === '#729'){
+	        var move = Math.floor(Math.random() * moves.length);
+			document.getElementById("note").innerHTML = moves[move];
+	  }
+	  else if(colour === '#383'){
+	        var pro = Math.floor(Math.random() * progress.length);
+			document.getElementById("note").innerHTML = progress[pro];
+	  }
+	  else if(colour === '#623'){
+	        var set = Math.floor(Math.random() * setbacks.length);
+			document.getElementById("note").innerHTML = setbacks[set];
+	  }
+	  else if(colour === '#992'){
+	        var cha = Math.floor(Math.random() * chance.length);
+			document.getElementById("note").innerHTML = chance[cha];
+	  }
+}
+function hideNote(){
+    // alert('in function');
+	document.getElementById("popup").style.display = "none";
+}       
 </script>
 </body>
