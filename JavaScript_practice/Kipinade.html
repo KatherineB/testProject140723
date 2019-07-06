@@ -6,7 +6,7 @@
 @media (min-width: 280px) {body {font-size: 12px;} }
 @media (min-width: 320px) {body {font-size: 14px;} }
 @media (min-width: 423px) {body {font-size: 15px;} }
-@media (min-width: 526px) {body {font-size: 17px;} }
+@media (min-width: 526px) {body {font-size: 17px;} }l
 @media (min-width: 768px) {body {font-size: 22px;} }
 @media (min-width: 992px) {body {font-size: 25px;} }
 @media (min-width: 1200px) {body {font-size: 29px;} }
@@ -15,25 +15,26 @@ body{
     background-color: #134;
 	color: #fff;
 	font-family: arial, verdana, "sans-serif";
+	
 }
 .top-heading{
     font-size: 2.0em;
 	text-align: center;
 }
-.k-btn{
-    background-color: #afa;
-    color: #000;
-    width: 7em;
-    height: 2em;
-    border: none;
-    border-radius: 15px;
-    font-size: 0.8em;
-    
+.play-area{
+  /* background-color: lime; */
+   margin-top: 1.5em;
+  /* padding: 0.5em;*/
+   width: 17.5em;
+   float: left;
+   display: inline-block;
 }
+
 .squares-grid{
-     display: block;
-	 float: left;
-	 margin: 1.5em;
+   /*  display: block;*/
+	/* float: left;*/
+	 
+	 width: 14.8em;
      background-color: #aaa;
      padding: 0.2em;
      border: 0.5em solid #134;
@@ -50,35 +51,68 @@ body{
 	font-weight: bold;
     font-size: 1em;
 }
-.options-grid{
-    display: block;
+
+.controls-info{
+   /* background-color: aqua;*/
+    margin-top: 2em;
+	width: 22em;
 	float: left;
-	margin: 1.5em;
+	display: inline-block;
 }
-.option{
-    height: 1.3em;
-    width: 1.3em;
-    border: 0.1em solid #998;
-    display: inline-block;
-	text-align: center;
+.swap-btn{
+    background-color: #afa;
+    color: #000;
+    width: 7em;
+    height: 2em;
+    border: none;
+    border-radius: 15px;
+    font-size: 0.8em;
+}
+.info-box{
+}
+.stats-box{
+   float: left;
+   display: inline-block;
+  /* background-color: yellow;*/
+}
+.stats-grid{
+    margin-top: 1.5em;
+   display: grid;
+   width: 12em;  
+   grid-template-columns: 8em 2em ;
+   grid-template-rows: 1em 1em 1em 1em;
+   grid-gap: 0.5em;
+   margin-bottom: 1.5em;
+}
+.stats-heading{
+  font-size: 0.8em;
+}
+.stats{
+  font-size: 0.8em;
+  text-align: right;
 }
 .notify{
    background-color: #faa;
    color: #000;
-   display: inline-block;
-   margin: 1.5em;
-   display: none;
-   width: 8em;
+ /*  float: left; */
+ /*  margin: 1.5em;*/
+  /* display: none;*/
+   width: 10em;
    border-radius: 5%;
+   display: inline-block;
 }
 .x{
-   float: right;
+  /* background-color: orange;*/
+   width: 98%;
+   text-align: right;
    display: inline-block;
-   margin-right: 0.3em;
    font-size: 1.5em;
 }
 .note{
-    padding: 1em;
+    padding: 0em;
+	font-size: 0.9em;
+	/*background-color: blue;*/
+	padding: 0 0.7em 0.7em 0.7em;
 }
 </style>
 
@@ -87,77 +121,95 @@ body{
 
 <div class="main-div">
     <div class="top-heading">Kipinade</div>
-    <div class="button-box">
-       <button type="button" class="k-btn" id="swap" onclick="handleSwapBtn()">Swap Mode</button>
-    </div>
-    <div class="squares-grid" id="squares-grid">
-        <div class="squares-row">
-			 <div class="square" id='s00' onClick="modeDetect(0,0)"> </div>
-            <div class="square" id='s01' onClick="modeDetect(0,1)"> </div>
-            <div class="square" id='s02' onClick="modeDetect(0,2)"> </div>
-            <div class="square" id='s03' onClick="modeDetect(0,3)"> </div>
-            <div class="square" id='s04' onClick="modeDetect(0,4)"> </div>
-            <div class="square" id='s05' onClick="modeDetect(0,5)"> </div>
-            <div style="clear:both"></div>
-        </div>
-        <div class="squares-row">
-            <div class="square" id='s10' onClick="modeDetect(1,0)"> </div>
-            <div class="square" id='s11' onClick="modeDetect(1,1)"> </div>
-            <div class="square" id='s12' onClick="modeDetect(1,2)"> </div>
-            <div class="square" id='s13' onClick="modeDetect(1,3)"> </div>
-            <div class="square" id='s14' onClick="modeDetect(1,4)"> </div>
-            <div class="square" id='s15' onClick="modeDetect(1,5)"> </div>
-            <div style="clear:both"></div>
-        </div>
-        <div class="squares-row">
-            <div class="square" id='s20' onClick="modeDetect(2,0)"> </div>
-            <div class="square" id='s21' onClick="modeDetect(2,1)"> </div>
-            <div class="square" id='s22' onClick="modeDetect(2,2)"> </div>
-            <div class="square" id='s23' onClick="modeDetect(2,3)"> </div>
-            <div class="square" id='s24' onClick="modeDetect(2,4)"> </div>
-            <div class="square" id='s25' onClick="modeDetect(2,5)"> </div>
-            <div style="clear:both"></div>
-        </div>
-        <div class="squares-row">
-            <div class="square" id='s30' onClick="modeDetect(3,0)"> </div>
-            <div class="square" id='s31' onClick="modeDetect(3,1)"> </div>
-            <div class="square" id='s32' onClick="modeDetect(3,2)"> </div>
-            <div class="square" id='s33' onClick="modeDetect(3,3)"> </div>
-            <div class="square" id='s34' onClick="modeDetect(3,4)"> </div>
-            <div class="square" id='s35' onClick="modeDetect(3,5)"> </div>
-            <div style="clear:both"></div>
-        </div>
-        <div class="squares-row">
-            <div class="square" id='s40' onClick="modeDetect(4,0)"> </div>
-            <div class="square" id='s41' onClick="modeDetect(4,1)"> </div>
-            <div class="square" id='s42' onClick="modeDetect(4,2)"> </div>
-            <div class="square" id='s43' onClick="modeDetect(4,3)"> </div>
-            <div class="square" id='s44' onClick="modeDetect(4,4)"> </div>
-            <div class="square" id='s45' onClick="modeDetect(4,5)"> </div>
-            <div style="clear:both"></div>
-        </div>
-        <div class="squares-row">
-            <div class="square" id='s50' onClick="modeDetect(5,0)"> </div>
-            <div class="square" id='s51' onClick="modeDetect(5,1)"> </div>
-            <div class="square" id='s52' onClick="modeDetect(5,2)"> </div>
-            <div class="square" id='s53' onClick="modeDetect(5,3)"> </div>
-            <div class="square" id='s54' onClick="modeDetect(5,4)"> </div>
-            <div class="square" id='s55' onClick="modeDetect(5,5)"> </div>
-            <div style="clear:both"></div>
-        </div>
-    </div>
+	<div class="play-area">
+			<div class="squares-grid" id="squares-grid">
+				<div class="squares-row">
+					 <div class="square" id='s00' onClick="modeDetect(0,0)"> </div>
+					<div class="square" id='s01' onClick="modeDetect(0,1)"> </div>
+					<div class="square" id='s02' onClick="modeDetect(0,2)"> </div>
+					<div class="square" id='s03' onClick="modeDetect(0,3)"> </div>
+					<div class="square" id='s04' onClick="modeDetect(0,4)"> </div>
+					<div class="square" id='s05' onClick="modeDetect(0,5)"> </div>
+					<div style="clear:both"></div>
+				</div>
+				<div class="squares-row">
+					<div class="square" id='s10' onClick="modeDetect(1,0)"> </div>
+					<div class="square" id='s11' onClick="modeDetect(1,1)"> </div>
+					<div class="square" id='s12' onClick="modeDetect(1,2)"> </div>
+					<div class="square" id='s13' onClick="modeDetect(1,3)"> </div>
+					<div class="square" id='s14' onClick="modeDetect(1,4)"> </div>
+					<div class="square" id='s15' onClick="modeDetect(1,5)"> </div>
+					<div style="clear:both"></div>
+				</div>
+				<div class="squares-row">
+					<div class="square" id='s20' onClick="modeDetect(2,0)"> </div>
+					<div class="square" id='s21' onClick="modeDetect(2,1)"> </div>
+					<div class="square" id='s22' onClick="modeDetect(2,2)"> </div>
+					<div class="square" id='s23' onClick="modeDetect(2,3)"> </div>
+					<div class="square" id='s24' onClick="modeDetect(2,4)"> </div>
+					<div class="square" id='s25' onClick="modeDetect(2,5)"> </div>
+					<div style="clear:both"></div>
+				</div>
+				<div class="squares-row">
+					<div class="square" id='s30' onClick="modeDetect(3,0)"> </div>
+					<div class="square" id='s31' onClick="modeDetect(3,1)"> </div>
+					<div class="square" id='s32' onClick="modeDetect(3,2)"> </div>
+					<div class="square" id='s33' onClick="modeDetect(3,3)"> </div>
+					<div class="square" id='s34' onClick="modeDetect(3,4)"> </div>
+					<div class="square" id='s35' onClick="modeDetect(3,5)"> </div>
+					<div style="clear:both"></div>
+				</div>
+				<div class="squares-row">
+					<div class="square" id='s40' onClick="modeDetect(4,0)"> </div>
+					<div class="square" id='s41' onClick="modeDetect(4,1)"> </div>
+					<div class="square" id='s42' onClick="modeDetect(4,2)"> </div>
+					<div class="square" id='s43' onClick="modeDetect(4,3)"> </div>
+					<div class="square" id='s44' onClick="modeDetect(4,4)"> </div>
+					<div class="square" id='s45' onClick="modeDetect(4,5)"> </div>
+					<div style="clear:both"></div>
+				</div>
+				<div class="squares-row">
+					<div class="square" id='s50' onClick="modeDetect(5,0)"> </div>
+					<div class="square" id='s51' onClick="modeDetect(5,1)"> </div>
+					<div class="square" id='s52' onClick="modeDetect(5,2)"> </div>
+					<div class="square" id='s53' onClick="modeDetect(5,3)"> </div>
+					<div class="square" id='s54' onClick="modeDetect(5,4)"> </div>
+					<div class="square" id='s55' onClick="modeDetect(5,5)"> </div>
+					<div style="clear:both"></div>
+				</div>
+			</div>
+	  </div>
 
-    </div>
-	<div class="notify" id="notify">
-        <div class="x">&times;</div>	
-	    <div style="clear:both"></div>
-	    <div class="note" id="note">test</div>
-	</div>
-    <div style="clear:both"></div>
-    <div class="score-box">
-        <div class="score-heading">Score:</div>
-        <div class="score" id="score"></div>
-    </div>
+   <div class="controls-info">
+	       <div class="button-box">
+			   <button type="button" class="swap-btn" id="swap" onclick="handleSwapBtn()">Swap Mode</button>
+			</div> 
+			<div class="info-box">				
+					 <div class="stats-box">
+					       <div class="stats-grid">
+								<div class="stats-heading">Moves:</div>
+								<div class="stats" id="moves"></div>
+								<div class="stats-heading">Initial Swaps Left:</div>
+								<div class="stats" id="i-swaps">5</div>
+								<div class="stats-heading">Bonus Swaps Left:</div>
+								<div class="stats" id="i-swaps">0</div>
+								<div class="stats-heading">Score:</div>
+								<div class="stats" id="i-swaps">1000</div>
+							</div>
+					</div>
+					
+					<div class="notify" id="notify">
+						<div class="x">&times;</div>	
+						<!--<div style="clear:both"></div> -->
+						<div class="note" id="note">test</div>
+					</div> 
+					<div style="clear:both"></div>
+			</div>
+	</div> 
+	
+	<!--<div class="controls-info">
+	           this is a test
+	</div> -->
 </div>
 <script type="text/javascript">
 
@@ -298,7 +350,7 @@ function move(x,y){
 		        xPrev = x;
 		        yPrev = y;
                 points++;
-                document.getElementById('score').innerHTML = points;
+                document.getElementById('moves').innerHTML = points;
               }
               else{
                  // alert("You may only move to a square that has the same number or the same colour as the one you are on.");
