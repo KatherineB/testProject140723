@@ -5,35 +5,27 @@
 <style>
 @media (min-width: 280px) {body {font-size: 12px;} }
 @media (min-width: 320px) {body {font-size: 14px;} }
-@media (min-width: 423px) {body {font-size: 15px;} }
-@media (min-width: 526px) {body {font-size: 17px;} }l
-@media (min-width: 768px) {body {font-size: 22px;} }
-@media (min-width: 992px) {body {font-size: 25px;} }
-@media (min-width: 1200px) {body {font-size: 29px;} }
+@media (min-width: 423px) {body {font-size: 16px;} }
+@media (min-width: 526px) {body {font-size: 21px;} }
+@media (min-width: 768px) {body {font-size: 21px;} }
+@media (min-width: 992px) {body {font-size: 21px;} }
 
 body{
     background-color: #134;
 	color: #fff;
 	font-family: arial, verdana, "sans-serif";
-	
+	text-align: center;
 }
 .top-heading{
     font-size: 2.0em;
-	text-align: center;
 }
 .play-area{
-  /* background-color: lime; */
    margin-top: 1.5em;
-  /* padding: 0.5em;*/
    width: 17.5em;
-   float: left;
    display: inline-block;
 }
 
 .squares-grid{
-   /*  display: block;*/
-	/* float: left;*/
-	 
 	 width: 14.8em;
      background-color: #aaa;
      padding: 0.2em;
@@ -53,10 +45,10 @@ body{
 }
 
 .controls-info{
-   /* background-color: aqua;*/
     margin-top: 2em;
 	width: 22em;
-	float: left;
+	vertical-align: top;
+	text-align: left;
 	display: inline-block;
 }
 .swap-btn{
@@ -73,14 +65,13 @@ body{
 .stats-box{
    float: left;
    display: inline-block;
-  /* background-color: yellow;*/
 }
 .stats-grid{
     margin-top: 1.5em;
    display: grid;
    width: 12em;  
-   grid-template-columns: 8em 2em ;
-   grid-template-rows: 1em 1em 1em 1em;
+   grid-template-columns: 8em 2em;
+   grid-template-rows: 1em 1em 1em 1em 1em;
    grid-gap: 0.5em;
    margin-bottom: 1.5em;
 }
@@ -94,15 +85,12 @@ body{
 .notify{
    background-color: #faa;
    color: #000;
- /*  float: left; */
- /*  margin: 1.5em;*/
   /* display: none;*/
    width: 10em;
    border-radius: 5%;
    display: inline-block;
 }
 .x{
-  /* background-color: orange;*/
    width: 98%;
    text-align: right;
    display: inline-block;
@@ -111,7 +99,6 @@ body{
 .note{
     padding: 0em;
 	font-size: 0.9em;
-	/*background-color: blue;*/
 	padding: 0 0.7em 0.7em 0.7em;
 }
 </style>
@@ -188,13 +175,15 @@ body{
 					 <div class="stats-box">
 					       <div class="stats-grid">
 								<div class="stats-heading">Moves:</div>
-								<div class="stats" id="moves"></div>
-								<div class="stats-heading">Initial Swaps Left:</div>
+								<div class="stats" id="move">0</div>
+								<div class="stats-heading">Squares Visited:</div>
+								<div class="stats" id="visited">0</div>
+								<div class="stats-heading">Initial Swaps:</div>
 								<div class="stats" id="i-swaps">5</div>
-								<div class="stats-heading">Bonus Swaps Left:</div>
+								<div class="stats-heading">Bonus Swaps:</div>
 								<div class="stats" id="i-swaps">0</div>
 								<div class="stats-heading">Score:</div>
-								<div class="stats" id="i-swaps">1000</div>
+								<div class="stats" id="i-swaps">0</div>
 							</div>
 					</div>
 					
@@ -206,10 +195,6 @@ body{
 					<div style="clear:both"></div>
 			</div>
 	</div> 
-	
-	<!--<div class="controls-info">
-	           this is a test
-	</div> -->
 </div>
 <script type="text/javascript">
 
@@ -253,7 +238,8 @@ swapOn = false;
 
 document.getElementById(posIds[posX][posY]).style.borderColor = CURRENT_COLOUR_MARKER;
 
-var points = 0;
+var moves = 0;
+var squaresVisited = 0;
 
 var notice = document.getElementById("notify");
 
@@ -286,6 +272,7 @@ for(let i=0; i<6; i++){
        posValues[i][j] = new Square();
        posValues[i][j].number = num;
        posValues[i][j].colour = col;
+	   posValues[i][j].visited = false;
 
        document.getElementById(posIds[i][j]).innerHTML = posValues[i][j].number;
        document.getElementById(posIds[i][j]).style.backgroundColor = posValues[i][j].colour;
@@ -325,6 +312,15 @@ function move(x,y){
 		        document.getElementById(posIds[x][y]).style.borderColor = CURRENT_COLOUR_MARKER;
 		        document.getElementById(posIds[xPrev][yPrev]).style.borderColor = "#aaa";
 		        posValues[xPrev][yPrev].number = Math.floor(Math.random() * 5 + 1);
+				if(posValues[x][y].visited == false){
+				   document.getElementById(posIds[x][y]).style.color = "#000";
+				   posValues[x][y].visited = true;
+				   squaresVisited++
+				   document.getElementById("visited").innerHTML = squaresVisited;
+				   if (squaresVisited > 35){
+				       alert("All squares visited, game over");
+				   }
+				}
                 let colN = Math.floor(Math.random() * 5 + 1);
                 switch(colN){
                   case 1:
@@ -349,19 +345,19 @@ function move(x,y){
                 document.getElementById(posIds[xPrev][yPrev]).style.backgroundColor = posValues[xPrev][yPrev].colour;
 		        xPrev = x;
 		        yPrev = y;
-                points++;
-                document.getElementById('moves').innerHTML = points;
+                moves++;
+				
+                document.getElementById('move').innerHTML = moves;
               }
               else{
                  // alert("You may only move to a square that has the same number or the same colour as the one you are on.");
-				  alert(posValues[x][y].number);
-				  alert("prev=" + posValues[xPrev][yPrev].number);
+				//  alert(posValues[x][y].number);
+				//  alert("prev=" + posValues[xPrev][yPrev].number);
 				  notifyUser("You may only move to a square that has the same number or the same colour as the one you are on.");
 				  
               }
 	}
 	else{
-	  //  alert("You may not move more than one square at a time. Please try again.");
 		notifyUser("You may not move more than one square at a time. Please try again.");
 	}
 }
@@ -383,6 +379,7 @@ function swap(x,y){
 			   firstPairSet = 0;
 			   initialSwaps++;
 			  // alert("Number of swaps made:" + initialSwaps);
+			  document.getElementById("i-swaps").innerHTML = INITIAL_SWAP_LIMIT - initialSwaps;
 			   handleSwapBtn();
 			}
 			else{
