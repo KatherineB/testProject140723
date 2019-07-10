@@ -44,7 +44,7 @@ body{
    display: grid;
    width: 63em;  
    grid-template-columns: 9em 9em 9em 9em 9em 9em 9em;
-   grid-template-rows: 9em 9em 9em;
+   grid-template-rows: 10em 10em 10em;
    grid-gap: 0em;
    margin-bottom: 2.5em;
 }
@@ -68,19 +68,18 @@ body{
 .sq-c{
 	background-color: #a93;
 }
-#sq-7{
-	margin-top: 0.5em;
+#sq06{
+	margin-top: 1em;
 }
-#sq-14{
-	margin-top: -0.5em;
+#sq07{
+	margin-top: 1em;
 }
-#sq-8{
-	margin-top: 0.5em;
+#sq13{
+	margin-top: -1em;
 }
-#sq-15{
-	margin-top: -0.5em;
+#sq14{
+	margin-top: -1em;
 }
-
 .marker{
 	margin-top: 0.2em;
 	font-size: 1.1em;
@@ -89,7 +88,10 @@ body{
 	height: 3em;
 	border-radius: 50%;
 	background-color: #6cc;
-	display: inline-block;
+	display: none;
+}
+#mark-00{
+    display: inline-block;
 }
 .popup{
 	width: 20em;
