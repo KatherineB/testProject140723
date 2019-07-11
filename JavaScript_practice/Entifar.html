@@ -9,10 +9,10 @@
 <div class="main-content">
         <div class="main-title">Entifar</div>
 		<div class="btn-box">
-				<button type="button" class="btn" id="move" onclick="displayNote('#729','2.5em')">Move</button>
+				<button type="button" class="btn" id="move" onclick="displayNote('#729','1.6em')">Move</button>
 				<button type="button" class="btn" id="progress" onclick="displayNote('#383','1.5em')">Progress</button>
 				<button type="button" class="btn" id="setback" onclick="displayNote('#623','1.5em')">Setback</button>
-				<button type="button" class="btn" id="chance" onclick="displayNote('#992','1.5em')">Chance</button>
+				<button type="button" class="btn" id="chance" onclick="displayNote('#a93','1.5em')">Chance</button>
 		</div>
 
 		<div class="play-area">
@@ -111,24 +111,31 @@
 	  <div class="note" id="note">test</div>
 </div>
 <script>
-var moves = ["Please move 1 square.", "Pleae move 2 squares.", "Please move 3 squares."];
+var prevMarkerId = "mark-00";
+
+var moves = ["Please move 1 square and click the matching button.", "Please move 2 squares and click the matching button.", "Please move 3 squares and click the matching button."];
 var progress = ["Something from a paper that you read ten years ago helped you to solve a big problem. Move forward 3 squares.",
-                "A much wanted new piece of equipment arrived at your lab. Move forward 1 square.",
+                "A much wanted new piece of equipment arrived at your lab. Move forward 2 squares.",
 				"Someone you ate with at lunch reccomended a useful website for researchers. Move forward 1 square.",
-				"Your latest test results were quite promising. Move forward 2 squares.",
-				"Someone spoke respectfully about your last paper. Move forward 2 squares."
-                ];
-var setbacks = ["The lab equipment was calibrated wrongly for your last two test runs. Go back 3 squares.",
-                "A misunderstanding has caused a quarrel between you and another researcher. Move back 1 square.",
+				"Your latest test results were quite promising. Move forward 2 squares.",                
+				"Someone at a conference spoke respectfully about your research. Move forward 3 squares."
+                ]; 
+var setbacks = ["The lab equipment was calibrated wrongly for your last two test runs. Go back 2 squares.",
+             "A misunderstanding has caused a quarrel between you and another researcher. Move back 1 square.",
 				"You forgot to acknowledge someone properly in a public speech. Move back 2 squares.",
 				"Funding for your project has been delayed by a month. Move back 2 squares.",
-				"You accidentally overwrote a file that hadn't been backed up yet. Move back 3 squares."
-             ];
-var chance = ["Someone else took credit for some of your work. Move back 2 squares.",
+				"You accidentally overwrote a file that hadn't been backed up yet. Move back 2 squares.",
+                   "Vandals broke into your lab and smashed your computer. Move back 4 squares.",
+                "Someone else took credit for some of your work. Move back 2 squares.",
+              "A hacker broke into your account and messed up new data that wasn't backed up yet. Move back 3 squares."
+             ]; 
+var chance = ["Noisy construction is going on outside your lab. Move back 2 squares.",
+              "A favourite article of clothing got torn while you were working in the lab. Move back 2 squares.",
+                "You had a wonderful time at a workplace social gathering. Move forward 2 squares.",
                "You spilled your drink on a favourite reference book. Move back 2 squares.",
 			   "A good friend of yours now works just one floor above you. Move forward 2 squares.",
 			   "Better food is now available in your workplace. Move forward 2 squares."
-              ];
+          ];
 
 var squares = [{id: "sq00", markerId: "mark-00"}, {id: "sq01", markerId: "mark-01"}, {id: "sq02", markerId: "mark-02"},
                {id: "sq03", markerId: "mark-03"}, {id: "sq04", markerId: "mark-04"}, {id: "sq05", markerId: "mark-05"},
@@ -145,13 +152,16 @@ var squaresAll = document.querySelectorAll(".square");
 for(var i = 0; i < squaresAll.length; i++){
   document.getElementById(squaresAll[i].id).addEventListener("click", function() {
   var squareId = this.id;
- console.log(squareId);
-   var index = squareId.substring(2)
-  console.log(index);
+  var index = squareId.substring(2)
   var indexTrimmed = parseInt(index,10);
-   console.log(indexTrimmed);
   var markerId = squares[indexTrimmed].markerId;
-   console.log(markerId);
+  document.getElementById(prevMarkerId).style.display = "none";
+  prevMarkerId = markerId;
+  document.getElementById(markerId).style.display = "inline-block";
+  hideNote();
+  if(markerId === "mark-20"){
+      displayNote("#528","1.8em");
+  }
   });
 }
 
@@ -173,10 +183,13 @@ function displayNote(colour, fontsize){
 	        var set = Math.floor(Math.random() * setbacks.length);
 			document.getElementById("note").innerHTML = setbacks[set];
 	  }
-	  else if(colour === '#992'){
+	  else if(colour === '#a93'){
 	        var cha = Math.floor(Math.random() * chance.length);
 			document.getElementById("note").innerHTML = chance[cha];
 	  }
+          else{
+               document.getElementById("note").innerHTML = "Well done! You have completed your paper and the science community likes it!";
+          }
 }
 function hideNote(){
     // alert('in function');
