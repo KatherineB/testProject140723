@@ -70,7 +70,7 @@ body{
     margin-top: 1.5em;
    display: grid;
    width: 12em;  
-   grid-template-columns: 8em 2em;
+   grid-template-columns: 6em 1.5em;
    grid-template-rows: 1em 1em 1em 1em 1em;
    grid-gap: 0.5em;
    margin-bottom: 1.5em;
@@ -83,12 +83,12 @@ body{
   text-align: right;
 }
 .notify{
-   background-color: #faa;
+   background-color: #d97;
    color: #000;
-  /* display: none;*/
+   display: none;
    width: 10em;
    border-radius: 5%;
-   display: inline-block;
+  /* display: inline-block;*/
 }
 .x{
    width: 98%;
@@ -178,12 +178,10 @@ body{
 								<div class="stats" id="move">0</div>
 								<div class="stats-heading">Squares Visited:</div>
 								<div class="stats" id="visited">0</div>
-								<div class="stats-heading">Initial Swaps:</div>
-								<div class="stats" id="i-swaps">5</div>
-								<div class="stats-heading">Bonus Swaps:</div>
-								<div class="stats" id="i-swaps">0</div>
+								<div class="stats-heading">Swaps Left:</div>
+								<div class="stats" id="swaps">5</div>
 								<div class="stats-heading">Score:</div>
-								<div class="stats" id="i-swaps">0</div>
+								<div class="stats" id="score">0</div>
 							</div>
 					</div>
 					
@@ -227,7 +225,7 @@ var b = -1;
 
 var initialSwaps = 0;
 const INITIAL_SWAP_LIMIT = 5;
-const CURRENT_COLOUR_MARKER = "#333333";
+const CURRENT_COLOUR_MARKER = "#eee";
 
 posX = Math.floor(Math.random() * 4 + 1);
 posY = Math.floor(Math.random() * 4 + 1);
@@ -318,7 +316,8 @@ function move(x,y){
 				   squaresVisited++
 				   document.getElementById("visited").innerHTML = squaresVisited;
 				   if (squaresVisited > 35){
-				       alert("All squares visited, game over");
+				      notifyUser("Game Over! You have won!!!");
+                                      calculateScore();
 				   }
 				}
                 let colN = Math.floor(Math.random() * 5 + 1);
@@ -379,7 +378,7 @@ function swap(x,y){
 			   firstPairSet = 0;
 			   initialSwaps++;
 			  // alert("Number of swaps made:" + initialSwaps);
-			  document.getElementById("i-swaps").innerHTML = INITIAL_SWAP_LIMIT - initialSwaps;
+			  document.getElementById("swaps").innerHTML = INITIAL_SWAP_LIMIT - initialSwaps;
 			   handleSwapBtn();
 			}
 			else{
@@ -392,6 +391,13 @@ function swap(x,y){
 	  else{	       
 			notifyUser("Sorry, you may not make another swap at this time, your initial 5 free swaps have all been used.");
 	  }
+}
+function calculateScore(){
+     let base = 10000;
+     let movesPenalty = moves * 75;
+     let swapsLeftBonus = (INITIAL_SWAP_LIMIT - initialSwaps) * 150;
+     let finalScore = base - movesPenalty + swapsLeftBonus;
+     document.getElementById('score').innerHTML = finalScore;
 }
 
 function notifyUser(msg) { 
