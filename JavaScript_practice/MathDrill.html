@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head><title>Math Drill</title>
+<meta charset="utf-8"/>
+<style>
+body{
+   background-color: #dde;
+   font-family: arial, verdana, "sans-serif";
+}
+.main-div{
+   text-align: center;
+}
+.oper-holder{
+   color: #833;
+   display: inline-block;
+}
+.oper-list{
+     display: grid;
+	 grid-template-columns: repeat(3,9em);
+     grid-gap: 10px;
+}
+.btn-holder{
+    margin-top: 2em;
+}
+.btn{
+  background-color: #833;
+  color: #fff;
+  width: 9em;
+  height: 2em;
+  font-size: 1.5em;
+  border: none;
+  margin: 1.2em;
+}
+.text-holder{
+   display: inline-block;
+   width: 40%;
+}
+.text{
+   margin-top: 1em;
+   font-size: 1.6em;
+   background-color: #aea;
+   height: 1em;
+   text-align: left;
+   padding: 0.5em;
+}
+.text-area-holder{  
+   text-align: center;
+   margin-top: 2em;
+}
+.text-area-holder textarea{
+   width: 80%;
+   height: 10em;
+   display: inline-block;
+   font-size: 1.6em;
+}
+</style>
+</head>
+<body>
+
+<div class="main-div">
+    <h1>Math Drill</h1>
+	<div class="oper-holder">
+	     <form id="operations">
+				<h3>Choose operation:</h3>
+				 <div class="oper-list">
+					<div>
+						<input type="radio" name="ops" value=0 id="add" checked="checked">
+						<label for="add">Add</label>
+					</div>
+					<div>
+						<input type="radio" name="ops" value=1 id="sub">
+						<label for="sub">Subtract</label>
+					</div>
+					<div>
+						<input type="radio" name="ops" value=2 id="mult">
+						<label for="mult">Multiply</label>
+					</div>
+				</div>
+		</form>
+	</div>
+     <div class="btn-holder">
+             <button type="button" class="btn" onclick="showQuestion()">Show Question</button>
+              <button type="button" class="btn" onclick="showAnswer()">Show Answer</button>
+      </div>
+       <div class="text-holder">
+          <div class="text" id="question"></div>
+          <div class="text" id="answer"></div>
+      </div>
+	  <div class="text-area-holder">
+	        <textarea rows='' cols='' placeholder="Rough Calculation Area"></textarea>
+	  </div>
+
+</div>
+
+<script type="text/javascript">
+
+var opSigns = ["+", "-", "*"];
+
+var randomNumberManager = function() {
+   var randNum = 0;
+   
+  return {
+    random: function(limit) {
+      randNum = Math.floor(Math.random() * limit);
+    },
+	value: function() {
+      return randNum;
+    }
+  }  
+};
+
+var doOperation = function() {
+  var result = 0;
+  return{
+    add: function(numA, numB){
+	   result = numA + numB;
+	  // alert(`inside: ${result}`);
+	},
+	subtract: function(numA, numB){
+	   result = numA - numB;
+	},
+	multiply: function(numA, numB){
+	   result = numA * numB;
+	},
+	value: function(){
+      return result;  
+    }
+  }  
+};
+
+var randNumMgrA = randomNumberManager();
+var randNumMgrB = randomNumberManager();
+
+function showQuestion(){   
+    	 
+	 var pick = getRadioBtnChoice();
+	 
+	 var op = opSigns[pick];
+      
+	 randNumMgrA.random(10);
+	// alert(randNumMgrA.value());
+
+	 randNumMgrB.random(10);
+	// alert(randNumMgrB.value());
+	
+	var question = `${randNumMgrA.value()} ${op} ${randNumMgrB.value()} = ?`;
+	
+	document.getElementById('question').innerHTML = question;
+}
+
+
+function showAnswer(){
+    doOperation1 = doOperation();
+
+	doOperation1.add(randNumMgrA.value(), randNumMgrB.value());
+	alert(doOperation1.value());
+
+	doOperation1.subtract(randNumMgrA.value(), randNumMgrB.value());
+	alert(doOperation1.value());
+
+	doOperation1.multiply(randNumMgrA.value(), randNumMgrB.value());
+	alert(doOperation1.value());
+}
+
+function getRadioBtnChoice(){
+     var option = document.getElementById("operations");
+ 
+	 let choice = option.elements["ops"].value;
+	 
+	 alert(`index = ${choice}`);
+	
+	 return choice;
+}
+  
+</script>
+
+</body>
+</html>
+       
