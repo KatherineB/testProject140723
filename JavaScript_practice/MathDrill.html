@@ -11,13 +11,29 @@ body{
    text-align: center;
 }
 .oper-holder{
-   color: #833;
+   color: #333;
    display: inline-block;
+   border: 1px solid #aaa;
+   border-radius: 0.5em;
 }
 .oper-list{
      display: grid;
 	 grid-template-columns: repeat(3,9em);
      grid-gap: 10px;
+	 padding-bottom: 1em;
+}
+.size-holder{
+   color: #333;
+   display: inline-block;
+   border: 1px solid #aaa;
+   border-radius: 0.5em;
+   margin-top: 1em;
+}
+.size-list{
+     display: grid;
+	 grid-template-columns: repeat(3,12em);
+     grid-gap: 10px;
+	 padding-bottom: 1em;
 }
 .btn-holder{
     margin-top: 2em;
@@ -25,9 +41,9 @@ body{
 .btn{
   background-color: #833;
   color: #fff;
-  width: 9em;
-  height: 2em;
-  font-size: 1.5em;
+  width: 7.5em;
+  height: 1.5em;
+  font-size: 1.2em;
   border: none;
   margin: 1.2em;
 }
@@ -37,7 +53,7 @@ body{
 }
 .text{
    margin-top: 1em;
-   font-size: 1.6em;
+   font-size: 1.4em;
    background-color: #aea;
    height: 1em;
    text-align: left;
@@ -59,24 +75,47 @@ body{
 
 <div class="main-div">
     <h1>Math Drill</h1>
-	<div class="oper-holder">
-	     <form id="operations">
-				<h3>Choose operation:</h3>
-				 <div class="oper-list">
-					<div>
-						<input type="radio" name="ops" value=0 id="add" checked="checked">
-						<label for="add">Add</label>
-					</div>
-					<div>
-						<input type="radio" name="ops" value=1 id="sub">
-						<label for="sub">Subtract</label>
-					</div>
-					<div>
-						<input type="radio" name="ops" value=2 id="mult">
-						<label for="mult">Multiply</label>
-					</div>
-				</div>
-		</form>
+	<div>
+			<div class="oper-holder">
+				 <form id="operations">
+						<h3>Choose operation:</h3>
+						 <div class="oper-list">
+							<div>
+								<input type="radio" name="ops" value=0 id="add" checked="checked">
+								<label for="add">Add</label>
+							</div>
+							<div>
+								<input type="radio" name="ops" value=1 id="sub">
+								<label for="sub">Subtract</label>
+							</div>
+							<div>
+								<input type="radio" name="ops" value=2 id="mult">
+								<label for="mult">Multiply</label>
+							</div>
+						</div>
+				</form>
+			</div>
+	</div>
+	<div>
+			<div class="size-holder">
+				 <form id="number-sizes">
+						<h3>Choose size limit of numbers:</h3>
+						 <div class="size-list">
+							<div>
+								<input type="radio" name="size" value=10 id="10" checked="checked">
+								<label for="10">Smaller than 10</label>
+							</div>
+							<div>
+								<input type="radio" name="size" value=100 id="100">
+								<label for="100">Smaller than 100</label>
+							</div>
+							<div>
+								<input type="radio" name="size" value=1000 id="1000">
+								<label for="1000">Smaller than 1000</label>
+							</div>
+						</div>
+				</form>
+			</div>
 	</div>
      <div class="btn-holder">
              <button type="button" class="btn" onclick="showQuestion()">Show Question</button>
@@ -96,7 +135,20 @@ body{
 
 var opSigns = ["+", "-", "*"];
 
-var randomNumberManager = function() {
+var radioBtnChoiceMgr = function(){
+      var radBtnValue = 0;
+	  
+	  return{
+	     setChoice: function(pick){
+		     radBtnValue = pick;
+		 },
+		 value: function(){
+		     return radBtnValue;
+		 }
+	  }
+};
+
+var randomNumberManager = function(){
    var randNum = 0;
    
   return {
@@ -109,7 +161,7 @@ var randomNumberManager = function() {
   }  
 };
 
-var doOperation = function() {
+var doOperation = function(){
   var result = 0;
   return{
     add: function(numA, numB){
@@ -128,48 +180,59 @@ var doOperation = function() {
   }  
 };
 
+var radBtnChoiceOp = radioBtnChoiceMgr();
+var radBtnChoiceSize = radioBtnChoiceMgr();
+
 var randNumMgrA = randomNumberManager();
 var randNumMgrB = randomNumberManager();
 
+var doOperation1 = doOperation();
+
 function showQuestion(){   
-    	 
-	 var pick = getRadioBtnChoice();
-	 
+     getRadioBtnChoice();
+	
+	 var pick = radBtnChoiceOp.value();
 	 var op = opSigns[pick];
       
-	 randNumMgrA.random(10);
-	// alert(randNumMgrA.value());
+	 randNumMgrA.random(radBtnChoiceSize.value());
+     randNumMgrB.random(radBtnChoiceSize.value());
 
-	 randNumMgrB.random(10);
-	// alert(randNumMgrB.value());
+	 var question = `${randNumMgrA.value()} ${op} ${randNumMgrB.value()} = ?`;
 	
-	var question = `${randNumMgrA.value()} ${op} ${randNumMgrB.value()} = ?`;
-	
-	document.getElementById('question').innerHTML = question;
+	 document.getElementById('question').innerHTML = question;
+	 document.getElementById('answer').innerHTML = "";
 }
 
 
 function showAnswer(){
-    doOperation1 = doOperation();
-
-	doOperation1.add(randNumMgrA.value(), randNumMgrB.value());
-	alert(doOperation1.value());
-
-	doOperation1.subtract(randNumMgrA.value(), randNumMgrB.value());
-	alert(doOperation1.value());
-
-	doOperation1.multiply(randNumMgrA.value(), randNumMgrB.value());
-	alert(doOperation1.value());
+    var pick = radBtnChoiceOp.value();
+	
+	switch(pick){
+	    case "0": 
+			 doOperation1.add(randNumMgrA.value(), randNumMgrB.value());
+			 break;
+		case "1": 
+			 doOperation1.subtract(randNumMgrA.value(), randNumMgrB.value());		 
+			 break;
+		case "2": 
+			 doOperation1.multiply(randNumMgrA.value(), randNumMgrB.value());
+			 break;
+		default: 
+			 alert("Error: Nothing matched in switch.");
+	}
+	
+	document.getElementById('answer').innerHTML = doOperation1.value();
+	
 }
 
 function getRadioBtnChoice(){
-     var option = document.getElementById("operations");
- 
-	 let choice = option.elements["ops"].value;
+     var opOption = document.getElementById("operations");
+	 let opChoice = opOption.elements["ops"].value;
+	 radBtnChoiceOp.setChoice(opChoice);
 	 
-	 alert(`index = ${choice}`);
-	
-	 return choice;
+	 var sizeOption = document.getElementById("number-sizes");	 
+	 let sizeChoice = sizeOption.elements["size"].value;	 
+	 radBtnChoiceSize.setChoice(sizeChoice);
 }
   
 </script>
