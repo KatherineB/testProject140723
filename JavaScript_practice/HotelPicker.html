@@ -24,44 +24,36 @@ html{
    font-size: 0.8em;
    width: 80%;
    display: inline-block;
-}
+} 
 .options-box{
   font-size: 0.7em;
+  display: inline-block;
 }
 .option-section{
-	display: inline block;
 	margin-top: 0.5em;
+	display: grid;
+	grid-template-columns: repeat(4,11em);
+    grid-template-rows: repeat(2,1.3em);
+    grid-gap: 0.5em;
 }
 .option{
-	width: 9em;
-	display: inline-block;
-	text-align: left;
-	background-color: #red;
-        veritcal-align: middle;
-        position: relative;
-}
-.option span{
-   margin-top: -10px;
-}
-.option input{
-  
+    text-align: left;
 }
 .option-label{
-    margin-top: 0em;
-   /* margin-left: 0.01em; */
-	background-color: #yellow;
+	  vertical-align: top;
 }
-/*input[type='checkbox']{
+input[type='checkbox']{
   -webkit-appearance:none;
-    width:1.6em;
-    height:1.6em;
+    width:1.3em;
+    height:1.3em;
     background:#fff;
     border-radius:5px; 
     border:1px solid #555;
+	vertical-align: top;
 }
 input[type='checkbox']:checked {
     background: #069;
-} */
+} 
 .button-box{
    margin-top: 0.7em;
 }
@@ -90,22 +82,38 @@ button{
 	<div class="options-box">
 	   <div class="option-section">
 			<div class="option">
-                           <input type="checkbox" id="rs" >
-			   <label for="rs" class="option-label"><span>Room Service</span><label>
+               <input type="checkbox" id="rs" >
+			   <label for="rs" class="option-label">Room Service<label>
 			</div>
-			<div class="option"><input type="checkbox" id="bc" >Business Centre</div>
-			<div class="option"><input type="checkbox" id="gs" >Gift Shop</div>
-			<div class="option"><input type="checkbox" id="irs" >In-room Safe</div>
+			<div class="option">
+			    <input type="checkbox" id="bc" >
+				<label for="bc" class="option-label">Business Centre<label>
+			</div>
+			<div class="option">
+				<input type="checkbox" id="gs" >
+				<label for="gs" class="option-label">Gift Shop<label>
+			</div>
+			<div class="option">
+				<input type="checkbox" id="irs" >
+				<label for="irs" class="option-label">In-room Safe<label>
+			</div> 
+			<div class="option">
+				<input type="checkbox" id="fwf" >
+				<label for="fwf" class="option-label">Free Wi-Fi<label>
+			</div>
+			<div class="option">
+				<input type="checkbox" id="bar" >
+				<label for="bar" class="option-label">Bar<label>
+			</div>
+			<div class="option">
+				<input type="checkbox" id="rest" >
+				<label for="rest" class="option-label">Restaurant<label>
+			</div>
+			<div class="option">
+				<input type="checkbox" id="pool" >
+				<label for="pool" class="option-label">Swimming Pool<label>
+			</div>
 	   </div>
-	   <div class="option-section">
-			<div class="option"><input type="checkbox" id="fwf" >Free Wi-Fi</div>
-			<div class="option"><input type="checkbox" id="bar" >Bar</div>
-			<div class="option"><input type="checkbox" id="rest" >Restaurant</div>
-			<div class="option"><input type="checkbox" id="pool" >Swimming Pool</div>
-	   </div>
-           <div>
-
-    </div>
 	</div>
 	
     <div class="button-box">
