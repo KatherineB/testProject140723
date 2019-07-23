@@ -243,6 +243,8 @@ var notice = document.getElementById("notify");
 
 var xClose = document.getElementsByClassName("x")[0];
 
+var gameInProgress = true;
+
 for(let i=0; i<6; i++){
 	posValues[i] = [];
     for(let j=0; j<6; j++){
@@ -293,13 +295,14 @@ function handleSwapBtn(){
 }
 
 function modeDetect(x,y){
+   if(gameInProgress){
        if(swapOn){
           swap(x,y);
        }
        else{
           move(x,y);
        }
-       
+   }  
 }
 
 function move(x,y){  
@@ -317,7 +320,9 @@ function move(x,y){
 				   document.getElementById("visited").innerHTML = squaresVisited;
 				   if (squaresVisited > 35){
 				      notifyUser("Game Over! You have won!!!");
-                                      calculateScore();
+                      calculateScore();
+					  endGame();
+					  
 				   }
 				}
                 let colN = Math.floor(Math.random() * 5 + 1);
@@ -409,6 +414,9 @@ xClose.onclick = function() {
   notice.style.display = "none";
 }
 
+function endGame(){
+   gameInProgress = false;
+}
 </script>
 
 </body>
