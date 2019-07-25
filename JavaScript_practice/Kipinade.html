@@ -195,45 +195,38 @@ body{
 </div>
 <script type="text/javascript">
 
+"use strict";
+
 var posValues = [];
 
-function Square(number,colour){
-   this.number = 0;
-   this.colour = '#000000';
-}
-
-let col = '#000000';
-
+function Square(){
+	   this.number = 0;
+	   this.colour = '#000000';
+	   this.visited = false;
+}	
+	
 const posIds = [ ['s00', 's01', 's02', 's03', 's04', 's05'],
-                 ['s10', 's11', 's12', 's13', 's14', 's15'],
-                 ['s20', 's21', 's22', 's23', 's24', 's25'],
-                 ['s30', 's31', 's32', 's33', 's34', 's35'],
-                 ['s40', 's41', 's42', 's43', 's44', 's45'],
-                 ['s50', 's51', 's52', 's53', 's54', 's55']  ]
-var posX;
-var posY;
+			 ['s10', 's11', 's12', 's13', 's14', 's15'],
+			 ['s20', 's21', 's22', 's23', 's24', 's25'],
+			 ['s30', 's31', 's32', 's33', 's34', 's35'],
+			 ['s40', 's41', 's42', 's43', 's44', 's45'],
+			 ['s50', 's51', 's52', 's53', 's54', 's55']  ];
+			 
 var xPrev;
 var yPrev;
 var diffX = 0;
 var diffY = 0;
 
-var firstPairSet = 0;
+var firstPairSet = false;
 
 var a = -1;
 var b = -1;
 
-var initialSwaps = 0;
-const INITIAL_SWAP_LIMIT = 5;
+var swapsMade = 0;
+const SWAPS_ALLOWED = 5;
 const CURRENT_COLOUR_MARKER = "#eee";
 
-posX = Math.floor(Math.random() * 4 + 1);
-posY = Math.floor(Math.random() * 4 + 1);
-xPrev = posX;
-yPrev = posY;
-
-swapOn = false;
-
-document.getElementById(posIds[posX][posY]).style.borderColor = CURRENT_COLOUR_MARKER;
+var swapOn = false;
 
 var moves = 0;
 var squaresVisited = 0;
@@ -244,38 +237,57 @@ var xClose = document.getElementsByClassName("x")[0];
 
 var gameInProgress = true;
 
-for(let i=0; i<6; i++){
-	posValues[i] = [];
-    for(let j=0; j<6; j++){
-       //alert(i,j);
-       let num = Math.floor(Math.random() * 5 + 1);
-       let colN = Math.floor(Math.random() * 5 + 1);
-       switch(colN){
-          case 1:
-              col = "#0011dd";
-              break;
-          case 2:
-              col = "#dd9900";
-              break;
-          case 3:
-              col = "#228822";
-              break;
-          case 4:
-              col = "#cc0022";
-              break;
-          case 5:
-              col = "#663377";
-              break;
-          default: alert("none matched in switch");
-       }
-       posValues[i][j] = new Square();
-       posValues[i][j].number = num;
-       posValues[i][j].colour = col;
-	   posValues[i][j].visited = false;
+setUpGame();
 
-       document.getElementById(posIds[i][j]).innerHTML = posValues[i][j].number;
-       document.getElementById(posIds[i][j]).style.backgroundColor = posValues[i][j].colour;
-    }
+function setUpGame(){
+     pickNumbersAndColoursOfSquares();
+     setInitialPosition();
+}
+
+function pickNumbersAndColoursOfSquares(){
+	 for(let i=0; i<6; i++){
+	        posValues[i] = [];
+			for(let j=0; j<6; j++){
+			   let num = Math.floor(Math.random() * 5 + 1);
+			   let colN = Math.floor(Math.random() * 5 + 1);
+			   switch(colN){
+				  case 1:
+					  var col = "#0011dd";
+					  break;
+				  case 2:
+					  var col = "#dd9900";
+					  break;
+				  case 3:
+					  var col = "#228822";
+					  break;
+				  case 4:
+					  var col = "#cc0022";
+					  break;
+				  case 5:
+					  var col = "#663377";
+					  break;
+				  default: alert("none matched in switch");
+			   }
+			   posValues[i][j] = new Square();
+			   posValues[i][j].number = num;
+			   posValues[i][j].colour = col;
+
+			   document.getElementById(posIds[i][j]).innerHTML = posValues[i][j].number;
+			   document.getElementById(posIds[i][j]).style.backgroundColor = posValues[i][j].colour;
+			}
+	}
+}
+
+function setInitialPosition(){
+       var initX;
+       var initY;
+	   
+	   initX = Math.floor(Math.random() * 4 + 1);
+	   initY = Math.floor(Math.random() * 4 + 1);
+	   xPrev =initX;
+	   yPrev = initY;
+	   
+	   document.getElementById(posIds[initX][initY]).style.borderColor = CURRENT_COLOUR_MARKER;
 }
 
 function handleSwapBtn(){
@@ -283,13 +295,11 @@ function handleSwapBtn(){
           document.getElementById('swap').style.backgroundColor = "#afa";
           document.getElementById('squares-grid').style.borderColor = "#134";
           swapOn = false;
-         // alert("Swap Mode now off");
        }
        else{
           document.getElementById('swap').style.backgroundColor = "#8ff";
           document.getElementById('squares-grid').style.borderColor = "#8ff";
           swapOn = true;
-          //alert("Swap Mode now on");
        }
 }
 
@@ -313,7 +323,7 @@ function move(x,y){
 		        document.getElementById(posIds[x][y]).style.borderColor = CURRENT_COLOUR_MARKER;
 				console.log(`X= ${x}   Y= ${y}`);
 		        document.getElementById(posIds[xPrev][yPrev]).style.borderColor = "#888";
-		        posValues[xPrev][yPrev].number = Math.floor(Math.random() * 5 + 1);
+		       
 				
 				if(posValues[x][y].visited == false){
 				   document.getElementById(posIds[x][y]).style.color = "#000";
@@ -324,27 +334,26 @@ function move(x,y){
 				   if (squaresVisited > 35){
 				      notifyUser("Game Over! You have won!!!");
                       calculateScore();
-					  endGame();
-					  
+					  endGame();					  
 				   }
 				}
-				
+				 posValues[xPrev][yPrev].number = Math.floor(Math.random() * 5 + 1);
                 let colN = Math.floor(Math.random() * 5 + 1);
                 switch(colN){
                   case 1:
-                    col = "#0011dd";
+                    var col = "#0011dd";
                     break;
                   case 2:
-                    col = "#dd9900";
+                    var col = "#dd9900";
                     break;
                   case 3:
-                    col = "#228822";
+                    var col = "#228822";
                    break;
                   case 4:
-                    col = "#cc0022";
+                    var col = "#cc0022";
                     break;
                   case 5:
-                    col = "#663377";
+                    var col = "#663377";
                     break;
                   default: alert("none matched in switch");
                 }
@@ -368,7 +377,8 @@ function move(x,y){
 }
 
 function swap(x,y){
-      if(initialSwaps < INITIAL_SWAP_LIMIT){
+      
+      if(swapsMade < SWAPS_ALLOWED){
 			if (firstPairSet){
 			   document.getElementById(posIds[a][b]).style.opacity = "1";
 			   let shelfNumber = posValues[x][y].number; 
@@ -381,27 +391,26 @@ function swap(x,y){
 			   posValues[a][b].colour = shelfColour;
 			   document.getElementById(posIds[a][b]).style.backgroundColor = posValues[a][b].colour;
 			   document.getElementById(posIds[x][y]).style.backgroundColor = posValues[x][y].colour;
-			   firstPairSet = 0;
-			   initialSwaps++;
-			  // alert("Number of swaps made:" + initialSwaps);
-			  document.getElementById("swaps").innerHTML = INITIAL_SWAP_LIMIT - initialSwaps;
+			   firstPairSet = false;
+			   swapsMade++;
+			   document.getElementById("swaps").innerHTML = SWAPS_ALLOWED - swapsMade;
 			   handleSwapBtn();
 			}
 			else{
 			   a = x;
 			   b = y;
 			   document.getElementById(posIds[a][b]).style.opacity = "0.3";
-			   firstPairSet = 1;			    
+			   firstPairSet = true;			    
 			}	     			
 	  }
 	  else{	       
-			notifyUser("Sorry, you may not make another swap at this time, your initial 5 free swaps have all been used.");
+			notifyUser("Sorry, you may not make another swap at this time, your five swaps have all been used.");
 	  }
 }
 function calculateScore(){
      let base = 10000;
      let movesPenalty = moves * 75;
-     let swapsLeftBonus = (INITIAL_SWAP_LIMIT - initialSwaps) * 150;
+     let swapsLeftBonus = (SWAPS_ALLOWED - swapsMade) * 150;
      let finalScore = base - movesPenalty + swapsLeftBonus;
      document.getElementById('score').innerHTML = finalScore;
 }
