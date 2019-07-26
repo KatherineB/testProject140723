@@ -227,42 +227,24 @@ Kipinade.notice = document.getElementById("notify");
 setUpGame();
 
 function setUpGame(){
-     pickNumbersAndColoursOfSquares();
+     setUpInitialSquares();
      setInitialPosition();
 }
 
-function pickNumbersAndColoursOfSquares(){
+function setUpInitialSquares(){
 	 for(let i=0; i<6; i++){
 	        Kipinade.posValues[i] = [];
 			for(let j=0; j<6; j++){
-			   let num = Math.floor(Math.random() * 5 + 1);
-			   let colN = Math.floor(Math.random() * 5 + 1);
-			   switch(colN){
-				  case 1:
-					  var col = "#0011dd";
-					  break;
-				  case 2:
-					  var col = "#dd9900";
-					  break;
-				  case 3:
-					  var col = "#228822";
-					  break;
-				  case 4:
-					  var col = "#cc0022";
-					  break;
-				  case 5:
-					  var col = "#663377";
-					  break;
-				  default: alert("none matched in switch");
-			   }
+			   var squareDefinition = pickRandomNumbersAndColours();
+						   
 			   Kipinade.posValues[i][j] = new Kipinade.Square();
-			   Kipinade.posValues[i][j].number = num;
-			   Kipinade.posValues[i][j].colour = col;
+			   Kipinade.posValues[i][j].number = squareDefinition.number;
+			   Kipinade.posValues[i][j].colour = squareDefinition.colour;
 
 			   document.getElementById(Kipinade.posIds[i][j]).innerHTML = Kipinade.posValues[i][j].number;
 			   document.getElementById(Kipinade.posIds[i][j]).style.backgroundColor = Kipinade.posValues[i][j].colour;
 			}
-	}
+	 }
 }
 
 function setInitialPosition(){
@@ -278,16 +260,18 @@ function setInitialPosition(){
 }
 
 function handleSwapBtn(){
-       if(Kipinade.swapOn){
-          document.getElementById('swap').style.backgroundColor = "#afa";
-          document.getElementById('squares-grid').style.borderColor = "#134";
-          Kipinade.swapOn = false;
-       }
-       else{
-          document.getElementById('swap').style.backgroundColor = "#8ff";
-          document.getElementById('squares-grid').style.borderColor = "#8ff";
-          Kipinade.swapOn = true;
-       }
+	  if(Kipinade.gameInProgress){
+		   if(Kipinade.swapOn){
+			  document.getElementById('swap').style.backgroundColor = "#afa";
+			  document.getElementById('squares-grid').style.borderColor = "#134";
+			  Kipinade.swapOn = false;
+		   }
+		   else{
+			  document.getElementById('swap').style.backgroundColor = "#8ff";
+			  document.getElementById('squares-grid').style.borderColor = "#8ff";
+			  Kipinade.swapOn = true;
+		   }
+	  }
 }
 
 function modeDetect(x,y){
@@ -323,38 +307,19 @@ function move(x,y){
 					  endGame();					  
 				   }
 				}
-				 Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].number = Math.floor(Math.random() * 5 + 1);
-                let colN = Math.floor(Math.random() * 5 + 1);
-                switch(colN){
-                  case 1:
-                    var col = "#0011dd";
-                    break;
-                  case 2:
-                    var col = "#dd9900";
-                    break;
-                  case 3:
-                    var col = "#228822";
-                   break;
-                  case 4:
-                    var col = "#cc0022";
-                    break;
-                  case 5:
-                    var col = "#663377";
-                    break;
-                  default: alert("none matched in switch");
-                }
-                Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].colour = col;
-		        document.getElementById(Kipinade.posIds[Kipinade.xPrev][Kipinade.yPrev]).innerHTML = Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].number;
-                document.getElementById(Kipinade.posIds[Kipinade.xPrev][Kipinade.yPrev]).style.backgroundColor = Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].colour;
-		        Kipinade.xPrev = x;
-		        Kipinade.yPrev = y;
-                Kipinade.moves++;
+				 var squareDefinition = pickRandomNumbersAndColours();
+				 Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].number = squareDefinition.number;
+			     Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].colour = squareDefinition.colour;
+		         document.getElementById(Kipinade.posIds[Kipinade.xPrev][Kipinade.yPrev]).innerHTML = Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].number;
+                 document.getElementById(Kipinade.posIds[Kipinade.xPrev][Kipinade.yPrev]).style.backgroundColor = Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].colour;
+		         Kipinade.xPrev = x;
+		         Kipinade.yPrev = y;
+                 Kipinade.moves++;
 				
-                document.getElementById('move').innerHTML = Kipinade.moves;
+                 document.getElementById('move').innerHTML = Kipinade.moves;
               }
               else{
-				  notifyUser("You may only move to a square that has the same number or the same colour as the one you are on.");
-				  
+				 notifyUser("You may only move to a square that has the same number or the same colour as the one you are on.");				  
               }
 	}
 	else{
@@ -363,7 +328,6 @@ function move(x,y){
 }
 
 function swap(x,y){
-      
       if(Kipinade.swapsMade < Kipinade.SWAPS_ALLOWED){
 			if (Kipinade.firstPairSet){
 			   document.getElementById(Kipinade.posIds[Kipinade.xFirst][Kipinade.yFirst]).style.opacity = "1";
@@ -416,6 +380,30 @@ Kipinade.xClose.onclick = function() {
 
 function endGame(){
    Kipinade.gameInProgress = false;
+}
+
+function pickRandomNumbersAndColours(){
+      let randNum = Math.floor(Math.random() * 5 + 1);
+	  let randColN = Math.floor(Math.random() * 5 + 1);
+		   switch(randColN){
+			  case 1:
+				  var randCol = "#0011dd";
+				  break;
+			  case 2:
+				  var randCol = "#dd9900";
+				  break;
+			  case 3:
+				  var randCol = "#228822";
+				  break;
+			  case 4:
+				  var randCol = "#cc0022";
+				  break;
+			  case 5:
+				  var randCol = "#663377";
+				  break;
+			  default: alert("none matched in switch");
+		   } 
+	  return {number: randNum, colour: randCol};
 }
 </script>
 
