@@ -186,7 +186,7 @@ body{
 					</div>
 					
 					<div class="notify" id="notify">
-						<div class="x">&times;</div>	
+						<div class="x" id="x">&times;</div>	
 						<div class="note" id="note"></div>
 					</div> 
 					<div style="clear:both"></div>
@@ -197,45 +197,32 @@ body{
 
 "use strict";
 
-var posValues = [];
+window.Kipinade = {};
 
-function Square(){
-	   this.number = 0;
-	   this.colour = '#000000';
-	   this.visited = false;
-}	
-	
-const posIds = [ ['s00', 's01', 's02', 's03', 's04', 's05'],
+Kipinade.posValues = [];
+Kipinade.Square = function() { this.number = 0;
+	                        this.colour = '#000000';
+	                        this.visited = false; }
+Kipinade.posIds = [ ['s00', 's01', 's02', 's03', 's04', 's05'],
 			 ['s10', 's11', 's12', 's13', 's14', 's15'],
 			 ['s20', 's21', 's22', 's23', 's24', 's25'],
 			 ['s30', 's31', 's32', 's33', 's34', 's35'],
 			 ['s40', 's41', 's42', 's43', 's44', 's45'],
 			 ['s50', 's51', 's52', 's53', 's54', 's55']  ];
-			 
-var xPrev;
-var yPrev;
-var diffX = 0;
-var diffY = 0;
-
-var firstPairSet = false;
-
-var a = -1;
-var b = -1;
-
-var swapsMade = 0;
-const SWAPS_ALLOWED = 5;
-const CURRENT_COLOUR_MARKER = "#eee";
-
-var swapOn = false;
-
-var moves = 0;
-var squaresVisited = 0;
-
-var notice = document.getElementById("notify");
-
-var xClose = document.getElementsByClassName("x")[0];
-
-var gameInProgress = true;
+Kipinade.xPrev = -1;
+Kipinade.yPrev = -1;
+Kipinade.firstPairSet = false;
+Kipinade.xFirst = -1;
+Kipinade.yFirst = -1;
+Kipinade.swapsMade = 0;
+Kipinade.SWAPS_ALLOWED = 5;
+Kipinade.CURRENT_COLOUR_MARKER = "#eee";
+Kipinade.swapOn = false;
+Kipinade.moves = 0;
+Kipinade.squaresVisited = 0;
+Kipinade.gameInProgress = true;
+Kipinade.xClose = document.getElementsByClassName("x")[0];
+Kipinade.notice = document.getElementById("notify");
 
 setUpGame();
 
@@ -246,7 +233,7 @@ function setUpGame(){
 
 function pickNumbersAndColoursOfSquares(){
 	 for(let i=0; i<6; i++){
-	        posValues[i] = [];
+	        Kipinade.posValues[i] = [];
 			for(let j=0; j<6; j++){
 			   let num = Math.floor(Math.random() * 5 + 1);
 			   let colN = Math.floor(Math.random() * 5 + 1);
@@ -268,12 +255,12 @@ function pickNumbersAndColoursOfSquares(){
 					  break;
 				  default: alert("none matched in switch");
 			   }
-			   posValues[i][j] = new Square();
-			   posValues[i][j].number = num;
-			   posValues[i][j].colour = col;
+			   Kipinade.posValues[i][j] = new Kipinade.Square();
+			   Kipinade.posValues[i][j].number = num;
+			   Kipinade.posValues[i][j].colour = col;
 
-			   document.getElementById(posIds[i][j]).innerHTML = posValues[i][j].number;
-			   document.getElementById(posIds[i][j]).style.backgroundColor = posValues[i][j].colour;
+			   document.getElementById(Kipinade.posIds[i][j]).innerHTML = Kipinade.posValues[i][j].number;
+			   document.getElementById(Kipinade.posIds[i][j]).style.backgroundColor = Kipinade.posValues[i][j].colour;
 			}
 	}
 }
@@ -284,29 +271,29 @@ function setInitialPosition(){
 	   
 	   initX = Math.floor(Math.random() * 4 + 1);
 	   initY = Math.floor(Math.random() * 4 + 1);
-	   xPrev =initX;
-	   yPrev = initY;
+	   Kipinade.xPrev = initX;
+	   Kipinade.yPrev = initY;
 	   
-	   document.getElementById(posIds[initX][initY]).style.borderColor = CURRENT_COLOUR_MARKER;
+	   document.getElementById(Kipinade.posIds[initX][initY]).style.borderColor = Kipinade.CURRENT_COLOUR_MARKER;
 }
 
 function handleSwapBtn(){
-       if(swapOn){
+       if(Kipinade.swapOn){
           document.getElementById('swap').style.backgroundColor = "#afa";
           document.getElementById('squares-grid').style.borderColor = "#134";
-          swapOn = false;
+          Kipinade.swapOn = false;
        }
        else{
           document.getElementById('swap').style.backgroundColor = "#8ff";
           document.getElementById('squares-grid').style.borderColor = "#8ff";
-          swapOn = true;
+          Kipinade.swapOn = true;
        }
 }
 
 function modeDetect(x,y){
-    xClose.onclick();
-   if(gameInProgress){
-       if(swapOn){
+    Kipinade.xClose.onclick();
+    if(Kipinade.gameInProgress){
+       if(Kipinade.swapOn){
           swap(x,y);
        }
        else{
@@ -316,28 +303,27 @@ function modeDetect(x,y){
 }
 
 function move(x,y){  
-    diffX = x-xPrev;
-	diffY = y-yPrev;
+    var diffX = x - Kipinade.xPrev;
+	var diffY = y - Kipinade.yPrev;
 	if (diffX > -2 && diffX < 2 && diffY > -2 && diffY < 2){
-             if( posValues[x][y].number == posValues[xPrev][yPrev].number || posValues[x][y].colour === posValues[xPrev][yPrev].colour ){
-		        document.getElementById(posIds[x][y]).style.borderColor = CURRENT_COLOUR_MARKER;
+             if( Kipinade.posValues[x][y].number == Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].number || Kipinade.posValues[x][y].colour === Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].colour ){
+		        document.getElementById(Kipinade.posIds[x][y]).style.borderColor = Kipinade.CURRENT_COLOUR_MARKER;
 				console.log(`X= ${x}   Y= ${y}`);
-		        document.getElementById(posIds[xPrev][yPrev]).style.borderColor = "#888";
-		       
-				
-				if(posValues[x][y].visited == false){
-				   document.getElementById(posIds[x][y]).style.color = "#000";
-				   posValues[x][y].visited = true;
-				   squaresVisited++
-				   document.getElementById("visited").innerHTML = squaresVisited;
+		        document.getElementById(Kipinade.posIds[Kipinade.xPrev][Kipinade.yPrev]).style.borderColor = "#888";
+		       				
+				if(Kipinade.posValues[x][y].visited == false){
+				   document.getElementById(Kipinade.posIds[x][y]).style.color = "#000";
+				   Kipinade.posValues[x][y].visited = true;
+				   Kipinade.squaresVisited++
+				   document.getElementById("visited").innerHTML = Kipinade.squaresVisited;
 				   
-				   if (squaresVisited > 35){
+				   if (Kipinade.squaresVisited > 35){
 				      notifyUser("Game Over! You have won!!!");
                       calculateScore();
 					  endGame();					  
 				   }
 				}
-				 posValues[xPrev][yPrev].number = Math.floor(Math.random() * 5 + 1);
+				 Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].number = Math.floor(Math.random() * 5 + 1);
                 let colN = Math.floor(Math.random() * 5 + 1);
                 switch(colN){
                   case 1:
@@ -357,14 +343,14 @@ function move(x,y){
                     break;
                   default: alert("none matched in switch");
                 }
-                posValues[xPrev][yPrev].colour = col;
-		        document.getElementById(posIds[xPrev][yPrev]).innerHTML = posValues[xPrev][yPrev].number;
-                document.getElementById(posIds[xPrev][yPrev]).style.backgroundColor = posValues[xPrev][yPrev].colour;
-		        xPrev = x;
-		        yPrev = y;
-                moves++;
+                Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].colour = col;
+		        document.getElementById(Kipinade.posIds[Kipinade.xPrev][Kipinade.yPrev]).innerHTML = Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].number;
+                document.getElementById(Kipinade.posIds[Kipinade.xPrev][Kipinade.yPrev]).style.backgroundColor = Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].colour;
+		        Kipinade.xPrev = x;
+		        Kipinade.yPrev = y;
+                Kipinade.moves++;
 				
-                document.getElementById('move').innerHTML = moves;
+                document.getElementById('move').innerHTML = Kipinade.moves;
               }
               else{
 				  notifyUser("You may only move to a square that has the same number or the same colour as the one you are on.");
@@ -378,29 +364,33 @@ function move(x,y){
 
 function swap(x,y){
       
-      if(swapsMade < SWAPS_ALLOWED){
-			if (firstPairSet){
-			   document.getElementById(posIds[a][b]).style.opacity = "1";
-			   let shelfNumber = posValues[x][y].number; 
-			   posValues[x][y].number = posValues[a][b].number;
-			   posValues[a][b].number = shelfNumber;
-			   document.getElementById(posIds[a][b]).innerHTML = posValues[a][b].number;
-			   document.getElementById(posIds[x][y]).innerHTML = posValues[x][y].number;
-			   let shelfColour = posValues[x][y].colour; 
-			   posValues[x][y].colour = posValues[a][b].colour;
-			   posValues[a][b].colour = shelfColour;
-			   document.getElementById(posIds[a][b]).style.backgroundColor = posValues[a][b].colour;
-			   document.getElementById(posIds[x][y]).style.backgroundColor = posValues[x][y].colour;
-			   firstPairSet = false;
-			   swapsMade++;
-			   document.getElementById("swaps").innerHTML = SWAPS_ALLOWED - swapsMade;
+      if(Kipinade.swapsMade < Kipinade.SWAPS_ALLOWED){
+			if (Kipinade.firstPairSet){
+			   document.getElementById(Kipinade.posIds[Kipinade.xFirst][Kipinade.yFirst]).style.opacity = "1";
+			   
+			   let shelfNumber = Kipinade.posValues[x][y].number; 
+			   Kipinade.posValues[x][y].number = Kipinade.posValues[Kipinade.xFirst][Kipinade.yFirst].number;
+			   Kipinade.posValues[Kipinade.xFirst][Kipinade.yFirst].number = shelfNumber;
+			   
+			   document.getElementById(Kipinade.posIds[Kipinade.xFirst][Kipinade.yFirst]).innerHTML = Kipinade.posValues[Kipinade.xFirst][Kipinade.yFirst].number;
+			   document.getElementById(Kipinade.posIds[x][y]).innerHTML = Kipinade.posValues[x][y].number;
+			   
+			   let shelfColour = Kipinade.posValues[x][y].colour; 
+			   Kipinade.posValues[x][y].colour = Kipinade.posValues[Kipinade.xFirst][Kipinade.yFirst].colour;
+			   Kipinade.posValues[Kipinade.xFirst][Kipinade.yFirst].colour = shelfColour;
+			   
+			   document.getElementById(Kipinade.posIds[Kipinade.xFirst][Kipinade.yFirst]).style.backgroundColor = Kipinade.posValues[Kipinade.xFirst][Kipinade.yFirst].colour;
+			   document.getElementById(Kipinade.posIds[x][y]).style.backgroundColor = Kipinade.posValues[x][y].colour;
+			   Kipinade.firstPairSet = false;
+			   Kipinade.swapsMade++;
+			   document.getElementById("swaps").innerHTML = Kipinade.SWAPS_ALLOWED - Kipinade.swapsMade;
 			   handleSwapBtn();
 			}
 			else{
-			   a = x;
-			   b = y;
-			   document.getElementById(posIds[a][b]).style.opacity = "0.3";
-			   firstPairSet = true;			    
+			   Kipinade.xFirst = x;
+			   Kipinade.yFirst = y;
+			   document.getElementById(Kipinade.posIds[Kipinade.xFirst][Kipinade.yFirst]).style.opacity = "0.3";
+			   Kipinade.firstPairSet = true;			    
 			}	     			
 	  }
 	  else{	       
@@ -409,23 +399,23 @@ function swap(x,y){
 }
 function calculateScore(){
      let base = 10000;
-     let movesPenalty = moves * 75;
-     let swapsLeftBonus = (SWAPS_ALLOWED - swapsMade) * 150;
+     let movesPenalty = Kipinade.moves * 75;
+     let swapsLeftBonus = (Kipinade.SWAPS_ALLOWED - Kipinade.swapsMade) * 150;
      let finalScore = base - movesPenalty + swapsLeftBonus;
      document.getElementById('score').innerHTML = finalScore;
 }
 
 function notifyUser(msg) { 
    document.getElementById('note').innerHTML = msg;
-   notice.style.display = "inline-block";
+   Kipinade.notice.style.display = "inline-block";
 }
 
-xClose.onclick = function() {
-  notice.style.display = "none";
+Kipinade.xClose.onclick = function() {
+  Kipinade.notice.style.display = "none";
 }
 
 function endGame(){
-   gameInProgress = false;
+   Kipinade.gameInProgress = false;
 }
 </script>
 
