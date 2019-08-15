@@ -9,39 +9,43 @@ def rotateNumber(n):
     print(rest)
     newString = rest + first
     print(newString)
-    return int(newString)
+    return newString
 
 def checkIfPrime(n):
     isPrime = True
     print("Checking to see if", n, "is a prime number")
-    x = int(n/2)
+    x = int(n/2) + 1
     i = 2
-    print(x)
+    #print(x)
     while i < x and isPrime == True:
         if n % i == 0:
             print(i, "divides evenly into", n)
             isPrime = False
-        i = i + 1
+        i += 1
     return isPrime
 
 def checkIfCircularPrime(n):
-    nRot = n
+    #nRot = n
     isCircPrime = True
-    nString = str(n)
-    length = len(nString)
-    i = 1
+    nRot = str(n)
+    length = len(nRot)
+    i = 0
     while i < length and isCircPrime == True:
-        isPrime = checkIfPrime(nRot) 
+        isPrime = checkIfPrime(int(nRot))
         if isPrime:
             nRot = rotateNumber(nRot)
+            print(nRot, "is what was returned from rotateNumber")
         else:
             isCircPrime = False
-        i = i + 1    #i++ gives invalid syntax error, check
+        i += 1    
+        print(i, isCircPrime, nRot)
+    if isCircPrime:
+        print(n, 'is a circular prime')
     return isCircPrime
 
 def start():
     circPrimesFound = []
-    for i in range(11,20):        
+    for i in range(99,200):      
         isCircPrime = checkIfCircularPrime(i)
         if isCircPrime:
             circPrimesFound.append(i)
