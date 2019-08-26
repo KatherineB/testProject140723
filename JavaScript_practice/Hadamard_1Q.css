@@ -3,9 +3,9 @@
 @media (min-width: 320px) {body {font-size: 8px;} }
 @media (min-width: 423px) {body {font-size: 11px;} }
 @media (min-width: 526px) {body {font-size: 13px;} }
-@media (min-width: 768px) {body {font-size: 20px;} }
+/*@media (min-width: 768px) {body {font-size: 20px;} }
 @media (min-width: 992px) {body {font-size: 23px;} }
-@media (min-width: 1200px) {body {font-size: 27px;} }
+@media (min-width: 1200px) {body {font-size: 27px;} }*/
 
 html{
    background-color: #ccbb88;
@@ -13,12 +13,12 @@ html{
   text-align: center;
 }
 .main-title{
-	font-size: 1.7em;
+	font-size: 2em;
 	color: #000000;
 	margin-bottom: 1.5em;
 }
 .steps-row{
-    display:inline-block;
+    display: inline-block;
 	text-align: center;
 	margin-top: 1em;
 	/*border: 1px solid #000;*/
@@ -125,6 +125,7 @@ html{
 .btns-init-label{
 	margin-bottom: 0.5em;
 	text-align: left;
+	font-size: 1.2em;
 }
 .init-slider-holder{
 	text-align: left;
@@ -134,14 +135,14 @@ html{
 	display: inline-block;
 }
 .init-number{
-	font-size: 1.2em;
+	font-size: 1.8em;
 	padding-bottom: 0.5em;
 	display: inline-block;
 }
 .slider-init {
   position: relative;
   display: inline-block;
-  width: 4em;
+  width: 4.5em;
   height: 1.5em;
 }
 
@@ -163,7 +164,7 @@ html{
   height: 1.0em;
   width: 1.0em;
   left: 4px;
-  bottom: 4px;
+  bottom: 2px;
   background-color: #fff;
 }
 
@@ -190,11 +191,15 @@ input:checked + .slider-inp:before {
 .btn{
    /*white-space: normal;*/
     height: 2.0em;
-	width: 10em;
-	font-size: 1.1em;
+	width: 11em;
+	font-size: 1.2em;
 	background-color: #055;
 	color: #fff;
 	border: none;
+	border-radius: 0.7em;
+	margin-left: 1em;
+	margin-right: 1em;
+	margin-bottom: 1em;
 }
 
 
