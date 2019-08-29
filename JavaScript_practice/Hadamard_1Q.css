@@ -15,6 +15,15 @@ html{
 .main-title{
 	font-size: 2em;
 	color: #000000;
+	margin-bottom: 0.5em;
+}
+.intro{
+	width: 85%;
+	display: inline-block;
+	text-align: left;
+	font-size: 1.3em;
+	max-width: 500px;
+	padding-left: 2.5em;
 	margin-bottom: 1.5em;
 }
 .steps-row{
@@ -166,6 +175,7 @@ html{
   left: 4px;
   bottom: 2px;
   background-color: #fff;
+  border-radius: 50%;
 }
 
 input:checked + .slider-inp {
@@ -182,9 +192,7 @@ input:checked + .slider-inp:before {
   border-radius: 1em;
 }
 
-.slider-inp:before {
-  border-radius: 50%;
-}
+
 .btns{
 	margin-top: 1em;
 }
