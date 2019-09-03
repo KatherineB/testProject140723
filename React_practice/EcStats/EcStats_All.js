@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './EcStats.css';
+import EcStats_Business from "./EcStats_Business";
 
 class EcStats_All extends Component {
   constructor() {
@@ -17,7 +18,8 @@ class EcStats_All extends Component {
    
   render() {
 	const {ecStatsData} = this.state; 	 
-	let index = -1;
+	const Test1 = () => ("This is a test");
+	
     return (
 	     
          <div className="main-div">  
@@ -36,9 +38,9 @@ class EcStats_All extends Component {
 			  <th>Rental Vacancy Rate</th>
 			</tr>
 			{		
-			   ecStatsData.map(item => {
-					index++;
-					return <tr><td>{ecStatsData[index].month}</td>
+			   ecStatsData.map( (item, index) => {			
+					return <tr key={index}>
+					<td>{ecStatsData[index].month}</td>
 					<td>{ecStatsData[index].stocks}</td>
 					<td>{ecStatsData[index].commodities}</td>
 					<td>{ecStatsData[index].interest}</td>
@@ -49,13 +51,16 @@ class EcStats_All extends Component {
 					<td>{ecStatsData[index].rentalVac}</td>
 					</tr>
 				}) 
-			  }  
+			}  
 		</table>  
-         
+          
       </div>
 
     );
+	
   }
+  
 }
 
 export default EcStats_All;
+
