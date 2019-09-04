@@ -10,7 +10,6 @@ class StillSea_JSON_load extends Component {
 	}
 	
  componentDidMount() {
-	 let index = -1;
      fetch('planets2.json')
      .then(response => response.json())
 	 .then(planetaryData2 => this.setState({ planetaryData2 }));	
@@ -18,7 +17,6 @@ class StillSea_JSON_load extends Component {
 	  
   render() {
 	const {planetaryData2} = this.state; 	 
-	let index = -1;
 		
     return (  
         <div className="section-3">
@@ -33,16 +31,17 @@ class StillSea_JSON_load extends Component {
 			  <th>Time to Revolve Around Sun</th>
 			</tr>
 			 {		
-			   planetaryData2.map(item => {
-					index++;
-					return <tr><td>{planetaryData2[index].planet}</td>
+			    planetaryData2.map( (item, index) => {
+					return <tr key={index}>
+					<td>{planetaryData2[index].planet}</td>
 					<td>{planetaryData2[index].diameter}</td>
 					<td>{planetaryData2[index].distFromSun}</td>
 					<td>{planetaryData2[index].numSatellites}</td>
 					<td>{planetaryData2[index].revTime}</td>
 					</tr>
 				}) 
-			  }  
+			
+			 }
 			</table>  
 						  
         </div>		
