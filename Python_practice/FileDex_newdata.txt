@@ -1,8 +1,8 @@
-Smith,Jane,"Software Developer",4
-Jones,David,"UI Designer",3
-Reid,Kevin,"Web Developer - Front End",7
-Peterson,June,"Web Developer - Back End",5
-Allen,Lori,"Graphic Designer",0
-Dickson,Larry,"Lead Software Developer",1
-Jackson,Nancy,"Full Stack Developer",2
-Wilson,Edward,"Web Developer - Back End",3
+{name:"Smith,Jane",role: "Software Developer",years: 4}
+{name:"Jones,David",role:"UI Designer",years:3}
+{name:"Reid,Kevin",role:"Web Developer - Front End",years:7}
+{name:"Peterson,June",role:"Web Developer - Back End",years:5}
+{name:"Allen,Lori",role:"Graphic Designer",years:0}
+{name:"Dickson,Larry",role:"Lead Software Developer",years:1}
+{name:"Jackson,Nancy",role:"Full Stack Developer",years:2}
+{name:"Wilson,Edward",role:"Web Developer - Back End",years:3}
