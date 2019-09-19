@@ -5,14 +5,13 @@
 employees = []
 with open("filedex_newData.txt","r") as inputFile:
     for line in inputFile:
-        # print(line)
         employees.append(line)
-		
-print(employees[0])
 
 employees.sort()
 
-print(employees[0])
+with open("filedex_sorted.txt","w") as sortedfile:
+    for element in employees:
+        print(element, file=sortedfile)
 
 
 
