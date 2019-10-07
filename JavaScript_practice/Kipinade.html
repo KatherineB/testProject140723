@@ -16,9 +16,6 @@ body{
 	font-family: arial, verdana, "sans-serif";
 	text-align: center;
 }
-.top-heading{
-    font-size: 2.0em;
-}
 .play-area{
    margin-top: 1.5em;
    width: 17.5em;
@@ -51,7 +48,7 @@ body{
 	text-align: left;
 	display: inline-block;
 }
-.swap-btn{
+.kip-btn{
     background-color: #afa;
     color: #000;
     width: 7em;
@@ -59,6 +56,7 @@ body{
     border: none;
     border-radius: 15px;
     font-size: 0.8em;
+	margin-right: 0.3em;
 }
 .info-box{
 }
@@ -83,9 +81,10 @@ body{
   text-align: right;
 }
 .notify{
-   background-color: #d97;
+   background-color: #fff;
    color: #000;
    display: none;
+   margin-top: 0.5em;
    width: 10em;
    border-radius: 5%;
   /* display: inline-block;*/
@@ -96,10 +95,29 @@ body{
    display: inline-block;
    font-size: 1.5em;
 }
+.x-htp{
+   width: 98%;
+   text-align: right;
+   display: inline-block;
+   font-size: 2em;
+}
 .note{
     padding: 0em;
 	font-size: 0.9em;
 	padding: 0 0.7em 0.7em 0.7em;
+}
+.play-instruct{
+   font-size: 0.8em;
+   text-align: left;
+   background-color: #fff;
+   color: #000;
+   padding: 1em;
+   border-radius: 5%;
+   margin-right: 8%;
+   position: absolute;
+   top: 20%;
+   left: 5%;
+   display: none;
 }
 </style>
 
@@ -107,7 +125,7 @@ body{
 <body>
 
 <div class="main-div">
-    <div class="top-heading">Kipinade</div>
+    <h2 class="top-heading">Kipinade</h2>
 	<div class="play-area">
 			<div class="squares-grid" id="squares-grid">
 				<div class="squares-row">
@@ -169,7 +187,8 @@ body{
 
    <div class="controls-info">
 	       <div class="button-box">
-			   <button type="button" class="swap-btn" id="swap" onclick="handleSwapBtn()">Swap Mode</button>
+			   <button type="button" class="kip-btn" id="swap" onclick="handleSwapBtn()">Swap Mode</button>
+			    <button type="button" class="kip-btn" id="how" onclick="showHowToPlay()">How to Play</button>
 			</div> 
 			<div class="info-box">				
 					 <div class="stats-box">
@@ -192,6 +211,14 @@ body{
 					<div style="clear:both"></div>
 			</div>
 	</div> 
+	<div class="play-instruct" id="how-play">
+	  <div class="x-htp" >&times;</div>	
+	  <h3> How to Play Kipinade </h3>
+	  <p>The object of the game is to visit every square on the board in as few moves as possible while using up as few as possible of the swaps.</p>
+	  <p>The square that the player is on is marked with a white border around it. Players may move one square in any direction as long as the square they move to is the same number or colour as the square they start from. To move, a square next to the current square is clicked. </p>
+	  <p>It is possible to get stuck in a position where there is no legal move available. When this happens, a swap can be performed. To do this, the player must click the 'Swap Mode' button. Then the player may choose any two squares on the board and have them change places. The swap is done by clicking once on each of the two squares that the player wishes to swap. Swaps must be used as sparingly as possible as only five swaps are allowed per game. Also, bonus points are added to the final score for each unused swap.</p>
+	  <p>The game is won when all squares on the board have been visited. The game is lost if there are no legal moves and all swaps have been used.
+	</div>
 </div>
 <script type="text/javascript">
 
@@ -223,6 +250,9 @@ Kipinade.squaresVisited = 0;
 Kipinade.gameInProgress = true;
 Kipinade.xClose = document.getElementsByClassName("x")[0];
 Kipinade.notice = document.getElementById("notify");
+Kipinade.xCloseHTP = document.getElementsByClassName("x-htp")[0];
+Kipinade.howtoplay = document.getElementById("how-play");
+
 
 setUpGame();
 
@@ -373,11 +403,17 @@ function notifyUser(msg) {
    document.getElementById('note').innerHTML = msg;
    Kipinade.notice.style.display = "inline-block";
 }
+function showHowToPlay() { 
+  document.getElementById('how-play').style.dsiplay = "inline-block";
+  Kipinade.howtoplay.style.display = "inline-block";
+}
 
 Kipinade.xClose.onclick = function() {
   Kipinade.notice.style.display = "none";
 }
-
+Kipinade.xCloseHTP.onclick = function() {
+  Kipinade.howtoplay.style.display = "none";
+}
 function endGame(){
    Kipinade.gameInProgress = false;
 }
