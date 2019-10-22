@@ -19,11 +19,13 @@ int main(int argc,int argv[])
 	int i;
     int j;
 	int k;
+	int items = 0;
 	int choice;
-	int LIMIT = 70;
+	int limit = 70;
 	int done = 0;
 	int shelf;
 	int numbers[10][10];
+	int data [10];
 	char blank;
 	int lowest;
 	int highest;
@@ -33,14 +35,6 @@ int main(int argc,int argv[])
 	int range[10];
 	double average[10];
 	int dateCode;
-	int N1;
-	int N2;
-	int N3;
-	int N4;
-	int N5;
-	int N6;
-	int N7;
-	int N8;
 	
     cout << "MENU" << endl;
 	cout << "1 - Generate Random Numbers and Process" << endl;
@@ -54,7 +48,7 @@ int main(int argc,int argv[])
 			
 			for (i=0; i<10; i++){	
 					for (j=0; j<10; j++){
-						numbers[i][j] = (rand()%LIMIT) + 1;
+						numbers[i][j] = (rand()%limit) + 1;
 					}			
 			}
 
@@ -98,20 +92,33 @@ int main(int argc,int argv[])
 
 	}
 	else if(choice == 2){
-            ofstream outDataFile("data_collected.dat",ios::out);
+            ofstream outDataFile("data_collected.dat",ios::app);
 
 			if (!outDataFile){
 				cerr << "File could not be opened." << endl;
 				exit(1);
 			}
 
-			cout << "Enter date code and numbers." << endl;
-			cout << "Enter Ctrl Z to end file." << endl;
+			cout << "Enter date code:";
+	cin >> dateCode;
+	cout << endl;
 
-			while(cin >> dateCode >> N1 >> N2 >> N3 >> N4 >> N5 >> N6 >> N7 >> N8){
-				outDataFile << dateCode << ' ' << N1 << ' ' << N2 << ' ' << N3 << ' ' << N4 << ' ' << N5 << ' ' << N6 << ' ' << N7 << ' ' << N8 << endl;
-				cout << "? ";
-			}
+	cout << "Enter Limit:";
+	cin >> limit;
+	cout << endl;
+
+	cout << "Enter ten numbers, one at a time." << endl;
+
+	while (items < 10) {
+	   cout << items + 1;
+	   cout << ">";
+       cin >> data[items];
+       items++;
+    }
+
+	cout << endl;
+
+	outDataFile << dateCode << ' ' << limit << ' ' << data[0] << ' ' << data[1] << ' ' << data[2] << ' ' << data[3] << ' ' << data[4] << ' ' << data[5] << ' ' << data[6] << ' ' << data[7] << ' ' << data[8] << ' ' << data[9] << endl;
 
 			cout << "Data Entered" << endl;
 	}
