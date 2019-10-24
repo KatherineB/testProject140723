@@ -14,37 +14,22 @@ using std::exit;
 #include <fstream>
 using std::ofstream;
 
-int main(int argc,int argv[])
-{
+void generate(int limit){
 	int i;
     int j;
 	int k;
-	int items = 0;
-	int choice;
-	int limit = 70;
-	int done = 0;
-	int shelf;
 	int numbers[10][10];
-	int data [10];
-	char blank;
-	int lowest;
-	int highest;
 	int section[10];
 	int low[10];
 	int high[10];
 	int range[10];
 	double average[10];
-	int dateCode;
-	
-    cout << "MENU" << endl;
-	cout << "1 - Generate Random Numbers and Process" << endl;
-	cout << "2 - Create New Data File" << endl;
-	cout << endl;
-	cin >> choice;
-	cout << endl;
+	int shelf;
+	int done = 0;
+	int highest;
+	int lowest;
 
-	if (choice == 1){
-			srand(time(0));
+	        srand(time(0));
 			
 			for (i=0; i<10; i++){	
 					for (j=0; j<10; j++){
@@ -90,9 +75,14 @@ int main(int argc,int argv[])
 				cout << "low=" << low[k] << "  high=" << high[k] << "  range=" << range[k] << "  average=" << average[k] << endl;
 			}
 
-	}
-	else if(choice == 2){
-            ofstream outDataFile("data_collected.dat",ios::app);
+}
+void saveData(){
+	int items = 0;
+	double data [10];
+	int dateCode;
+	int limit;
+
+	ofstream outDataFile("data_collected.dat",ios::app);
 
 			if (!outDataFile){
 				cerr << "File could not be opened." << endl;
@@ -121,7 +111,33 @@ int main(int argc,int argv[])
 	outDataFile << dateCode << ' ' << limit << ' ' << data[0] << ' ' << data[1] << ' ' << data[2] << ' ' << data[3] << ' ' << data[4] << ' ' << data[5] << ' ' << data[6] << ' ' << data[7] << ' ' << data[8] << ' ' << data[9] << endl;
 
 			cout << "Data Entered" << endl;
-	}
+	
+}
+
+int main(int argc,int argv[])
+{
+	int control = 0;
+	int limit = 70;
+	char blank;
+	int dateCode;
+	
+    do{
+		cout << endl << endl;
+		cout << "--- MENU FOR RANDOM NUMBER RANGE DETERMINING ---" << endl;
+		cout << "1. Generate Random Numbers and Process" << endl;
+		cout << "2. Enter Data into File" << endl;
+		cout << "3. Exit" << endl << endl;
+		cout << "Enter Menu Choice: ";
+		cin >> control;
+		if (control == 1){
+			generate(limit);
+		}
+		else if (control == 2){
+			saveData();
+		}
+	} while ( control != 3);
+
+	cout << "You have now exited the Random Number Range Determining Menu. ";
 
 	cin >> blank ;
 
