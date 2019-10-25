@@ -1,0 +1,8 @@
+{nameL:"Allen", nameF:"Lori", role:"Graphic Designer", years:0}
+{nameL:"Dalton", nameF:"Kyle", role:"Lead Software Developer", years:1}
+{nameL:"Edwards", nameF:"Jen", role:"Full Stack Developer", years:2}
+{nameL:"Jones", nameF:"Patrick", role:"UI Designer",years:3}
+{nameL:"Page", nameF:"Linda", role:"Web Developer - Back End", years:5}
+{nameL:"Reid", nameF:"Jason", role:"Web Developer - Front End", years:7}
+{nameL:"Smith", nameF:"Olivia", role: "Software Developer", years: 4}
+{nameL:"Woods", nameF:"Nick", role:"Web Developer - Back End", years:3}

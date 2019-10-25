@@ -3,6 +3,10 @@
 # -for searching
 
 #inputFile = open("datafile.txt","r")
-with open("datafile.txt","r") as inputFile:
+
+lastName = input("Enter last name of person: ")
+ 
+with open("filedex_sortdone.txt","r") as inputFile:
     for line in inputFile:
-        print line
+        if lastName in line:
+            print(line)
