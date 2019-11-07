@@ -13,6 +13,8 @@ using std::exit;
 
 #include <fstream>
 using std::ofstream;
+using std::ifstream;
+
 
 void generate(int low[10], int high[10], int range[10], double average[10], int *limit, int *timeCode){
 	int i;
@@ -25,11 +27,11 @@ void generate(int low[10], int high[10], int range[10], double average[10], int 
 	int highest;
 	int lowest;
 
-	cout << "Enter Limit:";
+	cout << "Enter Limit: ";
 	cin >> *limit;
 	cout << endl;
 
-	cout << "Enter Time Code:";
+	cout << "Enter Time Code: ";
 	cin >> *timeCode;
 	cout << endl; 
 
@@ -89,16 +91,17 @@ void createReport(int low[10], int high[10], int range[10], double average[10], 
 		cerr << "File could not be opened." << endl;
 		exit(1);
 	}
-
+    outReportFile << endl << endl << endl;
 	outReportFile << "Time Code: " << *timeCode << endl;
 	outReportFile << "Limit: " << *limit << endl << endl;
 
 
 	for (i=0; i<10; i++){
 				outReportFile << "low=" << low[i] << "  high=" << high[i] << "  range=" << range[i] << "  average=" << average[i] << endl;
-			}
+	}
+	outReportFile.close();
 	
-	cout << "Report Created" << endl;
+	cout << " ### Report Created ### " << endl;
 }
 void saveData(double average[10], int *limit, int *timeCode){
 	int items = 0;
@@ -113,7 +116,10 @@ void saveData(double average[10], int *limit, int *timeCode){
 	cout << endl;
 
     outDataFile << *timeCode << ' ' << *limit << ' ' << average[0] << ' ' << average[1] << ' ' << average[2] << ' ' << average[3] << ' ' << average[4] << ' ' << average[5] << ' ' << average[6] << ' ' << average[7] << ' ' << average[8] << ' ' << average[9] << endl;
-	cout << "Data Entered" << endl;
+	
+	outDataFile.close();
+	
+	cout << " ### Data Entered ### " << endl;
 	
 }
 
@@ -147,10 +153,6 @@ int main(int argc,int argv[])
 			saveData(average, &limit, &timeCode);
 		}
 	} while ( control != 4);
-
-	cout << "You have now exited the Random Number Range Determining Menu. ";
-
-	cin >> blank ;
 
 	return 0;
 }
