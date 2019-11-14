@@ -324,6 +324,8 @@ function move(x,y){
 		        document.getElementById(Kipinade.posIds[x][y]).style.borderColor = Kipinade.CURRENT_COLOUR_MARKER;
 				console.log(`X= ${x}   Y= ${y}`);
 		        document.getElementById(Kipinade.posIds[Kipinade.xPrev][Kipinade.yPrev]).style.borderColor = "#888";
+				
+				Kipinade.moves++;
 		       				
 				if(Kipinade.posValues[x][y].visited == false){
 				   document.getElementById(Kipinade.posIds[x][y]).style.color = "#000";
@@ -344,7 +346,7 @@ function move(x,y){
                  document.getElementById(Kipinade.posIds[Kipinade.xPrev][Kipinade.yPrev]).style.backgroundColor = Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].colour;
 		         Kipinade.xPrev = x;
 		         Kipinade.yPrev = y;
-                 Kipinade.moves++;
+                // Kipinade.moves++;
 				
                  document.getElementById('move').innerHTML = Kipinade.moves;
               }
@@ -392,10 +394,9 @@ function swap(x,y){
 	  }
 }
 function calculateScore(){
-     let base = 10000;
-     let movesPenalty = Kipinade.moves * 75;
+     let movesTotalBonus = Math.round((1/Kipinade.moves) * 100000);
      let swapsLeftBonus = (Kipinade.SWAPS_ALLOWED - Kipinade.swapsMade) * 150;
-     let finalScore = base - movesPenalty + swapsLeftBonus;
+     let finalScore = Kipinade.moves + movesTotalBonus + swapsLeftBonus;
      document.getElementById('score').innerHTML = finalScore;
 }
 
