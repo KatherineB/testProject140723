@@ -91,7 +91,9 @@ void createReport(int low[10], int high[10], int range[10], double average[10], 
 		cerr << "File could not be opened." << endl;
 		exit(1);
 	}
-    outReportFile << endl << endl << endl;
+
+    outReportFile << "---------------------------------------------" << endl;
+	outReportFile << "Random Number Range Determination Report" << endl;
 	outReportFile << "Time Code: " << *timeCode << endl;
 	outReportFile << "Limit: " << *limit << endl << endl;
 
@@ -99,9 +101,15 @@ void createReport(int low[10], int high[10], int range[10], double average[10], 
 	for (i=0; i<10; i++){
 				outReportFile << "low=" << low[i] << "  high=" << high[i] << "  range=" << range[i] << "  average=" << average[i] << endl;
 	}
+
+	outReportFile << endl;
+
 	outReportFile.close();
-	
-	cout << " ### Report Created ### " << endl;
+
+	cout << "  -----------------------------------  " << endl;
+	cout << " |   Report has been created and     | " << endl;
+	cout << " |   added to RNRD_Report.dat file   | " << endl;
+	cout << "  -----------------------------------  " << endl;
 }
 void saveData(double average[10], int *limit, int *timeCode){
 	int items = 0;
@@ -118,8 +126,11 @@ void saveData(double average[10], int *limit, int *timeCode){
     outDataFile << *timeCode << ' ' << *limit << ' ' << average[0] << ' ' << average[1] << ' ' << average[2] << ' ' << average[3] << ' ' << average[4] << ' ' << average[5] << ' ' << average[6] << ' ' << average[7] << ' ' << average[8] << ' ' << average[9] << endl;
 	
 	outDataFile.close();
-	
-	cout << " ### Data Entered ### " << endl;
+
+	cout << "  --------------------------------------  " << endl;
+	cout << " |   Current averages have been added   | " << endl;
+	cout << " |   to data_collected.dat file         | " << endl;
+	cout << "  --------------------------------------  " << endl;
 	
 }
 
