@@ -195,8 +195,8 @@ body{
 					       <div class="stats-grid">
 								<div class="stats-heading">Moves:</div>
 								<div class="stats" id="move">0</div>
-								<div class="stats-heading">Squares Visited:</div>
-								<div class="stats" id="visited">0</div>
+								<div class="stats-heading">Squares To Visit:</div>
+								<div class="stats" id="to-visit">36</div>
 								<div class="stats-heading">Swaps Left:</div>
 								<div class="stats" id="swaps">5</div>
 								<div class="stats-heading">Score:</div>
@@ -217,7 +217,7 @@ body{
 	  <p>The object of the game is to visit every square on the board in as few moves as possible while using up as few as possible of the swaps.</p>
 	  <p>The square that the player is on is marked with a white border around it. Players may move one square in any direction as long as the square they move to is the same number or colour as the square they start from. To move, a square next to the current square is clicked. </p>
 	  <p>It is possible to get stuck in a position where there is no legal move available. When this happens, a swap can be performed. To do this, the player must click the 'Swap Mode' button. Then the player may choose any two squares on the board and have them change places. The swap is done by clicking once on each of the two squares that the player wishes to swap. Swaps must be used as sparingly as possible as only five swaps are allowed per game. Also, bonus points are added to the final score for each unused swap.</p>
-	  <p>The game is won when all squares on the board have been visited. The game is lost if there are no legal moves and all swaps have been used.
+	  <p>The game is won when all squares on the board have been visited. The game is lost if there are still squares left to visit but there are no legal moves available and no swaps left.
 	</div>
 </div>
 <script type="text/javascript">
@@ -252,6 +252,9 @@ Kipinade.xClose = document.getElementsByClassName("x")[0];
 Kipinade.notice = document.getElementById("notify");
 Kipinade.xCloseHTP = document.getElementsByClassName("x-htp")[0];
 Kipinade.howtoplay = document.getElementById("how-play");
+Kipinade.NUMBER_OF_SQUARES_ON_BOARD = 36
+Kipinade.NUMBER_OF_SQUARES_IN_ROW = 6;
+Kipinade.NUMBER_OF_SQUARES_IN_COLUMN = 6;
 
 
 setUpGame();
@@ -262,9 +265,9 @@ function setUpGame(){
 }
 
 function setUpInitialSquares(){
-	 for(let i=0; i<6; i++){
+	 for(let i=0; i < Kipinade.NUMBER_OF_SQUARES_IN_COLUMN; i++){
 	        Kipinade.posValues[i] = [];
-			for(let j=0; j<6; j++){
+			for(let j=0; j < Kipinade.NUMBER_OF_SQUARES_IN_ROW; j++){
 			   var squareDefinition = pickRandomNumbersAndColours();
 						   
 			   Kipinade.posValues[i][j] = new Kipinade.Square();
@@ -331,9 +334,9 @@ function move(x,y){
 				   document.getElementById(Kipinade.posIds[x][y]).style.color = "#000";
 				   Kipinade.posValues[x][y].visited = true;
 				   Kipinade.squaresVisited++
-				   document.getElementById("visited").innerHTML = Kipinade.squaresVisited;
+				   document.getElementById("to-visit").innerHTML = Kipinade.NUMBER_OF_SQUARES_ON_BOARD - Kipinade.squaresVisited;
 				   
-				   if (Kipinade.squaresVisited > 35){
+				   if (Kipinade.squaresVisited >= Kipinade.NUMBER_OF_SQUARES_ON_BOARD){
 				      notifyUser("Game Over! You have won!!!");
                       calculateScore();
 					  endGame();					  
