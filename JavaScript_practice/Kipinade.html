@@ -349,7 +349,8 @@ function move(x,y){
                  document.getElementById(Kipinade.posIds[Kipinade.xPrev][Kipinade.yPrev]).style.backgroundColor = Kipinade.posValues[Kipinade.xPrev][Kipinade.yPrev].colour;
 		         Kipinade.xPrev = x;
 		         Kipinade.yPrev = y;
-                // Kipinade.moves++;
+                 
+				 checkForLegalMoves(x,y);
 				
                  document.getElementById('move').innerHTML = Kipinade.moves;
               }
@@ -395,6 +396,123 @@ function swap(x,y){
 	  else{	       
 			notifyUser("Sorry, you may not make another swap at this time, your five swaps have all been used.");
 	  }
+}
+function checkForLegalMoves(x,y){
+     var gameCond = "in progress";
+   
+    if (Kipinade.swapsMade >= Kipinade.SWAPS_ALLOWED){     
+		  if(x > 0 && x < 5 && y > 0 && y < 5){  
+			  if (Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y-1].number && Kipinade.posValues[x][y].number!= Kipinade.posValues[x-1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y+1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y+1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y+1].number){
+				  
+				  if (Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y-1].colour && Kipinade.posValues[x][y].colour!== Kipinade.posValues[x-1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y+1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y-1].number && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y+1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y+1].colour){
+					  
+				 // alert(`No match for either numbers or colours`);
+				  gameCond = "lost";
+				  }
+			
+		      }
+		  } 
+		  else if(x == 0 && y > 0 && y < 5){
+		      alert("in right side");
+			  if (Kipinade.posValues[x][y].number != Kipinade.posValues[x][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y+1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y+1].number){
+			
+				  if (Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y+1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y+1].colour){
+					  
+				//  alert(`No match for either numbers or colours`);
+				  gameCond = "lost";
+				  }
+			
+		      }
+		  }
+		  else if(x > 0 && x < 5 && y == 0){
+
+			  if (Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y+1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y+1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y+1].number){
+				  
+				  if (Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y+1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y+1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y+1].colour){
+					 
+				 // alert(`No match for either numbers or colours`);
+				  gameCond = "lost";
+				  }
+			
+		      }
+		  }
+		  else if(x > 0 && x < 5 && y == 5){
+
+			  if (Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y].number){
+				  
+				  if (Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y].colour){
+					  
+				 // alert(`No match for either numbers or colours`);
+				  gameCond = "lost";
+				  }
+			
+		      }
+		  }
+		  else if(x == 5 && y > 0 && y < 5){
+
+			  if (Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y+1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y+1].number){
+				  
+				  if (Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y+1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y+1].colour){
+					  
+				 // alert(`No match for either numbers or colours`);
+				  gameCond = "lost";
+				  }
+			
+		      }
+		  }
+		  else if(x == 0 && y == 0){
+
+			  if (Kipinade.posValues[x][y].number != Kipinade.posValues[x][y+1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y+1].number){
+				  
+				  if (Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y+1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y+1].colour){
+					  
+				 // alert(`No match for either numbers or colours`);
+				  gameCond = "lost";
+				  }
+			
+		      }
+		  }
+		  else if(x == 0 && y == 5){
+
+			  if (Kipinade.posValues[x][y].number != Kipinade.posValues[x][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y].number){
+				  
+				  if (Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y].colour){
+					  
+				 // alert(`No match for either numbers or colours`);
+				  gameCond = "lost";
+				  }
+			
+		      }
+		  }
+		  else if(x == 5 && y == 0){
+
+			  if (Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y+1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y+1].number){
+				
+				  if (Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y+1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y+1].colour){
+					  
+				 // alert(`No match for either numbers or colours`);
+				  gameCond = "lost";
+				  }
+			
+		      }
+		  }
+		    else if(x == 5 && y == 5){
+
+			  if (Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y-1].number){
+				  
+				  if (Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y-1].colour){
+					  
+				 // alert(`No match for either numbers or colours`);
+				  gameCond = "lost";
+				  }
+			
+		      }
+		  }
+    }
+	if(gameCond === "lost"){
+	    //alert("in lost");
+	    notifyUser("There are no legal moves possible and no swaps remain. You have lost the game. Better luck next time.");
+	}
 }
 function calculateScore(){
      let movesTotalBonus = Math.round((1/Kipinade.moves) * 100000);
