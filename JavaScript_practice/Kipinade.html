@@ -189,6 +189,7 @@ body{
 	       <div class="button-box">
 			   <button type="button" class="kip-btn" id="swap" onclick="handleSwapBtn()">Swap Mode</button>
 			    <button type="button" class="kip-btn" id="how" onclick="showHowToPlay()">How to Play</button>
+				 <button type="button" class="kip-btn" id="new" onclick="newGame()">New Game</button>
 			</div> 
 			<div class="info-box">				
 					 <div class="stats-box">
@@ -276,6 +277,8 @@ function setUpInitialSquares(){
 
 			   document.getElementById(Kipinade.posIds[i][j]).innerHTML = Kipinade.posValues[i][j].number;
 			   document.getElementById(Kipinade.posIds[i][j]).style.backgroundColor = Kipinade.posValues[i][j].colour;
+			   document.getElementById(Kipinade.posIds[i][j]).style.color = "#fff";
+			   document.getElementById(Kipinade.posIds[i][j]).style.borderColor = "#888";
 			}
 	 }
 }
@@ -402,9 +405,9 @@ function checkForLegalMoves(x,y){
    
     if (Kipinade.swapsMade >= Kipinade.SWAPS_ALLOWED){     
 		  if(x > 0 && x < 5 && y > 0 && y < 5){  
-			  if (Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y-1].number && Kipinade.posValues[x][y].number!= Kipinade.posValues[x-1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y+1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y+1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y+1].number){
+			  if (Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x-1][y+1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y+1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y+1].number){
 				  
-				  if (Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y-1].colour && Kipinade.posValues[x][y].colour!== Kipinade.posValues[x-1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y+1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y-1].number && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y+1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y+1].colour){
+				  if (Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x-1][y+1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y-1].number && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y+1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y+1].colour){
 					  
 				 // alert(`No match for either numbers or colours`);
 				  gameCond = "lost";
@@ -562,6 +565,25 @@ function pickRandomNumbersAndColours(){
 			  default: alert("none matched in switch");
 		   } 
 	  return {number: randNum, colour: randCol};
+}
+function newGame(){
+    Kipinade.xPrev = -1;
+	Kipinade.yPrev = -1;
+	Kipinade.firstPairSet = false;
+	Kipinade.xFirst = -1;
+	Kipinade.yFirst = -1;
+	Kipinade.swapsMade = 0;
+	Kipinade.swapOn = false;
+	Kipinade.moves = 0;
+	Kipinade.squaresVisited = 0;
+	Kipinade.gameInProgress = true;
+	
+	setUpGame();
+	
+	document.getElementById('move').innerHTML = 0;	
+	document.getElementById('to-visit').innerHTML = 36;	
+	document.getElementById("swaps").innerHTML = Kipinade.SWAPS_ALLOWED;
+	document.getElementById('score').innerHTML = 0;
 }
 </script>
 
