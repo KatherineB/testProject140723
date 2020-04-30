@@ -416,7 +416,7 @@ function checkForLegalMoves(x,y){
 		      }
 		  } 
 		  else if(x == 0 && y > 0 && y < 5){
-		      alert("in right side");
+		      
 			  if (Kipinade.posValues[x][y].number != Kipinade.posValues[x][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x][y+1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y-1].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y].number && Kipinade.posValues[x][y].number != Kipinade.posValues[x+1][y+1].number){
 			
 				  if (Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x][y+1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y-1].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y].colour && Kipinade.posValues[x][y].colour !== Kipinade.posValues[x+1][y+1].colour){
@@ -577,6 +577,7 @@ function newGame(){
 	Kipinade.moves = 0;
 	Kipinade.squaresVisited = 0;
 	Kipinade.gameInProgress = true;
+	Kipinade.notice.style.display = "none";
 	
 	setUpGame();
 	
