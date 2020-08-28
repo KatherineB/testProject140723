@@ -80,6 +80,12 @@ body{
   font-size: 0.8em;
   text-align: right;
 }
+#score{
+   display: none;
+}
+#score-heading{
+   display: none;
+}
 .notify{
    background-color: #fff;
    color: #000;
@@ -200,7 +206,7 @@ body{
 								<div class="stats" id="to-visit">36</div>
 								<div class="stats-heading">Swaps Left:</div>
 								<div class="stats" id="swaps">5</div>
-								<div class="stats-heading">Score:</div>
+								<div class="stats-heading" id="score-heading">Final Score:</div>
 								<div class="stats" id="score">0</div>
 							</div>
 					</div>
@@ -519,8 +525,10 @@ function checkForLegalMoves(x,y){
 }
 function calculateScore(){
      let movesTotalBonus = Math.round((1/Kipinade.moves) * 100000);
-     let swapsLeftBonus = (Kipinade.SWAPS_ALLOWED - Kipinade.swapsMade) * 150;
-     let finalScore = Kipinade.moves + movesTotalBonus + swapsLeftBonus;
+     let swapsLeftBonus = (Kipinade.SWAPS_ALLOWED - Kipinade.swapsMade) * 200;
+     let finalScore = movesTotalBonus + swapsLeftBonus;
+	 document.getElementById('score-heading').display = 'block';
+	 document.getElementById('score').display = 'block';
      document.getElementById('score').innerHTML = finalScore;
 }
 
@@ -585,6 +593,8 @@ function newGame(){
 	document.getElementById('to-visit').innerHTML = 36;	
 	document.getElementById("swaps").innerHTML = Kipinade.SWAPS_ALLOWED;
 	document.getElementById('score').innerHTML = 0;
+	document.getElementById('score').display = 'none';
+	document.getElementById('score-heading').display = 'none';
 }
 </script>
 
